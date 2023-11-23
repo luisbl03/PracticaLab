@@ -10,25 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PracticaLab
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IniciarSesion : Window
     {
-        public MainWindow()
+        public IniciarSesion()
         {
             InitializeComponent();
-            /*instanciamos primero la clase registro*/
-            /*Window screenRegistro = new Registro();
-            screenRegistro.Show();*/
-            Window screenIniciarSesion = new IniciarSesion();
-            screenIniciarSesion.Show();
-            this.Hide();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BotónIniciarSesión_Copiar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
