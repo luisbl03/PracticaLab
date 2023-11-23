@@ -107,5 +107,8 @@
   <ItemGroup>
     <Resource Include="Iconos\usuario.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\llamada-telefonica.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -52,6 +52,32 @@
                Grid.Column="1"
                VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
                Source="Iconos/usuario.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtApellidos_Registro" Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Grid.Row="3" 
+                TextWrapping="Wrap" 
+                Text="Apellidos" 
+                VerticalAlignment="Center" 
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+               Height="18"  
+               Grid.Row="3"
+               Grid.Column="1"
+               VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+               Source="Iconos/usuario.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtTelefono_Registro" Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Grid.Row="4" 
+                TextWrapping="Wrap" 
+                Text="Telefono" 
+                VerticalAlignment="Center" 
+                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+               Height="18"  
+               Grid.Row="4"
+               Grid.Column="1"
+               VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+               Source="Iconos/llamada-telefonica.png" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
