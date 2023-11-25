@@ -52,6 +52,96 @@
                Grid.Column="1"
                VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
                Source="Iconos/usuario.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtApellidos_Registro" Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Grid.Row="3" 
+                TextWrapping="Wrap" 
+                Text="Apellidos" 
+                VerticalAlignment="Center" 
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+               Height="18"  
+               Grid.Row="3"
+               Grid.Column="1"
+               VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+               Source="Iconos/usuario.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtTelefono_Registro" Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Grid.Row="4" 
+                TextWrapping="Wrap" 
+                Text="Telefono" 
+                VerticalAlignment="Center" 
+                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+               Height="18"  
+               Grid.Row="4"
+               Grid.Column="1"
+               VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+               Source="Iconos/llamada-telefonica.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCorreo_Registro" Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Grid.Row="5" 
+                TextWrapping="Wrap" 
+                Text="Correo Electronico" 
+                VerticalAlignment="Center" 
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+                Height="18"  
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+                Source="Iconos/correos-electronicos.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtContraseña_Registro" Grid.Column="2" 
+                 HorizontalAlignment="Left" 
+                 Grid.Row="6" 
+                 TextWrapping="Wrap" 
+                 Text="Contraseña" 
+                 VerticalAlignment="Center" 
+                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <Image HorizontalAlignment="Left" 
+                 Height="18"  
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 VerticalAlignment="Center" Width="27" RenderTransformOrigin="0.544,0.499"
+                 Source="Iconos/contrasena.png" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtRepiteContraseña_Registro" Grid.Column="2" 
+            HorizontalAlignment="Left" 
+            Grid.Row="7" 
+            TextWrapping="Wrap" 
+            Text="Repite la contraeña" 
+            VerticalAlignment="Center" 
+            Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+        <CheckBox x:Name="chkBx_Terminos" Grid.Column="2" 
+                  Content="Terminos y condiciones"
+                  HorizontalAlignment="Left" 
+                  Grid.Row="8"
+                  VerticalAlignment="Center" Margin="25,0,0,0"/>
+        <Button x:Name="bttnRegistrarse" Grid.Column="2" 
+                Content="Registrarse" 
+                HorizontalAlignment="Left" 
+                Margin="10,0,0,0" 
+                Grid.Row="9" 
+                VerticalAlignment="Center" 
+                Width="149" Height="33" FontSize="16"/>
+        <Label Grid.Column="2" 
+               Content="---------------   o   --------------" 
+               HorizontalAlignment="Left" 
+               Margin="0,38,0,0" 
+               Grid.Row="9"
+               VerticalAlignment="Top" Grid.RowSpan="2" Width="205"/>
+        <Label Grid.Column="2" 
+               Content="¿Ya tienes una cuenta?" 
+               HorizontalAlignment="Left" 
+               Margin="35,0,0,0" 
+               Grid.Row="11" 
+               VerticalAlignment="Center" FontSize="9"/>
+        <Button x:Name="bttnIniciar_Sesion" Grid.Column="2" 
+                Content="Iniciar Sesión" 
+                HorizontalAlignment="Left" 
+                Margin="10,0,0,0" 
+                Grid.Row="12" 
+                VerticalAlignment="Center" 
+                Width="149" Height="33" FontSize="16"/>
 
     </Grid>
 </Window>
