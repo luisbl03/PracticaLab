@@ -26,9 +26,7 @@ namespace PracticaLab
             /*instanciamos primero la clase registro*/
             /*Window screenRegistro = new Registro();
             screenRegistro.Show();*/
-            Window screenIniciarSesion = new IniciarSesion();
-            screenIniciarSesion.Show();
-            this.Hide();
+            
         }
     }
 }
