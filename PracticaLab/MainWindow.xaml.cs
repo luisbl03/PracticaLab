@@ -24,8 +24,8 @@ namespace PracticaLab
         {
             InitializeComponent();
             /*instanciamos primero la clase registro*/
-            /*Window screenRegistro = new Registro();
-            screenRegistro.Show();*/
+            Window screenRegistro = new Registro();
+            screenRegistro.Show();
             
         }
     }
