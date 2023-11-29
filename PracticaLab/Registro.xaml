@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Registro" Height="600" Width="450">
+        Title="Registro" Height="525" Width="450"
+        ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="93*"/>
@@ -26,7 +27,7 @@
             <RowDefinition Height="22*"/>
             <RowDefinition Height="22*"/>
             <RowDefinition Height="43*"/>
-            <RowDefinition Height="118*"/>
+            <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Left"
                Height="72"
@@ -115,31 +116,33 @@
                   Content="Terminos y condiciones"
                   HorizontalAlignment="Left" 
                   Grid.Row="8"
-                  VerticalAlignment="Center" Margin="25,0,0,0" Height="15" Width="143"/>
+                  VerticalAlignment="Center" Margin="20,0,0,0" Height="15" Width="143"/>
         <Button x:Name="bttnRegistrarse" Grid.Column="2" 
                 Content="Registrarse" 
                 HorizontalAlignment="Left" 
-                Margin="10,0,0,0" 
+                Margin="24,0,0,0" 
                 Grid.Row="9" 
                 VerticalAlignment="Center" 
-                Width="149" Height="33" FontSize="16"/>
+                Width="150" Height="33" FontSize="16"/>
+
         <Separator HorizontalAlignment="Left" 
-                   Grid.Row="9"
-                   VerticalAlignment="Top" Height="95" RenderTransformOrigin="0.5,0.5"
-                   Width="270" ClipToBounds="True" Margin="82,5,0,0" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+                   Grid.Row="10"
+                   VerticalAlignment="Center" Height="95" RenderTransformOrigin="0.5,0.5"
+                   Width="270" ClipToBounds="True" Margin="78,0,0,0" Grid.ColumnSpan="3"/>
+
         <Label Grid.Column="2" 
                Content="¿Ya tienes una cuenta?" 
                HorizontalAlignment="Left" 
-               Margin="27,0,0,0" 
+               Margin="33,0,0,0" 
                Grid.Row="11" 
-               VerticalAlignment="Center" Height="29" Width="154"/>
+               VerticalAlignment="Center" Height="29" Width="132"/>
         <Button x:Name="bttnIniciar_Sesion" Grid.Column="2" 
                 Content="Iniciar Sesión" 
                 HorizontalAlignment="Left" 
-                Margin="10,0,0,0" 
+                Margin="24,3,0,0" 
                 Grid.Row="12" 
-                VerticalAlignment="Center" 
-                Width="149" Height="33" FontSize="16"/>
+                VerticalAlignment="Top" 
+                Width="150" Height="33" FontSize="16"/>
 
     </Grid>
 </Window>
