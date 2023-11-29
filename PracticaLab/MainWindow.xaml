@@ -32,7 +32,7 @@
                 <MenuItem Header="Vista previa"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="lstPacientes" ItemsSource="{d:SampleData ItemCount=5}" Margin="0,25,0,0" Grid.RowSpan="2"/>
+        <ListBox x:Name="lstPacientes" Margin="0,25,0,0" Grid.RowSpan="2"/>
         <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Center" Margin="0,191,0,124" Grid.Row="1"/>
         <StackPanel Grid.Column="2" Grid.Row="0">
             <Label Content="Label"

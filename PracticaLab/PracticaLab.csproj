@@ -126,5 +126,10 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\contrasena.png" />
+    <Resource Include="Iconos\correos-electronicos.png" />
+    <Resource Include="Iconos\llamada-telefonica.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
