@@ -8,47 +8,29 @@
         Title="Gestión Fisioterapia" Height="600" Width="1050">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="421*"/>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="55*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="64*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="210*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="815*"/>
-        </Grid.ColumnDefinitions>
-        <Menu Grid.ColumnSpan="3" Grid.RowSpan="4">
-            <!--Opciones del menu-->
-            <MenuItem Header="Archivo"
-                  VerticalAlignment="Top">
-                <MenuItem Header="Nuevo"/>
-                <MenuItem Header="Abrir"/>
-                <Separator/>
-                <MenuItem Header="Guardar"/>
-                <MenuItem Header="Guardar como"/>
-            </MenuItem>
-            <MenuItem Header="Ver">
-                <MenuItem Header="Vista previa"/>
-            </MenuItem>
-        </Menu>
-        <ListBox x:Name="lstPacientes" Margin="0,25,0,0" Grid.RowSpan="2"/>
-        <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Center" Margin="0,191,0,124" Grid.Row="1"/>
-        <StackPanel Grid.Column="2" Grid.Row="0">
-            <Label Content="Label"
-                   HorizontalAlignment="Right" Width="33"
-                   VerticalAlignment="Bottom">
-            </Label>
-            <Image Height="28" Width="70"
-                   Source="Iconos/usuario.png"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Right">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="527*"/>
+                <ColumnDefinition Width="523*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="38*"/>
+                <ColumnDefinition Width="137*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="213*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Grid.Column="1"/>
+        </Grid>
 
-            </Image>
-
-
-        </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="1"/>
 
     </Grid>
 </Window>
