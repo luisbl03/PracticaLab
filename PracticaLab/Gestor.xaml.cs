@@ -18,14 +18,11 @@ namespace PracticaLab
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Gestor : Window
     {
-        public MainWindow()
+        public Gestor()
         {
             InitializeComponent();
-            /*instanciamos primero la clase registro*/
-            Window screenRegistro = new Registro();
-            screenRegistro.Show();
             
         }
     }

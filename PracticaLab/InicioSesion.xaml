@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Iniciar Sesión" Height="500" Width="500">
+        Title="Iniciar Sesión" Height="500" Width="500" Closing="IniciarSesión_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="87*"/>
@@ -125,7 +125,7 @@
             HorizontalAlignment="Center"
             Margin="0,220,0,0"
             Grid.Row="2"
-            VerticalAlignment="Top" Width="130" Click="BotónIniciarSesión_Copiar_Click" Height="20" Grid.ColumnSpan="2"/>
+            VerticalAlignment="Top" Width="130" Height="20" Grid.ColumnSpan="2" Click="BotónRegistrate_Click"/>
 
     </Grid>
 </Window>

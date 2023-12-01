@@ -29,9 +29,16 @@ namespace PracticaLab
 
         }
 
-        private void BotónIniciarSesión_Copiar_Click(object sender, RoutedEventArgs e)
+        private void BotónRegistrate_Click(object sender, RoutedEventArgs e)
         {
+            Window registro = new Registro();
+            this.Hide();
+            registro.Show();
+        }
 
+        private void IniciarSesión_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

@@ -23,5 +23,17 @@ namespace PracticaLab
         {
             InitializeComponent();
         }
+
+        private void screenRegistro_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void bttnIniciar_Sesion_Click(object sender, RoutedEventArgs e)
+        {
+            Window login = new IniciarSesion();
+            this.Hide();
+            login.Show();
+        }
     }
 }
