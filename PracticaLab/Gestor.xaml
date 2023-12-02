@@ -39,6 +39,9 @@
                         VerticalAlignment="Center"
                         Height="40"
                         Width="95"/>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,28" Grid.Row="1">
+                    <ListBox x:Name="Lista_de_pacientes"/>
+                </Border>
             </Grid>
             <Grid Grid.Column="1"/>
         </Grid>
