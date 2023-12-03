@@ -7,21 +7,76 @@
         mc:Ignorable="d"
         Title="Gestión Fisioterapia" Height="600" Width="1050">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="64*"/>
         </Grid.RowDefinitions>
         <Grid>
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="527*"/>
-                <ColumnDefinition Width="523*"/>
+                <ColumnDefinition Width="307*"/>
+                <ColumnDefinition Width="52*"/>
+                <ColumnDefinition Width="166*"/>
             </Grid.ColumnDefinitions>
+
+            <!-- Foto de perfil -->
+            <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="1">
+                <Border.Clip>
+                    <EllipseGeometry Center="37.5,37.5" RadiusX="37.5" RadiusY="37.5"/>
+                </Border.Clip>
+                <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg"/>
+            </Border>
+            
+
+            <!-- Detalles del perfil -->
+            <Grid Grid.Column="2" Margin="5,5,5,15" >
+                <Rectangle Fill="LightYellow" RadiusX="5" RadiusY="5"/>
+                <!-- Fondo con color LightGray y esquinas redondeadas -->
+
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- Fila 1 -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Fila 2 -->
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="12*"/>
+                            <!-- Columna 1 -->
+                            <ColumnDefinition Width="20*"/>
+                            <!-- Columna 2 -->
+                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0"/>
+                        <TextBlock Text="Perro Sanchez" Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
+
+                        <TextBlock Text="ID: 0" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
+                        <!--<TextBlock Text="0" Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" />-->
+
+                        <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
+                        <TextBlock Text="pedro@spain.es" Margin="5,0,-5,5" Grid.Column="3"/>
+
+                        <TextBlock Text="Número:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
+                        <TextBlock Text="666 66 66 66" Grid.Column="3" Grid.Row="1" Margin="5,0,-5,0"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Red" FontSize="8"/>
+            <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
         </Grid>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="137*"/>
             </Grid.ColumnDefinitions>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="43*"/>
@@ -43,7 +98,12 @@
                     <ListBox x:Name="Lista_de_pacientes"/>
                 </Border>
             </Grid>
-            <Grid Grid.Column="1"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="191*"/>
+                    <ColumnDefinition Width="220*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
         </Grid>
 
 
