@@ -88,5 +88,48 @@ namespace PracticaLab
             txtEmail_IniciarSesion.Clear();
             txtEmail_IniciarSesion.Foreground = Brushes.Black;
         }
+
+        private void txtEmail_IniciarSesion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return) {
+                txtContraseña_IniciarSesion.Clear();
+                txtContraseña_IniciarSesion.Foreground = Brushes.Black;
+                txtContraseña_IniciarSesion.Focus();
+            }
+            
+        }
+
+        private void txtContraseña_IniciarSesion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                /*cogemos el listado del xml*/
+                List<Usuario> listado = cargarUsuarios();
+                /*comprobamos que los datos introducidos son correctos*/
+
+                Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
+
+                if (usuario != null)
+                {
+                    Window gestor = new Gestor();
+                    this.Hide();
+                    gestor.Show();
+                }
+                else
+                {
+                    /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
+                    txtContraseña_IniciarSesion.Clear();
+                    txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                    txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+
+                }
+            }
+        }
+        private void txtContraseña_IniciarSesion_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtContraseña_IniciarSesion.Clear();
+            txtContraseña_IniciarSesion.Foreground = Brushes.Black;
+
+        }
     }
 }
