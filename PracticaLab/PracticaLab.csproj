@@ -133,5 +133,8 @@
     <Resource Include="Iconos\correos-electronicos.png" />
     <Resource Include="Iconos\llamada-telefonica.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\usuarios.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
