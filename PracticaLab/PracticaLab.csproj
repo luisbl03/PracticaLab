@@ -137,5 +137,8 @@
   <ItemGroup>
     <Resource Include="Datos\usuarios.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_doctores\pedro sanchez.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
