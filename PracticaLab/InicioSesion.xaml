@@ -50,7 +50,7 @@
             Text="e-mail" 
             VerticalAlignment="Top" 
             Width="150" Height="18" Foreground="#FF655C5C" BorderBrush="Black"
-            Margin="20,29,0,0" Grid.Column="2" Grid.ColumnSpan="3"/>
+            Margin="20,29,0,0" Grid.Column="2" Grid.ColumnSpan="3" GotFocus="txtEmail_IniciarSesion_GotFocus"/>
         <Image x:Name="Email" Grid.Column="1"
                HorizontalAlignment="Left"
                Height="18"
@@ -99,7 +99,7 @@
                 HorizontalAlignment="Center"
                 Margin="0,136,0,0"
                 Grid.Row="2"
-                VerticalAlignment="Top" Width="130" Height="20" Grid.ColumnSpan="2"/>
+                VerticalAlignment="Top" Width="130" Height="20" Grid.ColumnSpan="2" Click="BotónIniciarSesión_Click"/>
         <Separator HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Height="95" RenderTransformOrigin="0.5,0.5" Width="197" ClipToBounds="True" Grid.ColumnSpan="4" Margin="28,0,0,0" Grid.Column="1">
             <Separator.RenderTransform>
                 <TransformGroup>
