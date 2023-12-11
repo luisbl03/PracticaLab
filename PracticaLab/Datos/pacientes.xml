@@ -1,0 +1,326 @@
+<Pacientes>
+  <Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>González</Apellido1>
+    <Apellido2>López</Apellido2>
+    <DNI>12345678A</DNI>
+    <Telefono>987654321</Telefono>
+    <Direccion>Calle Principal, 123</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Javier</Nombre>
+    <Apellido1>Velázquez</Apellido1>
+    <Apellido2>López</Apellido2>
+    <DNI>12456478Q</DNI>
+    <Telefono>984392612</Telefono>
+    <Direccion>Calle Vélez, 124</Direccion>
+    <Informes>
+      <Informe>Informe 1: Esguince de tobillo</Informe>
+      <Informe>Informe 2: Dolor lumbar</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Luis</Nombre>
+    <Apellido1>García</Apellido1>
+    <Apellido2>García</Apellido2>
+    <DNI>23768998Z</DNI>
+    <Telefono>692341549</Telefono>
+    <Direccion>Calle Larga, 2</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Alberto</Nombre>
+    <Apellido1>López</Apellido1>
+    <Apellido2>López</Apellido2>
+    <DNI>13246592F</DNI>
+    <Telefono>617823710</Telefono>
+    <Direccion>Calle Menor, 3</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Julián</Nombre>
+    <Apellido1>Rubio</Apellido1>
+    <Apellido2>Calvo</Apellido2>
+    <DNI>56789012E</DNI>
+    <Telefono>345678901</Telefono>
+    <Direccion>Calle Manzana, 5</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Pilar</Nombre>
+    <Apellido1>Maldonado</Apellido1>
+    <Apellido2>Messi</Apellido2>
+    <DNI>67890123F</DNI>
+    <Telefono>456789012</Telefono>
+    <Direccion>Calle Felicidad, 54</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Lucía</Nombre>
+    <Apellido1>González</Apellido1>
+    <Apellido2>Gónzalez</Apellido2>
+    <DNI>78901234G</DNI>
+    <Telefono>567890123</Telefono>
+    <Direccion>Calle Computadora, 12</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>Ruiz</Apellido1>
+    <Apellido2>López</Apellido2>
+    <DNI>89012345H</DNI>
+    <Telefono>678901234</Telefono>
+    <Direccion>Calle Montaña, 8</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Sara</Nombre>
+    <Apellido1>Azul</Apellido1>
+    <Apellido2>Martín</Apellido2>
+    <DNI>90123456I</DNI>
+    <Telefono>789012345</Telefono>
+    <Direccion>Calle Aventura, 13</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Moisés</Nombre>
+    <Apellido1>Rodríguez</Apellido1>
+    <Apellido2>López</Apellido2>
+    <DNI>01234567J</DNI>
+    <Telefono>890123456</Telefono>
+    <Direccion>Calle Sinfonía, 1</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Javier</Nombre>
+    <Apellido1>Ismael</Apellido1>
+    <Apellido2>Iglesias</Apellido2>
+    <DNI>12345678K</DNI>
+    <Telefono>901234567</Telefono>
+    <Direccion>Calle Mariposa, 89</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Sergio</Nombre>
+    <Apellido1>Marron</Apellido1>
+    <Apellido2>Sesgo</Apellido2>
+    <DNI>23456789L</DNI>
+    <Telefono>012345678</Telefono>
+    <Direccion>Calle Arcoíris, 92</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Isabel</Nombre>
+    <Apellido1>Sánchez</Apellido1>
+    <Apellido2>Fernández</Apellido2>
+    <DNI>34567890M</DNI>
+    <Telefono>123456789</Telefono>
+    <Direccion>Calle Serenidad, 7</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Jose Antonio</Nombre>
+    <Apellido1>Pérez</Apellido1>
+    <Apellido2>Martínez</Apellido2>
+    <DNI>45678901N</DNI>
+    <Telefono>234567890</Telefono>
+    <Direccion>Calle Explorador, 7</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Alberto</Nombre>
+    <Apellido1>García</Apellido1>
+    <Apellido2>Sánchez</Apellido2>
+    <DNI>56789012O</DNI>
+    <Telefono>345678901</Telefono>
+    <Direccion>Calle Invierno, 123</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>Fernández</Apellido1>
+    <Apellido2>González</Apellido2>
+    <DNI>78901234Q</DNI>
+    <Telefono>456789012</Telefono>
+    <Direccion>Calle Radiante, 4</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>Ramírez</Apellido1>
+    <Apellido2>Ramírez </Apellido2>
+    <DNI>89012345R</DNI>
+    <Telefono>567890123</Telefono>
+    <Direccion>Calle Esmeralda, 9</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>Torres</Apellido1>
+    <Apellido2>Ruiz</Apellido2>
+    <DNI>12345678U</DNI>
+    <Telefono>678901234</Telefono>
+    <Direccion>Calle Melodía, 21</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Carlos</Nombre>
+    <Apellido1>Vargas</Apellido1>
+    <Apellido2>Castro</Apellido2>
+    <DNI>23456789V</DNI>
+    <Telefono>789012345</Telefono>
+    <Direccion>Calle Búsqueda, 22</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Rodrigo</Nombre>
+    <Apellido1>Morales</Apellido1>
+    <Apellido2>Jiménez</Apellido2>
+    <DNI>45678901X</DNI>
+    <Telefono>890123456</Telefono>
+    <Direccion>Calle Viaje, 43</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Laura</Nombre>
+    <Apellido1>Mendoza</Apellido1>
+    <Apellido2>Medina</Apellido2>
+    <DNI>56789012Y</DNI>
+    <Telefono>901234567</Telefono>
+    <Direccion>Calle Burbuja, 84</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Bill</Nombre>
+    <Apellido1>Gates</Apellido1>
+    <Apellido2>Gates</Apellido2>
+    <DNI>34567890W</DNI>
+    <Telefono>012345678</Telefono>
+    <Direccion>Calle Laberinto, 2</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Teresa</Nombre>
+    <Apellido1>Reyes</Apellido1>
+    <Apellido2>Ortega</Apellido2>
+    <DNI>23456789B</DNI>
+    <Telefono>123456789</Telefono>
+    <Direccion>Calle Travesía, 6</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Paco</Nombre>
+    <Apellido1>Cruz</Apellido1>
+    <Apellido2>Herrera</Apellido2>
+    <DNI>34567890C</DNI>
+    <Telefono>234567890</Telefono>
+    <Direccion>Calle Jubiloso, 123</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+
+<Paciente>
+    <Nombre>Yolanda</Nombre>
+    <Apellido1>Velázquez</Apellido1>
+    <Apellido2>Navarro</Apellido2>
+    <DNI>45678901D</DNI>
+    <Telefono>345678901</Telefono>
+    <Direccion>Calle Destello, 5</Direccion>
+    <Informes>
+      <Informe>Informe 1: Alérgico al polen</Informe>
+      <Informe>Informe 2: Presión arterial alta</Informe>
+    </Informes>
+  </Paciente>
+</Pacientes>

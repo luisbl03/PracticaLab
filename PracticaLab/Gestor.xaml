@@ -1,0 +1,225 @@
+﻿<Window x:Class="PracticaLab.Gestor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticaLab"
+        mc:Ignorable="d"
+        Title="Gestión Fisioterapia" Height="600" Width="1300">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="64*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Grid parte superior-->
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="307*"/>
+                <ColumnDefinition Width="52*"/>
+                <ColumnDefinition Width="166*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Foto de perfil -->
+            <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="1">
+                <Border.Clip>
+                    <EllipseGeometry Center="37.5,37.5" RadiusX="37.5" RadiusY="37.5"/>
+                </Border.Clip>
+                <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg"/>
+            </Border>
+
+
+            <!-- Detalles del perfil -->
+            <Grid Grid.Column="2" Margin="5,5,5,15" >
+                <Rectangle Fill="LightYellow" RadiusX="5" RadiusY="5"/>
+                <!-- Fondo con color LightGray y esquinas redondeadas -->
+
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- Fila 1 -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Fila 2 -->
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="12*"/>
+                            <!-- Columna 1 -->
+                            <ColumnDefinition Width="20*"/>
+                            <!-- Columna 2 -->
+                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0"/>
+                        <TextBlock Text="Perro Sanchez" Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
+
+                        <TextBlock Text="ID: 0" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
+                        <!--<TextBlock Text="0" Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" />-->
+
+                        <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
+                        <TextBlock Text="pedro@spain.es" Margin="5,0,-5,5" Grid.Column="3"/>
+
+                        <TextBlock Text="Número:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
+                        <TextBlock Text="666 66 66 66" Grid.Column="3" Grid.Row="1" Margin="5,0,-5,0"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Red" FontSize="8"/>
+            <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
+        </Grid>
+        <!--Grid parte inferior-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Primera mitad-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="213*"/>
+                </Grid.RowDefinitions>
+                <Button Content="Añadir paciente"
+                        HorizontalAlignment="Left"
+                        Margin="12,0,0,0"
+                        VerticalAlignment="Center"
+                        Height="40"
+                        Width="95"/>
+                <Button Content="Eliminar paciente"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,12,0"
+                        VerticalAlignment="Center"
+                        Height="40"
+                        Width="95"/>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,28" Grid.Row="1">
+                    <ListBox x:Name="Lista_de_pacientes"/>
+                </Border>
+            </Grid>
+            
+            <!-- Segunda mitad-->
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="165*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Datos Paciente-->
+                <Grid Grid.Column="0">
+
+                    <!-- Grid Rows-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="70*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Imagen Paciente-->
+                    <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <!-- Grid Datos Paciente -->
+                    <Grid Grid.Row="1">
+
+                        <!-- Nombre -->
+                        <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Margin="10,10,236,320"/>
+                        <TextBox x:Name="txtNombre" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="Nombre" 
+                            VerticalAlignment="Top" 
+                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,38,0,0"/>
+
+                        <!-- Apellidos -->
+                        <TextBlock Text="Apellidos" FontWeight="Bold" Grid.Column="0" Margin="162,10,64,322"/>
+                        <TextBox x:Name="txtApellidos" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="Apellidos" 
+                            VerticalAlignment="Top" 
+                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="162,38,0,0"/>
+
+                        <!-- DNI -->
+                        <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="10,80,257,245"/>
+                        <TextBox x:Name="txtDNI" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="000000000A" 
+                            VerticalAlignment="Top" 
+                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
+
+                        <!-- Telefono -->
+                        <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,76,51,248"/>
+                        <TextBox x:Name="txtTelefono" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="688 92 39 14" 
+                            VerticalAlignment="Top" 
+                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
+
+                        <!-- DIreccion -->
+                        <TextBlock Text="Direccion" FontWeight="Bold" Grid.Column="0" Margin="10,144,224,180"/>
+                        <TextBox x:Name="txtDireccion" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="calle extremadura nº 23" 
+                            VerticalAlignment="Top" 
+                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="8,178,0,0"/>
+
+                        <!-- Codigo Postal -->
+                        <TextBlock Text="Codiogo Postal" FontWeight="Bold" Grid.Column="0" Margin="162,144,24,180"/>
+                        <TextBox x:Name="txtCodigoPostaly" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="13070" 
+                            VerticalAlignment="Top" 
+                            Width="46" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0" TextChanged="txtCodigoPostaly_TextChanged"/>
+
+                        <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,84" />
+
+                    </Grid>
+                </Grid>
+                
+                <!-- Grid Informes y citas-->
+                <Grid Grid.Column="2">
+                    
+                    <!-- Grid Column-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Grid Row-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <!--Grid Informes-->
+                    <ListView x:Name="listViewInformes">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID Informe" Width="120" DisplayMemberBinding="{Binding IdInforme}" />
+                                <GridViewColumn Header="Fecha Informe" Width="120" DisplayMemberBinding="{Binding FechaInforme}" />
+                                <GridViewColumn Header="Descripción" Width="280" DisplayMemberBinding="{Binding Descripcion}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <!--Grid Citas-->
+                    <DataGrid x:Name="dataGridCitas" AutoGenerateColumns="False" Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding NombrePaciente}" />
+                            <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding FechaCita}" />
+                            <DataGridTextColumn Header="Hora de la Cita" Binding="{Binding HoraCita}" />
+                            <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>
