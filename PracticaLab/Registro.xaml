@@ -124,7 +124,7 @@
                 Margin="24,0,0,0" 
                 Grid.Row="9" 
                 VerticalAlignment="Center" 
-                Width="150" Height="33" FontSize="16"/>
+                Width="150" Height="33" FontSize="16" Click="bttnRegistrarse_Click"/>
 
         <Separator HorizontalAlignment="Left" 
                    Grid.Row="10"

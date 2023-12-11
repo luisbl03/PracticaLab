@@ -62,25 +62,29 @@ namespace PracticaLab
 
         private void BotónIniciarSesión_Click(object sender, RoutedEventArgs e)
         {
-            /*cogemos el listado del xml*/
-            List<Usuario> listado = cargarUsuarios();
-            /*comprobamos que los datos introducidos son correctos*/
-
-            Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
-
-            if (usuario != null)
+            if (txtContraseña_IniciarSesion.Text != "" && txtEmail_IniciarSesion.Text != "")
             {
-                Window gestor = new Gestor();
-                this.Hide();
-                gestor.Show();
-            }
-            else {
-                /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
-                txtContraseña_IniciarSesion.Clear();
-                txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
-                txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                /*cogemos el listado del xml*/
+                List<Usuario> listado = cargarUsuarios();
+                /*comprobamos que los datos introducidos son correctos*/
 
+                Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
+
+                if (usuario != null)
+                {
+                    Window gestor = new Gestor();
+                    this.Hide();
+                    gestor.Show();
+                }
+                else
+                {
+                    /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
+                    txtContraseña_IniciarSesion.Clear();
+                    txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                    txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                }
             }
+            
         }
 
         private void txtEmail_IniciarSesion_GotFocus(object sender, RoutedEventArgs e)
@@ -103,25 +107,27 @@ namespace PracticaLab
         {
             if (e.Key == Key.Return)
             {
-                /*cogemos el listado del xml*/
-                List<Usuario> listado = cargarUsuarios();
-                /*comprobamos que los datos introducidos son correctos*/
-
-                Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
-
-                if (usuario != null)
+                if (txtContraseña_IniciarSesion.Text != "" && txtEmail_IniciarSesion.Text != "")
                 {
-                    Window gestor = new Gestor();
-                    this.Hide();
-                    gestor.Show();
-                }
-                else
-                {
-                    /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
-                    txtContraseña_IniciarSesion.Clear();
-                    txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
-                    txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                    /*cogemos el listado del xml*/
+                    List<Usuario> listado = cargarUsuarios();
+                    /*comprobamos que los datos introducidos son correctos*/
 
+                    Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
+
+                    if (usuario != null)
+                    {
+                        Window gestor = new Gestor();
+                        this.Hide();
+                        gestor.Show();
+                    }
+                    else
+                    {
+                        /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
+                        txtContraseña_IniciarSesion.Clear();
+                        txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                        txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                    }
                 }
             }
         }
