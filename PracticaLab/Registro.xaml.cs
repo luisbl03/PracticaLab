@@ -66,7 +66,7 @@ namespace PracticaLab
             if (txtNombre_Registro.Text != null && txtApellidos_Registro.Text !=  null && txtCorreo_Registro.Text != null && txtTelefono_Registro.Text != null && txtContraseña_Registro != null && txtRepiteContraseña_Registro.Text != null)
             {
                 /*miramos si los campos de la contraseña son iguales*/
-                if (txtContraseña_Registro.Equals(txtRepiteContraseña_Registro.Text))
+                if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
                 {
                     /*miramos si el usuario ya existe*/
                     List<Usuario> listUsuarios = cargarUsuarios();
@@ -84,13 +84,36 @@ namespace PracticaLab
                         txtNombre_Registro.Clear();
                         txtTelefono_Registro.Clear();
                         txtRepiteContraseña_Registro.Clear();
+                        txtContraseña_Registro.Clear();
                     }
                     else
                     {
                         /*añadimos el usuario al fichero xml*/
                         XmlDocument doc = new XmlDocument();
                         doc.Load("Datos/usuarios.xml");
-                        XmlElement usuario = new XmlElement("Usuario", new XmlElement("Nombre", txtNombre_Registro.Text));
+                        XmlNode usuario = doc.CreateElement("Usuario");
+                        XmlNode Nombre = doc.CreateElement("Nombre");
+                        Nombre.InnerText = txtNombre_Registro.Text;
+                        XmlNode apellido1 = doc.CreateElement("Apellido1");
+                        apellido1.InnerText = apellidos[0];
+                        XmlNode apellido2 = doc.CreateElement("Apellido2");
+                        apellido2.InnerText = apellidos[1];
+                        XmlNode telefono = doc.CreateElement("telefono");
+                        telefono.InnerText = txtTelefono_Registro.Text;
+                        XmlNode correo = doc.CreateElement("correo");
+                        correo.InnerText = txtCorreo_Registro.Text;
+                        XmlNode contraseña = doc.CreateElement("contraseña");
+                        contraseña.InnerText = txtContraseña_Registro.Text;
+                        usuario.AppendChild(Nombre);
+                        usuario.AppendChild(apellido1);
+                        usuario.AppendChild(apellido2);
+                        usuario.AppendChild(telefono);
+                        usuario.AppendChild(correo);
+                        usuario.AppendChild(contraseña);
+                        XmlNode raiz = doc.DocumentElement;
+                        raiz.AppendChild(usuario);
+                        doc.Save("Datos/usuarios.xml");
+                        MessageBox.Show("Usuario insertado con exito");
                     }
                 }
                 else
