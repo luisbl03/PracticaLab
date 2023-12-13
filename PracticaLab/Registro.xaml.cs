@@ -100,8 +100,16 @@ namespace PracticaLab
                 usuario.AppendChild(contraseña);
                 XmlNode raiz = doc.DocumentElement;
                 raiz.AppendChild(usuario);
-                doc.Save(fichero.Stream);
-                MessageBox.Show("Usuario insertado con exito");
+                try
+                {
+                    doc.Save(fichero.Stream);
+                    MessageBox.Show("Usuario insertado con exito");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
             }
         }
 

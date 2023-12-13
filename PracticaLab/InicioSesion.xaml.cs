@@ -91,6 +91,12 @@ namespace PracticaLab
         {
             txtEmail_IniciarSesion.Clear();
             txtEmail_IniciarSesion.Foreground = Brushes.Black;
+            if (txtContraseña_IniciarSesion.Text == "")
+            {
+                txtContraseña_IniciarSesion.Text = "contraseña";
+                txtContraseña_IniciarSesion.Foreground = Brushes.Gray;
+
+            }
         }
 
         private void txtEmail_IniciarSesion_KeyDown(object sender, KeyEventArgs e)
@@ -99,6 +105,11 @@ namespace PracticaLab
                 txtContraseña_IniciarSesion.Clear();
                 txtContraseña_IniciarSesion.Foreground = Brushes.Black;
                 txtContraseña_IniciarSesion.Focus();
+                if (txtEmail_IniciarSesion.Text == "")
+                {
+                    txtEmail_IniciarSesion.Text = "e.mail";
+                    txtEmail_IniciarSesion.Foreground = Brushes.Gray;
+                }
             }
             
         }
@@ -135,6 +146,11 @@ namespace PracticaLab
         {
             txtContraseña_IniciarSesion.Clear();
             txtContraseña_IniciarSesion.Foreground = Brushes.Black;
+            if (txtEmail_IniciarSesion.Text == "")
+            {
+                txtEmail_IniciarSesion.Text = "e-mail";
+                txtEmail_IniciarSesion.Foreground = Brushes.Gray;
+            }
 
         }
     }
