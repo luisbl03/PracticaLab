@@ -70,16 +70,16 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0"/>
-                        <TextBlock Text="Perro Sanchez" Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
+                        <TextBlock Text="{Binding nombre}" Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
 
-                        <TextBlock Text="ID: 0" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
-                        <!--<TextBlock Text="0" Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" />-->
+                        <TextBlock Text="Apellidos:" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Text="{Binding apellidos}" Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" />
 
                         <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
-                        <TextBlock Text="pedro@spain.es" Margin="5,0,-5,5" Grid.Column="3"/>
+                        <TextBlock Text="{Binding correo}" Margin="5,0,-5,5" Grid.Column="3"/>
 
-                        <TextBlock Text="Número:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
-                        <TextBlock Text="666 66 66 66" Grid.Column="3" Grid.Row="1" Margin="5,0,-5,0"/>
+                        <TextBlock Text="Telefono:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
+                        <TextBlock Text="{Binding numTelefono, StringFormat='000000000'}" Grid.Column="3" Grid.Row="1" Margin="5,0,-5,0"/>
                     </Grid>
                 </StackPanel>
             </Grid>

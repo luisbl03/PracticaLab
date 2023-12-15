@@ -20,6 +20,9 @@ namespace PracticaLab
 
             Pacientes = new List<Paciente>();
             usuario = u;
+
+            //Usamos el usuariio para poner sus datos
+            this.DataContext = usuario;
             try
             {
 
