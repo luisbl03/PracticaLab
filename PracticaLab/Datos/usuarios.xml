@@ -1,11 +1,11 @@
 <Usuarios>
 
-	<Usuario Nombre="Francisco Javier" Apellido1="Luna" Apellido2="Ortiz" telefono="126126648" correo="pacomoon@outlook.es" contraseña="animeforever"/>
-	<Usuario Nombre="Bruce" Apellido1="Wayne" Apellido2="Diaz" telefono="000000001" correo="soybatman@gmail.com" contraseña="robinmola"/>
-	<Usuario Nombre="Alberto" Apellido1="Barrais" Apellido2="Bellerin" telefono="474961013" correo="soyalberto@hola.com" contraseña="alexqueridoamigo"/>
-	<Usuario Nombre="Luis" Apellido1="Benito" Apellido2="Lopez" telefono="604562014" correo="Luis.Benito@alu.uclm.es" contraseña="mago4ever"/>
-	<Usuario Nombre="Javier" Apellido1="Cuartero" Apellido2="Corredor" telefono="789456123" correo="javicorre@dor.com" contraseña="Contraseña"/>
-	<Usuario Nombre="Corey" Apellido1="Taylor" Apellido2="Slipknot" telefono="666666666" correo="tuscreemerfav@gmail.es" contraseña="metallica_mola"/>
-	<Usuario Nombre="prueba" Apellido1="uno" Apellido2="dos" telefono="000000000" correo="prueba" contraseña="prueba"/>
+	<Usuario Nombre="Francisco Javier" Apellidos="Luna Ortiz" telefono="126126648" correo="pacomoon@outlook.es" contraseña="animeforever"/>
+	<Usuario Nombre="Bruce" Apellidos="Wayne Diaz" telefono="000000001" correo="soybatman@gmail.com" contraseña="robinmola"/>
+	<Usuario Nombre="Alberto" Apellidos="Barrais Bellerin" telefono="474961013" correo="soyalberto@hola.com" contraseña="alexqueridoamigo"/>
+	<Usuario Nombre="Luis" Apellidos="Benito Lopez" telefono="604562014" correo="Luis.Benito@alu.uclm.es" contraseña="mago4ever"/>
+	<Usuario Nombre="Javier" Apellidos="Cuartero Corredor" telefono="789456123" correo="javicorre@dor.com" contraseña="Contraseña"/>
+	<Usuario Nombre="Corey" Apellidos="Taylor Slipknot" telefono="666666666" correo="tuscreemerfav@gmail.es" contraseña="metallica_mola"/>
+	<Usuario Nombre="prueba" Apellidos="uno dos" telefono="000000000" correo="prueba" contraseña="prueba"/>
 	
 </Usuarios>

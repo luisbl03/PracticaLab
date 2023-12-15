@@ -36,10 +36,9 @@ namespace PracticaLab
             /*bucle de asignacion de valores*/
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var usuario = new Usuario("", "", "", 0, "", "");
+                var usuario = new Usuario("", "", 0, "", "");
                 usuario.nombre = node.Attributes["Nombre"].Value;
-                usuario.apellido1 = node.Attributes["Apellido1"].Value;
-                usuario.apellido2 = node.Attributes["Apellido2"].Value;
+                usuario.apellidos = node.Attributes["Apellidos"].Value;
                 usuario.numTelefono = long.Parse(node.Attributes["telefono"].Value);
                 usuario.correo = node.Attributes["correo"].Value;
                 usuario.contraseña = node.Attributes["contraseña"].Value;
@@ -60,8 +59,7 @@ namespace PracticaLab
             /*miramos si el usuario ya existe*/
             List<Usuario> listUsuarios = cargarUsuarios();
             /*Miramos si el usuario ya esta dentro*/
-            string[] apellidos = txtApellidos_Registro.Text.Split(' ');
-            Usuario u = new Usuario(txtNombre_Registro.Text, apellidos[0], apellidos[1], long.Parse(txtTelefono_Registro.Text), txtCorreo_Registro.Text, txtContraseña_Registro.Text);
+            Usuario u = new Usuario(txtNombre_Registro.Text, txtApellidos_Registro.Text, long.Parse(txtTelefono_Registro.Text), txtCorreo_Registro.Text, txtContraseña_Registro.Text);
             /*miramos si en la lista de usuarios existe un usuario con ese correo*/
             bool existe = false;
             foreach (Usuario usuario in listUsuarios)

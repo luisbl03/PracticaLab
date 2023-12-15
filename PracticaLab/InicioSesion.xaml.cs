@@ -46,10 +46,9 @@ namespace PracticaLab
             /*bucle de asignacion de valores*/
             foreach(XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var usuario = new Usuario("", "", "",0, "", "");
+                var usuario = new Usuario("", "",0, "", "");
                 usuario.nombre = node.Attributes["Nombre"].Value;
-                usuario.apellido1 = node.Attributes["Apellido1"].Value;
-                usuario.apellido2 = node.Attributes["Apellido2"].Value;
+                usuario.apellidos = node.Attributes["Apellidos"].Value;
                 usuario.numTelefono = long.Parse(node.Attributes["telefono"].Value);
                 usuario.correo = node.Attributes["correo"].Value;
                 usuario.contraseña = node.Attributes["contraseña"].Value;
