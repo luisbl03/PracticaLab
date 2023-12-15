@@ -20,6 +20,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Registro : Window
     {
+        public List<Usuario> usuarios = new List<Usuario>();
         public Registro()
         {
             InitializeComponent();
@@ -75,41 +76,7 @@ namespace PracticaLab
             }
             else
             {
-                /*añadimos el usuario al fichero xml*/
-                XmlDocument doc = new XmlDocument();
-                var fichero = Application.GetResourceStream(new Uri("Datos/usuarios.xml", UriKind.Relative));
-                doc.Load(fichero.Stream);
-                XmlNode usuario = doc.CreateElement("Usuario");
-                XmlNode Nombre = doc.CreateElement("Nombre");
-                Nombre.InnerText = txtNombre_Registro.Text;
-                XmlNode apellido1 = doc.CreateElement("Apellido1");
-                apellido1.InnerText = apellidos[0];
-                XmlNode apellido2 = doc.CreateElement("Apellido2");
-                apellido2.InnerText = apellidos[1];
-                XmlNode telefono = doc.CreateElement("telefono");
-                telefono.InnerText = txtTelefono_Registro.Text;
-                XmlNode correo = doc.CreateElement("correo");
-                correo.InnerText = txtCorreo_Registro.Text;
-                XmlNode contraseña = doc.CreateElement("contraseña");
-                contraseña.InnerText = txtContraseña_Registro.Text;
-                usuario.AppendChild(Nombre);
-                usuario.AppendChild(apellido1);
-                usuario.AppendChild(apellido2);
-                usuario.AppendChild(telefono);
-                usuario.AppendChild(correo);
-                usuario.AppendChild(contraseña);
-                XmlNode raiz = doc.DocumentElement;
-                raiz.AppendChild(usuario);
-                try
-                {
-                    doc.Save(fichero.Stream);
-                    MessageBox.Show("Usuario insertado con exito");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-               
+                usuarios.Add(u);  
             }
         }
 
