@@ -17,7 +17,7 @@
             <RowDefinition Height="495"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
 
         <!--Grid parte superior-->
         <!--Fondo del Grid superior-->
@@ -88,7 +88,7 @@
 
         </Grid>
         <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
-        
+
         <!--Grid parte inferior-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -161,31 +161,31 @@
                             Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,38,0,0"/>
 
                             <!-- Apellidos -->
-                            <TextBlock Text="Apellidos" FontWeight="Bold" Grid.Column="0" Margin="162,10,64,322"/>
-                            <TextBox x:Name="txtApellidos" 
+                            <TextBlock FontWeight="Bold" Grid.Column="0" Margin="164,10,36,322"><Run Language="es-es" Text="Primer Apellido"/></TextBlock>
+                            <TextBox x:Name="txtApellido1" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
-                            Text="Apellidos" 
+                            Text="Primer Apellido" 
                             VerticalAlignment="Top" 
-                            Width="132" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="162,38,0,0"/>
+                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,38,0,0"/>
 
                             <!-- DNI -->
-                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="10,80,257,245"/>
+                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="164,80,103,245"/>
                             <TextBox x:Name="txtDNI" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="000000000A" 
                             VerticalAlignment="Top" 
-                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
+                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
 
                             <!-- Telefono -->
-                            <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,76,51,248"/>
+                            <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,144,51,179"/>
                             <TextBox x:Name="txtTelefono" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="688 92 39 14" 
                             VerticalAlignment="Top" 
-                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
+                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0"/>
 
                             <!-- DIreccion -->
                             <TextBlock Text="Direccion" FontWeight="Bold" Grid.Column="0" Margin="10,144,224,180"/>
@@ -194,18 +194,20 @@
                             TextWrapping="Wrap" 
                             Text="calle extremadura nº 23" 
                             VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="8,178,0,0"/>
+                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,178,0,0"/>
 
-                            <!-- Codigo Postal -->
-                            <TextBlock Text="Codiogo Postal" FontWeight="Bold" Grid.Column="0" Margin="162,144,24,180"/>
-                            <TextBox x:Name="txtCodigoPostaly" 
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="13070" 
-                            VerticalAlignment="Top" 
-                            Width="46" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0" TextChanged="txtCodigoPostaly_TextChanged"/>
-
+                            <!-- Segundo Apellido -->
+                            <TextBlock FontWeight="Bold" Grid.Column="0" Margin="6,80,180,244"><Run Language="es-es" Text="Segundo Apellido"/></TextBlock>
+                            <TextBox x:Name="txtApellido2" 
+                                HorizontalAlignment="Left" 
+                                TextWrapping="Wrap" 
+                                Text="Segundo Apellido" 
+                                VerticalAlignment="Top" 
+                                Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
+                            
+                            <!-- Boton de editar -->
                             <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,85" />
+                            
 
                         </Grid>
                     </Grid>
@@ -251,7 +253,7 @@
             </GroupBox>
 
         </Grid>
-       
+
 
     </Grid>
 </Window>
