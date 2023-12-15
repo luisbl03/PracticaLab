@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Cita.cs" />
+    <Compile Include="EditarInforme.xaml.cs">
+      <DependentUpon>EditarInforme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paciente.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Registro.xaml.cs">
@@ -64,6 +67,10 @@
     <Compile Include="InicioSesion.xaml.cs">
       <DependentUpon>InicioSesion.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditarInforme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gestor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
