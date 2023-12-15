@@ -15,11 +15,15 @@ namespace PracticaLab
         {
             Application.Current.Shutdown();
         }
+
+        //hay un paciente selecionado
+        private bool seleccionado = false;
         private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Verifica si hay un paciente seleccionado
             if (Lista_de_pacientes.SelectedItem != null)
             {
+                seleccionado = true;
                 // Obtén el paciente seleccionado
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
 
@@ -60,13 +64,16 @@ namespace PracticaLab
                 txtDireccion.IsReadOnly = true;
                 btn.Content = "Editar";
                 // Guardar los cambios en el paciente (no se guarda en la persistencia)
-                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
-                pacienteSeleccionado.Nombre = txtNombre.Text;
-                pacienteSeleccionado.Apellido1 = txtApellido1.Text;
-                pacienteSeleccionado.Apellido2 = txtApellido2.Text;
-                pacienteSeleccionado.DNI = txtDNI.Text;
-                pacienteSeleccionado.Telefono = txtTelefono.Text;
-                pacienteSeleccionado.Direccion = txtDireccion.Text;
+                if (seleccionado == true)
+                {
+                    Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                    pacienteSeleccionado.Nombre = txtNombre.Text;
+                    pacienteSeleccionado.Apellido1 = txtApellido1.Text;
+                    pacienteSeleccionado.Apellido2 = txtApellido2.Text;
+                    pacienteSeleccionado.DNI = txtDNI.Text;
+                    pacienteSeleccionado.Telefono = txtTelefono.Text;
+                    pacienteSeleccionado.Direccion = txtDireccion.Text;
+                }
             }
             modo1 = !modo1;
 

@@ -186,7 +186,7 @@
                             <TextBox x:Name="txtTelefono" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
-                            Text="688 92 39 14" 
+                            Text="000000000" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0"/>
@@ -196,7 +196,7 @@
                             <TextBox x:Name="txtDireccion" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
-                            Text="calle extremadura nº 23" 
+                            Text="calle x" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,178,0,0"/>
