@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Gestión Fisioterapia" Height="620" Width="1300"  Closing="Gestor_Closing">
+        Title="Gestión Fisioterapia"
+        Height="620" Width="1300"  
+        Closing="Gestor_Closing"
+        Background="WhiteSmoke"
+        >
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="84"/>
             <RowDefinition Height="495"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <!--Grid parte superior-->
+        <!--Fondo del Grid superior-->
+        <Border Grid.Row="0" Grid.Column="1" Background="White">
+        </Border>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="307*"/>
@@ -32,7 +40,7 @@
                 <Border.Clip>
                     <EllipseGeometry Center="37.5,37.5" RadiusX="37.5" RadiusY="37.5"/>
                 </Border.Clip>
-                <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg"/>
+                <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg" Margin="-22,0,-19,-5"/>
             </Border>
 
 
@@ -78,7 +86,6 @@
             <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
 
         </Grid>
-
         <!--Grid parte inferior-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -111,7 +118,7 @@
 
             <!-- Segunda mitad-->
             <!-- GroupBox datos paciente-->
-            <GroupBox Grid.Column="1" BorderBrush="blue" BorderThickness="3">
+            <GroupBox Grid.Column="1" BorderBrush="Black">
                 <GroupBox.Header >
 
                     <TextBlock Text="Datos Paciente" Foreground ="Black" FontWeight="Bold" FontSize="15"/>
