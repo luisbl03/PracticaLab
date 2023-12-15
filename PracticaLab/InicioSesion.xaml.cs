@@ -68,20 +68,34 @@ namespace PracticaLab
                 List<Usuario> listado = cargarUsuarios();
                 /*comprobamos que los datos introducidos son correctos*/
 
-                Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
-
-                if (usuario != null)
+                Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text);
+                if (usuario == null)
                 {
-                    Window gestor = new Gestor();
-                    this.Hide();
-                    gestor.Show();
+                    /*ponemos los recuadros en rojo, borramos su contenido y en la label de error ponemos que usuario no existe*/
+                    txtContraseña_IniciarSesion.Clear();
+                    txtEmail_IniciarSesion.Clear();
+                    txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                    txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                    lbl_InicioSesion_error.Content = "El usuario no existe";
                 }
                 else
                 {
-                    /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
-                    txtContraseña_IniciarSesion.Clear();
-                    txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
-                    txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                    /*miramos si las contraseñas coinciden*/
+                    if (usuario.contraseña == txtContraseña_IniciarSesion.Text)
+                    {
+                        /*si coinciden, abrimos la ventana de gestor*/
+                        Window gestor = new Gestor(usuario);
+                        this.Hide();
+                        gestor.Show();
+                    }
+                    else
+                    {
+                        /*si no coinciden, borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
+                        txtContraseña_IniciarSesion.Clear();
+                        txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                        txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                        lbl_InicioSesion_error.Content = "La contraseña no es correcta";
+                    }
                 }
             }
             
@@ -123,22 +137,36 @@ namespace PracticaLab
                     /*cogemos el listado del xml*/
                     List<Usuario> listado = cargarUsuarios();
                     /*comprobamos que los datos introducidos son correctos*/
-
-                    Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
-
-                    if (usuario != null)
+                    Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text);
+                    if (usuario == null)
                     {
-                        Window gestor = new Gestor();
-                        this.Hide();
-                        gestor.Show();
+                        /*ponemos los recuadros en rojo, borramos su contenido y en la label de error ponemos que usuario no existe*/
+                        txtContraseña_IniciarSesion.Clear();
+                        txtEmail_IniciarSesion.Clear();
+                        txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                        txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                        lbl_InicioSesion_error.Content = "El usuario no existe";
                     }
                     else
                     {
-                        /*borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
-                        txtContraseña_IniciarSesion.Clear();
-                        txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
-                        txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                        /*miramos si las contraseñas coinciden*/
+                        if (usuario.contraseña == txtContraseña_IniciarSesion.Text)
+                        {
+                            /*si coinciden, abrimos la ventana de gestor*/
+                            Window gestor = new Gestor(usuario);
+                            this.Hide();
+                            gestor.Show();
+                        }
+                        else
+                        {
+                            /*si no coinciden, borramos el contenido de la contraseña y ponemos los bordes de los textbox en rojo*/
+                            txtContraseña_IniciarSesion.Clear();
+                            txtContraseña_IniciarSesion.BorderBrush = Brushes.Red;
+                            txtEmail_IniciarSesion.BorderBrush = Brushes.Red;
+                            lbl_InicioSesion_error.Content = "La contraseña no es correcta";
+                        }
                     }
+
                 }
             }
         }

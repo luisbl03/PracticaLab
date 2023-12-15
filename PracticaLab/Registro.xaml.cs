@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
@@ -20,6 +21,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Registro : Window
     {
+        public Usuario usuario;
         public Registro()
         {
             InitializeComponent();
@@ -53,15 +55,22 @@ namespace PracticaLab
             Application.Current.Shutdown();
         }
 
-        private void escrbirFichero()
+        private void registrar()
         {
             /*miramos si el usuario ya existe*/
             List<Usuario> listUsuarios = cargarUsuarios();
             /*Miramos si el usuario ya esta dentro*/
             string[] apellidos = txtApellidos_Registro.Text.Split(' ');
             Usuario u = new Usuario(txtNombre_Registro.Text, apellidos[0], apellidos[1], long.Parse(txtTelefono_Registro.Text), txtCorreo_Registro.Text, txtContraseña_Registro.Text);
-            /*comprobamos si existe en la lista de usuarios*/
-            bool existe = listUsuarios.Contains(u);
+            /*miramos si en la lista de usuarios existe un usuario con ese correo*/
+            bool existe = false;
+            foreach (Usuario usuario in listUsuarios)
+            {
+                if (usuario.correo.Equals(u.correo))
+                {
+                    existe = true;
+                }
+            }
             if (existe)
             {
                 MessageBox.Show("El usuario ya existe");
@@ -75,41 +84,10 @@ namespace PracticaLab
             }
             else
             {
-                /*añadimos el usuario al fichero xml*/
-                XmlDocument doc = new XmlDocument();
-                var fichero = Application.GetResourceStream(new Uri("Datos/usuarios.xml", UriKind.Relative));
-                doc.Load(fichero.Stream);
-                XmlNode usuario = doc.CreateElement("Usuario");
-                XmlNode Nombre = doc.CreateElement("Nombre");
-                Nombre.InnerText = txtNombre_Registro.Text;
-                XmlNode apellido1 = doc.CreateElement("Apellido1");
-                apellido1.InnerText = apellidos[0];
-                XmlNode apellido2 = doc.CreateElement("Apellido2");
-                apellido2.InnerText = apellidos[1];
-                XmlNode telefono = doc.CreateElement("telefono");
-                telefono.InnerText = txtTelefono_Registro.Text;
-                XmlNode correo = doc.CreateElement("correo");
-                correo.InnerText = txtCorreo_Registro.Text;
-                XmlNode contraseña = doc.CreateElement("contraseña");
-                contraseña.InnerText = txtContraseña_Registro.Text;
-                usuario.AppendChild(Nombre);
-                usuario.AppendChild(apellido1);
-                usuario.AppendChild(apellido2);
-                usuario.AppendChild(telefono);
-                usuario.AppendChild(correo);
-                usuario.AppendChild(contraseña);
-                XmlNode raiz = doc.DocumentElement;
-                raiz.AppendChild(usuario);
-                try
-                {
-                    doc.Save(fichero.Stream);
-                    MessageBox.Show("Usuario insertado con exito");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-               
+                usuario = u;
+                Window gestor = new Gestor(u);
+                this.Hide();
+                gestor.Show();
             }
         }
 
@@ -128,7 +106,7 @@ namespace PracticaLab
                 /*miramos si los campos de la contraseña son iguales*/
                 if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
                 {
-                    escrbirFichero();
+                    registrar();
                 }
                 else
                 {
@@ -155,6 +133,32 @@ namespace PracticaLab
                 txtNombre_Registro.BorderBrush = Brushes.Black;
                 txtNombre_Registro.Foreground = Brushes.Black;
             }
+            /*miramos si los campos estan vacios, si lo estan, ponemos el texto en gris y ponemos el nombre del campo*/
+            if (txtApellidos_Registro.Text == "")
+            {
+                txtApellidos_Registro.Text = "Apellidos";
+                txtApellidos_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtTelefono_Registro.Text == "")
+            {
+                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtCorreo_Registro.Text == "")
+            {
+                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtContraseña_Registro.Text == "")
+            {
+                txtContraseña_Registro.Text = "Contraseña";
+                txtContraseña_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtRepiteContraseña_Registro.Text == "")
+            {
+                txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+            }
             
         }
 
@@ -167,6 +171,32 @@ namespace PracticaLab
                 {
                     txtApellidos_Registro.Clear();
                     txtApellidos_Registro.Foreground = Brushes.Black;
+                }
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtContraseña_Registro.Text == "")
+                {
+                    txtContraseña_Registro.Text = "Contraseña";
+                    txtContraseña_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtRepiteContraseña_Registro.Text == "")
+                {
+                    txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                    txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
                 }
             }
         }
@@ -181,6 +211,32 @@ namespace PracticaLab
                     txtTelefono_Registro.Clear();
                     txtTelefono_Registro.Foreground= Brushes.Black;
                 }
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.Text = "Apellidos";
+                    txtApellidos_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtContraseña_Registro.Text == "")
+                {
+                    txtContraseña_Registro.Text = "Contraseña";
+                    txtContraseña_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtRepiteContraseña_Registro.Text == "")
+                {
+                    txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                    txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                }
             }
         }
 
@@ -193,6 +249,32 @@ namespace PracticaLab
                 {
                     txtCorreo_Registro.Clear();
                     txtCorreo_Registro.Foreground = Brushes.Black;
+                }
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.Text = "Apellidos";
+                    txtApellidos_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtContraseña_Registro.Text == "")
+                {
+                    txtContraseña_Registro.Text = "Contraseña";
+                    txtContraseña_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtRepiteContraseña_Registro.Text == "")
+                {
+                    txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                    txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
                 }
             }
         }
@@ -207,6 +289,32 @@ namespace PracticaLab
                     txtContraseña_Registro.Clear();
                     txtContraseña_Registro.Foreground = Brushes.Black;
                 }
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.Text = "Apellidos";
+                    txtApellidos_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtRepiteContraseña_Registro.Text == "")
+                {
+                    txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                    txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                }
             }
         }
 
@@ -216,7 +324,7 @@ namespace PracticaLab
             {
                 if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
                 {
-                    escrbirFichero();
+                    registrar();
                 }
             }
         }
@@ -231,6 +339,208 @@ namespace PracticaLab
                     txtRepiteContraseña_Registro.Clear();
                     txtRepiteContraseña_Registro.Foreground = Brushes.Black;
                 }
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.Text = "Apellidos";
+                    txtApellidos_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtContraseña_Registro.Text == "")
+                {
+                    txtContraseña_Registro.Text = "Contraseña";
+                    txtContraseña_Registro.Foreground = Brushes.Gray;
+                }
+            }
+        }
+
+        private void txtApellidos_Registro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            /*limpiamos el campo, ponemos el texto en negro y si los demas estan vacios, ponemos su color en gris y ponemos como texto su tipo*/
+            if (txtApellidos_Registro.Foreground != Brushes.Black)
+            {
+                txtApellidos_Registro.Clear();
+                txtApellidos_Registro.Foreground = Brushes.Black;
+            }
+            /*miramos si los demas campos estan vacios*/
+            if (txtNombre_Registro.Text == "")
+            {
+                txtNombre_Registro.Text = "Nombre";
+                txtNombre_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtTelefono_Registro.Text == "")
+            {
+                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtCorreo_Registro.Text == "")
+            {
+                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtContraseña_Registro.Text == "")
+            {
+                txtContraseña_Registro.Text = "Contraseña";
+                txtContraseña_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtRepiteContraseña_Registro.Text == "")
+            {
+                txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void txtTelefono_Registro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtTelefono_Registro.Foreground != Brushes.Black)
+            {
+                txtTelefono_Registro.Clear();
+                txtTelefono_Registro.Foreground = Brushes.Black;
+            }
+            /*miramos si los demas campos estan vacios*/
+            if (txtNombre_Registro.Text == "")
+            {
+                txtNombre_Registro.Text = "Nombre";
+                txtNombre_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtApellidos_Registro.Text == "")
+            {
+                txtApellidos_Registro.Text = "Apellidos";
+                txtApellidos_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtCorreo_Registro.Text == "")
+            {
+                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtContraseña_Registro.Text == "")
+            {
+                txtContraseña_Registro.Text = "Contraseña";
+                txtContraseña_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtRepiteContraseña_Registro.Text == "")
+            {
+                txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void txtCorreo_Registro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtCorreo_Registro.Foreground != Brushes.Black)
+            {
+                txtCorreo_Registro.Clear();
+                txtCorreo_Registro.Foreground = Brushes.Black;
+            }
+            /*miramos si los demas campos estan vacios*/
+            if (txtNombre_Registro.Text == "")
+            {
+                txtNombre_Registro.Text = "Nombre";
+                txtNombre_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtApellidos_Registro.Text == "")
+            {
+                txtApellidos_Registro.Text = "Apellidos";
+                txtApellidos_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtTelefono_Registro.Text == "")
+            {
+                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtContraseña_Registro.Text == "")
+            {
+                txtContraseña_Registro.Text = "Contraseña";
+                txtContraseña_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtRepiteContraseña_Registro.Text == "")
+            {
+                txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void txtContraseña_Registro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtContraseña_Registro.Foreground != Brushes.Black)
+            {
+                txtContraseña_Registro.Clear();
+                txtContraseña_Registro.Foreground = Brushes.Black;
+            }
+            /*miramos si los demas campos estan vacios*/
+            if (txtNombre_Registro.Text == "")
+            {
+                txtNombre_Registro.Text = "Nombre";
+                txtNombre_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtApellidos_Registro.Text == "")
+            {
+                txtApellidos_Registro.Text = "Apellidos";
+                txtApellidos_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtTelefono_Registro.Text == "")
+            {
+                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtCorreo_Registro.Text == "")
+            {
+                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtRepiteContraseña_Registro.Text == "")
+            {
+                txtRepiteContraseña_Registro.Text = "Repite contraseña";
+                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void txtRepiteContraseña_Registro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRepiteContraseña_Registro.Foreground != Brushes.Black)
+            {
+                txtRepiteContraseña_Registro.Clear();
+                txtRepiteContraseña_Registro.Foreground = Brushes.Black;
+            }
+            /*miramos si los demas campos estan vacios*/
+            if (txtNombre_Registro.Text == "")
+            {
+                txtNombre_Registro.Text = "Nombre";
+                txtNombre_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtApellidos_Registro.Text == "")
+            {
+                txtApellidos_Registro.Text = "Apellidos";
+                txtApellidos_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtTelefono_Registro.Text == "")
+            {
+                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtCorreo_Registro.Text == "")
+            {
+                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Foreground = Brushes.Gray;
+            }
+            if (txtContraseña_Registro.Text == "")
+            {
+                txtContraseña_Registro.Text = "Contraseña";
+                txtContraseña_Registro.Foreground = Brushes.Gray;
             }
         }
     }
