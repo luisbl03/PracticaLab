@@ -12,16 +12,21 @@
             <RowDefinition Height="84"/>
             <RowDefinition Height="495"/>
         </Grid.RowDefinitions>
-        
+
         <!--Grid parte superior-->
         <Grid>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="307*"/>
                 <ColumnDefinition Width="52*"/>
                 <ColumnDefinition Width="166*"/>
             </Grid.ColumnDefinitions>
 
+            <!--  Logo compania -->
+            <Image x:Name="Logo" HorizontalAlignment="Left"
+                Height="84"
+                VerticalAlignment="Center" 
+                Width="182"
+                Source="/Imagenes/images.png" Margin="10,0,0,0"/>
             <!-- Foto de perfil -->
             <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="1">
                 <Border.Clip>
@@ -71,15 +76,16 @@
             </Grid>
             <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Red" FontSize="8"/>
             <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
+
         </Grid>
-        
+
         <!--Grid parte inferior-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="260"/>
                 <ColumnDefinition Width="1020"/>
             </Grid.ColumnDefinitions>
-            
+
             <!--Primera mitad-->
             <Grid>
                 <Grid.RowDefinitions>
@@ -102,99 +108,99 @@
                     <ListBox x:Name="Lista_de_pacientes"/>
                 </Border>
             </Grid>
-            
+
             <!-- Segunda mitad-->
             <!-- GroupBox datos paciente-->
             <GroupBox Grid.Column="1" BorderBrush="blue" BorderThickness="3">
                 <GroupBox.Header >
 
                     <TextBlock Text="Datos Paciente" Foreground ="Black" FontWeight="Bold" FontSize="15"/>
-                    
+
                 </GroupBox.Header>
-          
+
 
                 <Grid Grid.Column="1">
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="165*"/>
-                </Grid.ColumnDefinitions>
 
-                <!-- Grid Datos Paciente-->
-                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70*"/>
+                        <ColumnDefinition Width="165*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <!-- Grid Rows-->
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30*"/>
-                        <RowDefinition Height="70*"/>
-                    </Grid.RowDefinitions>
-                    
-                    <!-- Imagen Paciente-->
-                    <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <!-- Grid Datos Paciente-->
+                    <Grid Grid.Column="0">
 
-                    <!-- Grid Datos Paciente -->
-                    <Grid Margin="0,140,0,-29" Grid.RowSpan="2">
+                        <!-- Grid Rows-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="70*"/>
+                        </Grid.RowDefinitions>
 
-                        <!-- Nombre -->
-                        <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Margin="10,10,236,320"/>
-                        <TextBox x:Name="txtNombre" 
+                        <!-- Imagen Paciente-->
+                        <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <!-- Grid Datos Paciente -->
+                        <Grid Margin="0,140,0,-29" Grid.RowSpan="2">
+
+                            <!-- Nombre -->
+                            <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Margin="10,10,236,320"/>
+                            <TextBox x:Name="txtNombre" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Nombre" 
                             VerticalAlignment="Top" 
                             Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,38,0,0"/>
 
-                        <!-- Apellidos -->
-                        <TextBlock Text="Apellidos" FontWeight="Bold" Grid.Column="0" Margin="162,10,64,322"/>
-                        <TextBox x:Name="txtApellidos" 
+                            <!-- Apellidos -->
+                            <TextBlock Text="Apellidos" FontWeight="Bold" Grid.Column="0" Margin="162,10,64,322"/>
+                            <TextBox x:Name="txtApellidos" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Apellidos" 
                             VerticalAlignment="Top" 
                             Width="132" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="162,38,0,0"/>
 
-                        <!-- DNI -->
-                        <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="10,80,257,245"/>
-                        <TextBox x:Name="txtDNI" 
+                            <!-- DNI -->
+                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="10,80,257,245"/>
+                            <TextBox x:Name="txtDNI" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="000000000A" 
                             VerticalAlignment="Top" 
                             Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
 
-                        <!-- Telefono -->
-                        <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,76,51,248"/>
-                        <TextBox x:Name="txtTelefono" 
+                            <!-- Telefono -->
+                            <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,76,51,248"/>
+                            <TextBox x:Name="txtTelefono" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="688 92 39 14" 
                             VerticalAlignment="Top" 
                             Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
 
-                        <!-- DIreccion -->
-                        <TextBlock Text="Direccion" FontWeight="Bold" Grid.Column="0" Margin="10,144,224,180"/>
-                        <TextBox x:Name="txtDireccion" 
+                            <!-- DIreccion -->
+                            <TextBlock Text="Direccion" FontWeight="Bold" Grid.Column="0" Margin="10,144,224,180"/>
+                            <TextBox x:Name="txtDireccion" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="calle extremadura nº 23" 
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="8,178,0,0"/>
 
-                        <!-- Codigo Postal -->
-                        <TextBlock Text="Codiogo Postal" FontWeight="Bold" Grid.Column="0" Margin="162,144,24,180"/>
-                        <TextBox x:Name="txtCodigoPostaly" 
+                            <!-- Codigo Postal -->
+                            <TextBlock Text="Codiogo Postal" FontWeight="Bold" Grid.Column="0" Margin="162,144,24,180"/>
+                            <TextBox x:Name="txtCodigoPostaly" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="13070" 
                             VerticalAlignment="Top" 
                             Width="46" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0" TextChanged="txtCodigoPostaly_TextChanged"/>
 
-                        <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,85" />
+                            <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,85" />
 
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                
+
 
                     <!-- Grid Informes y citas Grid.Column="2"-->
                     <Grid Grid.Column="2">
@@ -230,7 +236,8 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
-                </Grid> <!-- Grid segunda mitad-->
+                </Grid>
+                <!-- Grid segunda mitad-->
             </GroupBox>
 
         </Grid>
