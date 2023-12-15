@@ -115,7 +115,7 @@
                         Height="40"
                         Width="95"/>
                 <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,28" Grid.Row="1">
-                    <ListBox x:Name="Lista_de_pacientes"/>
+                    <ListBox x:Name="Lista_de_pacientes" SelectionChanged="Lista_de_pacientes_SelectionChanged"/>
                 </Border>
             </Grid>
 
@@ -157,6 +157,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Nombre" 
+                            IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,38,0,0"/>
 
@@ -166,6 +167,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Primer Apellido" 
+                            IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,38,0,0"/>
 
@@ -175,6 +177,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="000000000A" 
+                            IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
 
@@ -184,6 +187,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="688 92 39 14" 
+                            IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0"/>
 
@@ -193,20 +197,22 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="calle extremadura nº 23" 
+                            IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,178,0,0"/>
 
                             <!-- Segundo Apellido -->
                             <TextBlock FontWeight="Bold" Grid.Column="0" Margin="6,80,180,244"><Run Language="es-es" Text="Segundo Apellido"/></TextBlock>
                             <TextBox x:Name="txtApellido2" 
-                                HorizontalAlignment="Left" 
-                                TextWrapping="Wrap" 
-                                Text="Segundo Apellido" 
-                                VerticalAlignment="Top" 
-                                Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="Segundo Apellido" 
+                            IsReadOnly="True"
+                            VerticalAlignment="Top" 
+                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
                             
                             <!-- Boton de editar -->
-                            <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,85" />
+                            <Button Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Margin="114,233,117,85" />
                             
 
                         </Grid>

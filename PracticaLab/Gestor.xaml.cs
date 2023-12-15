@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml;
 
 namespace PracticaLab
@@ -13,6 +14,55 @@ namespace PracticaLab
         private void Gestor_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Verifica si hay un paciente seleccionado
+            if (Lista_de_pacientes.SelectedItem != null)
+            {
+                // Obtén el paciente seleccionado
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                // Muestra los detalles del paciente en el TextBox
+
+                // Muestra los detalles del paciente en los TextBox respectivos
+                txtNombre.Text = $"{pacienteSeleccionado.Nombre}";
+                txtApellido1.Text = $"{pacienteSeleccionado.Apellido1}";
+                txtApellido2.Text = $"{pacienteSeleccionado.Apellido2}";
+                txtDNI.Text = $"{pacienteSeleccionado.DNI}";
+                txtTelefono.Text = $"{pacienteSeleccionado.Telefono}";
+                txtDireccion.Text = $"{pacienteSeleccionado.Direccion}";
+            }
+
+        }
+
+        // Para saber que en estado esta el boton
+        private bool modo1 = true;
+        private void bnEdicion_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (modo1==true)
+            {
+                txtNombre.IsReadOnly = false;
+                txtApellido1.IsReadOnly = false;
+                txtApellido2.IsReadOnly = false;
+                txtDNI.IsReadOnly = false;
+                txtTelefono.IsReadOnly = false;
+                txtDireccion.IsReadOnly = false;
+                btn.Content = "Guardar";
+            }
+            else {
+                txtNombre.IsReadOnly = true;
+                txtApellido1.IsReadOnly = true;
+                txtApellido2.IsReadOnly = true;
+                txtDNI.IsReadOnly = true;
+                txtTelefono.IsReadOnly = true;
+                txtDireccion.IsReadOnly = true;
+                btn.Content = "Editar";
+            }
+
+           modo1 = !modo1;
+
         }
         public Gestor(Usuario u)
         {
