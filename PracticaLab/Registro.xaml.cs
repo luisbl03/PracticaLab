@@ -20,7 +20,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Registro : Window
     {
-        public List<Usuario> usuarios = new List<Usuario>();
+        public Usuario usuario;
         public Registro()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace PracticaLab
             Application.Current.Shutdown();
         }
 
-        private void escrbirFichero()
+        private void registrar()
         {
             /*miramos si el usuario ya existe*/
             List<Usuario> listUsuarios = cargarUsuarios();
@@ -76,7 +76,7 @@ namespace PracticaLab
             }
             else
             {
-                usuarios.Add(u);  
+                  
             }
         }
 
@@ -95,7 +95,7 @@ namespace PracticaLab
                 /*miramos si los campos de la contraseña son iguales*/
                 if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
                 {
-                    escrbirFichero();
+                    registrar();
                 }
                 else
                 {
@@ -313,7 +313,7 @@ namespace PracticaLab
             {
                 if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
                 {
-                    escrbirFichero();
+                    registrar();
                 }
             }
         }
