@@ -1,4 +1,6 @@
-﻿namespace PracticaLab
+﻿using System;
+
+namespace PracticaLab
 {
     public class Paciente
     {
@@ -8,10 +10,18 @@
         public string DNI { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
+        public DateTime? FechaCita { get; set; }
 
         public override string ToString()
         {
-            return $"{Nombre} {Apellido1} {Apellido2}";
+            string pacienteString = $"{Nombre} {Apellido1} {Apellido2}";
+
+            if (FechaCita.HasValue)
+            {
+                pacienteString += $" - Cita: {FechaCita.Value.ToString("dd/MM/yyyy HH:mm")}";
+            }
+
+            return pacienteString;
         }
     }
 }
