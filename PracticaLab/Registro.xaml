@@ -60,7 +60,7 @@
                 TextWrapping="Wrap" 
                 Text="Apellidos" 
                 VerticalAlignment="Center" 
-                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtApellidos_Registro_KeyDown"/>
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtApellidos_Registro_KeyDown" GotFocus="txtApellidos_Registro_GotFocus"/>
         <Image HorizontalAlignment="Center" 
                Height="18"  
                Grid.Row="3"
@@ -73,7 +73,7 @@
                 TextWrapping="Wrap" 
                 Text="Telefono" 
                 VerticalAlignment="Center" 
-                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtTelefono_Registro_KeyDown"/>
+                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtTelefono_Registro_KeyDown" GotFocus="txtTelefono_Registro_GotFocus"/>
         <Image HorizontalAlignment="Center" 
                Height="18"  
                Grid.Row="4"
@@ -86,7 +86,7 @@
                 TextWrapping="Wrap" 
                 Text="Correo Electronico" 
                 VerticalAlignment="Top" 
-                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtCorreo_Registro_KeyDown"/>
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtCorreo_Registro_KeyDown" GotFocus="txtCorreo_Registro_GotFocus"/>
         <Image HorizontalAlignment="Center" 
                 Height="18"  
                 Grid.Row="5"
@@ -99,7 +99,7 @@
                  TextWrapping="Wrap" 
                  Text="Contraseña" 
                  VerticalAlignment="Top" 
-                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtContraseña_Registro_KeyDown" />
+                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtContraseña_Registro_KeyDown" GotFocus="txtContraseña_Registro_GotFocus" />
         <Image HorizontalAlignment="Center" 
                  Height="18"  
                  Grid.Row="6"
@@ -112,7 +112,7 @@
             TextWrapping="Wrap" 
             Text="Repite la contraeña" 
             VerticalAlignment="Center" 
-            Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtRepiteContraseña_Registro_KeyDown"/>
+            Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtRepiteContraseña_Registro_KeyDown" GotFocus="txtRepiteContraseña_Registro_GotFocus"/>
         <CheckBox x:Name="chkBx_Terminos" Grid.Column="2" 
                   Content="Terminos y condiciones"
                   HorizontalAlignment="Left" 
