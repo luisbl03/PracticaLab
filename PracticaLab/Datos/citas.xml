@@ -1,0 +1,153 @@
+<Citas>
+    <Cita>
+        <Paciente>
+            <DNI>12345678A</DNI>
+            <Fecha>01/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>12456478Q</DNI>
+            <Fecha>02/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>23768998Z</DNI>
+            <Fecha>03/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>13246592F</DNI>
+            <Fecha>04/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>56789012E</DNI>
+            <Fecha>09/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>67890123F</DNI>
+            <Fecha>05/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>78901234G</DNI>
+            <Fecha>06/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>89012345H</DNI>
+            <Fecha>07/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>90123456I</DNI>
+            <Fecha>10/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>01234567J</DNI>
+            <Fecha>13/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>12345678K</DNI>
+            <Fecha>04/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>23456789L</DNI>
+            <Fecha>16/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>34567890M</DNI>
+            <Fecha>17/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+
+    <Cita>
+        <Paciente>
+            <DNI>45678901N</DNI>
+            <Fecha>18/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>56789012O</DNI>
+            <Fecha>19/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>78901234Q</DNI>
+            <Fecha>20/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>89012345R</DNI>
+            <Fecha>21/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>12345678U</DNI>
+            <Fecha>22/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>23456789V</DNI>
+            <Fecha>23/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>45678901X</DNI>
+            <Fecha>30/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>56789012Y</DNI>
+            <Fecha>27/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>34567890W</DNI>
+            <Fecha>29/12/2023 10:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>23456789B</DNI>
+            <Fecha>31/12/2023 12:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>34567890C</DNI>
+            <Fecha>10/12/2023 15:00</Fecha>
+        </Paciente>
+    </Cita>
+    <Cita>
+        <Paciente>
+            <DNI>45678901D</DNI>
+            <Fecha>22/12/2023 13:00</Fecha>
+        </Paciente>
+    </Cita>
+</Citas>
