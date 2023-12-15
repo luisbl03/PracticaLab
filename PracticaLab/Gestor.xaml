@@ -17,6 +17,7 @@
             <RowDefinition Height="495"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        
 
         <!--Grid parte superior-->
         <!--Fondo del Grid superior-->
@@ -46,7 +47,7 @@
 
             <!-- Detalles del perfil -->
             <Grid Grid.Column="2" Margin="5,5,5,15" >
-                <Rectangle Fill="LightYellow" RadiusX="5" RadiusY="5"/>
+                <Rectangle Fill="LightBlue" RadiusX="5" RadiusY="5" Margin="-12,0,0,0"/>
                 <!-- Fondo con color LightGray y esquinas redondeadas -->
 
                 <StackPanel>
@@ -82,10 +83,12 @@
                     </Grid>
                 </StackPanel>
             </Grid>
-            <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Red" FontSize="8"/>
-            <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
+            <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Black" FontSize="9"/>
+            <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="82,57,148,-1"  FontSize="9"/>
 
         </Grid>
+        <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
+        
         <!--Grid parte inferior-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -248,7 +251,7 @@
             </GroupBox>
 
         </Grid>
-
+       
 
     </Grid>
 </Window>
