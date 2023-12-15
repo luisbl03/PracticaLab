@@ -143,5 +143,8 @@
   <ItemGroup>
     <Resource Include="Datos\pacientes.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\citas.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
