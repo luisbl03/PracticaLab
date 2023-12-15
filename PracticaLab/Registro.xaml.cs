@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
@@ -61,8 +62,15 @@ namespace PracticaLab
             /*Miramos si el usuario ya esta dentro*/
             string[] apellidos = txtApellidos_Registro.Text.Split(' ');
             Usuario u = new Usuario(txtNombre_Registro.Text, apellidos[0], apellidos[1], long.Parse(txtTelefono_Registro.Text), txtCorreo_Registro.Text, txtContraseña_Registro.Text);
-            /*comprobamos si existe en la lista de usuarios*/
-            bool existe = listUsuarios.Contains(u);
+            /*miramos si en la lista de usuarios existe un usuario con ese correo*/
+            bool existe = false;
+            foreach (Usuario usuario in listUsuarios)
+            {
+                if (usuario.correo.Equals(u.correo))
+                {
+                    existe = true;
+                }
+            }
             if (existe)
             {
                 MessageBox.Show("El usuario ya existe");
@@ -76,7 +84,10 @@ namespace PracticaLab
             }
             else
             {
-                  
+                usuario = u;
+                Window gestor = new Gestor(u);
+                this.Hide();
+                gestor.Show();
             }
         }
 

@@ -84,7 +84,7 @@ namespace PracticaLab
                     if (usuario.contraseña == txtContraseña_IniciarSesion.Text)
                     {
                         /*si coinciden, abrimos la ventana de gestor*/
-                        Window gestor = new Gestor();
+                        Window gestor = new Gestor(usuario);
                         this.Hide();
                         gestor.Show();
                     }
@@ -153,7 +153,7 @@ namespace PracticaLab
                         if (usuario.contraseña == txtContraseña_IniciarSesion.Text)
                         {
                             /*si coinciden, abrimos la ventana de gestor*/
-                            Window gestor = new Gestor();
+                            Window gestor = new Gestor(usuario);
                             this.Hide();
                             gestor.Show();
                         }

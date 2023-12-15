@@ -8,15 +8,17 @@
         public partial class Gestor : Window
         {
             public List<Paciente> Pacientes { get; set; }
+            public Usuario usuario { get; set; }
             private void Gestor_Closing(object sender, System.ComponentModel.CancelEventArgs e)
             {
                 Application.Current.Shutdown();
             }
-        public Gestor()
+        public Gestor(Usuario u)
             {
                 InitializeComponent();
 
                 Pacientes = new List<Paciente>();
+                usuario = u;
 
                 try
                 {
