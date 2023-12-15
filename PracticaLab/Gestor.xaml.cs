@@ -59,9 +59,16 @@ namespace PracticaLab
                 txtTelefono.IsReadOnly = true;
                 txtDireccion.IsReadOnly = true;
                 btn.Content = "Editar";
+                // Guardar los cambios en el paciente (no se guarda en la persistencia)
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                pacienteSeleccionado.Nombre = txtNombre.Text;
+                pacienteSeleccionado.Apellido1 = txtApellido1.Text;
+                pacienteSeleccionado.Apellido2 = txtApellido2.Text;
+                pacienteSeleccionado.DNI = txtDNI.Text;
+                pacienteSeleccionado.Telefono = txtTelefono.Text;
+                pacienteSeleccionado.Direccion = txtDireccion.Text;
             }
-
-           modo1 = !modo1;
+            modo1 = !modo1;
 
         }
         public Gestor(Usuario u)

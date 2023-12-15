@@ -146,5 +146,11 @@
   <ItemGroup>
     <Resource Include="Datos\citas.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_doctores\doctorDefecto.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_pacientes\PacienteDefecto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

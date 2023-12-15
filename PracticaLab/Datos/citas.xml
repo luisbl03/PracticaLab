@@ -150,4 +150,16 @@
             <Fecha>22/12/2023 13:00</Fecha>
         </Paciente>
     </Cita>
+   <Cita>
+        <Paciente>
+            <DNI>12345678A</DNI>
+            <Fecha>5/12/2023 12:00</Fecha>
+        </Paciente>
+    </Cita>
+	<Cita>
+		<Paciente>
+			<DNI>12345678A</DNI>
+			<Fecha>5/12/2023 13:00</Fecha>
+		</Paciente>
+	</Cita>
 </Citas>
