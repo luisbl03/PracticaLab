@@ -70,6 +70,7 @@ namespace PracticaLab
 
                 Usuario usuario = listado.FirstOrDefault(u => u.correo == txtEmail_IniciarSesion.Text && u.contraseña == txtContraseña_IniciarSesion.Text);
 
+
                 if (usuario != null)
                 {
                     Window gestor = new Gestor();

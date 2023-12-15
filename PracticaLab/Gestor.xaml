@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Gestión Fisioterapia" Height="600" Width="1300">
+        Title="Gestión Fisioterapia" Height="620" Width="1300"  Closing="Gestor_Closing">
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="64*"/>
+            <RowDefinition Height="84"/>
+            <RowDefinition Height="495"/>
         </Grid.RowDefinitions>
         
         <!--Grid parte superior-->
@@ -72,11 +72,12 @@
             <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Red" FontSize="8"/>
             <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="71,57,159,-1"  FontSize="8"/>
         </Grid>
+        
         <!--Grid parte inferior-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20*"/>
-                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="1020"/>
             </Grid.ColumnDefinitions>
             
             <!--Primera mitad-->
@@ -103,7 +104,17 @@
             </Grid>
             
             <!-- Segunda mitad-->
-            <Grid Grid.Column="1">
+            <!-- GroupBox datos paciente-->
+            <GroupBox Grid.Column="1" BorderBrush="blue" BorderThickness="3">
+                <GroupBox.Header >
+
+                    <TextBlock Text="Datos Paciente" Foreground ="Black" FontWeight="Bold" FontSize="15"/>
+                    
+                </GroupBox.Header>
+          
+
+                <Grid Grid.Column="1">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="70*"/>
                     <ColumnDefinition Width="165*"/>
@@ -122,7 +133,7 @@
                     <Image Source="/Imagenes/Imagenes_doctores/pedro sanchez.jpg" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                     <!-- Grid Datos Paciente -->
-                    <Grid Grid.Row="1">
+                    <Grid Margin="0,140,0,-29" Grid.RowSpan="2">
 
                         <!-- Nombre -->
                         <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Margin="10,10,236,320"/>
@@ -140,7 +151,7 @@
                             TextWrapping="Wrap" 
                             Text="Apellidos" 
                             VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="162,38,0,0"/>
+                            Width="132" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="162,38,0,0"/>
 
                         <!-- DNI -->
                         <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="10,80,257,245"/>
@@ -178,46 +189,50 @@
                             VerticalAlignment="Top" 
                             Width="46" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0" TextChanged="txtCodigoPostaly_TextChanged"/>
 
-                        <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,84" />
+                        <Button Content="Editar" BorderBrush="Black" BorderThickness="2" Margin="114,233,117,85" />
 
                     </Grid>
                 </Grid>
-                
-                <!-- Grid Informes y citas-->
-                <Grid Grid.Column="2">
-                    
-                    <!-- Grid Column-->
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <!-- Grid Row-->
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                    </Grid.RowDefinitions>
-                    <!--Grid Informes-->
-                    <ListView x:Name="listViewInformes">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="ID Informe" Width="120" DisplayMemberBinding="{Binding IdInforme}" />
-                                <GridViewColumn Header="Fecha Informe" Width="120" DisplayMemberBinding="{Binding FechaInforme}" />
-                                <GridViewColumn Header="Descripción" Width="280" DisplayMemberBinding="{Binding Descripcion}" />
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
 
-                    <!--Grid Citas-->
-                    <DataGrid x:Name="dataGridCitas" AutoGenerateColumns="False" Grid.Row="1">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding NombrePaciente}" />
-                            <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding FechaCita}" />
-                            <DataGridTextColumn Header="Hora de la Cita" Binding="{Binding HoraCita}" />
-                            <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </Grid>
+                
+
+                    <!-- Grid Informes y citas Grid.Column="2"-->
+                    <Grid Grid.Column="2">
+
+                        <!-- Grid Column-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Grid Row-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                        </Grid.RowDefinitions>
+                        <!--Grid Informes-->
+                        <ListView x:Name="listViewInformes" d:ItemsSource="{d:SampleData ItemCount=5}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ID Informe" Width="120" DisplayMemberBinding="{Binding IdInforme}" />
+                                    <GridViewColumn Header="Fecha Informe" Width="120" DisplayMemberBinding="{Binding FechaInforme}" />
+                                    <GridViewColumn Header="Descripción" Width="280" DisplayMemberBinding="{Binding Descripcion}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <!--Grid Citas-->
+                        <DataGrid x:Name="dataGridCitas" AutoGenerateColumns="False" Grid.Row="1">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding NombrePaciente}" />
+                                <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding FechaCita}" />
+                                <DataGridTextColumn Header="Hora de la Cita" Binding="{Binding HoraCita}" />
+                                <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid> <!-- Grid segunda mitad-->
+            </GroupBox>
+
         </Grid>
 
 

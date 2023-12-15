@@ -8,8 +8,11 @@
         public partial class Gestor : Window
         {
             public List<Paciente> Pacientes { get; set; }
-
-            public Gestor()
+            private void Gestor_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+            {
+                Application.Current.Shutdown();
+            }
+        public Gestor()
             {
                 InitializeComponent();
 
@@ -17,14 +20,15 @@
 
                 try
                 {
-                    // Ruta al archivo pacientes.xml
-                    string rutaArchivo = "C:\\Users\\jcc20\\source\\repos\\luideoz\\PracticaLab\\PracticaLab\\Datos\\pacientes.xml"; // Poned vuestra ruta
 
                     // Crear un objeto XmlDocument
                     XmlDocument xmlDoc = new XmlDocument();
-
+                    
+                    //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                    var fichero = Application.GetResourceStream(new Uri("Datos/pacientes.xml", UriKind.Relative));
+                  
                     // Cargar el documento XML desde el archivo
-                    xmlDoc.Load(rutaArchivo);
+                    xmlDoc.Load(fichero.Stream);
 
                     // Obtener la lista de nodos de pacientes
                     XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
