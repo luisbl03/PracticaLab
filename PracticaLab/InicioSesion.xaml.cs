@@ -104,25 +104,19 @@ namespace PracticaLab
         {
             txtEmail_IniciarSesion.Clear();
             txtEmail_IniciarSesion.Foreground = Brushes.Black;
-            if (txtContraseña_IniciarSesion.Text == "")
+            if (passInicioSesion.Password == "")
             {
-                txtContraseña_IniciarSesion.Text = "contraseña";
-                txtContraseña_IniciarSesion.Foreground = Brushes.Gray;
-
+                passInicioSesion.Visibility = Visibility.Hidden;
+                txtContraseña_IniciarSesion.Visibility = Visibility.Visible;
             }
         }
 
         private void txtEmail_IniciarSesion_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return) {
-                txtContraseña_IniciarSesion.Clear();
-                txtContraseña_IniciarSesion.Foreground = Brushes.Black;
-                txtContraseña_IniciarSesion.Focus();
-                if (txtEmail_IniciarSesion.Text == "")
-                {
-                    txtEmail_IniciarSesion.Text = "e.mail";
-                    txtEmail_IniciarSesion.Foreground = Brushes.Gray;
-                }
+                txtContraseña_IniciarSesion.Visibility = Visibility.Hidden;
+                passInicioSesion.Visibility = Visibility.Visible;
+                passInicioSesion.Focus();
             }
             
         }
@@ -171,8 +165,9 @@ namespace PracticaLab
         }
         private void txtContraseña_IniciarSesion_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtContraseña_IniciarSesion.Clear();
-            txtContraseña_IniciarSesion.Foreground = Brushes.Black;
+            txtContraseña_IniciarSesion.Visibility = Visibility.Hidden;
+            passInicioSesion.Visibility = Visibility.Visible;
+            passInicioSesion.Focus();
             if (txtEmail_IniciarSesion.Text == "")
             {
                 txtEmail_IniciarSesion.Text = "e-mail";

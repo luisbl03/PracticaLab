@@ -68,6 +68,17 @@
             VerticalAlignment="Top" 
             Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"
             Margin="20,63,0,0" Grid.Column="2" Grid.ColumnSpan="2" KeyDown="txtContraseña_IniciarSesion_KeyDown" GotFocus="txtContraseña_IniciarSesion_GotFocus"/>
+        <PasswordBox x:Name="passInicioSesion"
+                        HorizontalAlignment="Left"
+                        Grid.Row="2"
+                        VerticalAlignment="Top"
+                        Width="84"
+                        Height="18"
+                        Margin="20,63,0,0"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        PasswordChar="*"
+                        Visibility="Hidden"/>
         <Image x:Name="Candado" Grid.Column="1"
             HorizontalAlignment="Left"
             Height="18"
