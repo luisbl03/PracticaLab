@@ -147,15 +147,15 @@ namespace PracticaLab
                 txtCorreo_Registro.Text = "Correo";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
-            if (txtContraseña_Registro.Text == "")
+            if (passRegistro.Password == "" && passRegistro.IsVisible)
             {
-                txtContraseña_Registro.Text = "Contraseña";
-                txtContraseña_Registro.Foreground = Brushes.Gray;
+                passRegistro.Visibility = Visibility.Hidden;
+                txtContraseña_Registro.Visibility = Visibility.Visible;
             }
-            if (txtRepiteContraseña_Registro.Text == "")
+            if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
             {
-                txtRepiteContraseña_Registro.Text = "Repite contraseña";
-                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                passRepite_contrasena.Visibility = Visibility.Hidden;
+                txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
             }
             
         }

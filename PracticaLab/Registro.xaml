@@ -100,6 +100,13 @@
                  Text="Contraseña" 
                  VerticalAlignment="Top" 
                  Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtContraseña_Registro_KeyDown" GotFocus="txtContraseña_Registro_GotFocus" />
+        <PasswordBox x:Name="passRegistro" Grid.Column="2"
+                     HorizontalAlignment="Left"
+                     Grid.Row="6"
+                     PasswordChar="*"
+                     VerticalAlignment="Top"
+                     Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0"
+                     Visibility="Hidden"/>
         <Image HorizontalAlignment="Center" 
                  Height="18"  
                  Grid.Row="6"
@@ -113,6 +120,13 @@
             Text="Repite la contraeña" 
             VerticalAlignment="Center" 
             Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtRepiteContraseña_Registro_KeyDown" GotFocus="txtRepiteContraseña_Registro_GotFocus"/>
+        <PasswordBox x:Name="passRepite_contrasena"  Grid.Column="2"
+                     HorizontalAlignment="Left"
+                     Grid.Row="7"
+                     PasswordChar="*"
+                     Visibility="Hidden"
+                     VerticalAlignment="Center"
+                     Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0"/>
         <CheckBox x:Name="chkBx_Terminos" Grid.Column="2" 
                   Content="Terminos y condiciones"
                   HorizontalAlignment="Left" 
