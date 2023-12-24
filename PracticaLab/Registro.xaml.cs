@@ -313,56 +313,6 @@ namespace PracticaLab
             }
         }
 
-        private void txtRepiteContraseña_Registro_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
-                {
-                    registrar();
-                }
-            }
-        }
-
-        private void txtContraseña_Registro_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key== Key.Enter)
-            {
-                txtRepiteContraseña_Registro.Focus();
-                if (txtRepiteContraseña_Registro.Foreground != Brushes.Black)
-                {
-                    txtRepiteContraseña_Registro.Clear();
-                    txtRepiteContraseña_Registro.Foreground = Brushes.Black;
-                }
-                /*miramos si los campos estan vacios*/
-                if (txtNombre_Registro.Text == "")
-                {
-                    txtNombre_Registro.Text = "Nombre";
-                    txtNombre_Registro.Foreground = Brushes.Gray;
-                }
-                if (txtApellidos_Registro.Text == "")
-                {
-                    txtApellidos_Registro.Text = "Apellidos";
-                    txtApellidos_Registro.Foreground = Brushes.Gray;
-                }
-                if (txtTelefono_Registro.Text == "")
-                {
-                    txtTelefono_Registro.Text = "Telefono";
-                    txtTelefono_Registro.Foreground = Brushes.Gray;
-                }
-                if (txtCorreo_Registro.Text == "")
-                {
-                    txtCorreo_Registro.Text = "Correo";
-                    txtCorreo_Registro.Foreground = Brushes.Gray;
-                }
-                if (txtContraseña_Registro.Text == "")
-                {
-                    txtContraseña_Registro.Text = "Contraseña";
-                    txtContraseña_Registro.Foreground = Brushes.Gray;
-                }
-            }
-        }
-
         private void txtApellidos_Registro_GotFocus(object sender, RoutedEventArgs e)
         {
             /*limpiamos el campo, ponemos el texto en negro y si los demas estan vacios, ponemos su color en gris y ponemos como texto su tipo*/
@@ -387,15 +337,15 @@ namespace PracticaLab
                 txtCorreo_Registro.Text = "Correo";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
-            if (txtContraseña_Registro.Text == "")
+            if (passRegistro.Password == "" && passRegistro.IsVisible)
             {
-                txtContraseña_Registro.Text = "Contraseña";
-                txtContraseña_Registro.Foreground = Brushes.Gray;
+                passRegistro.Visibility = Visibility.Hidden;
+                txtContraseña_Registro.Visibility = Visibility.Visible;
             }
-            if (txtRepiteContraseña_Registro.Text == "")
+            if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
             {
-                txtRepiteContraseña_Registro.Text = "Repite contraseña";
-                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                passRepite_contrasena.Visibility = Visibility.Hidden;
+                txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
             }
         }
 
@@ -422,15 +372,15 @@ namespace PracticaLab
                 txtCorreo_Registro.Text = "Correo";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
-            if (txtContraseña_Registro.Text == "")
+            if (passRegistro.Password == "" && passRegistro.IsVisible)
             {
-                txtContraseña_Registro.Text = "Contraseña";
-                txtContraseña_Registro.Foreground = Brushes.Gray;
+                passRegistro.Visibility = Visibility.Hidden;
+                txtContraseña_Registro.Visibility = Visibility.Visible;
             }
-            if (txtRepiteContraseña_Registro.Text == "")
+            if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
             {
-                txtRepiteContraseña_Registro.Text = "Repite contraseña";
-                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                passRepite_contrasena.Visibility = Visibility.Hidden;
+                txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
             }
         }
 
@@ -457,25 +407,23 @@ namespace PracticaLab
                 txtTelefono_Registro.Text = "Telefono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
-            if (txtContraseña_Registro.Text == "")
+            if (passRegistro.Password == "" && passRegistro.IsVisible)
             {
-                txtContraseña_Registro.Text = "Contraseña";
-                txtContraseña_Registro.Foreground = Brushes.Gray;
+                passRegistro.Visibility = Visibility.Hidden;
+                txtContraseña_Registro.Visibility = Visibility.Visible;
             }
-            if (txtRepiteContraseña_Registro.Text == "")
+            if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
             {
-                txtRepiteContraseña_Registro.Text = "Repite contraseña";
-                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                passRepite_contrasena.Visibility = Visibility.Hidden;
+                txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
             }
         }
 
         private void txtContraseña_Registro_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtContraseña_Registro.Foreground != Brushes.Black)
-            {
-                txtContraseña_Registro.Clear();
-                txtContraseña_Registro.Foreground = Brushes.Black;
-            }
+            txtContraseña_Registro.Visibility = Visibility.Hidden;
+            passRegistro.Visibility = Visibility.Visible;
+            passRegistro.Focus();
             /*miramos si los demas campos estan vacios*/
             if (txtNombre_Registro.Text == "")
             {
@@ -497,20 +445,18 @@ namespace PracticaLab
                 txtCorreo_Registro.Text = "Correo";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
-            if (txtRepiteContraseña_Registro.Text == "")
+            if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
             {
-                txtRepiteContraseña_Registro.Text = "Repite contraseña";
-                txtRepiteContraseña_Registro.Foreground = Brushes.Gray;
+                passRepite_contrasena.Visibility = Visibility.Hidden;
+                txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
             }
         }
 
         private void txtRepiteContraseña_Registro_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtRepiteContraseña_Registro.Foreground != Brushes.Black)
-            {
-                txtRepiteContraseña_Registro.Clear();
-                txtRepiteContraseña_Registro.Foreground = Brushes.Black;
-            }
+            txtRepiteContraseña_Registro.Visibility = Visibility.Hidden;
+            passRepite_contrasena.Visibility = Visibility.Visible;
+            passRepite_contrasena.Focus();
             /*miramos si los demas campos estan vacios*/
             if (txtNombre_Registro.Text == "")
             {
@@ -532,10 +478,58 @@ namespace PracticaLab
                 txtCorreo_Registro.Text = "Correo";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
-            if (txtContraseña_Registro.Text == "")
+            if (passRegistro.Password == "" && passRegistro.IsVisible)
             {
-                txtContraseña_Registro.Text = "Contraseña";
-                txtContraseña_Registro.Foreground = Brushes.Gray;
+                passRegistro.Visibility = Visibility.Hidden;
+                txtContraseña_Registro.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void passRepite_contrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                {
+                    registrar();
+                }
+            }
+        }
+
+        private void passRegistro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtRepiteContraseña_Registro.Visibility = Visibility.Hidden;
+                passRepite_contrasena.Visibility = Visibility.Visible;
+                passRepite_contrasena.Focus();
+
+                /*miramos si los campos estan vacios*/
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.Text = "Nombre";
+                    txtNombre_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.Text = "Apellidos";
+                    txtApellidos_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Foreground = Brushes.Gray;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Foreground = Brushes.Gray;
+                }
+                if (passRegistro.Password == "" && passRegistro.IsVisible)
+                {
+                    passRegistro.Visibility = Visibility.Hidden;
+                    txtContraseña_Registro.Visibility = Visibility.Visible;
+                }
             }
         }
     }
