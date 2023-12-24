@@ -47,7 +47,7 @@
                  TextWrapping="Wrap" 
                  Text="Nombre" 
                  VerticalAlignment="Top" 
-                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="18,5,0,0" GotFocus="txtNombre_Registro_GotFocus" KeyDown="txtNombre_Registro_KeyDown"/>
+                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" GotFocus="txtNombre_Registro_GotFocus" KeyDown="txtNombre_Registro_KeyDown"/>
         <Image HorizontalAlignment="Center" 
                Height="18"  
                Grid.Row="2"

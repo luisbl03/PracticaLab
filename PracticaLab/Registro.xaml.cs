@@ -119,7 +119,51 @@ namespace PracticaLab
             }
             else
             {
-                MessageBox.Show("Faltan campos");
+                /*vamos a marcar en rojo los campos que faltan*/;
+                if (txtNombre_Registro.Text == "")
+                {
+                    txtNombre_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtNombre_Registro.Text.Equals("Nombre"))
+                {
+                    txtNombre_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtApellidos_Registro.Text == "")
+                {
+                    txtApellidos_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtApellidos_Registro.Text.Equals("Apellidos"))
+                {
+                    txtApellidos_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtTelefono_Registro.Text == "")
+                {
+                    txtTelefono_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtTelefono_Registro.Text.Equals("Telefono"))
+                {
+                    txtTelefono_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtCorreo_Registro.Text == "")
+                {
+                    txtCorreo_Registro.BorderBrush = Brushes.Red;
+                }
+                if (txtCorreo_Registro.Text.Equals("Correo"))
+                {
+                    txtCorreo_Registro.BorderBrush = Brushes.Red;
+                }
+                if (passRegistro.Password == "")
+                {
+                    passRegistro.Visibility = Visibility.Hidden;
+                    txtContraseña_Registro.Visibility = Visibility.Visible;
+                    txtContraseña_Registro.BorderBrush = Brushes.Red;
+                }
+                if (passRepite_contrasena.Password == "")
+                {
+                    passRepite_contrasena.Visibility = Visibility.Hidden;
+                    txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
+                    txtRepiteContraseña_Registro.BorderBrush = Brushes.Red;
+                }
             }
         }
 
