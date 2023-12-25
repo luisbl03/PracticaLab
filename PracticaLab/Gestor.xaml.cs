@@ -15,7 +15,15 @@ namespace PracticaLab
         {
             Application.Current.Shutdown();
         }
-
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            // Ajustar dinámicamente el ancho de la segunda columna en proporción
+            double nw_gridAbajoMitadInf = e.NewSize.Width * 0.78;
+            double nh_gridAbajoMitadInf = e.NewSize.Height * 0.78;
+            // Establecer la nueva anchura
+            gridInferior.ColumnDefinitions[1].Width = new GridLength(nw_gridAbajoMitadInf);
+            gridPrincipal.RowDefinitions[1].Height = new GridLength(nh_gridAbajoMitadInf);
+        }
         //hay un paciente selecionado
         private bool seleccionado = false;
         private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)

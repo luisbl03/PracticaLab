@@ -9,13 +9,13 @@
         Height="620" Width="1300"  
         Closing="Gestor_Closing"
         Background="WhiteSmoke"
+        SizeChanged="MainWindow_SizeChanged"
         >
-    <Grid>
+    <Grid x:Name="gridPrincipal">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="84"/>
-            <RowDefinition Height="495"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="495*"/>
         </Grid.RowDefinitions>
 
 
@@ -61,25 +61,25 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="75*"/>
                             <!-- Columna 1 -->
-                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="120*"/>
                             <!-- Columna 2 -->
-                            <ColumnDefinition Width="12*"/>
-                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="81*"/>
+                            <ColumnDefinition Width="125*"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0"/>
-                        <TextBlock Text="{Binding nombre}" Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
+                        <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0" Margin="0,0,0,21" Grid.RowSpan="2"/>
+                        <TextBlock Text="{Binding nombre}" Margin="75,0,0,5" Grid.Row="0" Grid.ColumnSpan="2"/>
 
                         <TextBlock Text="Apellidos:" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
-                        <TextBlock Text="{Binding apellidos}" Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" />
+                        <TextBlock Text="{Binding apellidos}" Margin="75,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" />
 
                         <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
-                        <TextBlock Text="{Binding correo}" Margin="5,0,-5,5" Grid.Column="3"/>
+                        <TextBlock Text="{Binding correo}" Margin="5,0,10,5" Grid.Column="3"/>
 
-                        <TextBlock Text="Telefono:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
-                        <TextBlock Text="{Binding numTelefono, StringFormat='000000000'}" Grid.Column="3" Grid.Row="1" Margin="5,0,-5,0"/>
+                        <TextBlock Text="Teléfono:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
+                        <TextBlock Text="{Binding numTelefono, StringFormat='000000000'}" Grid.Column="3" Grid.Row="1" Margin="5,0,10,0"/>
                     </Grid>
                 </StackPanel>
             </Grid>
@@ -90,7 +90,7 @@
         <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
 
         <!--Grid parte inferior-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"  x:Name="gridInferior">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="260"/>
                 <ColumnDefinition Width="1020"/>
@@ -147,73 +147,87 @@
 
                         <!-- Imagen Paciente-->
                         <Image Source="/Imagenes/Imagenes_pacientes/PacienteDefecto.png" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
+                        
                         <!-- Grid Datos Paciente -->
-                        <Grid Margin="0,140,0,-29" Grid.RowSpan="2">
-
+                        <Grid  Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="8*"/>
+                                <RowDefinition Height="10*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="50*"/>
+                            </Grid.ColumnDefinitions>
                             <!-- Nombre -->
-                            <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Margin="10,10,236,320"/>
-                            <TextBox x:Name="txtNombre" 
+                            <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
+                            <TextBox x:Name="txtNombre"  Grid.Column="0" Grid.Row="1"
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Nombre" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,38,0,0"/>
+                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
 
-                            <!-- Apellidos -->
-                            <TextBlock FontWeight="Bold" Grid.Column="0" Margin="164,10,36,322"><Run Language="es-es" Text="Primer Apellido"/></TextBlock>
-                            <TextBox x:Name="txtApellido1" 
+                            <!--Primer Apellido -->
+                            <TextBlock FontWeight="Bold" Grid.Column="1" Grid.Row="0" Text="Primer Apellido"/>
+                            <TextBox x:Name="txtApellido1"  Grid.Column="1" Grid.Row="1"
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Primer Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,38,0,0"/>
-
-                            <!-- DNI -->
-                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="0" Margin="164,80,103,245"/>
-                            <TextBox x:Name="txtDNI" 
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="000000000A" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,110,0,0"/>
-
-                            <!-- Telefono -->
-                            <TextBlock Text="Telefono" FontWeight="Bold" Grid.Column="0" Margin="164,144,51,179"/>
-                            <TextBox x:Name="txtTelefono" 
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="000000000" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="164,178,0,0"/>
-
-                            <!-- DIreccion -->
-                            <TextBlock Text="Direccion" FontWeight="Bold" Grid.Column="0" Margin="10,144,224,180"/>
-                            <TextBox x:Name="txtDireccion" 
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="calle x" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,178,0,0"/>
+                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
 
                             <!-- Segundo Apellido -->
-                            <TextBlock FontWeight="Bold" Grid.Column="0" Margin="6,80,180,244"><Run Language="es-es" Text="Segundo Apellido"/></TextBlock>
-                            <TextBox x:Name="txtApellido2" 
+                            <TextBlock FontWeight="Bold" Grid.Column="0" Grid.Row="2" Text="Segundo Apellido"/>
+                            <TextBox x:Name="txtApellido2" Grid.Column="0" Grid.Row="3"
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Segundo Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="10,110,0,0"/>
+                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
                             
+                            <!-- DNI -->
+                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
+                            <TextBox x:Name="txtDNI"  Grid.Column="1" Grid.Row="3"
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="000000000A" 
+                            IsReadOnly="True"
+                            VerticalAlignment="Top" 
+                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+
+                            <!-- Telefono -->
+                            <TextBlock Text="Teléfono" FontWeight="Bold" Grid.Column="0" Grid.Row="4"/>
+                            <TextBox x:Name="txtTelefono" Grid.Column="0" Grid.Row="5"
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="000000000" 
+                            IsReadOnly="True"
+                            VerticalAlignment="Top" 
+                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+
+                            <!-- Direccion -->
+                            <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
+                            <TextBox x:Name="txtDireccion" Grid.Column="1" Grid.Row="5"
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="calle x" 
+                            IsReadOnly="True"
+                            VerticalAlignment="Top" 
+                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
+
                             <!-- Boton de editar -->
-                            <Button Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Margin="114,233,117,85" />
-                            
+                            <Button Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
+                                    Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
+
 
                         </Grid>
                     </Grid>
