@@ -20,22 +20,21 @@
 
 
         <!--Grid parte superior-->
+        
         <!--Fondo del Grid superior-->
-        <Border Grid.Row="0" Grid.Column="1" Background="White">
-        </Border>
-        <Grid>
+        <Border Grid.Row="0" Grid.Column="1" Background="White"/>
+
+        <Grid x:Name="gridSuperior">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="307*"/>
-                <ColumnDefinition Width="52*"/>
+                <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="166*"/>
             </Grid.ColumnDefinitions>
-
+        
             <!--  Logo compania -->
-            <Image x:Name="Logo" HorizontalAlignment="Left"
-                Height="84"
-                VerticalAlignment="Center" 
-                Width="182"
-                Source="/Imagenes/images.png" Margin="10,0,0,0"/>
+            <Image x:Name="Logo" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Margin="10,0,0,0"
+                Source="/Imagenes/images.png"/>
             <!-- Foto de perfil -->
             <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="1">
                 <Border.Clip>
@@ -44,47 +43,43 @@
                 <Image Source="/Imagenes/Imagenes_doctores/doctorDefecto.jpeg" Margin="-40,-2,-1,-3"/>
             </Border>
 
-
             <!-- Detalles del perfil -->
-            <Grid Grid.Column="2" Margin="5,5,5,15" >
-                <Rectangle Fill="LightBlue" RadiusX="5" RadiusY="5" Margin="-12,0,0,0"/>
-                <!-- Fondo con color LightGray y esquinas redondeadas -->
 
-                <StackPanel>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <!-- Fila 1 -->
-                            <RowDefinition Height="Auto"/>
-                            <!-- Fila 2 -->
+            <!-- Fondo con color Perfil -->
+            <Rectangle x:Name="perfilRectangle" Fill="LightBlue" RadiusX="5" RadiusY="5" Grid.Column="2" Width="420" Height="80"/>
 
-                        </Grid.RowDefinitions>
+            <Grid Grid.Column="2" Width="400" Height="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="20*"/>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75*"/>
-                            <!-- Columna 1 -->
-                            <ColumnDefinition Width="120*"/>
-                            <!-- Columna 2 -->
-                            <ColumnDefinition Width="81*"/>
-                            <ColumnDefinition Width="125*"/>
-                        </Grid.ColumnDefinitions>
+                </Grid.RowDefinitions>
 
-                        <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0" Margin="0,0,0,21" Grid.RowSpan="2"/>
-                        <TextBlock Text="{Binding nombre}" Margin="75,0,0,5" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="120*"/>
+                    <ColumnDefinition Width="81*"/>
+                    <ColumnDefinition Width="125*"/>
+                </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Apellidos:" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
-                        <TextBlock Text="{Binding apellidos}" Margin="75,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" />
+                <TextBlock Text="Nombre:" FontWeight="Bold" Grid.Column="0" Margin="0,0,0,21" Grid.RowSpan="2"/>
+                <TextBlock Text="{Binding nombre}" Margin="75,0,0,5" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
-                        <TextBlock Text="{Binding correo}" Margin="5,0,10,5" Grid.Column="3"/>
+                <TextBlock Text="Apellidos:" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
+                <TextBlock Text="{Binding apellidos}" Margin="75,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" />
 
-                        <TextBlock Text="Teléfono:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="7,0,78,0"/>
-                        <TextBlock Text="{Binding numTelefono, StringFormat='000000000'}" Grid.Column="3" Grid.Row="1" Margin="5,0,10,0"/>
-                    </Grid>
-                </StackPanel>
+                <TextBlock Text="Correo:" FontWeight="Bold" Grid.Column="2" Margin="16,0,0,16" Grid.RowSpan="2"/>
+                <TextBlock Text="{Binding correo}" Margin="5,0,0,21" Grid.Column="3" Grid.RowSpan="2"/>
+
+                <TextBlock Text="Teléfono:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Margin="7,0,10,0"/>
+                <TextBlock Text="{Binding numTelefono, StringFormat='000000000'}" Grid.Column="3" Grid.Row="1" Margin="5,0,0,0"/>
+
+                <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="0" Grid.Row="2"  Foreground="Black" FontSize="9"/>
+                <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="1" Grid.Row="2"  FontSize="9"/>
             </Grid>
-            <TextBlock Text="Ultima conexión:" FontWeight="Bold" Grid.Column="2" Margin="5,57,261,-1" Foreground="Black" FontSize="9"/>
-            <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="2" Margin="82,57,148,-1"  FontSize="9"/>
+
+            
 
         </Grid>
         <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
@@ -147,7 +142,7 @@
 
                         <!-- Imagen Paciente-->
                         <Image Source="/Imagenes/Imagenes_pacientes/PacienteDefecto.png" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        
+
                         <!-- Grid Datos Paciente -->
                         <Grid  Grid.Row="1">
                             <Grid.RowDefinitions>
@@ -193,7 +188,7 @@
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-                            
+
                             <!-- DNI -->
                             <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
                             <TextBox x:Name="txtDNI"  Grid.Column="1" Grid.Row="3"
