@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,12 +42,12 @@ namespace PracticaLab
             {
                 if (textBox.Text == textoPredeterminado)
                 {
-                    textBox.Text = string.Empty; // Borra el texto predeterminado
-                    textBox.Foreground = Brushes.Black; // Cambia el color del texto
+                    textBox.Text = string.Empty;
+                    textBox.Foreground = Brushes.Black; 
                 }
             };
 
-            // Evento LostFocus: se dispara cuando el TextBox pierde el foco
+            // Evento LostFocus: se activa cuando no tenemos clickado el textBox
             textBox.LostFocus += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
@@ -55,6 +57,25 @@ namespace PracticaLab
                     textBox.Foreground = Brushes.LightGray;
                 }
             };
+        }
+
+        private void btnSubirArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|Archivos PDF (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+            openFileDialog.Title = "Seleccione un archivo";
+            openFileDialog.Multiselect = false;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string archivoSeleccionado = openFileDialog.FileName;
+                txtRutaArchivo.Text = archivoSeleccionado;
+
+                string nombreArchivo = System.IO.Path.GetFileName(archivoSeleccionado);
+                txtMensajeConfirmacion.Text = $"Se ha adjuntado '{nombreArchivo}' como prueba.";
+                txtMensajeConfirmacion.Visibility = Visibility.Visible;
+
+            }
         }
     }
 }
