@@ -7,9 +7,10 @@
       mc:Ignorable="d" 
       Background="WhiteSmoke"
       d:DesignHeight="450" d:DesignWidth="1300"
-      Title="PaginaPaciente">
+      Title="PaginaPaciente"
+      SizeChanged="PaginaPacientes_SizeChanged">
 
-    <Grid>
+    <Grid x:Name="GridPacientes">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="1020"/>

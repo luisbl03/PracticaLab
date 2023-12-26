@@ -16,14 +16,7 @@ namespace PracticaLab
         }
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            // Ajustar dinámicamente el ancho y alto de pacientes
-
-            double nw_gridAbajoMitadInf = e.NewSize.Width * 0.78;
-            double nh_gridAbajoMitadInf = e.NewSize.Height * 0.78;
-
-            //gridInferior.ColumnDefinitions[1].Width = new GridLength(nw_gridAbajoMitadInf);
-            //gridPrincipal.RowDefinitions[1].Height = new GridLength(nh_gridAbajoMitadInf);
-
+            
             // Ajuste dinamico parte superior
             double nh_gridSup = e.NewSize.Height * 0.15;
             //gridPrincipal.RowDefinitions[0].Height = new GridLength(nh_gridSup);
@@ -31,8 +24,8 @@ namespace PracticaLab
             double nuevoAncho = e.NewSize.Width * 0.32;
             double nuevaAltura = e.NewSize.Height * 0.14;
 
-            //perfilRectangle.Width = nuevoAncho;
-            //perfilRectangle.Height = nuevaAltura;
+            perfilRectangle.Width = nuevoAncho;
+            perfilRectangle.Height = nuevaAltura;
 
         }
        

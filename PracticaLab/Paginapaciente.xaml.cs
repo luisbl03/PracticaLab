@@ -22,6 +22,17 @@ namespace PracticaLab
     /// </summary>
     public partial class Page2 : Page
     {
+        private void PaginaPacientes_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+            // Ajustar dinámicamente el ancho y alto de pacientes
+
+            double nw_gridAbajoMitadInf = e.NewSize.Width * 0.79;
+
+            GridPacientes.ColumnDefinitions[1].Width = new GridLength(nw_gridAbajoMitadInf);
+
+            
+        }
         public List<Paciente> Pacientes { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
