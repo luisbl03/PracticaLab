@@ -23,6 +23,11 @@
         
         <!--Fondo del Grid superior-->
         <Border Grid.Row="0" Grid.Column="1" Background="White"/>
+        
+        <!--Boton pacientes-->
+        <Button Content="Pacientes" Margin="282,29,857,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Pacientes"/>
+        <!--Boton personal-->
+        <Button Content="Personal" Margin="443,29,696,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Personal"/>
 
         <Grid x:Name="gridSuperior">
             <Grid.ColumnDefinitions>
@@ -86,190 +91,9 @@
 
         <!--Grid parte inferior-->
         <Grid Grid.Row="1"  x:Name="gridInferior">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="260"/>
-                <ColumnDefinition Width="1020"/>
-            </Grid.ColumnDefinitions>
+            <Frame x:Name="mainFrame"  NavigationUIVisibility="Hidden"/>
 
-            <!--Primera mitad-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="43*"/>
-                    <RowDefinition Height="213*"/>
-                </Grid.RowDefinitions>
-                <Button Content="Añadir paciente"
-                        HorizontalAlignment="Left"
-                        Margin="12,0,0,0"
-                        VerticalAlignment="Center"
-                        Height="40"
-                        Width="95"/>
-                <Button Content="Eliminar paciente"
-                        HorizontalAlignment="Right"
-                        Margin="0,0,12,0"
-                        VerticalAlignment="Center"
-                        Height="40"
-                        Width="95"/>
-                <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,28" Grid.Row="1">
-                    <ListBox x:Name="Lista_de_pacientes" SelectionChanged="Lista_de_pacientes_SelectionChanged"/>
-                </Border>
-            </Grid>
-
-            <!-- Segunda mitad-->
-            <!-- GroupBox datos paciente-->
-            <GroupBox Grid.Column="1" BorderBrush="Black">
-                <GroupBox.Header >
-
-                    <TextBlock Text="Datos Paciente" Foreground ="Black" FontWeight="Bold" FontSize="15"/>
-
-                </GroupBox.Header>
-
-
-                <Grid Grid.Column="1">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70*"/>
-                        <ColumnDefinition Width="165*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Grid Datos Paciente-->
-                    <Grid Grid.Column="0">
-
-                        <!-- Grid Rows-->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30*"/>
-                            <RowDefinition Height="70*"/>
-                        </Grid.RowDefinitions>
-
-                        <!-- Imagen Paciente-->
-                        <Image Source="/Imagenes/Imagenes_pacientes/PacienteDefecto.png" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-                        <!-- Grid Datos Paciente -->
-                        <Grid  Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="10*"/>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="10*"/>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="10*"/>
-                                <RowDefinition Height="8*"/>
-                                <RowDefinition Height="10*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50*"/>
-                                <ColumnDefinition Width="50*"/>
-                            </Grid.ColumnDefinitions>
-                            <!-- Nombre -->
-                            <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
-                            <TextBox x:Name="txtNombre"  Grid.Column="0" Grid.Row="1"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="Nombre" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-
-                            <!--Primer Apellido -->
-                            <TextBlock FontWeight="Bold" Grid.Column="1" Grid.Row="0" Text="Primer Apellido"/>
-                            <TextBox x:Name="txtApellido1"  Grid.Column="1" Grid.Row="1"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="Primer Apellido" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-
-                            <!-- Segundo Apellido -->
-                            <TextBlock FontWeight="Bold" Grid.Column="0" Grid.Row="2" Text="Segundo Apellido"/>
-                            <TextBox x:Name="txtApellido2" Grid.Column="0" Grid.Row="3"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="Segundo Apellido" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-
-                            <!-- DNI -->
-                            <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
-                            <TextBox x:Name="txtDNI"  Grid.Column="1" Grid.Row="3"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="000000000A" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-
-                            <!-- Telefono -->
-                            <TextBlock Text="Teléfono" FontWeight="Bold" Grid.Column="0" Grid.Row="4"/>
-                            <TextBox x:Name="txtTelefono" Grid.Column="0" Grid.Row="5"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="000000000" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
-
-                            <!-- Direccion -->
-                            <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
-                            <TextBox x:Name="txtDireccion" Grid.Column="1" Grid.Row="5"
-                            HorizontalAlignment="Left" 
-                            TextWrapping="Wrap" 
-                            Text="calle x" 
-                            IsReadOnly="True"
-                            VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
-
-                            <!-- Boton de editar -->
-                            <Button Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
-                                    Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
-
-
-                        </Grid>
-                    </Grid>
-
-
-
-                    <!-- Grid Informes y citas Grid.Column="2"-->
-                    <Grid Grid.Column="2">
-
-                        <!-- Grid Column-->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80*"/>
-                            <ColumnDefinition Width="20*"/>
-                        </Grid.ColumnDefinitions>
-                        <!-- Grid Row-->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50*"/>
-                            <RowDefinition Height="50*"/>
-                        </Grid.RowDefinitions>
-                        <!--Grid Informes-->
-                        <ListView x:Name="listViewInformes" d:ItemsSource="{d:SampleData ItemCount=5}">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="ID Informe" Width="120" DisplayMemberBinding="{Binding IdInforme}" />
-                                    <GridViewColumn Header="Fecha Informe" Width="120" DisplayMemberBinding="{Binding FechaInforme}" />
-                                    <GridViewColumn Header="Descripción" Width="280" DisplayMemberBinding="{Binding Descripcion}" />
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-
-                        <!--Grid Citas-->
-                        <DataGrid x:Name="dataGridCitas" AutoGenerateColumns="False" Grid.Row="1">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding NombrePaciente}" />
-                                <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding FechaCita}" />
-                                <DataGridTextColumn Header="Hora de la Cita" Binding="{Binding HoraCita}" />
-                                <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" HorizontalAlignment="Left" Height="25" Margin="21,26,0,0" VerticalAlignment="Top" Width="96" Click="editarInforme_Click"/>
-                    </Grid>
-                </Grid>
-                <!-- Grid segunda mitad-->
-            </GroupBox>
 
         </Grid>
-
-
     </Grid>
 </Window>

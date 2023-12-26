@@ -60,6 +60,12 @@
       <DependentUpon>EditarInforme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paciente.cs" />
+    <Compile Include="Paginapaciente.xaml.cs">
+      <DependentUpon>Paginapaciente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaPersonal.xaml.cs">
+      <DependentUpon>PaginaPersonal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Registro.xaml.cs">
       <DependentUpon>Registro.xaml</DependentUpon>
@@ -83,6 +89,14 @@
       <DependentUpon>Gestor.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Paginapaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaPersonal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
