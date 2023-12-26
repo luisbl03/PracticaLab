@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,5 +58,23 @@ namespace PracticaLab
                 }
             };
         }
+        private void btnSubirArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|Archivos PDF (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+            openFileDialog.Title = "Seleccione un archivo";
+            openFileDialog.Multiselect = false;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Aquí puedes utilizar openFileDialog.FileName para obtener la ruta del archivo seleccionado
+                string archivoSeleccionado = openFileDialog.FileName;
+
+                // Puedes realizar acciones adicionales, como mostrar el archivo o almacenar la ruta en una lista, según tus necesidades
+            }
+        }
+
+
+
     }
 }
