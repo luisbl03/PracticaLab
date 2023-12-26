@@ -262,6 +262,7 @@
                                 <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
                             </DataGrid.Columns>
                         </DataGrid>
+                        <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" HorizontalAlignment="Left" Height="25" Margin="21,26,0,0" VerticalAlignment="Top" Width="96" Click="editarInforme_Click"/>
                     </Grid>
                 </Grid>
                 <!-- Grid segunda mitad-->

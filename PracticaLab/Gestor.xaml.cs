@@ -157,5 +157,11 @@ namespace PracticaLab
         {
 
         }
+
+        private void editarInforme_Click(object sender, RoutedEventArgs e)
+        {
+            EditarInforme editarInformeWindow = new EditarInforme();
+            editarInformeWindow.ShowDialog();
+        }
     }
 }
