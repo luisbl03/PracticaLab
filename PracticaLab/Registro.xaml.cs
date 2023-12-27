@@ -53,6 +53,23 @@ namespace PracticaLab
         {
             Application.Current.Shutdown();
         }
+        private void setDefualt_properties()
+        {
+            txtApellidos_Registro.BorderBrush = Brushes.Black;
+            txtCorreo_Registro.BorderBrush = Brushes.Black;
+            txtNombre_Registro.BorderBrush = Brushes.Black;
+            txtTelefono_Registro.BorderBrush = Brushes.Black;
+            txtContraseña_Registro.BorderBrush = Brushes.Black;
+            txtRepiteContraseña_Registro.BorderBrush = Brushes.Black;
+            chkBx_Terminos.BorderBrush = Brushes.Black;
+
+            chkBx_Terminos.Foreground = Brushes.Black;
+            passRepite_contrasena.BorderBrush = Brushes.Black;
+            passRepite_contrasena.Foreground = Brushes.Black;
+            passRegistro.BorderBrush = Brushes.Black;
+            passRegistro.Foreground = Brushes.Black;
+
+        }
 
         private void registrar()
         {
@@ -99,70 +116,77 @@ namespace PracticaLab
         private void bttnRegistrarse_Click(object sender, RoutedEventArgs e)
         {
             /*vamos a comprobar que todos los campos esten rellenos*/
-            if (txtNombre_Registro.Text != null && txtApellidos_Registro.Text !=  null && txtCorreo_Registro.Text != null && txtTelefono_Registro.Text != null && txtContraseña_Registro != null && txtRepiteContraseña_Registro.Text != null)
+            if (e.Key == Key.Enter)
             {
-                /*miramos si los campos de la contraseña son iguales*/
-                if (txtContraseña_Registro.Text.Equals(txtRepiteContraseña_Registro.Text))
+                setDefualt_properties();
+                if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
                 {
-                    registrar();
+                    chkBx_Terminos.BorderBrush = Brushes.Black;
+                    chkBx_Terminos.Foreground = Brushes.Black;
+                    /*miramos si los campos de la contraseña son iguales*/
+                    if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                    {
+                        registrar();
+                    }
+                    else
+                    {
+                        passRepite_contrasena.BorderBrush = Brushes.Red;
+                        passRepite_contrasena.Foreground = Brushes.Red;
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Usuario existente");
-                    txtApellidos_Registro.Clear();
-                    txtCorreo_Registro.Clear();
-                    txtTelefono_Registro.Clear();
-                    txtNombre_Registro.Clear();
-                    txtTelefono_Registro.Clear();
-                    txtRepiteContraseña_Registro.Clear();
-                }
-            }
-            else
-            {
-                /*vamos a marcar en rojo los campos que faltan*/;
-                if (txtNombre_Registro.Text == "")
-                {
-                    txtNombre_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtNombre_Registro.Text.Equals("Nombre"))
-                {
-                    txtNombre_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtApellidos_Registro.Text == "")
-                {
-                    txtApellidos_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtApellidos_Registro.Text.Equals("Apellidos"))
-                {
-                    txtApellidos_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtTelefono_Registro.Text == "")
-                {
-                    txtTelefono_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtTelefono_Registro.Text.Equals("Telefono"))
-                {
-                    txtTelefono_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtCorreo_Registro.Text == "")
-                {
-                    txtCorreo_Registro.BorderBrush = Brushes.Red;
-                }
-                if (txtCorreo_Registro.Text.Equals("Correo"))
-                {
-                    txtCorreo_Registro.BorderBrush = Brushes.Red;
-                }
-                if (passRegistro.Password == "")
-                {
-                    passRegistro.Visibility = Visibility.Hidden;
-                    txtContraseña_Registro.Visibility = Visibility.Visible;
-                    txtContraseña_Registro.BorderBrush = Brushes.Red;
-                }
-                if (passRepite_contrasena.Password == "")
-                {
-                    passRepite_contrasena.Visibility = Visibility.Hidden;
-                    txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
-                    txtRepiteContraseña_Registro.BorderBrush = Brushes.Red;
+                    /*vamos a marcar en rojo los campos que faltan*/
+                    if (chkBx_Terminos.IsChecked == false)
+                    {
+                        chkBx_Terminos.BorderBrush = Brushes.Red;
+                        chkBx_Terminos.Foreground = Brushes.Red;
+                    }
+                    if (txtNombre_Registro.Text == "")
+                    {
+                        txtNombre_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtNombre_Registro.Text.Equals("Nombre"))
+                    {
+                        txtNombre_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtApellidos_Registro.Text == "")
+                    {
+                        txtApellidos_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtApellidos_Registro.Text.Equals("Apellidos"))
+                    {
+                        txtApellidos_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtTelefono_Registro.Text == "")
+                    {
+                        txtTelefono_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtTelefono_Registro.Text.Equals("Telefono"))
+                    {
+                        txtTelefono_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtCorreo_Registro.Text == "")
+                    {
+                        txtCorreo_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtCorreo_Registro.Text.Equals("Correo"))
+                    {
+                        txtCorreo_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (passRegistro.Password == "")
+                    {
+                        passRegistro.Visibility = Visibility.Hidden;
+                        txtContraseña_Registro.Visibility = Visibility.Visible;
+                        txtContraseña_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (passRepite_contrasena.Password == "")
+                    {
+                        passRepite_contrasena.Visibility = Visibility.Hidden;
+                        txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
+                        txtRepiteContraseña_Registro.BorderBrush = Brushes.Red;
+                    }
                 }
             }
         }
@@ -533,9 +557,75 @@ namespace PracticaLab
         {
             if (e.Key == Key.Enter)
             {
-                if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                setDefualt_properties();
+                if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
                 {
-                    registrar();
+                    chkBx_Terminos.BorderBrush = Brushes.Black;
+                    chkBx_Terminos.Foreground = Brushes.Black;
+                    /*miramos si los campos de la contraseña son iguales*/
+                    if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                    {
+                        registrar();
+                    }
+                    else
+                    {
+                        passRepite_contrasena.BorderBrush = Brushes.Red;
+                        passRepite_contrasena.Foreground = Brushes.Red;
+                    }
+
+                }
+                else
+                {
+                    /*vamos a marcar en rojo los campos que faltan*/
+                    if (chkBx_Terminos.IsChecked == false)
+                    {
+                        chkBx_Terminos.BorderBrush = Brushes.Red;
+                        chkBx_Terminos.Foreground = Brushes.Red;
+                    }
+                    if (txtNombre_Registro.Text == "")
+                    {
+                        txtNombre_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtNombre_Registro.Text.Equals("Nombre"))
+                    {
+                        txtNombre_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtApellidos_Registro.Text == "")
+                    {
+                        txtApellidos_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtApellidos_Registro.Text.Equals("Apellidos"))
+                    {
+                        txtApellidos_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtTelefono_Registro.Text == "")
+                    {
+                        txtTelefono_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtTelefono_Registro.Text.Equals("Telefono"))
+                    {
+                        txtTelefono_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtCorreo_Registro.Text == "")
+                    {
+                        txtCorreo_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (txtCorreo_Registro.Text.Equals("Correo"))
+                    {
+                        txtCorreo_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (passRegistro.Password == "")
+                    {
+                        passRegistro.Visibility = Visibility.Hidden;
+                        txtContraseña_Registro.Visibility = Visibility.Visible;
+                        txtContraseña_Registro.BorderBrush = Brushes.Red;
+                    }
+                    if (passRepite_contrasena.Password == "")
+                    {
+                        passRepite_contrasena.Visibility = Visibility.Hidden;
+                        txtRepiteContraseña_Registro.Visibility = Visibility.Visible;
+                        txtRepiteContraseña_Registro.BorderBrush = Brushes.Red;
+                    }
                 }
             }
         }
