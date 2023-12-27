@@ -14,6 +14,7 @@ namespace PracticaLab
         public string correo { get; set; }
         public int edad { get; set; }
         public string trabajo { get; set; }
+
         public Personal(string nombre, string apellidos, long telef, string correo, int edad, string trabajo)
         {
             this.nombre = nombre;

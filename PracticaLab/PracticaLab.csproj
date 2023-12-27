@@ -187,8 +187,7 @@
     <Resource Include="Imagenes\Imagenes_pacientes\Predeterminado.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Imagenes_pacientes\Predeterminado.png" />
+    <Resource Include="Datos\trabajadores.xml" />
   </ItemGroup>
-	
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
