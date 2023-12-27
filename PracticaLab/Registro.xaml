@@ -72,8 +72,9 @@
                 Grid.Row="4" 
                 TextWrapping="Wrap" 
                 Text="Telefono" 
+                MaxLength="9"
                 VerticalAlignment="Center" 
-                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtTelefono_Registro_KeyDown" GotFocus="txtTelefono_Registro_GotFocus"/>
+                Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtTelefono_Registro_KeyDown" GotFocus="txtTelefono_Registro_GotFocus" LostFocus="txtTelefono_Registro_LostFocus"/>
         <Image HorizontalAlignment="Center" 
                Height="18"  
                Grid.Row="4"
