@@ -118,18 +118,26 @@ namespace PracticaLab
             setDefualt_properties();
             if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
             {
-                chkBx_Terminos.BorderBrush = Brushes.Black;
-                chkBx_Terminos.Foreground = Brushes.Black;
-                /*miramos si los campos de la contraseña son iguales*/
-                if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                if (txtTelefono_Registro.Text.Length == 9)
                 {
-                    registrar();
+                    chkBx_Terminos.BorderBrush = Brushes.Black;
+                    chkBx_Terminos.Foreground = Brushes.Black;
+                    /*miramos si los campos de la contraseña son iguales*/
+                    if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                    {
+                        registrar();
+                    }
+                    else
+                    {
+                        passRepite_contrasena.BorderBrush = Brushes.Red;
+                        passRepite_contrasena.Foreground = Brushes.Red;
+                    }
                 }
                 else
                 {
-                    passRepite_contrasena.BorderBrush = Brushes.Red;
-                    passRepite_contrasena.Foreground = Brushes.Red;
+                    txtTelefono_Registro.BorderBrush = Brushes.Red;
                 }
+                
 
             }
             else
@@ -556,17 +564,24 @@ namespace PracticaLab
                 setDefualt_properties();
                 if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
                 {
-                    chkBx_Terminos.BorderBrush = Brushes.Black;
-                    chkBx_Terminos.Foreground = Brushes.Black;
-                    /*miramos si los campos de la contraseña son iguales*/
-                    if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                   if (txtTelefono_Registro.Text.Length == 9)
                     {
-                        registrar();
+                        chkBx_Terminos.BorderBrush = Brushes.Black;
+                        chkBx_Terminos.Foreground = Brushes.Black;
+                        /*miramos si los campos de la contraseña son iguales*/
+                        if (passRegistro.Password.Equals(passRepite_contrasena.Password))
+                        {
+                            registrar();
+                        }
+                        else
+                        {
+                            passRepite_contrasena.BorderBrush = Brushes.Red;
+                            passRepite_contrasena.Foreground = Brushes.Red;
+                        }
                     }
-                    else
+                   else
                     {
-                        passRepite_contrasena.BorderBrush = Brushes.Red;
-                        passRepite_contrasena.Foreground = Brushes.Red;
+                        txtTelefono_Registro.BorderBrush = Brushes.Red;
                     }
 
                 }
