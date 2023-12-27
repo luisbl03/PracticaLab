@@ -66,7 +66,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- Imagen Paciente-->
-                    <Image Source="/Imagenes/Imagenes_pacientes/PacienteDefecto.png" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Image x:Name="ImagenPaciente" Source="{Binding rutaFoto }" Grid.Row="0" Margin="38,20,39,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                     <!-- Grid Datos Paciente -->
                     <Grid  Grid.Row="1">

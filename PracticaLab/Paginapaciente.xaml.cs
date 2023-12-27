@@ -54,6 +54,8 @@ namespace PracticaLab
                 txtDNI.Text = $"{pacienteSeleccionado.DNI}";
                 txtTelefono.Text = $"{pacienteSeleccionado.Telefono}";
                 txtDireccion.Text = $"{pacienteSeleccionado.Direccion}";
+
+                ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
             }
 
         }
@@ -113,7 +115,7 @@ namespace PracticaLab
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
                 xmlDocCitas.Load(fichero2.Stream);
-
+                    
                 // Obtener la lista de nodos de pacientes
                 XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
 
@@ -129,6 +131,23 @@ namespace PracticaLab
                         Telefono = pacienteXml.SelectSingleNode("Telefono").InnerText,
                         Direccion = pacienteXml.SelectSingleNode("Direccion").InnerText
                     };
+                       
+                    switch (paciente.DNI)
+                    {
+                        case "12345678A":
+                            paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Paciente1.png";
+                            break;
+                        case "12456478Q":
+                            paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Paciente2.png";
+                            break;
+                        case "67890123F":
+                            paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/PacienteChica.png";
+                            break;
+                        default:
+                            paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Predeterminado.png";
+                            break;
+                    }
+
                     XmlNode citaXml = xmlDocCitas.SelectSingleNode($"/Citas/Cita/Paciente[DNI='{paciente.DNI}']");
                     if (citaXml != null)
                     {
@@ -140,7 +159,10 @@ namespace PracticaLab
 
                 // Asignar la lista de pacientes como origen de datos para el ListBox
                 Lista_de_pacientes.ItemsSource = Pacientes;
+
+                this.DataContext = this;
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
