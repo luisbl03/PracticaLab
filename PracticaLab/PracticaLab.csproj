@@ -173,5 +173,17 @@
   <ItemGroup>
     <Resource Include="Imagenes\Imagenes_pacientes\PacienteDefecto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_pacientes\PacienteChica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_pacientes\Paciente2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_pacientes\Paciente1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_pacientes\Predeterminado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

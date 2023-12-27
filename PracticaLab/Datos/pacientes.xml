@@ -39,6 +39,19 @@
   </Paciente>
 
 <Paciente>
+		<Nombre>Pilar</Nombre>
+		<Apellido1>Maldonado</Apellido1>
+		<Apellido2>Messi</Apellido2>
+		<DNI>67890123F</DNI>
+		<Telefono>456789012</Telefono>
+		<Direccion>Calle Felicidad, 54</Direccion>
+		<Informes>
+			<Informe>Informe 1: Alérgico al polen</Informe>
+			<Informe>Informe 2: Presión arterial alta</Informe>
+		</Informes>
+</Paciente>
+
+<Paciente>
     <Nombre>Alberto</Nombre>
     <Apellido1>López</Apellido1>
     <Apellido2>López</Apellido2>
@@ -50,7 +63,7 @@
       <Informe>Informe 2: Presión arterial alta</Informe>
     </Informes>
   </Paciente>
-
+	
 <Paciente>
     <Nombre>Julián</Nombre>
     <Apellido1>Rubio</Apellido1>
@@ -58,19 +71,6 @@
     <DNI>56789012E</DNI>
     <Telefono>345678901</Telefono>
     <Direccion>Calle Manzana, 5</Direccion>
-    <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
-    </Informes>
-  </Paciente>
-
-<Paciente>
-    <Nombre>Pilar</Nombre>
-    <Apellido1>Maldonado</Apellido1>
-    <Apellido2>Messi</Apellido2>
-    <DNI>67890123F</DNI>
-    <Telefono>456789012</Telefono>
-    <Direccion>Calle Felicidad, 54</Direccion>
     <Informes>
       <Informe>Informe 1: Alérgico al polen</Informe>
       <Informe>Informe 2: Presión arterial alta</Informe>
