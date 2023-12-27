@@ -156,7 +156,7 @@ namespace PracticaLab
                     }
                     Pacientes.Add(paciente);
                 }
-
+                Pacientes = Pacientes.OrderBy(p => p.FechaCita).ToList();
                 // Asignar la lista de pacientes como origen de datos para el ListBox
                 Lista_de_pacientes.ItemsSource = Pacientes;
 
