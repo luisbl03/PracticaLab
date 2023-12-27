@@ -85,22 +85,27 @@
                 HorizontalAlignment="Left" 
                 Grid.Row="5" 
                 TextWrapping="Wrap" 
-                Text="Correo Electronico" 
+                Text="Correo Electronico"
                 VerticalAlignment="Top" 
-                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtCorreo_Registro_KeyDown" GotFocus="txtCorreo_Registro_GotFocus"/>
+                Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtCorreo_Registro_KeyDown" GotFocus="txtCorreo_Registro_GotFocus">
+
+        </TextBox>
         <Image HorizontalAlignment="Center" 
                 Height="18"  
                 Grid.Row="5"
                 Grid.Column="1"
                 VerticalAlignment="Center" Width="26" RenderTransformOrigin="0.544,0.499"
                 Source="Iconos/correos-electronicos.png"/>
-        <TextBox x:Name="txtContraseña_Registro" Grid.Column="2" 
-                 HorizontalAlignment="Left" 
-                 Grid.Row="6" 
-                 TextWrapping="Wrap" 
-                 Text="Contraseña" 
-                 VerticalAlignment="Top" 
-                 Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" GotFocus="txtContraseña_Registro_GotFocus" />
+        <TextBox
+            x:Name="txtContraseña_Registro" Grid.Column="2" 
+            HorizontalAlignment="Left" 
+            Grid.Row="6" 
+            Text="Contraseña"
+            TextWrapping="Wrap"  
+            VerticalAlignment="Top" 
+            Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" GotFocus="txtContraseña_Registro_GotFocus">
+
+        </TextBox>
         <PasswordBox x:Name="passRegistro" Grid.Column="2"
                      HorizontalAlignment="Left"
                      Grid.Row="6"
@@ -159,6 +164,13 @@
                 Grid.Row="12" 
                 VerticalAlignment="Top" 
                 Width="150" Height="33" FontSize="16" Click="bttnIniciar_Sesion_Click"/>
+        <Label x:Name="lblError_Nombre" Grid.Column="2" 
+                HorizontalAlignment="Left" Margin="159,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="116" Height="33"/>
+        <Label  x:Name="lblError_apellidos" Grid.Column="2" HorizontalAlignment="Left" Margin="198,0,0,5" Grid.Row="3" VerticalAlignment="Bottom" Width="109" Height="23"/>
+        <Label  x:Name="lblError_telefono" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Margin="104,0,0,0" Width="144" Height="33"/>
+        <Label x:Name="lblError_correo" Grid.Column="2" HorizontalAlignment="Left" Margin="198,1,0,0" Grid.Row="5" VerticalAlignment="Top" Width="100" Height="24"/>
+        <Label x:Name="lblError_contrasena" Grid.Column="2" HorizontalAlignment="Left" Margin="159,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="134" Height="25"/>
+        <Label x:Name="lblError_repite" Grid.Column="2" HorizontalAlignment="Left" Margin="159,0,0,0" Grid.Row="7" VerticalAlignment="Center" Width="112"/>
 
     </Grid>
 </Window>
