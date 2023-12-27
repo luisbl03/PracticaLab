@@ -46,15 +46,20 @@ namespace PracticaLab
         {
 
         }
+
+        private Page1 paginaPersona;
         private void Button_Click_Personal(object sender, RoutedEventArgs e)
         {
-
-            if (!(mainFrame.Content is  Page1))
-            {   
+            if (!(mainFrame.Content is Page1) && paginaPersona == null)
+            {
                 // inicializa una pagina de personal
-                mainFrame.Navigate(new Page1());
+                paginaPersona = new Page1();
+                mainFrame.Navigate(paginaPersona);
             }
-            
+            else if (!(mainFrame.Content is Page1) && !(paginaPersona == null))
+            {
+                mainFrame.Navigate(paginaPersona);
+            }
         }
 
         private void Button_Click_Pacientes(object sender, RoutedEventArgs e)
