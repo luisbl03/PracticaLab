@@ -1,0 +1,7 @@
+<Usuarios>
+	
+	<Usuario Nombre="Alberto" Apellidos="Barrais Bellerín" telefono="474961013" correo="soyalberto@hola.com" edad ="20" trabajo="enfermero"/>
+	<Usuario Nombre="Luis" Apellidos="Benito López" telefono="604562014" correo="soyluis@hola.com" edad ="20" trabajo="limpieador"/>
+	<Usuario Nombre="Javier" Apellidos="Cuartero Corredor" telefono="502502134" correo="soyJavier@hola.com" edad="21" trabajo="medico"/>
+
+</Usuarios>

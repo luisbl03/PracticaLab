@@ -86,7 +86,7 @@
                         </Grid.ColumnDefinitions>
                         <!-- Nombre -->
                         <TextBlock Text="Nombre" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
-                        <TextBox x:Name="txtNombre"  Grid.Column="0" Grid.Row="1"
+                        <TextBox x:Name="txtNombre"  Grid.Column="0" Grid.Row="1" 
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Nombre" 

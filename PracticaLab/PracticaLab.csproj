@@ -66,6 +66,7 @@
     <Compile Include="PaginaPersonal.xaml.cs">
       <DependentUpon>PaginaPersonal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Personal.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Registro.xaml.cs">
       <DependentUpon>Registro.xaml</DependentUpon>
@@ -172,6 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Imagenes_pacientes\PacienteDefecto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\personal.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
