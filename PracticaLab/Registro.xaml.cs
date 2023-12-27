@@ -662,5 +662,17 @@ namespace PracticaLab
                 }
             }
         }
+
+        private void txtTelefono_Registro_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtTelefono_Registro.Text.Length != 9)
+            {
+                txtTelefono_Registro.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                txtTelefono_Registro.BorderBrush = Brushes.Black;
+            }
+        }
     }
 }
