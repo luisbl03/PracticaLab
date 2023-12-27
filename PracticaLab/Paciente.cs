@@ -12,6 +12,8 @@ namespace PracticaLab
         public string Direccion { get; set; }
         public DateTime? FechaCita { get; set; }
 
+        public string RutaFoto { get; set; }
+
         public override string ToString()
         {
             string pacienteString = $"{Nombre} {Apellido1} {Apellido2}";

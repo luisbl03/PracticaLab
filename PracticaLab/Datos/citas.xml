@@ -5,6 +5,12 @@
             <Fecha>01/12/2023 10:00</Fecha>
         </Paciente>
     </Cita>
+	<Cita>
+		<Paciente>
+			<DNI>12345678A</DNI>
+			<Fecha>04/12/2023 12:00</Fecha>
+		</Paciente>
+	</Cita>
     <Cita>
         <Paciente>
             <DNI>12456478Q</DNI>
@@ -17,6 +23,12 @@
             <Fecha>03/12/2023 10:00</Fecha>
         </Paciente>
     </Cita>
+	<Cita>
+		<Paciente>
+			<DNI>23768998Z</DNI>
+			<Fecha>03/12/2023 13:30</Fecha>
+		</Paciente>
+	</Cita>
     <Cita>
         <Paciente>
             <DNI>13246592F</DNI>
