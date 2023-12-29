@@ -245,6 +245,13 @@ namespace PracticaLab
             anadirInformeWindow.ShowDialog();
         }
 
+        private void verInforme_Click(object sender, RoutedEventArgs e)
+        {
+            VerInforme verInformeWindow = new VerInforme();
+            verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            verInformeWindow.ShowDialog();
+        }
+
 
     }
 }

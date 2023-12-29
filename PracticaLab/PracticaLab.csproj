@@ -59,6 +59,9 @@
     <Compile Include="AnadirInforme.xaml.cs">
       <DependentUpon>AnadirInforme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VerInforme.xaml.cs">
+      <DependentUpon>VerInforme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Informe.cs" />
     <Compile Include="EditarInforme.xaml.cs">
       <DependentUpon>EditarInforme.xaml</DependentUpon>
@@ -79,6 +82,10 @@
       <DependentUpon>InicioSesion.xaml</DependentUpon>
     </Compile>
     <Page Include="AnadirInforme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VerInforme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
