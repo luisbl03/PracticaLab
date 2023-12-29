@@ -33,8 +33,7 @@
     <Telefono>692341549</Telefono>
     <Direccion>Calle Larga, 2</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Informe 1: Alérgico al gluten</Informe>
     </Informes>
   </Paciente>
 
