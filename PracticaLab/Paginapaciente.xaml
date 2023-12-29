@@ -168,12 +168,30 @@
                         <RowDefinition Height="50*"/>
                     </Grid.RowDefinitions>
                     <!--Grid Informes-->
-                    <ListView x:Name="listViewInformes" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView x:Name="listViewInformes">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="ID Informe" Width="120" DisplayMemberBinding="{Binding IdInforme}" />
-                                <GridViewColumn Header="Fecha Informe" Width="120" DisplayMemberBinding="{Binding FechaInforme}" />
-                                <GridViewColumn Header="Descripción" Width="280" DisplayMemberBinding="{Binding Descripcion}" />
+                                <GridViewColumn Header="ID Informe" Width="120">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding IdInforme}" Margin="45,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Fecha Informe" Width="120">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding FechaInforme}" Margin="25,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Descripción" Width="280">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Descripcion}" Margin="80,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

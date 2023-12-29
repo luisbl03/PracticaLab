@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PracticaLab
 {
@@ -13,6 +14,13 @@ namespace PracticaLab
         public DateTime? FechaCita { get; set; }
 
         public string RutaFoto { get; set; }
+
+        public List<Informe> Informes { get; set; }
+
+        public Paciente()
+        {
+            Informes = new List<Informe>();
+        }
 
         public override string ToString()
         {

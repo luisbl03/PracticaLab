@@ -59,6 +59,7 @@
     <Compile Include="AnadirInforme.xaml.cs">
       <DependentUpon>AnadirInforme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Informe.cs" />
     <Compile Include="EditarInforme.xaml.cs">
       <DependentUpon>EditarInforme.xaml</DependentUpon>
     </Compile>

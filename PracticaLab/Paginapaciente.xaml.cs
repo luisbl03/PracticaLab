@@ -22,6 +22,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Page2 : Page
     {
+        private bool isInitialized = false;
         private void PaginaPacientes_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
@@ -33,11 +34,19 @@ namespace PracticaLab
 
             
         }
+
         public List<Paciente> Pacientes { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
         private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!isInitialized)
+            {
+                return;
+            }
+
+            //listViewInformes.Items.Clear();
+
             // Verifica si hay un paciente seleccionado
             if (Lista_de_pacientes.SelectedItem != null)
             {
@@ -55,12 +64,26 @@ namespace PracticaLab
                 txtTelefono.Text = $"{pacienteSeleccionado.Telefono}";
                 txtDireccion.Text = $"{pacienteSeleccionado.Direccion}";
 
+                
+
                 ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
+
+                //listViewInformes.Items.Clear();
+
+                // Añadir los informes del paciente seleccionado a la ListView
+                UpdateInformesList(pacienteSeleccionado);
             }
+            else
+            {
+                // No hay paciente seleccionado, no es necesario agregar informes, solo actualizar la visibilidad
+                listViewInformes.Visibility = Visibility.Visible;
+            }
+
 
         }
         // Para saber que en estado esta el boton
         private bool modo1 = true;
+
         private void bnEdicion_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -103,6 +126,7 @@ namespace PracticaLab
             InitializeComponent();
 
             Pacientes = new List<Paciente>();
+
             try
             {
 
@@ -131,7 +155,24 @@ namespace PracticaLab
                         Telefono = pacienteXml.SelectSingleNode("Telefono").InnerText,
                         Direccion = pacienteXml.SelectSingleNode("Direccion").InnerText
                     };
-                       
+
+                    foreach (XmlNode informeXml in pacienteXml.SelectNodes("Informes/Informe"))
+                    {
+                        Informe informe = new Informe
+                        {
+                            Descripcion = informeXml?.InnerText,
+                            FechaInforme = DateTime.Now // Puedes ajustar la fecha según tus necesidades
+                        };
+
+                        paciente.Informes.Add(informe);
+                        listViewInformes.Items.Add(new
+                        {
+                            IdInforme = paciente.Informes.Count, // Puedes ajustar esto según tu lógica
+                            FechaInforme = informe.FechaInforme.ToString("dd/MM/yyyy"),
+                            Descripcion = informe.Descripcion
+                        });
+                    }
+
                     switch (paciente.DNI)
                     {
                         case "12345678A":
@@ -161,11 +202,33 @@ namespace PracticaLab
                 Lista_de_pacientes.ItemsSource = Pacientes;
 
                 this.DataContext = this;
+                isInitialized = true;
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void UpdateInformesList(Paciente paciente = null)
+        {
+            // Limpiar la ListView de informes
+            listViewInformes.Items.Clear();
+
+            if (paciente != null)
+            {
+                // Añadir los informes del paciente seleccionado a la ListView
+                foreach (Informe informe in paciente.Informes)
+                {
+                    listViewInformes.Items.Add(new
+                    {
+                        IdInforme = paciente.Informes.IndexOf(informe) + 1, // Ajusta esto según tu lógica
+                        FechaInforme = informe.FechaInforme.ToString("dd/MM/yyyy"),
+                        Descripcion = informe.Descripcion
+                    });
+                }
+                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Collapsed;
             }
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
