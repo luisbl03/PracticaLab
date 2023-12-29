@@ -187,7 +187,8 @@
                             <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" HorizontalAlignment="Left" Height="25" Margin="21,26,0,0" VerticalAlignment="Top" Width="96" Click="editarInforme_Click"/>
+                    <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" Height="25" Margin="23,54,23,0" VerticalAlignment="Top" Click="editarInforme_Click"/>
+                    <Button x:Name="anadirInforme" Grid.Column="1" Content="Añadir informe" Height="25" Margin="23,10,23,0" VerticalAlignment="Top" Click="anadirInforme_Click"/>
                 </Grid>
             </Grid>
             <!-- Grid segunda mitad-->

@@ -171,9 +171,17 @@ namespace PracticaLab
         private void editarInforme_Click(object sender, RoutedEventArgs e)
         {
             EditarInforme editarInformeWindow = new EditarInforme();
+            editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             editarInformeWindow.ShowDialog();
         }
 
-        
+        private void anadirInforme_Click(object sender, RoutedEventArgs e)
+        {
+            AnadirInforme anadirInformeWindow = new AnadirInforme();
+            anadirInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            anadirInformeWindow.ShowDialog();
+        }
+
+
     }
 }
