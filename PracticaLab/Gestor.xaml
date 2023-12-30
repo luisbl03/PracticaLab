@@ -27,7 +27,7 @@
         <!--Boton pacientes-->
         <Button Content="Pacientes" Margin="282,29,857,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Pacientes"/>
         <!--Boton personal-->
-        <Button Content="Personal" Margin="443,29,696,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Personal"/>
+        <Button x:Name="bttnPersonal" Content="Personal" Margin="443,29,696,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Personal"/>
 
         <Grid x:Name="gridSuperior">
             <Grid.ColumnDefinitions>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
         Title="Registro" Height="525" Width="450"
-        ResizeMode="CanMinimize" Closing="screenRegistro_Closing">
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="screenRegistro_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="93*"/>

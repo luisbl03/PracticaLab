@@ -52,6 +52,14 @@ namespace PracticaLab
                 usuario.numTelefono = long.Parse(node.Attributes["telefono"].Value);
                 usuario.correo = node.Attributes["correo"].Value;
                 usuario.contraseña = node.Attributes["contraseña"].Value;
+                if (node.Attributes["admin"].Value.Equals("T"))
+                {
+                    usuario.admin = true;
+                }
+                else
+                {
+                    usuario.admin = false;
+                }
                 
                 listaUsuarios.Add(usuario);
 

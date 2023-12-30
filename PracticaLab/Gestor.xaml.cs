@@ -38,6 +38,16 @@ namespace PracticaLab
 
             //Usamos el usuariio para poner sus datos
             this.DataContext = usuario;
+            if (usuario.admin)
+            {
+                //Si es admin, se muestra el boton de personal
+                bttnPersonal.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                //Si no es admin, se oculta el boton de personal
+                bttnPersonal.Visibility = Visibility.Hidden;
+            }
             mainFrame.Navigate(new Page2(u));
 
         }

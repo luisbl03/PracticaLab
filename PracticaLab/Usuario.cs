@@ -13,6 +13,7 @@ namespace PracticaLab
         public long numTelefono { get; set; }
         public string correo {  get; set; }
         public string contraseña { get; set; }
+        public Boolean admin { get; set; }
         public Usuario(string nombre, string apellidos, long telef, string correo, string contraseña)
         {
             this.nombre = nombre;
@@ -20,6 +21,7 @@ namespace PracticaLab
             numTelefono = telef;
             this.correo = correo;
             this.contraseña = contraseña;
+            this.admin = false;
         }
 
     }

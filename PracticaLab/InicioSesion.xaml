@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Iniciar Sesión" Height="500" Width="500" Closing="IniciarSesión_Closing">
+        Title="Iniciar Sesión" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Height="500" Width="500" Closing="IniciarSesión_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="87*"/>
