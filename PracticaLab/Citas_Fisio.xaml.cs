@@ -20,7 +20,7 @@ namespace PracticaLab
     /// <summary>
     /// Lógica de interacción para Page2.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class Citas_Fisio : Page
     {
         private bool isInitialized = false;
         private void PaginaPacientes_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -32,7 +32,7 @@ namespace PracticaLab
 
             GridPacientes.ColumnDefinitions[1].Width = new GridLength(nw_gridAbajoMitadInf);
 
-            
+
         }
 
         public List<Paciente> Pacientes { get; set; }
@@ -64,7 +64,7 @@ namespace PracticaLab
                 txtTelefono.Text = $"{pacienteSeleccionado.Telefono}";
                 txtDireccion.Text = $"{pacienteSeleccionado.Direccion}";
 
-                
+
 
                 ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
 
@@ -119,7 +119,7 @@ namespace PracticaLab
             modo1 = !modo1;
 
         }
-        public Page2(Usuario u)
+        public Citas_Fisio(Usuario u)
         {
             InitializeComponent();
             Pacientes = new List<Paciente>();
@@ -135,7 +135,7 @@ namespace PracticaLab
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
                 xmlDocCitas.Load(fichero2.Stream);
-                    
+
                 // Obtener la lista de nodos de pacientes
                 XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
 
@@ -186,8 +186,31 @@ namespace PracticaLab
                     }
                     Pacientes.Add(paciente);
                 }
-                Lista_de_pacientes.ItemsSource = Pacientes;
-                
+                List<Cita> listaCitas = new List<Cita>();
+                listaCitas = cargarCitas(listaCitas);
+                List<Paciente> lista_paciente_con_cita = new List<Paciente>();
+                List<Paciente> lista_paciente_sin_cita = new List<Paciente>();
+                foreach (Cita cita in listaCitas)
+                {
+                    if (cita.correo_fisio.Equals(u.correo))
+                    {
+                        Paciente p = Pacientes.FirstOrDefault(p2 => p2.DNI == cita.DNI_paciente);
+                        if (p != null)
+                        {
+                            lista_paciente_con_cita.Add(p);
+                        }
+                    }
+                    else
+                    {
+                        Paciente p = Pacientes.FirstOrDefault(p2 => p2.DNI == cita.DNI_paciente);
+                        if (p != null)
+                        {
+                            lista_paciente_sin_cita.Add(p);
+                        }
+                    }
+                }
+                lista_paciente_con_cita = lista_paciente_con_cita.OrderBy(p => p.FechaCita).ToList();
+
 
                 this.DataContext = this;
                 isInitialized = true;
@@ -240,7 +263,32 @@ namespace PracticaLab
             verInformeWindow.ShowDialog();
         }
 
-        
+        private List<Cita> cargarCitas(List<Cita> listaCitas)
+        {
+            // Crear un objeto XmlDocument
+            XmlDocument xmlDoc = new XmlDocument();
+            //almacenamos la informacion de "pacientes.xml" en la variable fichero
+            var fichero = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
+            // Cargar el documento XML desde el archivo
+            xmlDoc.Load(fichero.Stream);
+
+            // Obtener la lista de nodos de pacientes
+            XmlNodeList citasXml = xmlDoc.SelectNodes("/Citas/Cita");
+
+            // Iterar a través de los pacientes y agregar a la lista de Pacientes
+            foreach (XmlNode citaXml in citasXml)
+            {
+                Cita cita = new Cita("", "", DateTime.Now, "")
+                {
+                    DNI_paciente = citaXml.SelectSingleNode("DNI").InnerText,
+                    motivo = citaXml.SelectSingleNode("Motivo").InnerText,
+                    fecha = DateTime.ParseExact(citaXml.SelectSingleNode("Fecha").InnerText, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture),
+                    correo_fisio = citaXml.SelectSingleNode("CorreoFisio").InnerText
+                };
+                listaCitas.Add(cita);
+            }
+            return listaCitas;
+        }
 
     }
 }

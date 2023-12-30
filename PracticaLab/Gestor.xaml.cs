@@ -38,7 +38,7 @@ namespace PracticaLab
 
             //Usamos el usuariio para poner sus datos
             this.DataContext = usuario;
-            mainFrame.Navigate(new Page2());
+            mainFrame.Navigate(new Page2(u));
 
         }
 

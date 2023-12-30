@@ -59,6 +59,9 @@
     <Compile Include="AnadirInforme.xaml.cs">
       <DependentUpon>AnadirInforme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Citas_Fisio.xaml.cs">
+      <DependentUpon>Citas_Fisio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VerInforme.xaml.cs">
       <DependentUpon>VerInforme.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
     <Page Include="AnadirInforme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Citas_Fisio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VerInforme.xaml">
       <Generator>MSBuild:Compile</Generator>

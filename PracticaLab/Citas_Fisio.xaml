@@ -1,4 +1,4 @@
-﻿<Page x:Class="PracticaLab.Page2"
+﻿<Page x:Class="PracticaLab.Citas_Fisio"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Background="WhiteSmoke"
       d:DesignHeight="450" d:DesignWidth="1300"
-      Title="PaginaPaciente"
+      Title="Citas"
       SizeChanged="PaginaPacientes_SizeChanged">
 
     <Grid x:Name="GridPacientes">
@@ -120,7 +120,6 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="000000000A" 
-                            MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
@@ -131,7 +130,6 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="000000000" 
-                            MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
