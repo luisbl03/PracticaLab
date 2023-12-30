@@ -179,7 +179,8 @@ namespace PracticaLab
 
         }
         public Page2(Usuario u)
-        {
+        {   
+
             InitializeComponent();
             Pacientes = new List<Paciente>();
             try
@@ -246,7 +247,8 @@ namespace PracticaLab
                     Pacientes.Add(paciente);
                 }
                 Lista_de_pacientes.ItemsSource = Pacientes;
-                listViewInformes.Visibility = Visibility.Hidden;
+                listViewInformes.Visibility = Visibility.Visible;
+                listViewInformes.Items.Clear();
 
                 this.DataContext = this;
                 isInitialized = true;
