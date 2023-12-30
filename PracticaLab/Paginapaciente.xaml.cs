@@ -246,7 +246,7 @@ namespace PracticaLab
                     Pacientes.Add(paciente);
                 }
                 Lista_de_pacientes.ItemsSource = Pacientes;
-                
+                listViewInformes.Visibility = Visibility.Hidden;
 
                 this.DataContext = this;
                 isInitialized = true;
