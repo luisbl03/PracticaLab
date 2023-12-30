@@ -275,7 +275,7 @@ namespace PracticaLab
                         Descripcion = informe.Descripcion
                     });
                 }
-                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Collapsed;
+                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Visible;
             }
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
