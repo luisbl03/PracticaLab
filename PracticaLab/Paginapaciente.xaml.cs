@@ -300,7 +300,8 @@ namespace PracticaLab
         }
 
         private void bttn_añadir_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+            listViewInformes.Items.Clear();
             txtNombre.Text = "";
             txtApellido1.Text = "";
             txtApellido2.Text = "";
