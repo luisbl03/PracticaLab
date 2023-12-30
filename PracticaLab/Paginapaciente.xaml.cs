@@ -97,6 +97,65 @@ namespace PracticaLab
             }
             else
             {
+                /*vemos el contenido de los campos, si el usuario existe, actualizamos sus valores, si no, lo añadimos*/
+                if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != "")
+                {
+                    if (seleccionado == true)
+                    {
+                        Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                        pacienteSeleccionado.Nombre = txtNombre.Text;
+                        pacienteSeleccionado.Apellido1 = txtApellido1.Text;
+                        pacienteSeleccionado.Apellido2 = txtApellido2.Text;
+                        pacienteSeleccionado.DNI = txtDNI.Text;
+                        pacienteSeleccionado.Telefono = txtTelefono.Text;
+                        pacienteSeleccionado.Direccion = txtDireccion.Text;
+                        Lista_de_pacientes.Items.Refresh();
+                    }
+                    else
+                    {
+                        Paciente paciente = new Paciente
+                        {
+                            Nombre = txtNombre.Text,
+                            Apellido1 = txtApellido1.Text,
+                            Apellido2 = txtApellido2.Text,
+                            DNI = txtDNI.Text,
+                            Telefono = txtTelefono.Text,
+                            Direccion = txtDireccion.Text
+                        };
+                        paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Predeterminado.png";
+                        Pacientes.Add(paciente);
+                        /*añadimos al nuevo paciente en la listbox en orden*/
+                        Lista_de_pacientes.Items.Refresh();
+                        Lista_de_pacientes.SelectedItem = paciente;
+                    }
+                }
+                else
+                {
+                    if (txtNombre.Text == "")
+                    {
+                        txtNombre.Foreground = Brushes.Red;
+                    }
+                    if (txtApellido1.Text == "")
+                    {
+                        txtApellido1.Foreground = Brushes.Red;
+                    }
+                    if (txtApellido2.Text == "")
+                    {
+                        txtApellido2.Foreground = Brushes.Red;
+                    }
+                    if (txtDNI.Text == "")
+                    {
+                        txtDNI.Foreground = Brushes.Red;
+                    }
+                    if (txtTelefono.Text == "")
+                    {
+                        txtTelefono.Foreground = Brushes.Red;
+                    }
+                    if (txtDireccion.Text == "")
+                    {
+                        txtDireccion.Foreground = Brushes.Red;
+                    }
+                }
                 txtNombre.IsReadOnly = true;
                 txtApellido1.IsReadOnly = true;
                 txtApellido2.IsReadOnly = true;
@@ -240,7 +299,66 @@ namespace PracticaLab
             verInformeWindow.ShowDialog();
         }
 
-        
+        private void bttn_añadir_Click(object sender, RoutedEventArgs e)
+        {
+            txtNombre.Text = "";
+            txtApellido1.Text = "";
+            txtApellido2.Text = "";
+            txtDNI.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            ImagenPaciente.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
+            txtNombre.IsReadOnly = false;
+            txtApellido1.IsReadOnly = false;
+            txtApellido2.IsReadOnly = false;
+            txtDNI.IsReadOnly = false;
+            txtTelefono.IsReadOnly = false;
+            txtDireccion.IsReadOnly = false;
+            txtNombre.Foreground = Brushes.Black;
+            txtApellido1.Foreground = Brushes.Black;
+            txtApellido2.Foreground = Brushes.Black;
+            txtDNI.Foreground = Brushes.Black;
+            txtTelefono.Foreground = Brushes.Black;
+            txtDireccion.Foreground = Brushes.Black;
+            modo1 = false;
+            bttn_Editar.Content = "Guardar";
+            /*quitamos la seleccion de la lista*/
+            Lista_de_pacientes.SelectedItem = null;
+            seleccionado = false;
+        }
+
+        private void btn_eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            var paciente= (Paciente)Lista_de_pacientes.SelectedItem;
+            Pacientes.Remove(paciente);
+            Lista_de_pacientes.Items.Refresh();
+            /*dejamos los campos por defecto*/
+            limpiar();
+
+        }
+        private void limpiar()
+        {
+            txtNombre.Text = "Nombre";
+            txtApellido1.Text = "Apellido1";
+            txtApellido2.Text = "Apellido2";
+            txtDNI.Text = "DNI";
+            txtTelefono.Text = "Telefono";
+            txtDireccion.Text = "Direccion";
+            ImagenPaciente.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
+            txtNombre.IsReadOnly = true;
+            txtApellido1.IsReadOnly = true;
+            txtApellido2.IsReadOnly = true;
+            txtDNI.IsReadOnly = true;
+            txtTelefono.IsReadOnly = true;
+            txtDireccion.IsReadOnly = true;
+            txtNombre.Foreground = Brushes.Gray;
+            txtApellido1.Foreground = Brushes.Gray;
+            txtApellido2.Foreground = Brushes.Gray;
+            txtDNI.Foreground = Brushes.Gray;
+            txtTelefono.Foreground = Brushes.Gray;
+            txtDireccion.Foreground = Brushes.Gray;
+            bttn_Editar.Content = "Editar";
+        }
 
     }
 }

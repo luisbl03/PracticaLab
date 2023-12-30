@@ -22,18 +22,18 @@
                 <RowDefinition Height="43*"/>
                 <RowDefinition Height="213*"/>
             </Grid.RowDefinitions>
-            <Button Content="Añadir paciente"
+            <Button x:Name="bttn_añadir" Content="Añadir paciente"
                         HorizontalAlignment="Left"
                         Margin="12,0,0,0"
                         VerticalAlignment="Center"
                         Height="40"
-                        Width="95"/>
-            <Button Content="Eliminar paciente"
+                        Width="95" Click="bttn_añadir_Click"/>
+            <Button x:Name="btn_eliminar" Content="Eliminar paciente"
                         HorizontalAlignment="Right"
                         Margin="0,0,12,0"
                         VerticalAlignment="Center"
                         Height="40"
-                        Width="95"/>
+                        Width="95" Click="btn_eliminar_Click"/>
             <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,28" Grid.Row="1">
                 <ListBox x:Name="Lista_de_pacientes" SelectionChanged="Lista_de_pacientes_SelectionChanged"/>
             </Border>
@@ -147,7 +147,7 @@
                             Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
 
                         <!-- Boton de editar -->
-                        <Button Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
+                        <Button x:Name="bttn_Editar" Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
                                     Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
 
 
