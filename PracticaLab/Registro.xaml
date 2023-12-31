@@ -38,7 +38,7 @@
         <Label Content="REGISTRO" 
                HorizontalAlignment="Left"
                VerticalAlignment="Center"
-               Grid.Row="1" FontFamily="Bahnschrift Condensed" FontSize="38" Grid.Column="2" Height="57" Width="134" Margin="37,0,0,0"
+               Grid.Row="1" FontFamily="Bahnschrift Condensed" FontSize="38" Grid.Column="2" Height="48" Width="189" Margin="37,0,0,0"
                
                />
         <TextBox x:Name="txtNombre_Registro" Grid.Column="2" 

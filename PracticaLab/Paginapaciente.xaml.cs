@@ -72,6 +72,11 @@ namespace PracticaLab
 
                 // Añadir los informes del paciente seleccionado a la ListView
                 UpdateInformesList(pacienteSeleccionado);
+
+                //aqui lo que vamos a hacer es leer las citas de ese paciente y mostrarlas en el datagrid
+                List<Cita> citas = cargarCitas(pacienteSeleccionado);
+                dataGridCitas.ItemsSource = citas;
+                dataGridCitas.Items.Refresh();
             }
             else
             {
@@ -361,6 +366,43 @@ namespace PracticaLab
             txtTelefono.Foreground = Brushes.Gray;
             txtDireccion.Foreground = Brushes.Gray;
             bttn_Editar.Content = "Editar";
+        }
+        private List<Cita> cargarCitas(Paciente p)
+        {
+            List<Cita> citas = new List<Cita>();
+            try
+            {
+                // Crear un objeto XmlDocument
+                XmlDocument xmlDoc = new XmlDocument();
+                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                var fichero = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
+                // Cargar el documento XML desde el archivo
+                xmlDoc.Load(fichero.Stream);
+                //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
+                XmlNodeList citasXml = xmlDoc.SelectNodes("/Citas/Cita");
+                foreach (XmlNode citaXml in citasXml)
+                {
+                    //leemos las citas y comporbamos que son de un paciente dado el dni
+                    if (citaXml.SelectSingleNode("DNI").InnerText.Equals(p.DNI))
+                    {
+                        Cita cita = new Cita("","",DateTime.Now,"")
+                        {
+                            DNI_paciente = citaXml.SelectSingleNode("DNI").InnerText,
+                            motivo = citaXml.SelectSingleNode("Motivo").InnerText,
+                            fecha = DateTime.ParseExact(citaXml.SelectSingleNode("Fecha").InnerText, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture),
+                            correo_fisio = citaXml.SelectSingleNode("CorreoFisio").InnerText
+
+                        }; 
+                        citas.Add(cita);
+                    }
+                }
+                return citas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return citas;
+            }
         }
 
     }
