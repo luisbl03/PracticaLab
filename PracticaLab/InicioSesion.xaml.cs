@@ -110,8 +110,11 @@ namespace PracticaLab
 
         private void txtEmail_IniciarSesion_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtEmail_IniciarSesion.Clear();
-            txtEmail_IniciarSesion.Foreground = Brushes.Black;
+            if (txtEmail_IniciarSesion.Text == "e-mail")
+            {
+                txtEmail_IniciarSesion.Text = "";
+                txtEmail_IniciarSesion.Foreground = Brushes.Black;
+            }
             if (passInicioSesion.Password == "")
             {
                 passInicioSesion.Visibility = Visibility.Hidden;
