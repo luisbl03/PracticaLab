@@ -7,8 +7,8 @@
     <Telefono>987654321</Telefono>
     <Direccion>Calle Principal, 123</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -20,8 +20,9 @@
     <Telefono>984392612</Telefono>
     <Direccion>Calle Vélez, 124</Direccion>
     <Informes>
-      <Informe>Informe 1: Esguince de tobillo</Informe>
-      <Informe>Informe 2: Dolor lumbar</Informe>
+      <Informe>Esguince de tobillo</Informe>
+      <Informe>Dolor lumbar</Informe>
+	  <Informe>Dolor cervical</Informe>
     </Informes>
   </Paciente>
 
@@ -33,7 +34,7 @@
     <Telefono>692341549</Telefono>
     <Direccion>Calle Larga, 2</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al gluten</Informe>
+      <Informe>Alérgico al gluten</Informe>
     </Informes>
   </Paciente>
 
@@ -45,8 +46,8 @@
 		<Telefono>456789012</Telefono>
 		<Direccion>Calle Felicidad, 54</Direccion>
 		<Informes>
-			<Informe>Informe 1: Alérgico al polen</Informe>
-			<Informe>Informe 2: Presión arterial alta</Informe>
+			<Informe>Alérgico al polen</Informe>
+			<Informe>Presión arterial alta</Informe>
 		</Informes>
 </Paciente>
 
@@ -58,8 +59,8 @@
     <Telefono>617823710</Telefono>
     <Direccion>Calle Menor, 3</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 	
@@ -71,8 +72,8 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Manzana, 5</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -84,8 +85,8 @@
     <Telefono>567890123</Telefono>
     <Direccion>Calle Computadora, 12</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -97,8 +98,8 @@
     <Telefono>678901234</Telefono>
     <Direccion>Calle Montaña, 8</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -110,8 +111,8 @@
     <Telefono>789012345</Telefono>
     <Direccion>Calle Aventura, 13</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -136,8 +137,8 @@
     <Telefono>901234567</Telefono>
     <Direccion>Calle Mariposa, 89</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -149,8 +150,8 @@
     <Telefono>012345678</Telefono>
     <Direccion>Calle Arcoíris, 92</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -162,8 +163,8 @@
     <Telefono>123456789</Telefono>
     <Direccion>Calle Serenidad, 7</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -175,8 +176,8 @@
     <Telefono>234567890</Telefono>
     <Direccion>Calle Explorador, 7</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -188,8 +189,8 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Invierno, 123</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -201,8 +202,8 @@
     <Telefono>456789012</Telefono>
     <Direccion>Calle Radiante, 4</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -214,8 +215,8 @@
     <Telefono>567890123</Telefono>
     <Direccion>Calle Esmeralda, 9</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -227,8 +228,8 @@
     <Telefono>678901234</Telefono>
     <Direccion>Calle Melodía, 21</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -240,8 +241,8 @@
     <Telefono>789012345</Telefono>
     <Direccion>Calle Búsqueda, 22</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -253,8 +254,8 @@
     <Telefono>890123456</Telefono>
     <Direccion>Calle Viaje, 43</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -266,8 +267,8 @@
     <Telefono>901234567</Telefono>
     <Direccion>Calle Burbuja, 84</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -279,8 +280,8 @@
     <Telefono>012345678</Telefono>
     <Direccion>Calle Laberinto, 2</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -292,8 +293,8 @@
     <Telefono>123456789</Telefono>
     <Direccion>Calle Travesía, 6</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -305,8 +306,8 @@
     <Telefono>234567890</Telefono>
     <Direccion>Calle Jubiloso, 123</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 
@@ -318,8 +319,8 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Destello, 5</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Alérgico al polen</Informe>
+      <Informe>Presión arterial alta</Informe>
     </Informes>
   </Paciente>
 </Pacientes>
