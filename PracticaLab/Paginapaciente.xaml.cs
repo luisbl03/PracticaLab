@@ -306,6 +306,26 @@ namespace PracticaLab
             verInformeWindow.ShowDialog();
         }
 
+
+        private void eliminarInforme_Click(object sender, RoutedEventArgs e)
+        {
+            Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+            if (listViewInformes.SelectedItem != null )
+            {
+                var informeSeleccionado = (dynamic)listViewInformes.SelectedItem;
+                int idInforme = informeSeleccionado.IdInforme;
+
+                Informe informe = pacienteSeleccionado.Informes[idInforme - 1];
+                pacienteSeleccionado.Informes.Remove(informe);
+                UpdateInformesList(pacienteSeleccionado);
+            }
+
+        }
+
+
+
+
+
         private void bttn_añadir_Click(object sender, RoutedEventArgs e)
         {   
             listViewInformes.Items.Clear();
@@ -341,6 +361,7 @@ namespace PracticaLab
             Pacientes.Remove(paciente);
             Lista_de_pacientes.Items.Refresh();
             /*dejamos los campos por defecto*/
+            listViewInformes.Items.Clear();
             limpiar();
 
         }
