@@ -312,12 +312,17 @@ namespace PracticaLab
             Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
             if (listViewInformes.SelectedItem != null )
             {
-                var informeSeleccionado = (dynamic)listViewInformes.SelectedItem;
-                int idInforme = informeSeleccionado.IdInforme;
+                MessageBoxResult result = MessageBox.Show("¿Estás seguro que quieres eliminar este informe?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                Informe informe = pacienteSeleccionado.Informes[idInforme - 1];
-                pacienteSeleccionado.Informes.Remove(informe);
-                UpdateInformesList(pacienteSeleccionado);
+                if (result == MessageBoxResult.Yes)
+                {
+                    var informeSeleccionado = (dynamic)listViewInformes.SelectedItem;
+                    int idInforme = informeSeleccionado.IdInforme;
+
+                    Informe informe = pacienteSeleccionado.Informes[idInforme - 1];
+                    pacienteSeleccionado.Informes.Remove(informe);
+                    UpdateInformesList(pacienteSeleccionado);
+                }
             }
 
         }
