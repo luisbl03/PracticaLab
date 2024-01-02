@@ -18,30 +18,38 @@
         <Grid Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="45*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock FontWeight="Bold" Margin="74,27,74,402" Text="Tipo de trabajador" />
-            <ComboBox x:Name="cmbTiposTrabajador" Margin="68,48,68,379">
-                <ComboBoxItem Content="Tipo 1"/>
-                <ComboBoxItem Content="Tipo 2"/>
-                <!-- Agrega más opciones según sea necesario -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="80*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontWeight="Bold" Text="Tipo de trabajador:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom"/>
+            <ComboBox x:Name="cmbTiposTrabajador"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom"
+                      Height="23" SelectionChanged="cmbTiposTrabajador_SelectionChanged">
+                <ComboBoxItem Content="Sanitario"/>
+                <ComboBoxItem Content="Encargado de la Limpieza"/>
             </ComboBox>
 
-            <ListBox x:Name="Lista_trabajadores" SelectionChanged="Lista_trabajadores_SelectionChanged" Margin="10,160,10,25"/>
+            <ListBox x:Name="Lista_trabajadores" SelectionChanged="Lista_trabajadores_SelectionChanged" 
+                     Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,22"/>
 
-            <Button x:Name="btn_eliminar" Content="eliminar"
-                HorizontalAlignment="Left"
-                Margin="10,95,0,0"
-                VerticalAlignment="Top"
+            <Button x:Name="btn_eliminar" Content="eliminar trabajador"
+                Grid.Row="1" Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 Height="40"
-                Width="87" Click="btn_Sanitarios"/>
+                Width="110" Click="btn_Sanitarios"/>
 
-            <Button x:Name="btn_añadir" Content="añadir"
-                HorizontalAlignment="Left"
-                Margin="161,95,0,0"
-                VerticalAlignment="Top"
+            <Button x:Name="btn_añadir" Content="añadir trabajador"
+                Grid.Row="1" Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 Height="40"
-                Width="87" Click="btn_Limpieza"/>
+                Width="110" Click="btn_Limpieza"/>
 
         </Grid>
 

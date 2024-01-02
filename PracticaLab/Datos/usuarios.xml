@@ -7,7 +7,7 @@
 	<Usuario Nombre="Javier" Apellidos="Cuartero Corredor" telefono="789456123" correo="javicorre@dor.com" contraseña="Contraseña" admin="F"/>
 	<Usuario Nombre="Corey" Apellidos="Taylor Slipknot" telefono="666666666" correo="tuscreemerfav@gmail.es" contraseña="metallica_mola" admin="F"/>
 	<Usuario Nombre="prueba" Apellidos="uno dos" telefono="000000000" correo="prueba" contraseña="prueba" admin="F"/>
-	<Usuario Nombre="admin" Apellidos="admin admin2" telefono="456789123" correo="admin@admin.com" contraseña="admin" admin="T"/> 
+	<Usuario Nombre="admin" Apellidos="admin admin" telefono="456789123" correo="admin" contraseña="admin" admin="T"/> 
 	
 	
 </Usuarios>

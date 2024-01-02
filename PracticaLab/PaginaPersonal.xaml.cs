@@ -57,6 +57,39 @@ namespace PracticaLab
         {
 
         }
+
+        private void cmbTiposTrabajador_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            // Obtener el tipo de trabajador seleccionado en el ComboBox
+            string tipoTrabajador = (cmbTiposTrabajador.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+            // Realizar acciones según el tipo de trabajador seleccionado
+            switch (tipoTrabajador)
+            {
+                case "Sanitario":
+                    MostrarInformacionSanitario();
+                    break;
+                case "Encargado de la Limpieza":
+                    MostrarInformacionEncargadoLimpieza();
+                    break;
+                default:
+                    // Manejar otros casos si es necesario
+                    break;
+            }
+        }
+
+        private void MostrarInformacionSanitario()
+        {
+            // Lógica para mostrar información de un Sanitario
+            MessageBox.Show("Información de Sanitario");
+        }
+
+        private void MostrarInformacionEncargadoLimpieza()
+        {
+            // Lógica para mostrar información de un Encargado de la Limpieza
+            MessageBox.Show("Información de Encargado de la Limpieza");
+        }
+    
     }
     public class Nomina
     {
