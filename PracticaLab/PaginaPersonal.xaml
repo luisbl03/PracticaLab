@@ -21,7 +21,27 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="45*"/>
             </Grid.ColumnDefinitions>
+
+
+            <ListBox x:Name="Lista_trabajadores" SelectionChanged="Lista_trabajadores_SelectionChanged" Margin="10,28,11,28" Grid.Column="2"/>
+
+            <Button x:Name="btn_sanitarios" Content="Sanitarios"
+                HorizontalAlignment="Center"
+                Margin="0,45,0,0"
+                VerticalAlignment="Top"
+                Height="40"
+                Width="127" Click="btn_Sanitarios"/>
+
+            <Button x:Name="btn_limpieza" Content="Personal de limpieza"
+                HorizontalAlignment="Center"
+                Margin="0,111,0,0"
+                VerticalAlignment="Top"
+                Height="40"
+                Width="127" Click="btn_Limpieza"/>
+
         </Grid>
+
+
         <GroupBox Grid.Column="2" BorderBrush="Black">
             <GroupBox.Header >
 
@@ -118,7 +138,7 @@
                             MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="66" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
 
                         <!-- Direccion -->
                         <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
@@ -130,24 +150,31 @@
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
                     </Grid>
-                    
+
                     <!--Empleo o ocupación-->
-                    <TextBlock Text="Trabajo: Fisioterapeuta jefe" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"  VerticalAlignment="Center" Margin="20,0,22,0"/>
-                
+                    <TextBlock Text="Trabajo: Fisioterapeuta jefe" FontWeight="Bold"
+                               Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"  
+                               VerticalAlignment="Center" Margin="20,0,22,0"/>
+
                     <!--horario, atención-->
+                    <TextBlock Text="Pacientes atendidos" FontWeight="Bold" FontSize="13.5"
+                               Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
+                               VerticalAlignment="Top" Margin="34,26,9,0"/>
+
                     <DataGrid Name="datagridHorario"
                               AutoGenerateColumns="False"  
-                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,17,33,63">
+                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="100"/>
-                            <DataGridTextColumn Header="Paciente atendido" Binding="{Binding Paciente_Atendido}" Width="200"/>
+                            <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="20*"/>
+                            <DataGridTextColumn Header="Paciente atendido" Binding="{Binding Paciente_Atendido}" Width="80*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
 
 
+
                 </Grid>
-                
+
 
                 <!--Nominas-->
                 <Grid Grid.Column="2">
@@ -155,12 +182,12 @@
                         <RowDefinition Height="5*"/>
                         <RowDefinition Height="45*"/>
                     </Grid.RowDefinitions>
-                    
-                    <TextBlock Text="Pagos y sueldo" FontWeight="Bold" FontSize="14"
+
+                    <TextBlock Text="Pagos y sueldo" FontWeight="Bold" FontSize="13.5"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                Grid.Column="2" Grid.Row="0"/>
-                    
+
                     <DataGrid Name="datagridNominas"
                               AutoGenerateColumns="False"  
                               Grid.Row="1" Margin="30,10,29,29"/>

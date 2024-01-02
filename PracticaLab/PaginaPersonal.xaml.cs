@@ -43,13 +43,24 @@ namespace PracticaLab
             datagridNominas.ItemsSource = Nominas;
         }
 
-    }
-    public class Nomina
+        private void Lista_trabajadores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            public DateTime Fecha { get; set; }
-            public double Monto { get; set; }
+
         }
 
-       
-  
+        private void btn_Sanitarios(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Limpieza(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+    public class Nomina
+    {
+        public DateTime Fecha { get; set; }
+        public double Monto { get; set; }
+    }
 }
