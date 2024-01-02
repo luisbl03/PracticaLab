@@ -134,13 +134,13 @@
                     <!--Empleo o ocupación-->
                     <TextBlock Text="Trabajo: Fisioterapeuta jefe" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"  VerticalAlignment="Center" Margin="20,0,22,0"/>
                 
-                    <!--horario-->
+                    <!--horario, atención-->
                     <DataGrid Name="datagridHorario"
                               AutoGenerateColumns="False"  
                               Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,17,33,63">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="100"/>
-                            <DataGridTextColumn Header="Horario de Trabajo" Binding="{Binding Horario}" Width="200"/>
+                            <DataGridTextColumn Header="Paciente atendido" Binding="{Binding Paciente_Atendido}" Width="200"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
