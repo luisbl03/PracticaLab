@@ -42,25 +42,6 @@ namespace PracticaLab
             Nominas = new ObservableCollection<Nomina>();
             datagridNominas.ItemsSource = Nominas;
         }
-        private void AgregarNomina_Click(object sender, RoutedEventArgs e)
-        {
-
-            // Ejemplo de cómo agregar una nómina ficticia a la lista
-            // Inicializar la lista de nóminas
-            Nominas.Add(new Nomina { Fecha = DateTime.Now, Monto = 2500.0 });
-
-        }
-        private void EliminarNomina_Click(object sender, RoutedEventArgs e)
-        {
-            // Obtener las nóminas seleccionadas en el DataGrid
-            var nominasSeleccionadas = datagridNominas.SelectedItems.Cast<Nomina>().ToList();
-
-            // Eliminar las nóminas seleccionadas de la colección
-            foreach (var nominaSeleccionada in nominasSeleccionadas)
-            {
-                Nominas.Remove(nominaSeleccionada);
-            }
-        }
 
     }
     public class Nomina

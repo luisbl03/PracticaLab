@@ -22,10 +22,10 @@
                 <ColumnDefinition Width="45*"/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <GroupBox Grid.Column="2" BorderBrush="Black" BorderThickness="4">
+        <GroupBox Grid.Column="2" BorderBrush="Black">
             <GroupBox.Header >
 
-                <TextBlock Text="Datos Personal" Foreground ="Black" FontWeight="Bold" FontSize="16"/>
+                <TextBlock Text="Datos Personal" Foreground ="Black" FontWeight="Bold" FontSize="15"/>
 
             </GroupBox.Header>
             <Grid>
@@ -45,15 +45,9 @@
                         <RowDefinition Height="15*"/>
                         <RowDefinition Height="85*"/>
                     </Grid.RowDefinitions>
-                    <DataGrid Name="datagridNominas" AutoGenerateColumns="True"  Grid.Column="0" Grid.ColumnSpan="2" Margin="5,63,5,20" Grid.RowSpan="2"/>
-                    <!-- Botón para Agregar Nómina -->
-                    <Button Content="Agregar Nómina" Click="AgregarNomina_Click" Grid.Column="0"
-                        Height="40"
-                        Width="95"/>
-                    <!-- Botón para Eliminar Nómina -->
-                    <Button Content="Eliminar Nómina" Click="EliminarNomina_Click" Grid.Column="1"
-                        Height="40"
-                        Width="95"/>
+                    <DataGrid Name="datagridNominas"
+                              AutoGenerateColumns="True"  
+                              Grid.Column="0" Grid.ColumnSpan="2" Margin="49,42,10,41" Grid.RowSpan="2"/>
                 </Grid>
 
             </Grid>

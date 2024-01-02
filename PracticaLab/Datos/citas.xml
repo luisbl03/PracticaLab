@@ -3,7 +3,7 @@
         <Paciente>
             <DNI>12345678A</DNI>
             <Fecha>01/12/2023 10:00</Fecha>
-			<CorreoFisio> pacomoon@outlook.es</CorreoFisio>
+			<CorreoFisio> pa3comoon@outlook.es</CorreoFisio>
 			<Motivo>Dolor de espalda</Motivo>
         </Paciente>
     </Cita>
