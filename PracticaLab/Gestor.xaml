@@ -24,24 +24,41 @@
         <!--Fondo del Grid superior-->
         <Border Grid.Row="0" Grid.Column="1" Background="White"/>
         
-        <!--Boton pacientes-->
-        <Button Content="Pacientes" Margin="282,29,857,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Pacientes"/>
-        <!--Boton personal-->
-        <Button x:Name="bttnPersonal" Content="Personal" Margin="443,29,696,5" Background="White" BorderBrush="White" FontSize="18" Click="Button_Click_Personal"/>
-
         <Grid x:Name="gridSuperior">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="307*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200*"/>
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="166*"/>
             </Grid.ColumnDefinitions>
-        
+            
             <!--  Logo compania -->
             <Image x:Name="Logo" HorizontalAlignment="Left" VerticalAlignment="Center"
                 Margin="10,0,0,0"
                 Source="/Imagenes/images.png"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal"  Margin="15,35,15,0">
+                <!--Boton pacientes con cita-->
+                <Button Content="    Pacientes Cita     " Background="White" BorderBrush="White" 
+                        FontSize="20" Click="Button_Click_Pacientes_Cita"
+                        VerticalAlignment="Center"
+                        Margin="5"
+                        />
+                <!--Boton pacientes-->
+                <Button Content="Todos los Pacientes     " Background="White" BorderBrush="White" 
+                        FontSize="20" Click="Button_Click_Pacientes"
+                        VerticalAlignment="Center"
+                        Margin="5"
+                        />
+                <!--Boton personal-->
+                <Button x:Name="bttnPersonal" Content="Personal  " Background="White" BorderBrush="White" 
+                        FontSize="20" Click="Button_Click_Personal"
+                        VerticalAlignment="Center"
+                         Margin="5"
+                        />
+            </StackPanel>
+           
             <!-- Foto de perfil -->
-            <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="1">
+            <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="2">
                 <Border.Clip>
                     <EllipseGeometry Center="37.5,37.5" RadiusX="37.5" RadiusY="37.5"/>
                 </Border.Clip>
@@ -51,9 +68,9 @@
             <!-- Detalles del perfil -->
 
             <!-- Fondo con color Perfil -->
-            <Rectangle x:Name="perfilRectangle" Fill="LightBlue" RadiusX="5" RadiusY="5" Grid.Column="2" Width="420" Height="80"/>
+            <Rectangle x:Name="perfilRectangle" Fill="LightBlue" RadiusX="5" RadiusY="5" Grid.Column="3" Width="420" Height="80"/>
 
-            <Grid Grid.Column="2" Width="400" Height="80">
+            <Grid Grid.Column="3" Width="400" Height="80">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="40*"/>

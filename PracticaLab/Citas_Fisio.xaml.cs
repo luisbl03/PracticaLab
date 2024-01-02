@@ -264,7 +264,8 @@ namespace PracticaLab
         }
 
         private List<Cita> cargarCitas(List<Cita> listaCitas)
-        {
+        {   
+            /*
             // Crear un objeto XmlDocument
             XmlDocument xmlDoc = new XmlDocument();
             //almacenamos la informacion de "pacientes.xml" en la variable fichero
@@ -276,6 +277,7 @@ namespace PracticaLab
             XmlNodeList citasXml = xmlDoc.SelectNodes("/Citas/Cita");
 
             // Iterar a través de los pacientes y agregar a la lista de Pacientes
+            /*
             foreach (XmlNode citaXml in citasXml)
             {
                 Cita cita = new Cita("", "", DateTime.Now, "")
@@ -287,7 +289,9 @@ namespace PracticaLab
                 };
                 listaCitas.Add(cita);
             }
+            */
             return listaCitas;
+            
         }
 
     }

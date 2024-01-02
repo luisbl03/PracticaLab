@@ -28,9 +28,9 @@ namespace PracticaLab
             perfilRectangle.Height = nuevaAltura;
 
         }
-       
 
-       
+
+        private Page2 paginaPaciente;
         public Gestor(Usuario u)
         {
             InitializeComponent();
@@ -48,7 +48,8 @@ namespace PracticaLab
                 //Si no es admin, se oculta el boton de personal
                 bttnPersonal.Visibility = Visibility.Hidden;
             }
-            mainFrame.Navigate(new Page2(u));
+            paginaPaciente = new Page2(u);
+            mainFrame.Navigate(paginaPaciente);
 
         }
 
@@ -58,29 +59,48 @@ namespace PracticaLab
         }
 
         private Page1 paginaPersona;
+        private Citas_Fisio paginaPacienteCita;
         private void Button_Click_Personal(object sender, RoutedEventArgs e)
         {
-            if (!(mainFrame.Content is Page1) && paginaPersona == null)
+            if (!(mainFrame.Content is Page1))
             {
-                // inicializa una pagina de personal
-                paginaPersona = new Page1();
-                mainFrame.Navigate(paginaPersona);
-            }
-            else if (!(mainFrame.Content is Page1) && !(paginaPersona == null))
-            {
-                mainFrame.Navigate(paginaPersona);
+                if (paginaPersona == null)
+                {
+                    // inicializa una pagina de personal
+                    paginaPersona = new Page1();
+                    mainFrame.Navigate(paginaPersona);
+                }
+                else
+                {
+                    mainFrame.Navigate(paginaPersona);
+                }
             }
         }
 
         private void Button_Click_Pacientes(object sender, RoutedEventArgs e)
         {
-            if (mainFrame.Content is Page1)
+            if (!(mainFrame.Content is Page2))
             {
                 // Regresa a la pagina de pacientes
-                mainFrame.GoBack();
+                mainFrame.Navigate(paginaPaciente);
             }
             
         }
 
+        private void Button_Click_Pacientes_Cita(object sender, RoutedEventArgs e)
+        {
+            if (!(mainFrame.Content is Citas_Fisio))
+            {
+                if (paginaPacienteCita == null)
+                {
+                    // inicializa una pagina de personal
+                    paginaPacienteCita = new Citas_Fisio(usuario);
+                    mainFrame.Navigate(paginaPacienteCita);
+                }
+                else {
+                    mainFrame.Navigate(paginaPacienteCita);
+                }
+            }         
+        }
     }
 }
