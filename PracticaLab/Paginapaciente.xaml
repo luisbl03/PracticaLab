@@ -201,10 +201,9 @@
                     <!--Grid Citas-->
                     <DataGrid x:Name="dataGridCitas" AutoGenerateColumns="False" Grid.Row="1">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding NombrePaciente}" />
-                            <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding FechaCita}" />
-                            <DataGridTextColumn Header="Hora de la Cita" Binding="{Binding HoraCita}" />
-                            <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding NombreMedico}" />
+                            <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding nombre_paciente}" />
+                            <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding fecha}" />
+                            <DataGridTextColumn Header="Nombre del Médico" Binding="{Binding correo_fisio}" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" Height="25" Margin="23,54,23,0" VerticalAlignment="Top" Click="editarInforme_Click"/>

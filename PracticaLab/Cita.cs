@@ -8,13 +8,13 @@ namespace PracticaLab
 {
     public class Cita
     {
-        public string DNI_paciente { get; set; }
+        public string nombre_paciente { get; set; }
         public string motivo { get; set; }
         public DateTime fecha { get; set; }
         public string correo_fisio { get; set; }
-        public Cita(string dni,string motivo, DateTime fecha, string correo)
+        public Cita(string nombre,string motivo, DateTime fecha, string correo)
         {
-            this.DNI_paciente = dni;
+            this.nombre_paciente = nombre;
             this.motivo = motivo;
             this.fecha = fecha;
             this.correo_fisio = correo;

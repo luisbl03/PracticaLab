@@ -409,12 +409,12 @@ namespace PracticaLab
                 foreach(XmlNode node in xmlDoc.DocumentElement.ChildNodes)
                 {
                     var cita = new Cita("", "", DateTime.Now, "");
-                    cita.DNI_paciente = node.Attributes["DNI"].Value;
-                    cita.motivo = node.Attributes["Motivo"].Value;
-                    cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", null);
-                    cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
-                    if (cita.DNI_paciente.Equals(p.DNI))
+                    if (node.Attributes["DNI"].Value.Equals(p.DNI))
                     {
+                        cita.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " +p.Apellido2;
+                        cita.motivo = node.Attributes["Motivo"].Value;
+                        cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                        cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
                         citas.Add(cita);
                     }
                 }
