@@ -1,42 +1,9 @@
 <Citas>
-    <Cita>
-        <Paciente>
-            <DNI>12345678A</DNI>
-            <Fecha>01/12/2023 10:00</Fecha>
-			<CorreoFisio> pa3comoon@outlook.es</CorreoFisio>
-			<Motivo>Dolor de espalda</Motivo>
-        </Paciente>
-    </Cita>
-	<Cita>
-		<Paciente>
-			<DNI>12345678A</DNI>
-			<Fecha>04/12/2023 12:00</Fecha>
-			<CorreoFisio>soyalberto@hola.com</CorreoFisio>
-			<Motivo>Dolor de pie</Motivo>
-		</Paciente>
-	</Cita>
-    <Cita>
-        <Paciente>
-            <DNI>12456478Q</DNI>
-            <Fecha>02/12/2023 10:00</Fecha>
-			<CorreoFisio>soyalberto@hola.com</CorreoFisio>
-			<Motivo>Dolor de cadera</Motivo>
-        </Paciente>
-    </Cita>
-    <Cita>
-        <Paciente>
-            <DNI>23768998Z</DNI>
-            <Fecha>03/12/2023 10:00</Fecha>
-			<CorreoFisio>javicorre@dor.com</CorreoFisio>
-			<Motivo>Seguimiento de artrosis</Motivo>
-        </Paciente>
-    </Cita>
-	<Cita>
-		<Paciente>
-			<DNI>23768998Z</DNI>
-			<Fecha>03/12/2023 13:30</Fecha>
-			<CorreoFisio>javicorre@dor.com</CorreoFisio>
-			<Motivo>Dolores lumbares</Motivo>
-		</Paciente>
-	</Cita>
+	
+    <Cita DNI="12345678A" Fecha="01/12/2023 10:00" CorreoFisio="p3comoon@outlook.es" Motivo="Dolor de espalda"/>
+	<Cita DNI="12345678A" Fecha="04/12/2023 12:00" CorreoFisio="soyalberto@hola.com" Motivo="Dolor de pie"/>
+	<Cita DNI="12456478Q" Fecha="02/12/2023 10:00" CorreoFisio="soyalberto@hola.com" Motivo="Dolor de cadera"/>
+    <Cita DNI="23768998Z" Fecha="03/12/2023 10:00" CorreoFisio="javicorre@dor.com" Motivo="Seguimiento de artrosis"/>
+	<Cita DNI="23768998Z" Fecha="03/12/2023 13:30" CorreoFisio="javicorre@dor.com" Motivo="Dolores lumbares"/>
+	
 </Citas>

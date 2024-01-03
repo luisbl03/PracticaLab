@@ -405,20 +405,16 @@ namespace PracticaLab
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
                 //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
-                XmlNodeList citasXml = xmlDoc.SelectNodes("/Citas/Cita");
-                foreach (XmlNode citaXml in citasXml)
+                
+                foreach(XmlNode node in xmlDoc.DocumentElement.ChildNodes)
                 {
-                    //leemos las citas y comporbamos que son de un paciente dado el dni
-                    if (citaXml.SelectSingleNode("DNI").InnerText.Equals(p.DNI))
+                    var cita = new Cita("", "", DateTime.Now, "");
+                    cita.DNI_paciente = node.Attributes["DNI"].Value;
+                    cita.motivo = node.Attributes["Motivo"].Value;
+                    cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", null);
+                    cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
+                    if (cita.DNI_paciente.Equals(p.DNI))
                     {
-                        Cita cita = new Cita("","",DateTime.Now,"")
-                        {
-                            DNI_paciente = citaXml.SelectSingleNode("DNI").InnerText,
-                            motivo = citaXml.SelectSingleNode("Motivo").InnerText,
-                            fecha = DateTime.ParseExact(citaXml.SelectSingleNode("Fecha").InnerText, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture),
-                            correo_fisio = citaXml.SelectSingleNode("CorreoFisio").InnerText
-
-                        }; 
                         citas.Add(cita);
                     }
                 }
