@@ -50,6 +50,8 @@ namespace PracticaLab
             // Verifica si hay un paciente seleccionado
             if (Lista_de_pacientes.SelectedItem != null)
             {
+                //limpiamos el datagrid de citas
+                dataGridCitas.ItemsSource = null;
                 seleccionado = true;
                 // Obtén el paciente seleccionado
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
@@ -355,6 +357,7 @@ namespace PracticaLab
             txtDireccion.Foreground = Brushes.Black;
             modo1 = false;
             bttn_Editar.Content = "Guardar";
+            dataGridCitas.ItemsSource = null;
             /*quitamos la seleccion de la lista*/
             Lista_de_pacientes.SelectedItem = null;
             seleccionado = false;
@@ -367,6 +370,7 @@ namespace PracticaLab
             Lista_de_pacientes.Items.Refresh();
             /*dejamos los campos por defecto*/
             listViewInformes.Items.Clear();
+            dataGridCitas.ItemsSource = null;
             limpiar();
 
         }
