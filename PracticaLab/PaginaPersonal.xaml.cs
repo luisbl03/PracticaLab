@@ -89,7 +89,11 @@ namespace PracticaLab
             // Lógica para mostrar información de un Encargado de la Limpieza
             MessageBox.Show("Información de Encargado de la Limpieza");
         }
-    
+
+        private void datagridPacientesAtendidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     public class Nomina
     {

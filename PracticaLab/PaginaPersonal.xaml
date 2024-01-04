@@ -173,12 +173,13 @@
                                Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
                                VerticalAlignment="Top" Margin="34,33,9,0"/>
 
-                    <DataGrid Name="datagridHorario"
+                    <DataGrid Name="datagridPacientesAtendidos"
                               AutoGenerateColumns="False"  
-                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29">
+                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29" SelectionChanged="datagridPacientesAtendidos_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="20*"/>
-                            <DataGridTextColumn Header="Paciente atendido" Binding="{Binding Paciente_Atendido}" Width="80*"/>
+                            <DataGridTextColumn Header="DNI del paciente" Binding="{Binding Paciente_Atendido_DNI}" Width="30*"/>
+                            <DataGridTextColumn Header="Nombre del paciente" Binding="{Binding Paciente_Atendido_Nombre}" Width="50*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
