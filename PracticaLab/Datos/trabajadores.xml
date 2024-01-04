@@ -1,7 +1,33 @@
 <Trabajadores>
+	<Trabajador>
+		<Nombre>Alberto</Nombre>
+		<Apellido1>Barrais</Apellido1>
+		<Apellido2>Bellerín</Apellido2>
+		<DNI>71374080A</DNI>
+		<Telefono>474961013</Telefono>
+		<Direccion>Calle Princesa, 13</Direccion>
+		<correo>soyalberto@hola.com</correo>
+		<trabajo>fisioterapeuta</trabajo>
+	</Trabajador>
+	<Trabajador>
+		<Nombre>Luis</Nombre>
+		<Apellido1>Benito</Apellido1>
+		<Apellido2>López</Apellido2>
+		<DNI>51186032C</DNI>
+		<Telefono>604562014</Telefono>
+		<Direccion>Calle la Mota, 25</Direccion>
+		<correo>soyluis@hola.com</correo>
+		<trabajo>encargado de la limpieza</trabajo>
+	</Trabajador>
+	<Trabajador>
+		<Nombre>Javier</Nombre>
+		<Apellido1>Cuartero</Apellido1>
+		<Apellido2>Corredor</Apellido2>
+		<DNI>87818480D</DNI>
+		<Telefono>502502134</Telefono>
+		<Direccion>Calle Luis Maldonado, 1</Direccion>
+		<correo>soyJavier@hola.com</correo>
+		<trabajo>fisoterapeuta jefe</trabajo>
+	</Trabajador>
 	
-	<Trabajador Nombre="Alberto" Apellidos="Barrais Bellerín" telefono="474961013" correo="soyalberto@hola.com" edad ="20" trabajo="enfermero"/>
-	<Trabajador Nombre="Luis" Apellidos="Benito López" telefono="604562014" correo="soyluis@hola.com" edad ="20" trabajo="limpieador"/>
-	<Trabajador Nombre="Javier" Apellidos="Cuartero Corredor" telefono="502502134" correo="soyJavier@hola.com" edad="21" trabajo="medico"/>
-
 </Trabajadores>

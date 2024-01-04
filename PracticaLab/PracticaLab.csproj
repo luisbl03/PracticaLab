@@ -211,5 +211,8 @@
   <ItemGroup>
     <Resource Include="Datos\trabajadores.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\Nominas.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
