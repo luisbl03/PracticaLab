@@ -351,13 +351,13 @@ namespace PracticaLab
             {
                 verInforme.IsEnabled = true;
                 editarInforme.IsEnabled= true;
-                eliminarCita.IsEnabled= true;
+                eliminarInforme.IsEnabled= true;
             }
             else
             {
                 verInforme.IsEnabled = false;
                 editarInforme.IsEnabled= false;
-                eliminarCita.IsEnabled = false;
+                eliminarInforme.IsEnabled = false;
             }
         }
 

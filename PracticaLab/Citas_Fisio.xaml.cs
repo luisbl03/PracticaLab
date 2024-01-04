@@ -284,11 +284,13 @@ namespace PracticaLab
             {
                 verInforme.IsEnabled = true;
                 editarInforme.IsEnabled = true;
+                eliminarInforme.IsEnabled=true;
             }
             else
             {
                 verInforme.IsEnabled = false;
                 editarInforme.IsEnabled = false;
+                eliminarInforme.IsEnabled = false;
             }
         }
 
