@@ -40,6 +40,8 @@ namespace PracticaLab
         public List<Usuario> Usuarios { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
+
+
         private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!isInitialized)
@@ -47,6 +49,16 @@ namespace PracticaLab
                 return;
             }
 
+            if (Lista_de_pacientes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                UpdateInformesList(pacienteSeleccionado);
+            }
+            else
+            {
+                // No hay paciente seleccionado, deshabilita el botón
+                verInforme.IsEnabled = false;
+            }
             //listViewInformes.Items.Clear();
 
             // Verifica si hay un paciente seleccionado
@@ -187,6 +199,8 @@ namespace PracticaLab
             modo1 = !modo1;
 
         }
+
+
         public Page2(Usuario u)
         {   
 
@@ -194,6 +208,9 @@ namespace PracticaLab
             Pacientes = new List<Paciente>();
             Citas = cargarCitas();
             Usuarios = cargarUsuarios();
+            listViewInformes.SelectionChanged += listViewInformes_SelectionChanged;
+
+
             try
             {
 
@@ -293,9 +310,16 @@ namespace PracticaLab
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
         {
-            EditarInforme editarInformeWindow = new EditarInforme();
-            editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            editarInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                EditarInforme editarInformeWindow = new EditarInforme(pacienteSeleccionado, informeSeleccionado);
+                editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                editarInformeWindow.ShowDialog();
+            }
         }
 
         private void anadirInforme_Click(object sender, RoutedEventArgs e)
@@ -307,9 +331,34 @@ namespace PracticaLab
 
         private void verInforme_Click(object sender, RoutedEventArgs e)
         {
-            VerInforme verInformeWindow = new VerInforme();
-            verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            verInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                VerInforme verInformeWindow = new VerInforme(pacienteSeleccionado, informeSeleccionado);
+                verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                verInformeWindow.ShowDialog();
+            }
+        }
+
+
+        private void listViewInformes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Manejar la habilitación del botón aquí
+            if (listViewInformes.SelectedItem != null)
+            {
+                verInforme.IsEnabled = true;
+                editarInforme.IsEnabled= true;
+                eliminarCita.IsEnabled= true;
+            }
+            else
+            {
+                verInforme.IsEnabled = false;
+                editarInforme.IsEnabled= false;
+                eliminarCita.IsEnabled = false;
+            }
         }
 
 
@@ -333,6 +382,7 @@ namespace PracticaLab
 
         }
 
+        
 
 
 
