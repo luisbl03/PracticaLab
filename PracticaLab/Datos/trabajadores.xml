@@ -1,5 +1,5 @@
 <Trabajadores>
 	<Trabajador Nombre="Alberto" Apellido1="Barrais" Apellido2="Bellerin" DNI="71374080A" Telefono="474961013" Direccion="Calle Princesa, 13" correo="soyalberto@hola.com" trabajo="fisioterapeuta"/>
-	<Trabajador Nombre="Luis" Apellido1="Benito" Apellido2="López" DNI="51186032C" Telefono="604562014" Direccion="Calle la Mota, 25" correo="Luis.Benito@alu.uclm.es" trabajo="encargado de la limpieza"/>
+	<Trabajador Nombre="Luis" Apellido1="Benito" Apellido2="López" DNI="51186032C" Telefono="604562014" Direccion="Calle la Mota, 25" correo="Luis.Benito@alu.uclm.es" trabajo="limpiador"/>
 	<Trabajador Nombre="Javier" Apellido1="Cuartero" Apellido2="Corredor" DNI="87818480D" Telefono="5025021340" Direccion="Calle Luis Maldonado, 1" correo="javicorre@dor.com" trabajo="fisioterapeuta jefe"/>
 </Trabajadores>

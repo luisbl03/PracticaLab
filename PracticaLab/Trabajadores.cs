@@ -28,5 +28,10 @@ namespace PracticaLab
             this.correo = correo;
             this.trabajo = trabajo;
         }
+        public override string ToString()
+        {
+            string trabajadorString = $"{Nombre} {Apellido1} {Apellido2}";
+            return trabajadorString;
+        }
     }
 }

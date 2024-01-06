@@ -25,11 +25,13 @@ namespace PracticaLab
     public partial class Page1 : Page
     {
         public ObservableCollection<Nomina> Nominas { get; set; }
-        public List<Trabajadores> trabajadoresList { get; set; }
-
+        public List<Trabajadores> listTrabajadoresSanitarios { get; set; }
+        public List<Trabajadores> listTrabajadoresLimpieza { get; set; }
         public Page1()
         {
-            trabajadoresList = new List<Trabajadores>();
+            listTrabajadoresSanitarios= new List<Trabajadores>();
+            listTrabajadoresLimpieza = new List<Trabajadores>();
+
             InitializeComponent();
             // Crear un objeto XmlDocument
             try
@@ -58,11 +60,31 @@ namespace PracticaLab
                     string correo =trabajadorXML.Attributes["correo"].Value;
                     string trabajo = trabajadorXML.Attributes["trabajo"].Value;
                     Trabajadores trabajador = new Trabajadores(nombre,apellido1, apellido2, dNI, telefono, direccion, correo, trabajo);
-                   
-                    trabajadoresList.Add(trabajador);
-                }
 
-                Lista_trabajadores.ItemsSource = trabajadoresList;
+                    switch (trabajador.trabajo)
+                    {
+                        case "fisioterapeuta":
+                            listTrabajadoresSanitarios.Add(trabajador);
+                            break;
+                        case "fisioterapeuta en practicas":
+                            listTrabajadoresSanitarios.Add(trabajador);
+                            break;
+                        case "fisioterapeuta jefe":
+                            listTrabajadoresSanitarios.Add(trabajador);
+                            break;
+                        case "limpiador":
+                            listTrabajadoresLimpieza.Add(trabajador);
+                            break;
+                        case "limpiador jefe":
+                            listTrabajadoresLimpieza.Add(trabajador);
+                            break;
+                        default:
+                           
+                        break;
+                    }
+                   
+                    
+                }
             
             }
 
@@ -83,7 +105,7 @@ namespace PracticaLab
             if (Lista_trabajadores.SelectedItem != null)
             {
                 //limpiamos el datagrid de citas
-                datagridPacientesAtendidos.ItemsSource = null;
+                dataGridPacientesAtendidos.ItemsSource = null;
                 seleccionado = true;
                 // Obtén el paciente seleccionado
                 Trabajadores trabajadorSeleccionador = (Trabajadores)Lista_trabajadores.SelectedItem;
@@ -123,27 +145,21 @@ namespace PracticaLab
             switch (tipoTrabajador)
             {
                 case "Sanitario":
-                    MostrarInformacionSanitario();
+                    Lista_trabajadores.ItemsSource = listTrabajadoresSanitarios;
+                    txtBlockPacientesAtendidos.Visibility = Visibility.Visible;
+                    dataGridPacientesAtendidos.Visibility = Visibility.Visible;
+                    limpiar();
                     break;
                 case "Encargado de la Limpieza":
-                    MostrarInformacionEncargadoLimpieza();
+                    Lista_trabajadores.ItemsSource = listTrabajadoresLimpieza;
+                    txtBlockPacientesAtendidos.Visibility = Visibility.Collapsed;
+                    dataGridPacientesAtendidos.Visibility = Visibility.Collapsed;
+                    limpiar();
                     break;
                 default:
                     // Manejar otros casos si es necesario
                     break;
             }
-        }
-
-        private void MostrarInformacionSanitario()
-        {
-            // Lógica para mostrar información de un Sanitario
-            MessageBox.Show("Información de Sanitario");
-        }
-
-        private void MostrarInformacionEncargadoLimpieza()
-        {
-            // Lógica para mostrar información de un Encargado de la Limpieza
-            MessageBox.Show("Información de Encargado de la Limpieza");
         }
 
         private void datagridPacientesAtendidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -159,6 +175,30 @@ namespace PracticaLab
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void limpiar()
+        {
+            txtNombre.Text = "Nombre";
+            txtApellido1.Text = "Primer Apellido";
+            txtApellido2.Text = "Segundo Apellido";
+            txtDNI.Text = "000000000A";
+            txtTelefono.Text = "000000000";
+            txtDireccion.Text = "calle x, nº";
+            txtTrabajo.Text = "Trabajo";
+            //ImagenPaciente.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
+            txtNombre.IsReadOnly = true;
+            txtApellido1.IsReadOnly = true;
+            txtApellido2.IsReadOnly = true;
+            txtDNI.IsReadOnly = true;
+            txtTelefono.IsReadOnly = true;
+            txtDireccion.IsReadOnly = true;
+            txtNombre.Foreground = Brushes.Gray;
+            txtApellido1.Foreground = Brushes.Gray;
+            txtApellido2.Foreground = Brushes.Gray;
+            txtDNI.Foreground = Brushes.Gray;
+            txtTelefono.Foreground = Brushes.Gray;
+            txtDireccion.Foreground = Brushes.Gray;
+            //bttn_Editar.Content = "Editar";
         }
     }
     public class Nomina

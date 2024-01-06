@@ -108,7 +108,7 @@
                             Text="Nombre" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="106" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!--Primer Apellido -->
                         <TextBlock FontWeight="Bold" Grid.Column="1" Grid.Row="0" Text="Primer Apellido"/>
@@ -118,7 +118,7 @@
                             Text="Primer Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Segundo Apellido -->
                         <TextBlock FontWeight="Bold" Grid.Column="0" Grid.Row="2" Text="Segundo Apellido"/>
@@ -128,7 +128,7 @@
                             Text="Segundo Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- DNI -->
                         <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
@@ -139,7 +139,7 @@
                             MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="72" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Telefono -->
                         <TextBlock Text="Teléfono" FontWeight="Bold" Grid.Column="0" Grid.Row="4"/>
@@ -150,17 +150,17 @@
                             MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="66" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="66" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Direccion -->
                         <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
                         <TextBox x:Name="txtDireccion" Grid.Column="1" Grid.Row="5"
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
-                            Text="calle x" 
+                            Text="calle x, nº" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
+                            Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </Grid>
                     
                     <!--Empleo o ocupación-->
@@ -174,14 +174,15 @@
                             TextWrapping="Wrap" 
                             Text="Trabajo" 
                             IsReadOnly="True"
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
+                            Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </StackPanel>
                     <!--horario, atención-->
-                    <TextBlock Text="Pacientes atendidos" FontWeight="Bold" FontSize="13.5"
+                    <TextBlock x:Name="txtBlockPacientesAtendidos"
+                               Text="Pacientes atendidos" FontWeight="Bold" FontSize="13.5"
                                Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
                                VerticalAlignment="Top" Margin="34,33,9,0"/>
 
-                    <DataGrid Name="datagridPacientesAtendidos"
+                    <DataGrid Name="dataGridPacientesAtendidos"
                               AutoGenerateColumns="False"  
                               Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29" SelectionChanged="datagridPacientesAtendidos_SelectionChanged">
                         <DataGrid.Columns>

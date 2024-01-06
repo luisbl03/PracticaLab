@@ -92,7 +92,7 @@
                             Text="Nombre" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="106" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="106" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!--Primer Apellido -->
                         <TextBlock FontWeight="Bold" Grid.Column="1" Grid.Row="0" Text="Primer Apellido"/>
@@ -102,7 +102,7 @@
                             Text="Primer Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Segundo Apellido -->
                         <TextBlock FontWeight="Bold" Grid.Column="0" Grid.Row="2" Text="Segundo Apellido"/>
@@ -112,7 +112,7 @@
                             Text="Segundo Apellido" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="109" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- DNI -->
                         <TextBlock Text="DNI" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
@@ -123,7 +123,7 @@
                             MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="72" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="72" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Telefono -->
                         <TextBlock Text="Teléfono" FontWeight="Bold" Grid.Column="0" Grid.Row="4"/>
@@ -134,7 +134,7 @@
                             MaxLength="9"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="84" Height="18" Foreground="#FF655C5C" BorderBrush="Black"/>
+                            Width="84" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Direccion -->
                         <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
@@ -144,7 +144,7 @@
                             Text="calle x" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
-                            Width="139" Height="18" Foreground="#FF655C5C" BorderBrush="Black" />
+                            Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
 
                         <!-- Boton de editar -->
                         <Button x:Name="bttn_Editar" Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
