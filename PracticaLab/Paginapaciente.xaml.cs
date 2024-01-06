@@ -542,8 +542,11 @@ namespace PracticaLab
                 {
                     c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
                     Trabajadores t = list_trabajadores.Find(x => x.correo == c.correo_fisio);
-                    c.nombre_fisio = t.Nombre + " " + t.Apellido1 + " " + t.Apellido2;
-                    citaPaciente.Add(c);
+                    if (t != null)
+                    {
+                        c.nombre_fisio = t.Nombre + " " + t.Apellido1 + " " + t.Apellido2;
+                        citaPaciente.Add(c);
+                    }
                 }
             }
             return citaPaciente;
