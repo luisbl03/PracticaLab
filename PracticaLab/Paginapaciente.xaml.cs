@@ -542,5 +542,14 @@ namespace PracticaLab
             }
             return citaPaciente;
         }
+
+        private void dataGridCitas_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            /*ponemos todos los botones habilitados*/
+            btneliminarCita.IsEnabled = true;
+            btneditarCita.IsEnabled = true;
+            btnanadirCita.IsEnabled = true;
+            btnverCita.IsEnabled = true;
+        }
     }
 }
