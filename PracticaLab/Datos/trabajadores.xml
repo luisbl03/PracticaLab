@@ -1,33 +1,5 @@
 <Trabajadores>
-	<Trabajador>
-		<Nombre>Alberto</Nombre>
-		<Apellido1>Barrais</Apellido1>
-		<Apellido2>Bellerín</Apellido2>
-		<DNI>71374080A</DNI>
-		<Telefono>474961013</Telefono>
-		<Direccion>Calle Princesa, 13</Direccion>
-		<correo>soyalberto@hola.com</correo>
-		<trabajo>fisioterapeuta</trabajo>
-	</Trabajador>
-	<Trabajador>
-		<Nombre>Luis</Nombre>
-		<Apellido1>Benito</Apellido1>
-		<Apellido2>López</Apellido2>
-		<DNI>51186032C</DNI>
-		<Telefono>604562014</Telefono>
-		<Direccion>Calle la Mota, 25</Direccion>
-		<correo>soyluis@hola.com</correo>
-		<trabajo>encargado de la limpieza</trabajo>
-	</Trabajador>
-	<Trabajador>
-		<Nombre>Javier</Nombre>
-		<Apellido1>Cuartero</Apellido1>
-		<Apellido2>Corredor</Apellido2>
-		<DNI>87818480D</DNI>
-		<Telefono>502502134</Telefono>
-		<Direccion>Calle Luis Maldonado, 1</Direccion>
-		<correo>soyJavier@hola.com</correo>
-		<trabajo>fisoterapeuta jefe</trabajo>
-	</Trabajador>
-	
+	<Trabajador Nombre="Alberto" Apellido1="Barrais" Apellido2="Bellerin" DNI="71374080A" Telefono="474961013" Direccion="Calle Princesa .13" correo="soyalberto@hola.com" trabajo="fisioterapeuta"/>
+	<Trabajador Nombre="Luis" Apellido1="Benito" Apellido2="López" DNI="51186032C" Telefono="604562014" Direccion="Calle la Mota, 25" correo="Luis.Benito@alu.uclm.es" trabajo="encargado de la limpieza"/>
+	<Trabajador Nombre="Javier" Apellido1="Cuartero" Apellido2="Corredor" DNI="87818480D" Telefono="5025021340" Direccion="Calle Luis Maldonado, 1" correo="javicorre@dor.com" trabajo="fisioterapeuta jefe"/>
 </Trabajadores>

@@ -38,6 +38,7 @@ namespace PracticaLab
         public List<Paciente> Pacientes { get; set; }
         public List<Cita> Citas { get; set; }
         public List<Usuario> Usuarios { get; set; }
+        public List<Trabajadores> list_trabajadores { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
 
@@ -208,6 +209,7 @@ namespace PracticaLab
             Pacientes = new List<Paciente>();
             Citas = cargarCitas();
             Usuarios = cargarUsuarios();
+            list_trabajadores = cargarTrabajadores();
             listViewInformes.SelectionChanged += listViewInformes_SelectionChanged;
 
 
@@ -539,8 +541,8 @@ namespace PracticaLab
                 if(c.DNI_paciente == p.DNI)
                 {
                     c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
-                    Usuario usuario = Usuarios.FirstOrDefault(u => u.correo == c.correo_fisio);
-                    c.nombre_fisio = usuario.nombre + " " + usuario.apellidos;
+                    Trabajadores t = list_trabajadores.Find(x => x.correo == c.correo_fisio);
+                    c.nombre_fisio = t.Nombre + " " + t.Apellido1 + " " + t.Apellido2;
                     citaPaciente.Add(c);
                 }
             }
@@ -565,9 +567,26 @@ namespace PracticaLab
             }
         }
 
-        private void cargarTrabajadores()
+        private List<Trabajadores> cargarTrabajadores()
         {
-
+            List<Trabajadores> listaTrabajadores = new List<Trabajadores>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach(XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var trabajador = new Trabajadores("", "","", "", "","","","");
+                trabajador.Nombre = node.Attributes["Nombre"].Value;
+                trabajador.Apellido1 = node.Attributes["Apellido1"].Value;
+                trabajador.Apellido2 = node.Attributes["Apellido2"].Value;
+                trabajador.DNI = node.Attributes["DNI"].Value;
+                trabajador.Telefono = node.Attributes["Telefono"].Value;
+                trabajador.Direccion = node.Attributes["Direccion"].Value;
+                trabajador.correo = node.Attributes["correo"].Value;
+                trabajador.trabajo = node.Attributes["trabajo"].Value;
+                listaTrabajadores.Add(trabajador);
+            }
+            return listaTrabajadores;
         }
     }
 }
