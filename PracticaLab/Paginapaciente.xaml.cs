@@ -564,5 +564,10 @@ namespace PracticaLab
                 btnverCita.IsEnabled = false;
             }
         }
+
+        private void cargarTrabajadores()
+        {
+
+        }
     }
 }
