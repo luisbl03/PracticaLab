@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="anadirCita.xaml.cs">
+      <DependentUpon>anadirCita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cita.cs" />
     <Compile Include="AnadirInforme.xaml.cs">
       <DependentUpon>AnadirInforme.xaml</DependentUpon>
@@ -85,6 +88,10 @@
     <Compile Include="InicioSesion.xaml.cs">
       <DependentUpon>InicioSesion.xaml</DependentUpon>
     </Compile>
+    <Page Include="anadirCita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AnadirInforme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
