@@ -42,14 +42,14 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Height="40"
-                Width="110" Click="btn_Sanitarios"/>
+                Width="110" Click="btn_eliminar_Click"/>
 
             <Button x:Name="btn_añadir" Content="añadir trabajador"
                 Grid.Row="1" Grid.Column="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Height="40"
-                Width="110" Click="btn_Limpieza"/>
+                Width="110" Click="btn_añadir_Click"/>
 
         </Grid>
 
