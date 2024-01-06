@@ -21,10 +21,21 @@ namespace PracticaLab
     /// </summary>
     public partial class VerInforme : Window
     {
-        public VerInforme()
+        public Paciente PacienteSeleccionado { get; set; }
+        public Informe InformeSeleccionado { get; set; }
+
+        public VerInforme(Paciente paciente, Informe informe)
         {
             InitializeComponent();
 
+            PacienteSeleccionado = paciente;
+            InformeSeleccionado = informe;
+
+            // Verifica si hay un informe seleccionado
+            if (InformeSeleccionado != null)
+            {
+                txtDolencias.Text = InformeSeleccionado.Descripcion;
+            }
         }
     }
 }

@@ -207,10 +207,10 @@
                             <DataGridTextColumn Header="Motivo" Binding="{Binding motivo}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="editarInforme" Grid.Column="1" Content="Editar informe" Height="25" Margin="23,54,23,0" VerticalAlignment="Top" Click="editarInforme_Click"/>
+                    <Button x:Name="editarInforme" IsEnabled="False" Grid.Column="1" Content="Editar informe" Height="25" Margin="23,54,23,0" VerticalAlignment="Top" Click="editarInforme_Click"/>
                     <Button x:Name="anadirInforme" Grid.Column="1" Content="Añadir informe" Height="25" Margin="23,10,23,0" VerticalAlignment="Top" Click="anadirInforme_Click"/>
-                    <Button x:Name="verInforme" Grid.Column="1" Content="Ver informe" Height="25" Margin="23,98,23,0" VerticalAlignment="Top" Click="verInforme_Click"/>
-                    <Button x:Name="eliminarInforme" Grid.Column="1" Content="Eliminar informe" Height="25" Margin="23,142,23,0" VerticalAlignment="Top" Click="eliminarInforme_Click"/>
+                    <Button x:Name="verInforme" IsEnabled="False" Grid.Column="1" Content="Ver informe" Height="25" Margin="23,98,23,0" VerticalAlignment="Top" Click="verInforme_Click"/>
+                    <Button x:Name="eliminarInforme" Grid.Column="1" IsEnabled="False" Content="Eliminar informe" Height="25" Margin="23,142,23,0" VerticalAlignment="Top" Click="eliminarInforme_Click"/>
                     
                     <!--botones de citas-->
                     <Button x:Name="editarCita" Grid.Column="1" Content="Editar cita" Height="25" Margin="23,59,23,0" VerticalAlignment="Top" Grid.Row="1"/>
