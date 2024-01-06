@@ -29,6 +29,17 @@ namespace PracticaLab
             this.trabajador = t;
             InitializeComponent();
             txtPaciente.Text = paciente.Nombre;
+            /*cargamos unas horas por defecto en el combo box*/
+            comboHora.Items.Add("09:00");
+            comboHora.Items.Add("10:00");
+            comboHora.Items.Add("11:00");
+            comboHora.Items.Add("12:00");
+            comboHora.Items.Add("13:00");
+            comboHora.Items.Add("16:00");
+            comboHora.Items.Add("17:00");
+            comboHora.Items.Add("18:00");
+            comboHora.Items.Add("19:00");
+            comboHora.Items.Add("20:00");
         }
 
         private void bttnGuardarCita_Click(object sender, RoutedEventArgs e)
