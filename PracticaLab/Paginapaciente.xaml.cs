@@ -545,11 +545,20 @@ namespace PracticaLab
 
         private void dataGridCitas_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            /*ponemos todos los botones habilitados*/
-            btneliminarCita.IsEnabled = true;
-            btneditarCita.IsEnabled = true;
-            btnanadirCita.IsEnabled = true;
-            btnverCita.IsEnabled = true;
+            if (dataGridCitas.SelectedItem != null)
+            {
+                btneliminarCita.IsEnabled = true;
+                btneditarCita.IsEnabled = true;
+                btnanadirCita.IsEnabled = true;
+                btnverCita.IsEnabled = true;
+            }
+            else
+            {
+                btneliminarCita.IsEnabled = false;
+                btneditarCita.IsEnabled = false;
+                btnanadirCita.IsEnabled = true;
+                btnverCita.IsEnabled = false;
+            }
         }
     }
 }
