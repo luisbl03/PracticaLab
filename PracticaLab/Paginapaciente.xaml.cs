@@ -595,8 +595,8 @@ namespace PracticaLab
         private void btnanadirCita_Click(object sender, RoutedEventArgs e)
         {
             /*escondemos esta ventana y sacamos la de añadir cita*/
-            Window anadirCita = new anadirCita();
-            anadirCita.Show();
+          
+            
         }
     }
 }

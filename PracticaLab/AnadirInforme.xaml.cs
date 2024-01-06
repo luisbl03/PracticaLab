@@ -77,5 +77,14 @@ namespace PracticaLab
 
             }
         }
+
+        private void añadirInforme_Closed(object sender, EventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Seguro que quieres cancelar?", "Cancelar", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

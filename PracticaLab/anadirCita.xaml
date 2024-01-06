@@ -31,16 +31,16 @@
             HorizontalAlignment="Left" 
             Margin="35,0,0,0" TextWrapping="Wrap" 
             Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1"/>
-        <DatePicker Grid.Column="1" 
+        <DatePicker x:Name="dateSelector" Grid.Column="1" 
                     HorizontalAlignment="Left" 
                     BorderBrush="Black"
                     Margin="35,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="151"/>
-        <ComboBox Grid.Column="1" 
+        <ComboBox x:Name="comboHora" Grid.Column="1" 
                   HorizontalAlignment="Left" 
                   Margin="35,0,0,0" 
                   BorderBrush="Black" Grid.Row="3" VerticalAlignment="Center" Width="90"/>
-        <Button Content="Guardar" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Grid.Column="1" Margin="63,0,0,0"/>
+        <Button x:Name="bttnGuardarCita" Content="Guardar" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Click="bttnGuardarCita_Click"/>
+        <Button x:Name="bttnCancelarCIta" Content="Cancelar" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Grid.Column="1" Margin="63,0,0,0" Click="bttnCancelarCIta_Click"/>
 
     </Grid>
 </Window>
