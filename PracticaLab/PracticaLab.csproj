@@ -62,6 +62,7 @@
     <Compile Include="Citas_Fisio.xaml.cs">
       <DependentUpon>Citas_Fisio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Trabajadores.cs" />
     <Compile Include="VerInforme.xaml.cs">
       <DependentUpon>VerInforme.xaml</DependentUpon>
     </Compile>

@@ -21,13 +21,18 @@ namespace PracticaLab
     /// </summary>
     public partial class EditarInforme : Window
     {
-        public EditarInforme()
+        public Paciente PacienteSeleccionado { get; set; }
+        public Informe InformeSeleccionado { get; set; }
+        public EditarInforme(Paciente paciente, Informe informe)
         {
             InitializeComponent();
 
+            PacienteSeleccionado = paciente;
+            InformeSeleccionado = informe;
+
             //Asignamos los eventos a los TextBox
             AsignarEventosTextBox(txtPatologiasPrevias, "Insertar patologías previas");
-            AsignarEventosTextBox(txtDolencias, "Insertar dolencias");
+            txtDolencias.Text = InformeSeleccionado.Descripcion;
             AsignarEventosTextBox(txtTratamiento, "Insertar tratamiento");
         }
 

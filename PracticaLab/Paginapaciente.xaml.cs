@@ -36,8 +36,12 @@ namespace PracticaLab
         }
 
         public List<Paciente> Pacientes { get; set; }
+        public List<Cita> Citas { get; set; }
+        public List<Usuario> Usuarios { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
+
+
         private void Lista_de_pacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!isInitialized)
@@ -45,6 +49,16 @@ namespace PracticaLab
                 return;
             }
 
+            if (Lista_de_pacientes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                UpdateInformesList(pacienteSeleccionado);
+            }
+            else
+            {
+                // No hay paciente seleccionado, deshabilita el botón
+                verInforme.IsEnabled = false;
+            }
             //listViewInformes.Items.Clear();
 
             // Verifica si hay un paciente seleccionado
@@ -73,11 +87,11 @@ namespace PracticaLab
                 //listViewInformes.Items.Clear();
 
                 // Añadir los informes del paciente seleccionado a la ListView
-                UpdateInformesList(pacienteSeleccionado);
-
-                //aqui lo que vamos a hacer es leer las citas de ese paciente y mostrarlas en el datagrid
-                List<Cita> citas = cargarCitas(pacienteSeleccionado);
-                dataGridCitas.ItemsSource = citas;
+                UpdateInformesList(pacienteSeleccionado);         
+                //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
+                List<Cita> citasPaciente = new List<Cita>();
+                citasPaciente = cargarCitasPAciente(pacienteSeleccionado, Citas);
+                dataGridCitas.ItemsSource = citasPaciente;
                 dataGridCitas.Items.Refresh();
             }
             else
@@ -185,11 +199,18 @@ namespace PracticaLab
             modo1 = !modo1;
 
         }
+
+
         public Page2(Usuario u)
         {   
 
             InitializeComponent();
             Pacientes = new List<Paciente>();
+            Citas = cargarCitas();
+            Usuarios = cargarUsuarios();
+            listViewInformes.SelectionChanged += listViewInformes_SelectionChanged;
+
+
             try
             {
 
@@ -289,9 +310,16 @@ namespace PracticaLab
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
         {
-            EditarInforme editarInformeWindow = new EditarInforme();
-            editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            editarInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                EditarInforme editarInformeWindow = new EditarInforme(pacienteSeleccionado, informeSeleccionado);
+                editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                editarInformeWindow.ShowDialog();
+            }
         }
 
         private void anadirInforme_Click(object sender, RoutedEventArgs e)
@@ -303,9 +331,34 @@ namespace PracticaLab
 
         private void verInforme_Click(object sender, RoutedEventArgs e)
         {
-            VerInforme verInformeWindow = new VerInforme();
-            verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            verInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                VerInforme verInformeWindow = new VerInforme(pacienteSeleccionado, informeSeleccionado);
+                verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                verInformeWindow.ShowDialog();
+            }
+        }
+
+
+        private void listViewInformes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Manejar la habilitación del botón aquí
+            if (listViewInformes.SelectedItem != null)
+            {
+                verInforme.IsEnabled = true;
+                editarInforme.IsEnabled= true;
+                eliminarInforme.IsEnabled= true;
+            }
+            else
+            {
+                verInforme.IsEnabled = false;
+                editarInforme.IsEnabled= false;
+                eliminarInforme.IsEnabled = false;
+            }
         }
 
 
@@ -329,6 +382,7 @@ namespace PracticaLab
 
         }
 
+        
 
 
 
@@ -397,7 +451,7 @@ namespace PracticaLab
             txtDireccion.Foreground = Brushes.Gray;
             bttn_Editar.Content = "Editar";
         }
-        private List<Cita> cargarCitas(Paciente p)
+        private List<Cita> cargarCitas()
         {
             List<Cita> citas = new List<Cita>();
             try
@@ -412,15 +466,13 @@ namespace PracticaLab
                 
                 foreach(XmlNode node in xmlDoc.DocumentElement.ChildNodes)
                 {
-                    var cita = new Cita("", "", DateTime.Now, "");
-                    if (node.Attributes["DNI"].Value.Equals(p.DNI))
-                    {
-                        cita.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " +p.Apellido2;
-                        cita.motivo = node.Attributes["Motivo"].Value;
-                        cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-                        cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
-                        citas.Add(cita);
-                    }
+                    var cita = new Cita("", "","", DateTime.Now, "", "");
+                    
+                    cita.DNI_paciente = node.Attributes["DNI"].Value;
+                    cita.motivo = node.Attributes["Motivo"].Value;
+                    cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                    cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
+                    citas.Add(cita);
                 }
                 return citas;
             }
@@ -431,5 +483,91 @@ namespace PracticaLab
             }
         }
 
+        private void eliminarCita_Click(object sender, RoutedEventArgs e)
+        {
+            var cita = (Cita)dataGridCitas.SelectedItem;
+
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro que quieres eliminar esta cita?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                // Remueve la cita de la lista 'Citas'
+                Citas.Remove(cita);
+
+                // Actualiza el DataGrid volviendo a asignar la lista modificada a ItemsSource
+                dataGridCitas.ItemsSource = null;
+                List<Cita> citasPaciente = new List<Cita>();
+                citasPaciente = cargarCitasPAciente((Paciente)Lista_de_pacientes.SelectedItem, Citas);
+                dataGridCitas.ItemsSource = citasPaciente;
+            }
+
+        }
+        private List<Usuario> cargarUsuarios()
+        {
+            List<Usuario> listaUsuarios = new List<Usuario>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("Datos/usuarios.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+
+            /*bucle de asignacion de valores*/
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var usuario = new Usuario("", "", 0, "", "");
+                usuario.nombre = node.Attributes["Nombre"].Value;
+                usuario.apellidos = node.Attributes["Apellidos"].Value;
+                usuario.numTelefono = long.Parse(node.Attributes["telefono"].Value);
+                usuario.correo = node.Attributes["correo"].Value;
+                usuario.contraseña = node.Attributes["contraseña"].Value;
+                if (node.Attributes["admin"].Value.Equals("T"))
+                {
+                    usuario.admin = true;
+                }
+                else
+                {
+                    usuario.admin = false;
+                }
+
+                listaUsuarios.Add(usuario);
+
+            }
+            return listaUsuarios;
+        }
+        public List<Cita> cargarCitasPAciente(Paciente p, List<Cita> citas )
+        {
+            List<Cita> citaPaciente = new List<Cita>();
+            foreach(Cita c in citas)
+            {
+                if(c.DNI_paciente == p.DNI)
+                {
+                    c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
+                    Usuario usuario = Usuarios.FirstOrDefault(u => u.correo == c.correo_fisio);
+                    c.nombre_fisio = usuario.nombre + " " + usuario.apellidos;
+                    citaPaciente.Add(c);
+                }
+            }
+            return citaPaciente;
+        }
+
+        private void dataGridCitas_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (dataGridCitas.SelectedItem != null)
+            {
+                btneliminarCita.IsEnabled = true;
+                btneditarCita.IsEnabled = true;
+                btnanadirCita.IsEnabled = true;
+                btnverCita.IsEnabled = true;
+            }
+            else
+            {
+                btneliminarCita.IsEnabled = false;
+                btneditarCita.IsEnabled = false;
+                btnanadirCita.IsEnabled = true;
+                btnverCita.IsEnabled = false;
+            }
+        }
+
+        private void cargarTrabajadores()
+        {
+
+        }
     }
 }

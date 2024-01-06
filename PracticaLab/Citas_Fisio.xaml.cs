@@ -244,9 +244,16 @@ namespace PracticaLab
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
         {
-            EditarInforme editarInformeWindow = new EditarInforme();
-            editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            editarInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                EditarInforme editarInformeWindow = new EditarInforme(pacienteSeleccionado, informeSeleccionado);
+                editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                editarInformeWindow.ShowDialog();
+            }
         }
 
         private void anadirInforme_Click(object sender, RoutedEventArgs e)
@@ -258,9 +265,33 @@ namespace PracticaLab
 
         private void verInforme_Click(object sender, RoutedEventArgs e)
         {
-            VerInforme verInformeWindow = new VerInforme();
-            verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            verInformeWindow.ShowDialog();
+            if (listViewInformes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
+
+                VerInforme verInformeWindow = new VerInforme(pacienteSeleccionado, informeSeleccionado);
+                verInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                verInformeWindow.ShowDialog();
+            }
+        }
+
+        private void listViewInformes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Manejar la habilitación del botón aquí
+            if (listViewInformes.SelectedItem != null)
+            {
+                verInforme.IsEnabled = true;
+                editarInforme.IsEnabled = true;
+                eliminarInforme.IsEnabled=true;
+            }
+            else
+            {
+                verInforme.IsEnabled = false;
+                editarInforme.IsEnabled = false;
+                eliminarInforme.IsEnabled = false;
+            }
         }
 
         private List<Cita> cargarCitas(List<Cita> listaCitas)
