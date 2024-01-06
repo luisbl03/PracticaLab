@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaLab"
         mc:Ignorable="d"
-        Title="Añadir Cita" Height="350" Width="500">
+        Title="Añadir Cita" Height="400" Width="500" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="88*"/>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="57*"/>
-            <RowDefinition Height="62*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
             <RowDefinition Height="60*"/>
 
         </Grid.RowDefinitions>
@@ -19,16 +19,28 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Top" Width="78" FontSize="16" Height="31" Margin="0,44,0,0"/>
-        <Label Content="Motivo" HorizontalAlignment="Center" VerticalAlignment="Center" Width="78" FontSize="16" Grid.Row="1" Height="32"/>
-        <Label Content="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center" Width="78" FontSize="16" Grid.Row="2" Height="32"/>
-        <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Width="78" FontSize="16" Grid.Row="3" Height="31"/>
-        <TextBox Grid.Column="1"
+        <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <Label Content="Motivo" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Grid.Row="1"/>
+        <Label Content="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Grid.Row="2"/>
+        <Label Content="Hora" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Grid.Row="3"/>
+        <TextBox x:Name="txtPaciente" Grid.Column="1" 
                  HorizontalAlignment="Left" 
-                 Margin="23,44,0,0"
-                 TextWrapping="Wrap" 
-                 Text="Paciente" 
-                 Width="120" Height="31" Foreground="#FF655C5C"/>
+                 Margin="35,0,0,0" TextWrapping="Wrap" 
+                 Text="Paciente" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151"/>
+        <TextBox x:Name="txtMotivo" Grid.Column="1" 
+            HorizontalAlignment="Left" 
+            Margin="35,0,0,0" TextWrapping="Wrap" 
+            Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1"/>
+        <DatePicker Grid.Column="1" 
+                    HorizontalAlignment="Left" 
+                    BorderBrush="Black"
+                    Margin="35,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="151"/>
+        <ComboBox Grid.Column="1" 
+                  HorizontalAlignment="Left" 
+                  Margin="35,0,0,0" 
+                  BorderBrush="Black" Grid.Row="3" VerticalAlignment="Center" Width="90"/>
+        <Button Content="Guardar" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Grid.Column="1" Margin="63,0,0,0"/>
 
     </Grid>
 </Window>
