@@ -487,14 +487,18 @@ namespace PracticaLab
         {
             var cita = (Cita)dataGridCitas.SelectedItem;
 
-            // Remueve la cita de la lista 'Citas'
-            Citas.Remove(cita);
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro que quieres eliminar esta cita?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                // Remueve la cita de la lista 'Citas'
+                Citas.Remove(cita);
 
-            // Actualiza el DataGrid volviendo a asignar la lista modificada a ItemsSource
-            dataGridCitas.ItemsSource = null;
-            List<Cita> citasPaciente = new List<Cita>();
-            citasPaciente = cargarCitasPAciente((Paciente)Lista_de_pacientes.SelectedItem, Citas);
-            dataGridCitas.ItemsSource = citasPaciente;
+                // Actualiza el DataGrid volviendo a asignar la lista modificada a ItemsSource
+                dataGridCitas.ItemsSource = null;
+                List<Cita> citasPaciente = new List<Cita>();
+                citasPaciente = cargarCitasPAciente((Paciente)Lista_de_pacientes.SelectedItem, Citas);
+                dataGridCitas.ItemsSource = citasPaciente;
+            }
 
         }
         private List<Usuario> cargarUsuarios()
