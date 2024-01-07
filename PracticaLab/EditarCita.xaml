@@ -1,4 +1,4 @@
-﻿<Window x:Class="PracticaLab.anadirCita"
+﻿<Window x:Class="PracticaLab.EditarCita"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -30,7 +30,7 @@
         <TextBox x:Name="txtMotivo" Grid.Column="1" 
             HorizontalAlignment="Left" 
             Margin="35,0,0,0" TextWrapping="Wrap" 
-            Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1" GotFocus="txtMotivo_GotFocus"/>
+            Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1"/>
         <DatePicker x:Name="dateSelector" Grid.Column="1" 
                     HorizontalAlignment="Left" 
                     BorderBrush="Black"
@@ -39,8 +39,8 @@
                   HorizontalAlignment="Left" 
                   Margin="35,0,0,0" 
                   BorderBrush="Black" Grid.Row="3" VerticalAlignment="Center" Width="90"/>
-        <Button x:Name="bttnGuardarCita" Content="Guardar" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Click="bttnGuardarCita_Click"/>
-        <Button x:Name="bttnCancelarCIta" Content="Cancelar" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Grid.Column="1" Margin="63,0,0,0" Click="bttnCancelarCIta_Click"/>
+        <Button x:Name="bttnGuardarCita" Content="Guardar" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" />
+        <Button x:Name="bttnCancelarCIta" Content="Cancelar" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="95" Height="41" FontSize="16" Grid.Column="1" Margin="63,0,0,0" />
 
     </Grid>
 </Window>
