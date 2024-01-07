@@ -65,6 +65,9 @@
     <Compile Include="Citas_Fisio.xaml.cs">
       <DependentUpon>Citas_Fisio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditarCita.xaml.cs">
+      <DependentUpon>EditarCita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trabajadores.cs" />
     <Compile Include="VerInforme.xaml.cs">
       <DependentUpon>VerInforme.xaml</DependentUpon>
@@ -97,6 +100,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Citas_Fisio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarCita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
