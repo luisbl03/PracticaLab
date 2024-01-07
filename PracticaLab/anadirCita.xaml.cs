@@ -55,7 +55,7 @@ namespace PracticaLab
                 /*pillamos un trabajador aleatorio cuyo trabajo no sea encargado de la limpieza*/
                 Random r = new Random();
                 Trabajadores trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
-                while (trabajador.trabajo.Equals("Encargado de la limpieza"))
+                while (trabajador.trabajo.Equals("limpiador"))
                 {
                     trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
                 }
@@ -125,6 +125,15 @@ namespace PracticaLab
                 listaTrabajadores.Add(trabajador);
             }
             return listaTrabajadores;
+        }
+
+        private void txtMotivo_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtMotivo.Text.Equals("Motivo") || txtMotivo.Text == "")
+            {
+                txtMotivo.Text = "";
+                txtMotivo.Foreground = Brushes.Black;
+            }
         }
     }
 }

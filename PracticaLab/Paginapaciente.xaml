@@ -214,7 +214,7 @@
                     
                     <!--botones de citas-->
                     <Button x:Name="btneditarCita" Grid.Column="1" IsEnabled="False" Content="Editar cita" Height="25" Margin="23,59,23,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <Button x:Name="btnanadirCita" Grid.Column="1" Content="Añadir cita" Height="25" Margin="23,15,23,0" VerticalAlignment="Top" Grid.Row="1" Click="btnanadirCita_Click"/>
+                    <Button x:Name="btnanadirCita" Grid.Column="1" Content="Añadir cita" Height="25"  IsEnabled="False" Margin="23,15,23,0" VerticalAlignment="Top" Grid.Row="1" Click="btnanadirCita_Click"/>
                     <Button x:Name="btnverCita" Grid.Column="1" IsEnabled="False" Content="Ver cita" Height="25" Margin="23,103,23,0" VerticalAlignment="Top" Click="verInforme_Click" Grid.Row="1"/>
                     <Button x:Name="btneliminarCita" Grid.Column="1" IsEnabled="False" Content="Eliminar cita" Height="25" Margin="23,147,23,0" VerticalAlignment="Top" Grid.Row="1" Click="eliminarCita_Click"/>
                 </Grid>

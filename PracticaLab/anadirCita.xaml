@@ -26,15 +26,15 @@
         <TextBox x:Name="txtPaciente" Grid.Column="1" 
                  HorizontalAlignment="Left" 
                  Margin="35,0,0,0" TextWrapping="Wrap" 
-                 Text="Paciente" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151"/>
+                 Text="Paciente" Foreground="Black" BorderBrush="Black" IsReadOnly="True" VerticalAlignment="Center" Width="151"/>
         <TextBox x:Name="txtMotivo" Grid.Column="1" 
             HorizontalAlignment="Left" 
             Margin="35,0,0,0" TextWrapping="Wrap" 
-            Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1"/>
+            Text="Motivo" Foreground="Gray" BorderBrush="Black" VerticalAlignment="Center" Width="151" Grid.Row="1" GotFocus="txtMotivo_GotFocus"/>
         <DatePicker x:Name="dateSelector" Grid.Column="1" 
                     HorizontalAlignment="Left" 
                     BorderBrush="Black"
-                    Margin="35,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="151"/>
+                    Margin="35,0,0,0" Grid.Row="2" VerticalAlignment="Center"  Width="151"/>
         <ComboBox x:Name="comboHora" Grid.Column="1" 
                   HorizontalAlignment="Left" 
                   Margin="35,0,0,0" 

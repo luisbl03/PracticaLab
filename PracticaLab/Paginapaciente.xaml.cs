@@ -55,12 +55,14 @@ namespace PracticaLab
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
                 UpdateInformesList(pacienteSeleccionado);
                 anadirInforme.IsEnabled = true;
+                btnanadirCita.IsEnabled = true;
             }
             else
             {
                 // No hay paciente seleccionado, deshabilita el botón
                 verInforme.IsEnabled = false;
                 anadirInforme.IsEnabled = false;
+                btnanadirCita.IsEnabled = false;
 
             }
             //listViewInformes.Items.Clear();
