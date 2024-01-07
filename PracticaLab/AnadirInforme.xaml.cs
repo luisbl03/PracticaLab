@@ -21,14 +21,35 @@ namespace PracticaLab
     /// </summary>
     public partial class AnadirInforme : Window
     {
-        public AnadirInforme()
+        private Citas_Fisio _citasFisioPage;
+        private Page2 _page2;
+        private Paciente _pacienteSeleccionado;
+        private bool informeGuardado = false;
+
+        public AnadirInforme(Page2 page2, Paciente pacienteSeleccionado)
         {
+            _page2 = page2;
+            _pacienteSeleccionado = pacienteSeleccionado;
             InitializeComponent();
 
             //Asignamos los eventos a los TextBox
             AsignarEventosTextBox(txtPatologiasPrevias, "Insertar patologías previas");
             AsignarEventosTextBox(txtDolencias, "Insertar dolencias");
             AsignarEventosTextBox(txtTratamiento, "Insertar tratamiento");
+            _pacienteSeleccionado = pacienteSeleccionado;
+        }
+
+        public AnadirInforme(Citas_Fisio citasFisioPage, Paciente pacienteSeleccionado)
+        {
+            _citasFisioPage = citasFisioPage;
+            _pacienteSeleccionado = pacienteSeleccionado;
+            InitializeComponent();
+
+            //Asignamos los eventos a los TextBox
+            AsignarEventosTextBox(txtPatologiasPrevias, "Insertar patologías previas");
+            AsignarEventosTextBox(txtDolencias, "Insertar dolencias");
+            AsignarEventosTextBox(txtTratamiento, "Insertar tratamiento");
+            _pacienteSeleccionado = pacienteSeleccionado;
         }
 
         private void AsignarEventosTextBox(TextBox textBox, string textoPredeterminado)
@@ -80,10 +101,58 @@ namespace PracticaLab
 
         private void añadirInforme_Closed(object sender, EventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Seguro que quieres cancelar?", "Cancelar", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (!informeGuardado)
             {
+                MessageBoxResult result = MessageBox.Show("¿Seguro que quieres cancelar?", "Cancelar", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void Guardar_Click(object sender, RoutedEventArgs e)
+        {
+            // Verificar si se ha seleccionado un paciente
+            if (_pacienteSeleccionado != null)
+            {
+                // Crear un nuevo informe
+                Informe nuevoInforme = new Informe
+                {
+                    Descripcion = txtDolencias.Text,
+                    FechaInforme = DateTime.Now,
+                    Guardado = true
+                };
+
+                // Agregar el nuevo informe al paciente
+                _pacienteSeleccionado.Informes.Add(nuevoInforme);
+
+                // Actualizar la lista visual de informes en Page2
+                _page2.listViewInformes.Items.Add(new
+                {
+                    IdInforme = _pacienteSeleccionado.Informes.Count,
+                    FechaInforme = nuevoInforme.FechaInforme.ToString("dd/MM/yyyy"),
+                    Descripcion = nuevoInforme.Descripcion
+                });
+                informeGuardado = true;
+                // Cerrar la ventana actual
                 this.Close();
+                informeGuardado = true;
+
+                // Actualizar la lista de informes en Page2 después de agregar un nuevo informe
+                if (_citasFisioPage != null)
+                {
+                    _citasFisioPage.UpdateInformesListAfterAdd(_pacienteSeleccionado);
+                }
+                else if (_page2 != null)
+                {
+                    _page2.UpdateInformesListAfterAdd(_pacienteSeleccionado);
+                }
+            }
+            else
+            {
+                // Manejar el caso en que no se haya seleccionado un paciente
+                MessageBox.Show("Selecciona un paciente antes de guardar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
