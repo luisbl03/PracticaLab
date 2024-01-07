@@ -596,19 +596,18 @@ namespace PracticaLab
         {
             /*escondemos esta ventana y sacamos la de añadir cita*/
             Paciente p = (Paciente)Lista_de_pacientes.SelectedItem;
-            Trabajadores t = list_trabajadores.Find(x => x.correo == Usuarios[0].correo);
-            anadirCita anadirCitaWindow = new anadirCita(p, t);
+            anadirCita anadirCitaWindow = new anadirCita(p);
             anadirCitaWindow.Show();
             Cita c = anadirCitaWindow.cita;
-            if (c != null)
-            {
-                Citas.Add(c);
-                List<Cita> citasPaciente = new List<Cita>();
-                citasPaciente = cargarCitasPAciente(p, Citas);
-                dataGridCitas.ItemsSource = citasPaciente;
-                dataGridCitas.Items.Refresh();
-            }
-            
+            Citas.Add(c);
+            /*añadimos la cita al datagrid*/
+            List<Cita> citasPaciente = new List<Cita>();
+            citasPaciente = cargarCitasPAciente((Paciente)Lista_de_pacientes.SelectedItem, Citas);
+            dataGridCitas.ItemsSource = citasPaciente;
+            dataGridCitas.Items.Refresh();
+
         }
+        
     }
+   
 }

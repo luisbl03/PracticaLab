@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace PracticaLab
 {
@@ -20,14 +21,15 @@ namespace PracticaLab
     /// </summary>
     public partial class anadirCita : Window
     {
+        public event EventHandler ValorInicializado;
         public Cita cita { get; set; }
         public Paciente paciente { get; set; }
-        public Trabajadores trabajador { get; set; }
-        public anadirCita(Paciente p, Trabajadores t)
+        public List<Trabajadores> listaTrabajadores { get; set; }
+        public anadirCita(Paciente p)
         {
             this.paciente = p;
-            this.trabajador = t;
             InitializeComponent();
+            listaTrabajadores = cargarTrabajadores();
             txtPaciente.Text = paciente.Nombre;
             /*cargamos unas horas por defecto en el combo box*/
             comboHora.Items.Add("09:00");
@@ -47,12 +49,21 @@ namespace PracticaLab
             /*miramos si todos los campos tienen contenido y se ha fijado fecha*/
             if (txtPaciente.Text != "" && !txtPaciente.Text.Equals("Paciente") && txtMotivo.Text != "" && !txtMotivo.Text.Equals("Motivo") && dateSelector.SelectedDate != null && comboHora.Text != null)
             {
+
+                /*pillamos un trabajador aleatorio cuyo trabajo no sea encargado de la limpieza*/
+                Random r = new Random();
+                Trabajadores trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
+                while (trabajador.trabajo.Equals("Encargado de la limpieza"))
+                {
+                    trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
+                }
                 DateTime fecha = dateSelector.SelectedDate.Value;
                 if (DateTime.TryParseExact(comboHora.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime hora))
                 {
                     DateTime resultado = fecha.Date + hora.TimeOfDay;
                     cita = new Cita(txtPaciente.Text, paciente.DNI,txtMotivo.Text, resultado,trabajador.correo, trabajador.Nombre);
                     MessageBox.Show("Cita añadida correctamente");
+                    OnValorInicializado(EventArgs.Empty);
                 }
                 else
                 {
@@ -86,6 +97,31 @@ namespace PracticaLab
                 this.Close();
             }
 
+        }
+        private List<Trabajadores> cargarTrabajadores()
+        {
+            List<Trabajadores> listaTrabajadores = new List<Trabajadores>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var trabajador = new Trabajadores("", "", "", "", "", "", "", "");
+                trabajador.Nombre = node.Attributes["Nombre"].Value;
+                trabajador.Apellido1 = node.Attributes["Apellido1"].Value;
+                trabajador.Apellido2 = node.Attributes["Apellido2"].Value;
+                trabajador.DNI = node.Attributes["DNI"].Value;
+                trabajador.Telefono = node.Attributes["Telefono"].Value;
+                trabajador.Direccion = node.Attributes["Direccion"].Value;
+                trabajador.correo = node.Attributes["correo"].Value;
+                trabajador.trabajo = node.Attributes["trabajo"].Value;
+                listaTrabajadores.Add(trabajador);
+            }
+            return listaTrabajadores;
+        }
+        protected virtual void OnValorInicializado(EventArgs e)
+        {
+            ValorInicializado?.Invoke(this, e);
         }
     }
 }
