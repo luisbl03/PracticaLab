@@ -54,22 +54,36 @@ namespace PracticaLab
             {
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
                 UpdateInformesList(pacienteSeleccionado);
+                anadirInforme.IsEnabled = true;
             }
             else
             {
                 // No hay paciente seleccionado, deshabilita el botón
                 verInforme.IsEnabled = false;
+                anadirInforme.IsEnabled = false;
+
             }
             //listViewInformes.Items.Clear();
 
             // Verifica si hay un paciente seleccionado
             if (Lista_de_pacientes.SelectedItem != null)
             {
+
                 //limpiamos el datagrid de citas
                 dataGridCitas.ItemsSource = null;
                 seleccionado = true;
                 // Obtén el paciente seleccionado
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                pacienteSeleccionado.InformesTemporales.ForEach(informeTemporal =>
+                {
+                    listViewInformes.Items.Add(new
+                    {
+                        IdInforme = pacienteSeleccionado.InformesTemporales.IndexOf(informeTemporal) + 1,
+                        FechaInforme = informeTemporal.FechaInforme.ToString("dd/MM/yyyy"),
+                        Descripcion = informeTemporal.Descripcion
+                    });
+                });
 
                 // Muestra los detalles del paciente en el TextBox
 
@@ -326,10 +340,22 @@ namespace PracticaLab
 
         private void anadirInforme_Click(object sender, RoutedEventArgs e)
         {
-            AnadirInforme anadirInformeWindow = new AnadirInforme();
-            anadirInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            anadirInformeWindow.ShowDialog();
+            if (Lista_de_pacientes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+
+                // Crear una nueva instancia de AnadirInforme y pasar la referencia de Page2
+                AnadirInforme anadirInformeWindow = new AnadirInforme(this, pacienteSeleccionado);
+                anadirInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                anadirInformeWindow.ShowDialog();
+            }
         }
+
+        public void UpdateInformesListAfterAdd(Paciente paciente)
+        {
+            UpdateInformesList(paciente);
+        }
+
 
         private void verInforme_Click(object sender, RoutedEventArgs e)
         {

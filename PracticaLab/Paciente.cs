@@ -16,10 +16,12 @@ namespace PracticaLab
         public string RutaFoto { get; set; }
 
         public List<Informe> Informes { get; set; }
+        public List<Informe> InformesTemporales { get; set; }
 
         public Paciente()
         {
             Informes = new List<Informe>();
+            InformesTemporales = new List<Informe>();
         }
 
         public override string ToString()

@@ -22,6 +22,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Citas_Fisio : Page
     {
+        private AnadirInforme _anadirInformeWindow;
         private bool isInitialized = false;
         private void PaginaPacientes_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -45,6 +46,19 @@ namespace PracticaLab
                 return;
             }
 
+            if (Lista_de_pacientes.SelectedItem != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
+                UpdateInformesList(pacienteSeleccionado);
+                anadirInforme.IsEnabled = true;
+            }
+            else
+            {
+                // No hay paciente seleccionado, deshabilita el botón
+                verInforme.IsEnabled = false;
+                anadirInforme.IsEnabled = false;
+
+            }
             //listViewInformes.Items.Clear();
 
             // Verifica si hay un paciente seleccionado
@@ -258,9 +272,14 @@ namespace PracticaLab
 
         private void anadirInforme_Click(object sender, RoutedEventArgs e)
         {
-            AnadirInforme anadirInformeWindow = new AnadirInforme();
-            anadirInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            anadirInformeWindow.ShowDialog();
+            _anadirInformeWindow = new AnadirInforme(this, (Paciente)Lista_de_pacientes.SelectedItem);
+            _anadirInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            _anadirInformeWindow.ShowDialog();
+        }
+
+        public void UpdateInformesListAfterAdd(Paciente paciente)
+        {
+            UpdateInformesList(paciente);
         }
 
         private void verInforme_Click(object sender, RoutedEventArgs e)
