@@ -23,11 +23,13 @@ namespace PracticaLab
     {
         public event EventHandler ValorInicializado;
         public Cita cita { get; set; }
+        public Page2 page2 { get; set; }
         public Paciente paciente { get; set; }
         public List<Trabajadores> listaTrabajadores { get; set; }
-        public anadirCita(Paciente p)
+        public anadirCita(Paciente p, Page2 page2)
         {
             this.paciente = p;
+            this.page2 = page2;
             InitializeComponent();
             listaTrabajadores = cargarTrabajadores();
             txtPaciente.Text = paciente.Nombre;
@@ -63,7 +65,12 @@ namespace PracticaLab
                     DateTime resultado = fecha.Date + hora.TimeOfDay;
                     cita = new Cita(txtPaciente.Text, paciente.DNI,txtMotivo.Text, resultado,trabajador.correo, trabajador.Nombre);
                     MessageBox.Show("Cita añadida correctamente");
-                    OnValorInicializado(EventArgs.Empty);
+                    page2.Citas.Add(cita);
+                    /*lo añadimos al datagrid*/
+                    page2.dataGridCitas.ItemsSource = null;
+                    List<Cita> citas = page2.cargarCitasPAciente(paciente,page2.Citas);
+                    page2.dataGridCitas.ItemsSource = citas;
+                    page2.dataGridCitas.Items.Refresh();
                 }
                 else
                 {
@@ -118,10 +125,6 @@ namespace PracticaLab
                 listaTrabajadores.Add(trabajador);
             }
             return listaTrabajadores;
-        }
-        protected virtual void OnValorInicializado(EventArgs e)
-        {
-            ValorInicializado?.Invoke(this, e);
         }
     }
 }

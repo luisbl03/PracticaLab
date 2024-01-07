@@ -622,15 +622,9 @@ namespace PracticaLab
         {
             /*escondemos esta ventana y sacamos la de añadir cita*/
             Paciente p = (Paciente)Lista_de_pacientes.SelectedItem;
-            anadirCita anadirCitaWindow = new anadirCita(p);
+            anadirCita anadirCitaWindow = new anadirCita(p, this);
             anadirCitaWindow.Show();
-            Cita c = anadirCitaWindow.cita;
-            Citas.Add(c);
-            /*añadimos la cita al datagrid*/
-            List<Cita> citasPaciente = new List<Cita>();
-            citasPaciente = cargarCitasPAciente((Paciente)Lista_de_pacientes.SelectedItem, Citas);
-            dataGridCitas.ItemsSource = citasPaciente;
-            dataGridCitas.Items.Refresh();
+            
 
         }
         
