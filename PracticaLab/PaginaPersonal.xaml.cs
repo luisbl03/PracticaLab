@@ -135,7 +135,7 @@ namespace PracticaLab
 
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
                
-                dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(listPacientes, listCitas, trabajadorSeleccionador);
+                dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(cargarPacientes(), listCitas, trabajadorSeleccionador);
                 dataGridPacientesAtendidos.Items.Refresh();
                 
             }

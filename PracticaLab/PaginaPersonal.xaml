@@ -176,7 +176,7 @@
                             IsReadOnly="True"
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </StackPanel>
-                    <!--horario, atención-->
+                    <!-- Pacientes atendidos-->
                     <TextBlock x:Name="txtBlockPacientesAtendidos"
                                Text="Pacientes atendidos" FontWeight="Bold" FontSize="13.5"
                                Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
@@ -186,9 +186,11 @@
                               AutoGenerateColumns="False"  
                               Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29" SelectionChanged="datagridPacientesAtendidos_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="20*"/>
-                            <DataGridTextColumn Header="DNI del paciente" Binding="{Binding Paciente_Atendido_DNI}" Width="30*"/>
-                            <DataGridTextColumn Header="Nombre del paciente" Binding="{Binding Paciente_Atendido_Nombre}" Width="50*"/>
+                            <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding fecha}" Width="28*"/>
+                            <DataGridTextColumn Header="DNI del paciente" Binding="{Binding DNI_paciente}" Width="30*"/>
+                            <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding nombre_paciente}" Width="42*" />
+                            
+                            
                         </DataGrid.Columns>
 
                     </DataGrid>
