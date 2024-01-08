@@ -28,8 +28,9 @@
             </Grid.RowDefinitions>
 
             <TextBlock FontWeight="Bold" Text="   Tipo de trabajador:" Grid.Column="0" VerticalAlignment="Center" Height="16"/>
-            <ComboBox x:Name="cmbTiposTrabajador" VerticalAlignment="Center"
-                      Height="24" SelectionChanged="cmbTiposTrabajador_SelectionChanged" Grid.ColumnSpan="2" Margin="129,0,0,0">
+            <ComboBox x:Name="cmbTiposTrabajador" VerticalAlignment="Center" Loaded="cmbTiposTrabajador_Loader"
+                      Height="24" SelectionChanged="cmbTiposTrabajador_SelectionChanged"
+                      Grid.Column="1">
                 <ComboBoxItem Content="Sanitario"/>
                 <ComboBoxItem Content="Encargado de la Limpieza"/>
             </ComboBox>
@@ -82,7 +83,7 @@
 
                     <Image x:Name="imgTrabajador"
                         Grid.Column="0" Height="153"  
-                       VerticalAlignment="Top"
+                       VerticalAlignment="Center"
                        Source="/Imagenes/Imagenes_trabajadores/Predeterminado.png"
                        />
 
@@ -107,7 +108,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Nombre" 
-                            MaxLength="15"
+                            MaxLength="16"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="106" Height="18" Foreground="Gray" BorderBrush="Black"/>
@@ -118,7 +119,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Primer Apellido" 
-                            MaxLength="15"
+                            MaxLength="17"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
@@ -129,7 +130,7 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="Segundo Apellido" 
-                            MaxLength="15"
+                            MaxLength="17"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="109" Height="18" Foreground="Gray" BorderBrush="Black"/>
@@ -153,8 +154,8 @@
                             Text="000000000" 
                             MaxLength="9"
                             IsReadOnly="True"
-                            VerticalAlignment="Bottom" 
-                            Width="66" Height="18" Foreground="Gray" BorderBrush="Black" Margin="0,0,0,19"/>
+                            VerticalAlignment="Top" 
+                            Width="66" Height="18" Foreground="Gray" BorderBrush="Black"/>
 
                         <!-- Direccion -->
                         <TextBlock Text="Dirección" FontWeight="Bold" Grid.Column="1" Grid.Row="4"/>
@@ -162,29 +163,31 @@
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
                             Text="calle x, nº" 
-                            MaxLength="20"
+                            MaxLength="22"
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </Grid>
 
                     <!--Empleo o ocupación-->
-                    <StackPanel Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <StackPanel Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Top">
                         <TextBlock Text="Trabajo:   " FontWeight="Bold"  
-                               VerticalAlignment="Center"/>
+                               VerticalAlignment="Top"/>
 
                         <TextBox x:Name="txtTrabajo" Grid.Column="1" Grid.Row="5"
                             HorizontalAlignment="Center" 
-                            VerticalAlignment="Center"
+                            VerticalAlignment="Top"
                             TextWrapping="Wrap" 
                             Text="Trabajo"
-                            MaxLength="20"
+                            MaxLength="22"
                             IsReadOnly="True"
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </StackPanel>
                     <Button x:Name="btnEditar_Guardar"
-                        Grid.Column="1" Grid.Row="1" Content="Editar" HorizontalAlignment="Center"
-                            Grid.RowSpan="2" Width="120" Height="40"
+                        Grid.Column="1" Grid.Row="1"
+                            
+                            Content="Editar" HorizontalAlignment="Center"
+                            Grid.RowSpan="3" Width="120" Height="40"
                             VerticalAlignment="Top" Click="Editar_Guardar_Click"/>
                     <!-- Pacientes atendidos-->
                     <TextBlock x:Name="txtBlockPacientesAtendidos"

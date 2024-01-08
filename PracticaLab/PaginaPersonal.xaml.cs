@@ -115,7 +115,7 @@ namespace PracticaLab
 
         }
 
-        Boolean seleccionado = false;
+
         private void Lista_trabajadores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Verifica si hay un paciente seleccionado
@@ -123,7 +123,6 @@ namespace PracticaLab
             {
                 //limpiamos el datagrid de citas
                 dataGridPacientesAtendidos.ItemsSource = null;
-                seleccionado = true;
                 // Obtén el paciente seleccionado
                 Trabajador trabajadorSeleccionador = (Trabajador)Lista_trabajadores.SelectedItem;
 
@@ -184,10 +183,7 @@ namespace PracticaLab
             }
         }
 
-        private void btn_añadir_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
@@ -352,17 +348,78 @@ namespace PracticaLab
             return citaPaciente;
         }
 
-        private bool modo1 = true;
+        // El boton tiene 3 modos (Editar, Guardar, Añadir)
+        // Editar = 0 , Guardar = 1, Añadir = 3 
+        private int modoBotonEditGuard = 0;
 
         private void Editar_Guardar_Click(object sender, RoutedEventArgs e)
         {
             Trabajador trabajadorSeleccionado = (Trabajador)Lista_trabajadores.SelectedItem;
 
-            if (trabajadorSeleccionado != null)
+            if (modoBotonEditGuard == 3)
+            {
+                modoBotonEditGuard = 0;
+                if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
+                       && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
+                       && txtTrabajo.Text != "")
+                {
+
+                    Trabajador trabajador;
+
+
+                    string ImagenRuta = "/Imagenes/Imagenes_trabajadores/Predeterminado.png";
+
+
+                    trabajador = new Trabajador(txtNombre.Text, txtApellido1.Text,
+                        txtApellido2.Text, txtDNI.Text, txtTelefono.Text, txtDireccion.Text,
+                        "", txtTrabajo.Text, ImagenRuta);
+
+                    txtNombre.IsReadOnly = true;
+                    txtApellido1.IsReadOnly = true;
+                    txtApellido2.IsReadOnly = true;
+                    txtDNI.IsReadOnly = true;
+                    txtTelefono.IsReadOnly = true;
+                    txtDireccion.IsReadOnly = true;
+                    txtTrabajo.IsReadOnly = true;
+                    txtNombre.Foreground = Brushes.Gray;
+                    txtApellido1.Foreground = Brushes.Gray;
+                    txtApellido2.Foreground = Brushes.Gray;
+                    txtDNI.Foreground = Brushes.Gray;
+                    txtTelefono.Foreground = Brushes.Gray;
+                    txtDireccion.Foreground = Brushes.Gray;
+                    txtTrabajo.Foreground = Brushes.Gray;
+
+                    if (Sanitario == true)
+                    {
+                        listTrabajadoresSanitarios.Add(trabajador);
+                        listTrabajadoresSanitarios.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
+                    }
+                    else
+                    {
+                        listTrabajadoresLimpieza.Add(trabajador);
+                        listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
+                    }
+
+                    Lista_trabajadores.Items.Refresh();
+                    Lista_trabajadores.SelectedItem = trabajador;
+
+                    btnEditar_Guardar.Content = "Editar";
+                }
+
+                else
+                {
+                    MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    limpiar();
+                    return;
+                }
+            }
+
+            else if (trabajadorSeleccionado != null)
             {
                 Button btn = (Button)sender;
-                if (modo1 == true)
+                if (modoBotonEditGuard == 0)
                 {
+                    modoBotonEditGuard = 1;
                     txtNombre.IsReadOnly = false;
                     txtApellido1.IsReadOnly = false;
                     txtApellido2.IsReadOnly = false;
@@ -382,17 +439,19 @@ namespace PracticaLab
                 }
                 else
                 {
+
+                    modoBotonEditGuard = 0;
                     if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
                         && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
                         && txtTrabajo.Text != "")
                     {
-                       
+
                         Trabajador trabajador;
                         if (trabajadorSeleccionado.ImagenRuta == null)
                         {
                             trabajadorSeleccionado.ImagenRuta = "/Imagenes/Imagenes_trabajadores/Predeterminado.png";
                         }
-                       
+
                         trabajador = new Trabajador(txtNombre.Text, txtApellido1.Text,
                             txtApellido2.Text, txtDNI.Text, txtTelefono.Text, txtDireccion.Text,
                             trabajadorSeleccionado.correo, txtTrabajo.Text,
@@ -424,25 +483,54 @@ namespace PracticaLab
                             listTrabajadoresLimpieza.Remove(trabajadorSeleccionado);
                             listTrabajadoresLimpieza.Add(trabajador);
                             listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
-                        }       
+                        }
 
                         Lista_trabajadores.Items.Refresh();
                         Lista_trabajadores.SelectedItem = trabajador;
-                        
+
                         btnEditar_Guardar.Content = "Editar";
                     }
 
-
-
-                else
+                    else
                     {
                         MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         limpiar();
                         return;
                     }
                 }
-                modo1 = !modo1;
+
             }
+        }
+        private void btn_añadir_Click(object sender, RoutedEventArgs e)
+        {
+            txtNombre.Text = "";
+            txtApellido1.Text = "";
+            txtApellido2.Text = "";
+            txtDNI.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            txtTrabajo.Text = "";
+            imgTrabajador.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
+            txtNombre.IsReadOnly = false;
+            txtApellido1.IsReadOnly = false;
+            txtApellido2.IsReadOnly = false;
+            txtDNI.IsReadOnly = false;
+            txtTelefono.IsReadOnly = false;
+            txtDireccion.IsReadOnly = false;
+            txtTrabajo.IsReadOnly = false;
+            txtNombre.Foreground = Brushes.Black;
+            txtApellido1.Foreground = Brushes.Black;
+            txtApellido2.Foreground = Brushes.Black;
+            txtDNI.Foreground = Brushes.Black;
+            txtTelefono.Foreground = Brushes.Black;
+            txtDireccion.Foreground = Brushes.Black;
+            txtTrabajo.Foreground = Brushes.Black;
+            modoBotonEditGuard = 3;
+            btnEditar_Guardar.Content = "Guardar";
+            dataGridPacientesAtendidos.ItemsSource = null;
+
+            Lista_trabajadores.SelectedItem = null;
+
         }
         private void limpiar()
         {
@@ -471,7 +559,11 @@ namespace PracticaLab
             btnEditar_Guardar.Content = "Editar";
             dataGridPacientesAtendidos.ItemsSource = null;
             datagridNominas.ItemsSource = null;
-            modo1 = true;
+            modoBotonEditGuard = 0;
+        }
+        private void cmbTiposTrabajador_Loader(object sender, RoutedEventArgs e)
+        {
+            cmbTiposTrabajador.SelectedIndex = 0;
         }
     }
 }
