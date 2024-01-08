@@ -68,6 +68,7 @@
     <Compile Include="EditarCita.xaml.cs">
       <DependentUpon>EditarCita.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Nomina.cs" />
     <Compile Include="Trabajadores.cs" />
     <Compile Include="VerCita.xaml.cs">
       <DependentUpon>VerCita.xaml</DependentUpon>
@@ -234,7 +235,7 @@
     <Resource Include="Datos\trabajadores.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Datos\Nominas.xml" />
+    <Resource Include="Datos\nominas.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

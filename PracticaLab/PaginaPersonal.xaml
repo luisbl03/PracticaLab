@@ -189,8 +189,6 @@
                             <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding fecha}" Width="28*"/>
                             <DataGridTextColumn Header="DNI del paciente" Binding="{Binding DNI_paciente}" Width="30*"/>
                             <DataGridTextColumn Header="Nombre del Paciente" Binding="{Binding nombre_paciente}" Width="42*" />
-                            
-                            
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -214,7 +212,14 @@
 
                     <DataGrid Name="datagridNominas"
                               AutoGenerateColumns="False"  
-                              Grid.Row="1" Margin="62,10,62,29"/>
+                              Grid.Row="1" Margin="62,10,62,29">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha,StringFormat={}{0:dd/MM/yyyy}}" Width="28*"/>
+                            <DataGridTextColumn Header="DNI del paciente" Binding="{Binding Monto}" Width="50*"/>
+                           
+                        </DataGrid.Columns>
+
+                    </DataGrid>
                 </Grid>
 
             </Grid>

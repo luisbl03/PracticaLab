@@ -26,7 +26,7 @@ namespace PracticaLab
     /// </summary>
     public partial class Page1 : Page
     {
-        public ObservableCollection<Nomina> Nominas { get; set; }
+        public List<Nomina> listNominas { get; set; }
         public List<Trabajadores> listTrabajadoresSanitarios { get; set; }
         public List<Trabajadores> listTrabajadoresLimpieza { get; set; }
         public List<Cita> listCitas { get; set; }
@@ -36,10 +36,12 @@ namespace PracticaLab
             listCitas = new List<Cita>();
             listTrabajadoresSanitarios= new List<Trabajadores>();
             listTrabajadoresLimpieza = new List<Trabajadores>();
-            List<Paciente> listPacientes = new List<Paciente>();
+            listPacientes = new List<Paciente>();
+            listNominas = new List<Nomina>();
 
             listCitas = cargarCitas();
             listPacientes = cargarPacientes();
+            listNominas = cargarNominas();
 
             InitializeComponent();
             // Crear un objeto XmlDocument
@@ -100,9 +102,7 @@ namespace PracticaLab
                 MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            // Nomians y demas
-            Nominas = new ObservableCollection<Nomina>();
-            datagridNominas.ItemsSource = Nominas;
+            
         }
 
         Boolean seleccionado = false;
@@ -135,9 +135,13 @@ namespace PracticaLab
 
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
                
-                dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(cargarPacientes(), listCitas, trabajadorSeleccionador);
+                dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(listPacientes, listCitas, trabajadorSeleccionador);
                 dataGridPacientesAtendidos.Items.Refresh();
-                
+
+                // Nominas
+                datagridNominas.ItemsSource = cargarNominaTrabajador(trabajadorSeleccionador, listNominas);
+                datagridNominas.Items.Refresh();
+
             }
         }
 
@@ -197,15 +201,67 @@ namespace PracticaLab
             txtDNI.IsReadOnly = true;
             txtTelefono.IsReadOnly = true;
             txtDireccion.IsReadOnly = true;
+            txtTrabajo.IsReadOnly = true;
             txtNombre.Foreground = Brushes.Gray;
             txtApellido1.Foreground = Brushes.Gray;
             txtApellido2.Foreground = Brushes.Gray;
             txtDNI.Foreground = Brushes.Gray;
             txtTelefono.Foreground = Brushes.Gray;
             txtDireccion.Foreground = Brushes.Gray;
+            txtTrabajo.Foreground = Brushes.Gray;
             //bttn_Editar.Content = "Editar";
         }
 
+        private List<Nomina> cargarNominas()
+        {
+            List<Nomina> nominas = new List<Nomina>();
+
+            try
+            {
+                // Crear un objeto XmlDocument
+                XmlDocument xmlDoc = new XmlDocument();
+                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                var fichero = Application.GetResourceStream(new Uri("Datos/nominas.xml", UriKind.Relative));
+                // Cargar el documento XML desde el archivo
+                xmlDoc.Load(fichero.Stream);
+                // Obtener la lista de nodos de nominas
+                XmlNodeList nominasXML = xmlDoc.SelectNodes("/Nominas/Nomina");
+                // Iterar a través de las nominas y agregar a la lista de Nominas
+                foreach (XmlNode nominaNode in nominasXML)
+                {
+                    double monto = double.Parse(nominaNode.SelectSingleNode("Cantidad").InnerText);
+                    string DNI_trabajador = nominaNode.SelectSingleNode("DNI_Trabajador").InnerText;
+                    DateTime fecha = DateTime.Parse(nominaNode.SelectSingleNode("Fecha").InnerText);
+
+                    Nomina nomina = new Nomina(fecha, monto, DNI_trabajador);
+                    nominas.Add(nomina);
+                }
+                return nominas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return nominas;
+            }
+        }
+
+        private List<Nomina> cargarNominaTrabajador(Trabajadores t, List<Nomina> nominas) { 
+            List<Nomina> nominaTrabajador = new List<Nomina>();
+            if (nominas == null)
+            {
+                return null;
+            }
+
+            foreach (Nomina n in nominas)
+            {
+                if (t.DNI == n.DNI_trabajador)
+                {
+                    nominaTrabajador.Add(n);
+                }
+             
+            }
+            return nominaTrabajador;
+        }
         private List<Paciente> cargarPacientes()
         {
             List <Paciente> pacientes = new List<Paciente>();
@@ -242,7 +298,7 @@ namespace PracticaLab
 
         }
         private List<Cita> cargarCitas()
-        {
+        {   
             List<Cita> citas = new List<Cita>();
             try
             {
@@ -255,7 +311,7 @@ namespace PracticaLab
                 //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
 
                 foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
-                {
+                {   
                     var cita = new Cita("", "", "", DateTime.Now, "", "");
 
                     cita.DNI_paciente = node.Attributes["DNI"].Value;
@@ -295,9 +351,5 @@ namespace PracticaLab
     }
    
 
-    public class Nomina
-    {
-        public DateTime Fecha { get; set; }
-        public double Monto { get; set; }
-    }
+  
 }
