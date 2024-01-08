@@ -31,8 +31,6 @@ namespace PracticaLab
             txtPaciente.Text = paciente.Nombre;
             txtMotivo.Text = cita.motivo;
             dateSelector.SelectedDate = cita.fecha.Date;
-            comboHora.Text = cita.fecha.TimeOfDay.ToString().Substring(0, 5);
-            comboHora.SelectedIndex = 0;
 
             comboHora.Items.Add("09:00");
             comboHora.Items.Add("10:00");
@@ -44,6 +42,8 @@ namespace PracticaLab
             comboHora.Items.Add("18:00");
             comboHora.Items.Add("19:00");
             comboHora.Items.Add("20:00");
+
+            comboHora.Text = cita.fecha.TimeOfDay.ToString().Substring(0, 5);
 
         }
 
