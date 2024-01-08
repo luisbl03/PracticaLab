@@ -32,9 +32,9 @@ namespace PracticaLab
         public List<Cita> listCitas { get; set; }
         public List<Paciente> listPacientes { get; set; }
         public Page1()
-        {   
+        {
             listCitas = new List<Cita>();
-            listTrabajadoresSanitarios= new List<Trabajador>();
+            listTrabajadoresSanitarios = new List<Trabajador>();
             listTrabajadoresLimpieza = new List<Trabajador>();
             listPacientes = new List<Paciente>();
             listNominas = new List<Nomina>();
@@ -43,7 +43,7 @@ namespace PracticaLab
             listPacientes = cargarPacientes();
             listNominas = cargarNominas();
 
-            
+
             InitializeComponent();
 
             // Crear un objeto XmlDocument
@@ -52,7 +52,7 @@ namespace PracticaLab
 
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDocTrabajadores = new XmlDocument();
-       
+
                 //almacenamos la informacion de "pacientes.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
 
@@ -71,15 +71,15 @@ namespace PracticaLab
                     string dNI = trabajadorXML.Attributes["DNI"].Value;
                     string telefono = trabajadorXML.Attributes["Telefono"].Value;
                     string direccion = trabajadorXML.Attributes["Direccion"].Value;
-                    string correo =trabajadorXML.Attributes["correo"].Value;
+                    string correo = trabajadorXML.Attributes["correo"].Value;
                     string trabajo = trabajadorXML.Attributes["trabajo"].Value;
                     string imagenRuta = trabajadorXML.Attributes["ImagenRuta"].Value;
 
                     Trabajador trabajador;
                     if (imagenRuta == "")
-                       trabajador = new Trabajador(nombre, apellido1, apellido2, dNI, telefono, direccion, correo, trabajo);
+                        trabajador = new Trabajador(nombre, apellido1, apellido2, dNI, telefono, direccion, correo, trabajo);
                     else
-                     trabajador = new Trabajador(nombre,apellido1, apellido2, dNI, telefono, direccion, correo, trabajo, imagenRuta);
+                        trabajador = new Trabajador(nombre, apellido1, apellido2, dNI, telefono, direccion, correo, trabajo, imagenRuta);
 
                     switch (trabajador.trabajo)
                     {
@@ -99,10 +99,12 @@ namespace PracticaLab
                             listTrabajadoresLimpieza.Add(trabajador);
                             break;
                         default:
-                           
-                        break;
-                    }        
-                }        
+
+                            break;
+                    }
+                }
+                listTrabajadoresSanitarios.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
+                listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));  
             }
 
             catch (Exception ex)
@@ -110,7 +112,7 @@ namespace PracticaLab
                 MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            
+
         }
 
         Boolean seleccionado = false;
@@ -173,6 +175,7 @@ namespace PracticaLab
                     Lista_trabajadores.ItemsSource = listTrabajadoresLimpieza;
                     txtBlockPacientesAtendidos.Visibility = Visibility.Collapsed;
                     dataGridPacientesAtendidos.Visibility = Visibility.Collapsed;
+                    Sanitario = false;
                     limpiar();
                     break;
                 default:
@@ -193,50 +196,22 @@ namespace PracticaLab
             if (MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
                 return;
-            }   
-         
+            }
+
             if (Sanitario == true)
             {
                 listTrabajadoresSanitarios.Remove(Trabajador);
-              
+
             }
             else
             {
                 listTrabajadoresLimpieza.Remove(Trabajador);
-                
-            }   
-            
+
+            }
+
             Lista_trabajadores.Items.Refresh();
-           
+
             limpiar();
-        }
-        private void limpiar()
-        {
-            txtNombre.Text = "Nombre";
-            txtApellido1.Text = "Primer Apellido";
-            txtApellido2.Text = "Segundo Apellido";
-            txtDNI.Text = "000000000A";
-            txtTelefono.Text = "000000000";
-            txtDireccion.Text = "calle x, nº";
-            txtTrabajo.Text = "Trabajo";
-            //ImagenPaciente.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
-            txtNombre.IsReadOnly = true;
-            txtApellido1.IsReadOnly = true;
-            txtApellido2.IsReadOnly = true;
-            txtDNI.IsReadOnly = true;
-            txtTelefono.IsReadOnly = true;
-            txtDireccion.IsReadOnly = true;
-            txtTrabajo.IsReadOnly = true;
-            txtNombre.Foreground = Brushes.Gray;
-            txtApellido1.Foreground = Brushes.Gray;
-            txtApellido2.Foreground = Brushes.Gray;
-            txtDNI.Foreground = Brushes.Gray;
-            txtTelefono.Foreground = Brushes.Gray;
-            txtDireccion.Foreground = Brushes.Gray;
-            txtTrabajo.Foreground = Brushes.Gray;
-            //bttn_Editar.Content = "Editar";
-            dataGridPacientesAtendidos.ItemsSource = null;
-            datagridNominas.ItemsSource = null;
         }
 
         private List<Nomina> cargarNominas()
@@ -272,7 +247,8 @@ namespace PracticaLab
             }
         }
 
-        private List<Nomina> cargarNominaTrabajador(Trabajador t, List<Nomina> nominas) { 
+        private List<Nomina> cargarNominaTrabajador(Trabajador t, List<Nomina> nominas)
+        {
             List<Nomina> nominaTrabajador = new List<Nomina>();
             if (nominas == null)
             {
@@ -285,13 +261,13 @@ namespace PracticaLab
                 {
                     nominaTrabajador.Add(n);
                 }
-             
+
             }
             return nominaTrabajador;
         }
         private List<Paciente> cargarPacientes()
         {
-            List <Paciente> pacientes = new List<Paciente>();
+            List<Paciente> pacientes = new List<Paciente>();
             try
             {
                 // Crear un objeto XmlDocument
@@ -321,11 +297,11 @@ namespace PracticaLab
             {
                 MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return pacientes;
-            }           
+            }
 
         }
         private List<Cita> cargarCitas()
-        {   
+        {
             List<Cita> citas = new List<Cita>();
             try
             {
@@ -338,7 +314,7 @@ namespace PracticaLab
                 //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
 
                 foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
-                {   
+                {
                     var cita = new Cita("", "", "", DateTime.Now, "", "");
 
                     cita.DNI_paciente = node.Attributes["DNI"].Value;
@@ -360,9 +336,9 @@ namespace PracticaLab
             List<Cita> citaPaciente = new List<Cita>();
             foreach (Cita c in citas)
             {
-                if (t.correo == c.correo_fisio && pacientes!=null)
-                {   
-                    foreach (Paciente p  in pacientes)
+                if (t.correo == c.correo_fisio && pacientes != null)
+                {
+                    foreach (Paciente p in pacientes)
                     {
                         if (c.DNI_paciente == p.DNI)
                         {
@@ -370,13 +346,132 @@ namespace PracticaLab
                             t = listTrabajadoresSanitarios.Find(x => x.correo == c.correo_fisio);
                             citaPaciente.Add(c);
                         }
-                    }                
-                }             
+                    }
+                }
             }
             return citaPaciente;
         }
-    }
-   
 
-  
+        private bool modo1 = true;
+
+        private void Editar_Guardar_Click(object sender, RoutedEventArgs e)
+        {
+            Trabajador trabajadorSeleccionado = (Trabajador)Lista_trabajadores.SelectedItem;
+
+            if (trabajadorSeleccionado != null)
+            {
+                Button btn = (Button)sender;
+                if (modo1 == true)
+                {
+                    txtNombre.IsReadOnly = false;
+                    txtApellido1.IsReadOnly = false;
+                    txtApellido2.IsReadOnly = false;
+                    txtDNI.IsReadOnly = false;
+                    txtTelefono.IsReadOnly = false;
+                    txtDireccion.IsReadOnly = false;
+                    txtTrabajo.IsReadOnly = false;
+                    txtNombre.Foreground = Brushes.Black;
+                    txtApellido1.Foreground = Brushes.Black;
+                    txtApellido2.Foreground = Brushes.Black;
+                    txtDNI.Foreground = Brushes.Black;
+                    txtTelefono.Foreground = Brushes.Black;
+                    txtDireccion.Foreground = Brushes.Black;
+                    txtTrabajo.Foreground = Brushes.Black;
+
+                    btn.Content = "Guardar";
+                }
+                else
+                {
+                    if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
+                        && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
+                        && txtTrabajo.Text != "")
+                    {
+                       
+                        Trabajador trabajador;
+                        if (trabajadorSeleccionado.ImagenRuta == null)
+                        {
+                            trabajadorSeleccionado.ImagenRuta = "/Imagenes/Imagenes_trabajadores/Predeterminado.png";
+                        }
+                       
+                        trabajador = new Trabajador(txtNombre.Text, txtApellido1.Text,
+                            txtApellido2.Text, txtDNI.Text, txtTelefono.Text, txtDireccion.Text,
+                            trabajadorSeleccionado.correo, txtTrabajo.Text,
+                            trabajadorSeleccionado.ImagenRuta);
+
+                        txtNombre.IsReadOnly = true;
+                        txtApellido1.IsReadOnly = true;
+                        txtApellido2.IsReadOnly = true;
+                        txtDNI.IsReadOnly = true;
+                        txtTelefono.IsReadOnly = true;
+                        txtDireccion.IsReadOnly = true;
+                        txtTrabajo.IsReadOnly = true;
+                        txtNombre.Foreground = Brushes.Gray;
+                        txtApellido1.Foreground = Brushes.Gray;
+                        txtApellido2.Foreground = Brushes.Gray;
+                        txtDNI.Foreground = Brushes.Gray;
+                        txtTelefono.Foreground = Brushes.Gray;
+                        txtDireccion.Foreground = Brushes.Gray;
+                        txtTrabajo.Foreground = Brushes.Gray;
+
+                        if (Sanitario == true)
+                        {
+                            listTrabajadoresSanitarios.Remove(trabajadorSeleccionado);
+                            listTrabajadoresSanitarios.Add(trabajador);
+                            listTrabajadoresSanitarios.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
+                        }
+                        else
+                        {
+                            listTrabajadoresLimpieza.Remove(trabajadorSeleccionado);
+                            listTrabajadoresLimpieza.Add(trabajador);
+                            listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
+                        }       
+
+                        Lista_trabajadores.Items.Refresh();
+                        Lista_trabajadores.SelectedItem = trabajador;
+                        
+                        btnEditar_Guardar.Content = "Editar";
+                    }
+
+
+
+                else
+                    {
+                        MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        limpiar();
+                        return;
+                    }
+                }
+                modo1 = !modo1;
+            }
+        }
+        private void limpiar()
+        {
+            txtNombre.Text = "Nombre";
+            txtApellido1.Text = "Primer Apellido";
+            txtApellido2.Text = "Segundo Apellido";
+            txtDNI.Text = "000000000A";
+            txtTelefono.Text = "000000000";
+            txtDireccion.Text = "calle x, nº";
+            txtTrabajo.Text = "Trabajo";
+            imgTrabajador.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_trabajadores/Predeterminado.png", UriKind.RelativeOrAbsolute));
+            txtNombre.IsReadOnly = true;
+            txtApellido1.IsReadOnly = true;
+            txtApellido2.IsReadOnly = true;
+            txtDNI.IsReadOnly = true;
+            txtTelefono.IsReadOnly = true;
+            txtDireccion.IsReadOnly = true;
+            txtTrabajo.IsReadOnly = true;
+            txtNombre.Foreground = Brushes.Gray;
+            txtApellido1.Foreground = Brushes.Gray;
+            txtApellido2.Foreground = Brushes.Gray;
+            txtDNI.Foreground = Brushes.Gray;
+            txtTelefono.Foreground = Brushes.Gray;
+            txtDireccion.Foreground = Brushes.Gray;
+            txtTrabajo.Foreground = Brushes.Gray;
+            btnEditar_Guardar.Content = "Editar";
+            dataGridPacientesAtendidos.ItemsSource = null;
+            datagridNominas.ItemsSource = null;
+            modo1 = true;
+        }
+    }
 }

@@ -25,11 +25,6 @@
 		<Cantidad>3600</Cantidad>
 	</Nomina>
 	<Nomina>
-		<DNI_Trabajador>71374080A</DNI_Trabajador>
-		<Fecha>01/10/2023</Fecha>
-		<Cantidad>2500</Cantidad>
-	</Nomina>
-	<Nomina>
 		<DNI_Trabajador>67615420H</DNI_Trabajador>
 		<Fecha>01/11/2023</Fecha>
 		<Cantidad>1500</Cantidad>
@@ -41,7 +36,7 @@
 	</Nomina>
 	<Nomina>
 		<DNI_Trabajador>52611420H</DNI_Trabajador>
-		<Fecha>01/11/2023</Fecha>
+		<Fecha>01/12/2023</Fecha>
 		<Cantidad>1800</Cantidad>
 	</Nomina>
 	
