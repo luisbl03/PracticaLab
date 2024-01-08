@@ -629,7 +629,12 @@ namespace PracticaLab
             
 
         }
-        
+
+        private void btneditarCita_Click(object sender, RoutedEventArgs e)
+        {
+            Window editar = new EditarCita((Paciente)Lista_de_pacientes.SelectedItem, (Cita)dataGridCitas.SelectedItem, this);
+            editar.Show();
+        }
     }
    
 }
