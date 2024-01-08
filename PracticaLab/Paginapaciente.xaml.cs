@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -151,15 +152,14 @@ namespace PracticaLab
                     }
                     else
                     {
-                        Paciente paciente = new Paciente
-                        {
-                            Nombre = txtNombre.Text,
-                            Apellido1 = txtApellido1.Text,
-                            Apellido2 = txtApellido2.Text,
-                            DNI = txtDNI.Text,
-                            Telefono = txtTelefono.Text,
-                            Direccion = txtDireccion.Text
-                        };
+                        string Nombre = txtNombre.Text;
+                        string Apellido1 = txtApellido1.Text;
+                        string Apellido2 = txtApellido2.Text;
+                        string DNI = txtDNI.Text;
+                        string Telefono = txtTelefono.Text;
+                        string Direccion = txtDireccion.Text;
+                        Paciente paciente = new Paciente(Nombre,Apellido1, Apellido2, DNI, Telefono, Direccion);
+                       
                         paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Predeterminado.png";
                         Pacientes.Add(paciente);
                         /*añadimos al nuevo paciente en la listbox en orden*/
@@ -246,19 +246,20 @@ namespace PracticaLab
                 XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
 
                 // Iterar a través de los pacientes y agregar a la lista de Pacientes
-                foreach (XmlNode pacienteXml in pacientesXml)
+                foreach (XmlNode pacienteNode in pacientesXml)
                 {
-                    Paciente paciente = new Paciente
-                    {
-                        Nombre = pacienteXml.SelectSingleNode("Nombre").InnerText,
-                        Apellido1 = pacienteXml.SelectSingleNode("Apellido1").InnerText,
-                        Apellido2 = pacienteXml.SelectSingleNode("Apellido2").InnerText,
-                        DNI = pacienteXml.SelectSingleNode("DNI").InnerText,
-                        Telefono = pacienteXml.SelectSingleNode("Telefono").InnerText,
-                        Direccion = pacienteXml.SelectSingleNode("Direccion").InnerText
-                    };
 
-                    foreach (XmlNode informeXml in pacienteXml.SelectNodes("Informes/Informe"))
+                    string nombre = pacienteNode.SelectSingleNode("Nombre").InnerText;
+                    string apellido1 = pacienteNode.SelectSingleNode("Apellido1").InnerText;
+                    string apellido2 = pacienteNode.SelectSingleNode("Apellido2").InnerText;
+                    string dni = pacienteNode.SelectSingleNode("DNI").InnerText;
+                    string telefono = pacienteNode.SelectSingleNode("Telefono").InnerText;
+                    string direccion = pacienteNode.SelectSingleNode("Direccion").InnerText;
+
+                    Paciente paciente = new Paciente(nombre, apellido1, apellido2, dni, telefono, direccion);
+                    
+
+                    foreach (XmlNode informeXml in pacienteNode.SelectNodes("Informes/Informe"))
                     {
                         Informe informe = new Informe
                         {

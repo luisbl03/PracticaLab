@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
@@ -27,10 +29,17 @@ namespace PracticaLab
         public ObservableCollection<Nomina> Nominas { get; set; }
         public List<Trabajadores> listTrabajadoresSanitarios { get; set; }
         public List<Trabajadores> listTrabajadoresLimpieza { get; set; }
+        public List<Cita> listCitas { get; set; }
+        public List<Paciente> listPacientes { get; set; }
         public Page1()
-        {
+        {   
+            listCitas = new List<Cita>();
             listTrabajadoresSanitarios= new List<Trabajadores>();
             listTrabajadoresLimpieza = new List<Trabajadores>();
+            List<Paciente> listPacientes = new List<Paciente>();
+
+            listCitas = cargarCitas();
+            listPacientes = cargarPacientes();
 
             InitializeComponent();
             // Crear un objeto XmlDocument
@@ -42,6 +51,7 @@ namespace PracticaLab
        
                 //almacenamos la informacion de "pacientes.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
+
                 // Cargar el documento XML desde el archivo
                 xmlDocTrabajadores.Load(fichero.Stream);
 
@@ -81,11 +91,8 @@ namespace PracticaLab
                         default:
                            
                         break;
-                    }
-                   
-                    
-                }
-            
+                    }        
+                }        
             }
 
             catch (Exception ex)
@@ -127,12 +134,10 @@ namespace PracticaLab
 
 
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
-               /*
-                List<Cita> citasPaciente = new List<Cita>();
-                citasPaciente = cargarCitasPAciente(pacienteSeleccionado, Citas);
-                dataGridCitas.ItemsSource = citasPaciente;
-                dataGridCitas.Items.Refresh();
-                */
+               
+                dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(listPacientes, listCitas, trabajadorSeleccionador);
+                dataGridPacientesAtendidos.Items.Refresh();
+                
             }
         }
 
@@ -200,7 +205,96 @@ namespace PracticaLab
             txtDireccion.Foreground = Brushes.Gray;
             //bttn_Editar.Content = "Editar";
         }
+
+        private List<Paciente> cargarPacientes()
+        {
+            List <Paciente> pacientes = new List<Paciente>();
+            try
+            {
+                // Crear un objeto XmlDocument
+                XmlDocument xmlDoc = new XmlDocument();
+                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                var fichero = Application.GetResourceStream(new Uri("Datos/pacientes.xml", UriKind.Relative));
+                // Cargar el documento XML desde el archivo
+                xmlDoc.Load(fichero.Stream);
+                // Obtener la lista de nodos de pacientes
+                XmlNodeList pacientesXML = xmlDoc.SelectNodes("/Pacientes/Paciente");
+                // Iterar a través de los pacientes y agregar a la lista de Pacientes
+                foreach (XmlNode pacienteNode in pacientesXML)
+                {
+                    string nombre = pacienteNode.SelectSingleNode("Nombre").InnerText;
+                    string apellido1 = pacienteNode.SelectSingleNode("Apellido1").InnerText;
+                    string apellido2 = pacienteNode.SelectSingleNode("Apellido2").InnerText;
+                    string dni = pacienteNode.SelectSingleNode("DNI").InnerText;
+                    string telefono = pacienteNode.SelectSingleNode("Telefono").InnerText;
+                    string direccion = pacienteNode.SelectSingleNode("Direccion").InnerText;
+
+                    Paciente paciente = new Paciente(nombre, apellido1, apellido2, dni, telefono, direccion);
+                    pacientes.Add(paciente);
+                }
+                return pacientes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return pacientes;
+            }           
+
+        }
+        private List<Cita> cargarCitas()
+        {
+            List<Cita> citas = new List<Cita>();
+            try
+            {
+                // Crear un objeto XmlDocument
+                XmlDocument xmlDoc = new XmlDocument();
+                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                var fichero = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
+                // Cargar el documento XML desde el archivo
+                xmlDoc.Load(fichero.Stream);
+                //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
+
+                foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
+                {
+                    var cita = new Cita("", "", "", DateTime.Now, "", "");
+
+                    cita.DNI_paciente = node.Attributes["DNI"].Value;
+                    cita.motivo = node.Attributes["Motivo"].Value;
+                    cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                    cita.correo_fisio = node.Attributes["CorreoFisio"].Value;
+                    citas.Add(cita);
+                }
+                return citas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer el archivo XML: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return citas;
+            }
+        }
+        public List<Cita> cargarCitasAtendidas(List<Paciente> pacientes, List<Cita> citas, Trabajadores t)
+        {
+            List<Cita> citaPaciente = new List<Cita>();
+            foreach (Cita c in citas)
+            {
+                if (t.correo == c.correo_fisio && pacientes!=null)
+                {   
+                    foreach (Paciente p  in pacientes)
+                    {
+                        if (c.DNI_paciente == p.DNI)
+                        {
+                            c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
+                            t = listTrabajadoresSanitarios.Find(x => x.correo == c.correo_fisio);
+                            citaPaciente.Add(c);
+                        }
+                    }                
+                }             
+            }
+            return citaPaciente;
+        }
     }
+   
+
     public class Nomina
     {
         public DateTime Fecha { get; set; }

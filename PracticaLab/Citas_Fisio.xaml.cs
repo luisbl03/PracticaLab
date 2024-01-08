@@ -154,19 +154,18 @@ namespace PracticaLab
                 XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
 
                 // Iterar a través de los pacientes y agregar a la lista de Pacientes
-                foreach (XmlNode pacienteXml in pacientesXml)
+                foreach (XmlNode pacienteNode in pacientesXml)
                 {
-                    Paciente paciente = new Paciente
-                    {
-                        Nombre = pacienteXml.SelectSingleNode("Nombre").InnerText,
-                        Apellido1 = pacienteXml.SelectSingleNode("Apellido1").InnerText,
-                        Apellido2 = pacienteXml.SelectSingleNode("Apellido2").InnerText,
-                        DNI = pacienteXml.SelectSingleNode("DNI").InnerText,
-                        Telefono = pacienteXml.SelectSingleNode("Telefono").InnerText,
-                        Direccion = pacienteXml.SelectSingleNode("Direccion").InnerText
-                    };
+                    string nombre = pacienteNode.SelectSingleNode("Nombre").InnerText;
+                    string apellido1 = pacienteNode.SelectSingleNode("Apellido1").InnerText;
+                    string apellido2 = pacienteNode.SelectSingleNode("Apellido2").InnerText;
+                    string dni = pacienteNode.SelectSingleNode("DNI").InnerText;
+                    string telefono = pacienteNode.SelectSingleNode("Telefono").InnerText;
+                    string direccion = pacienteNode.SelectSingleNode("Direccion").InnerText;
 
-                    foreach (XmlNode informeXml in pacienteXml.SelectNodes("Informes/Informe"))
+                    Paciente paciente = new Paciente(nombre, apellido1, apellido2, dni, telefono, direccion);
+
+                    foreach (XmlNode informeXml in pacienteNode.SelectNodes("Informes/Informe"))
                     {
                         Informe informe = new Informe
                         {

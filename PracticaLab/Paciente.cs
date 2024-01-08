@@ -18,11 +18,19 @@ namespace PracticaLab
         public List<Informe> Informes { get; set; }
         public List<Informe> InformesTemporales { get; set; }
 
-        public Paciente()
+       public Paciente (string nombre, string apellido1, string apellido2, string dNI, string telefono, string direccion)
         {
+            Nombre = nombre;
+            Apellido1 = apellido1;
+            Apellido2 = apellido2;
+            DNI = dNI;
+            Telefono = telefono;
+            Direccion = direccion;
+            //FechaCita = fechaCita;
+            //RutaFoto = rutaFoto;
             Informes = new List<Informe>();
             InformesTemporales = new List<Informe>();
-        }
+        }   
 
         public override string ToString()
         {
