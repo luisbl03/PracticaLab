@@ -39,7 +39,7 @@ namespace PracticaLab
         public List<Paciente> Pacientes { get; set; }
         public List<Cita> Citas { get; set; }
         public List<Usuario> Usuarios { get; set; }
-        public List<Trabajadores> list_trabajadores { get; set; }
+        public List<Trabajador> list_trabajadores { get; set; }
         //hay un paciente selecionado
         private bool seleccionado = false;
 
@@ -570,7 +570,7 @@ namespace PracticaLab
                 if(c.DNI_paciente == p.DNI)
                 {
                     c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
-                    Trabajadores t = list_trabajadores.Find(x => x.correo == c.correo_fisio);
+                    Trabajador t = list_trabajadores.Find(x => x.correo == c.correo_fisio);
                     if (t != null)
                     {
                         c.nombre_fisio = t.Nombre + " " + t.Apellido1 + " " + t.Apellido2;
@@ -599,15 +599,15 @@ namespace PracticaLab
             }
         }
 
-        private List<Trabajadores> cargarTrabajadores()
+        private List<Trabajador> cargarTrabajadores()
         {
-            List<Trabajadores> listaTrabajadores = new List<Trabajadores>();
+            List<Trabajador> listaTrabajadores = new List<Trabajador>();
             XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
             foreach(XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var trabajador = new Trabajadores("", "","", "", "","","","");
+                var trabajador = new Trabajador("", "","", "", "","","","");
                 trabajador.Nombre = node.Attributes["Nombre"].Value;
                 trabajador.Apellido1 = node.Attributes["Apellido1"].Value;
                 trabajador.Apellido2 = node.Attributes["Apellido2"].Value;

@@ -80,10 +80,10 @@
                         <RowDefinition Height="27*"/>
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Column="0" Grid.Row="0"
-                        HorizontalAlignment="Center" Height="153"  
-                       VerticalAlignment="Center" Width="168"
-                       Source="Imagenes\Imagenes_pacientes\Predeterminado.png"
+                    <Image x:Name="imgTrabajador"
+                        Grid.Column="0" Height="153"  
+                       VerticalAlignment="Top"
+                       Source="/Imagenes/Imagenes_trabajadores/Predeterminado.png"
                        />
 
 
@@ -162,12 +162,12 @@
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </Grid>
-                    
+
                     <!--Empleo o ocupación-->
                     <StackPanel Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="2" Orientation="Horizontal">
                         <TextBlock Text="Trabajo:   " FontWeight="Bold"  
                                VerticalAlignment="Center"/>
-                        
+
                         <TextBox x:Name="txtTrabajo" Grid.Column="1" Grid.Row="5"
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center"
@@ -176,6 +176,10 @@
                             IsReadOnly="True"
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </StackPanel>
+                    <Button x:Name="Editar_Guardar"
+                        Grid.Column="1" Grid.Row="1" Content="Editar" HorizontalAlignment="Center"
+                            Grid.RowSpan="2" Width="120" Height="40"
+                            VerticalAlignment="Top"/>
                     <!-- Pacientes atendidos-->
                     <TextBlock x:Name="txtBlockPacientesAtendidos"
                                Text="Pacientes atendidos" FontWeight="Bold" FontSize="13.5"
@@ -184,7 +188,7 @@
 
                     <DataGrid Name="dataGridPacientesAtendidos"
                               AutoGenerateColumns="False"  
-                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29" SelectionChanged="datagridPacientesAtendidos_SelectionChanged">
+                              Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2" Margin="34,51,33,29">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Fecha de la Cita" Binding="{Binding fecha}" Width="28*"/>
                             <DataGridTextColumn Header="DNI del paciente" Binding="{Binding DNI_paciente}" Width="30*"/>
@@ -192,7 +196,6 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-
 
 
                 </Grid>
@@ -216,7 +219,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha,StringFormat={}{0:dd/MM/yyyy}}" Width="28*"/>
                             <DataGridTextColumn Header="DNI del paciente" Binding="{Binding Monto}" Width="50*"/>
-                           
+
                         </DataGrid.Columns>
 
                     </DataGrid>

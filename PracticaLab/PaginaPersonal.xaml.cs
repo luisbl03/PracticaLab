@@ -27,15 +27,15 @@ namespace PracticaLab
     public partial class Page1 : Page
     {
         public List<Nomina> listNominas { get; set; }
-        public List<Trabajadores> listTrabajadoresSanitarios { get; set; }
-        public List<Trabajadores> listTrabajadoresLimpieza { get; set; }
+        public List<Trabajador> listTrabajadoresSanitarios { get; set; }
+        public List<Trabajador> listTrabajadoresLimpieza { get; set; }
         public List<Cita> listCitas { get; set; }
         public List<Paciente> listPacientes { get; set; }
         public Page1()
         {   
             listCitas = new List<Cita>();
-            listTrabajadoresSanitarios= new List<Trabajadores>();
-            listTrabajadoresLimpieza = new List<Trabajadores>();
+            listTrabajadoresSanitarios= new List<Trabajador>();
+            listTrabajadoresLimpieza = new List<Trabajador>();
             listPacientes = new List<Paciente>();
             listNominas = new List<Nomina>();
 
@@ -43,9 +43,9 @@ namespace PracticaLab
             listPacientes = cargarPacientes();
             listNominas = cargarNominas();
 
-
+            
             InitializeComponent();
-        
+
             // Crear un objeto XmlDocument
             try
             {
@@ -73,7 +73,13 @@ namespace PracticaLab
                     string direccion = trabajadorXML.Attributes["Direccion"].Value;
                     string correo =trabajadorXML.Attributes["correo"].Value;
                     string trabajo = trabajadorXML.Attributes["trabajo"].Value;
-                    Trabajadores trabajador = new Trabajadores(nombre,apellido1, apellido2, dNI, telefono, direccion, correo, trabajo);
+                    string imagenRuta = trabajadorXML.Attributes["ImagenRuta"].Value;
+
+                    Trabajador trabajador;
+                    if (imagenRuta == "")
+                       trabajador = new Trabajador(nombre, apellido1, apellido2, dNI, telefono, direccion, correo, trabajo);
+                    else
+                     trabajador = new Trabajador(nombre,apellido1, apellido2, dNI, telefono, direccion, correo, trabajo, imagenRuta);
 
                     switch (trabajador.trabajo)
                     {
@@ -117,7 +123,7 @@ namespace PracticaLab
                 dataGridPacientesAtendidos.ItemsSource = null;
                 seleccionado = true;
                 // Obtén el paciente seleccionado
-                Trabajadores trabajadorSeleccionador = (Trabajadores)Lista_trabajadores.SelectedItem;
+                Trabajador trabajadorSeleccionador = (Trabajador)Lista_trabajadores.SelectedItem;
 
                 // Muestra los detalles del paciente en el TextBox
 
@@ -130,13 +136,13 @@ namespace PracticaLab
                 txtDireccion.Text = $"{trabajadorSeleccionador.Direccion}";
                 txtTrabajo.Text = $"{trabajadorSeleccionador.trabajo}";
 
-
+                imgTrabajador.Source = new BitmapImage(new Uri(trabajadorSeleccionador.ImagenRuta, UriKind.RelativeOrAbsolute));
 
                 //ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
 
 
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
-               
+
                 dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(listPacientes, listCitas, trabajadorSeleccionador);
                 dataGridPacientesAtendidos.Items.Refresh();
 
@@ -175,11 +181,6 @@ namespace PracticaLab
             }
         }
 
-        private void datagridPacientesAtendidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void btn_añadir_Click(object sender, RoutedEventArgs e)
         {
 
@@ -187,7 +188,7 @@ namespace PracticaLab
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
-            var Trabajador = (Trabajadores)Lista_trabajadores.SelectedItem;
+            var Trabajador = (Trabajador)Lista_trabajadores.SelectedItem;
             //MessageBoxResult result = MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
@@ -271,7 +272,7 @@ namespace PracticaLab
             }
         }
 
-        private List<Nomina> cargarNominaTrabajador(Trabajadores t, List<Nomina> nominas) { 
+        private List<Nomina> cargarNominaTrabajador(Trabajador t, List<Nomina> nominas) { 
             List<Nomina> nominaTrabajador = new List<Nomina>();
             if (nominas == null)
             {
@@ -354,7 +355,7 @@ namespace PracticaLab
                 return citas;
             }
         }
-        public List<Cita> cargarCitasAtendidas(List<Paciente> pacientes, List<Cita> citas, Trabajadores t)
+        public List<Cita> cargarCitasAtendidas(List<Paciente> pacientes, List<Cita> citas, Trabajador t)
         {
             List<Cita> citaPaciente = new List<Cita>();
             foreach (Cita c in citas)

@@ -1,5 +1,17 @@
 <Trabajadores>
-	<Trabajador Nombre="Alberto" Apellido1="Barrais" Apellido2="Bellerin" DNI="71374080A" Telefono="474961013" Direccion="Calle Princesa, 13" correo="soyalberto@hola.com" trabajo="fisioterapeuta"/>
-	<Trabajador Nombre="Luis" Apellido1="Benito" Apellido2="López" DNI="51186032C" Telefono="604562014" Direccion="Calle la Mota, 25" correo="Luis.Benito@alu.uclm.es" trabajo="limpiador"/>
-	<Trabajador Nombre="Javier" Apellido1="Cuartero" Apellido2="Corredor" DNI="87818480D" Telefono="5025021340" Direccion="Calle Luis Maldonado, 1" correo="javicorre@dor.com" trabajo="fisioterapeuta jefe"/>
+	<Trabajador Nombre="Alberto" Apellido1="Barrais" Apellido2="Bellerin" DNI="71374080A"
+				Telefono="474961013" Direccion="Calle Princesa, 13" correo="soyalberto@hola.com" 
+				trabajo="fisioterapeuta" ImagenRuta=""/>
+	<Trabajador Nombre="Luis" Apellido1="Benito" Apellido2="López" DNI="51186032C" 
+				Telefono="604562014" Direccion="Calle la Mota, 25" correo="Luis.Benito@alu.uclm.es" 
+				trabajo="fisioterapeuta en practicas" ImagenRuta=""/>
+	<Trabajador Nombre="Javier" Apellido1="Cuartero" Apellido2="Corredor" DNI="87818480D" 
+				Telefono="789456123" Direccion="Calle Luis Maldonado, 1" correo="javicorre@dor.com" 
+				trabajo="fisioterapeuta jefe" ImagenRuta="/Imagenes/Imagenes_trabajadores/Javi.jpeg"/>
+	<Trabajador Nombre="Ramon" Apellido1="Avellana" Apellido2="Garcia" DNI="67615420H"
+			Telefono="402512125" Direccion="Calle Matador, 45" correo="RamonGarcia@hotmail.com"
+			trabajo="limpiador" ImagenRuta="/Imagenes/Imagenes_trabajadores/Ramon.jpeg"/>
+	<Trabajador Nombre="Natalia" Apellido1="Alegre" Apellido2="Mendoza" DNI="52611420H"
+		Telefono="502502134" Direccion="Calle Matador, 45" correo="RamonGarcia@hotmail.com"
+		trabajo="limpiador jefe" ImagenRuta="/Imagenes/Imagenes_trabajadores/Natalia.jpeg"/>
 </Trabajadores>

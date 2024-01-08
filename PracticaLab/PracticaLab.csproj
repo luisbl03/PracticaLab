@@ -69,7 +69,7 @@
       <DependentUpon>EditarCita.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nomina.cs" />
-    <Compile Include="Trabajadores.cs" />
+    <Compile Include="Trabajador.cs" />
     <Compile Include="VerCita.xaml.cs">
       <DependentUpon>VerCita.xaml</DependentUpon>
     </Compile>
@@ -236,6 +236,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Datos\nominas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_trabajadores\doctorDefecto.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_trabajadores\Predeterminado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_trabajadores\Javi.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_trabajadores\Ramon.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Imagenes_trabajadores\Natalia.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
