@@ -69,6 +69,9 @@
       <DependentUpon>EditarCita.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trabajadores.cs" />
+    <Compile Include="VerCita.xaml.cs">
+      <DependentUpon>VerCita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VerInforme.xaml.cs">
       <DependentUpon>VerInforme.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarCita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerCita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
