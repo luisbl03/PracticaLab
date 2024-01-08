@@ -43,7 +43,9 @@ namespace PracticaLab
             listPacientes = cargarPacientes();
             listNominas = cargarNominas();
 
+
             InitializeComponent();
+        
             // Crear un objeto XmlDocument
             try
             {
@@ -145,6 +147,7 @@ namespace PracticaLab
             }
         }
 
+        Boolean Sanitario = false;
         private void cmbTiposTrabajador_SelectionChanged(object sender, RoutedEventArgs e)
         {
             // Obtener el tipo de trabajador seleccionado en el ComboBox
@@ -157,6 +160,7 @@ namespace PracticaLab
                     Lista_trabajadores.ItemsSource = listTrabajadoresSanitarios;
                     txtBlockPacientesAtendidos.Visibility = Visibility.Visible;
                     dataGridPacientesAtendidos.Visibility = Visibility.Visible;
+                    Sanitario = true;
                     limpiar();
                     break;
                 case "Encargado de la Limpieza":
@@ -183,7 +187,27 @@ namespace PracticaLab
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            var Trabajador = (Trabajadores)Lista_trabajadores.SelectedItem;
+            //MessageBoxResult result = MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                return;
+            }   
+         
+            if (Sanitario == true)
+            {
+                listTrabajadoresSanitarios.Remove(Trabajador);
+              
+            }
+            else
+            {
+                listTrabajadoresLimpieza.Remove(Trabajador);
+                
+            }   
+            
+            Lista_trabajadores.Items.Refresh();
+           
+            limpiar();
         }
         private void limpiar()
         {
@@ -210,6 +234,8 @@ namespace PracticaLab
             txtDireccion.Foreground = Brushes.Gray;
             txtTrabajo.Foreground = Brushes.Gray;
             //bttn_Editar.Content = "Editar";
+            dataGridPacientesAtendidos.ItemsSource = null;
+            datagridNominas.ItemsSource = null;
         }
 
         private List<Nomina> cargarNominas()
