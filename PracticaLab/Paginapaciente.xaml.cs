@@ -307,7 +307,7 @@ namespace PracticaLab
             }
         }
 
-        public void UpdateInformesList(Paciente paciente = null)
+        private void UpdateInformesList(Paciente paciente = null)
         {
             // Limpiar la ListView de informes
             listViewInformes.Items.Clear();
@@ -317,18 +317,14 @@ namespace PracticaLab
                 // Añadir los informes del paciente seleccionado a la ListView
                 foreach (Informe informe in paciente.Informes)
                 {
-                    string descripcionMostrar = informe.Guardado
-                        ? informe.Descripcion
-                        : informe.DescripcionInforme;
-
                     listViewInformes.Items.Add(new
                     {
-                        IdInforme = paciente.Informes.IndexOf(informe) + 1,
+                        IdInforme = paciente.Informes.IndexOf(informe) + 1, // Ajusta esto según tu lógica
                         FechaInforme = informe.FechaInforme.ToString("dd/MM/yyyy"),
-                        Descripcion = descripcionMostrar
+                        Descripcion = informe.Descripcion
                     });
                 }
-                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Hidden;
+                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Visible;
             }
         }
         private void editarInforme_Click(object sender, RoutedEventArgs e)
@@ -339,7 +335,7 @@ namespace PracticaLab
 
                 Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
 
-                EditarInforme editarInformeWindow = new EditarInforme(this, pacienteSeleccionado, informeSeleccionado);
+                EditarInforme editarInformeWindow = new EditarInforme(pacienteSeleccionado, informeSeleccionado);
                 editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 editarInformeWindow.ShowDialog();
             }

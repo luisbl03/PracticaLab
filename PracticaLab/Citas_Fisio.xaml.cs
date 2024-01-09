@@ -235,7 +235,7 @@ namespace PracticaLab
             }
         }
 
-        public void UpdateInformesList(Paciente paciente = null)
+        private void UpdateInformesList(Paciente paciente = null)
         {
             // Limpiar la ListView de informes
             listViewInformes.Items.Clear();
@@ -255,7 +255,6 @@ namespace PracticaLab
                 listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Collapsed;
             }
         }
-        
         private void editarInforme_Click(object sender, RoutedEventArgs e)
         {
             if (listViewInformes.SelectedItem != null)
@@ -264,7 +263,7 @@ namespace PracticaLab
 
                 Informe informeSeleccionado = pacienteSeleccionado.Informes[listViewInformes.SelectedIndex];
 
-                EditarInforme editarInformeWindow = new EditarInforme(this,pacienteSeleccionado, informeSeleccionado);
+                EditarInforme editarInformeWindow = new EditarInforme(pacienteSeleccionado, informeSeleccionado);
                 editarInformeWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 editarInformeWindow.ShowDialog();
             }
