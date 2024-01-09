@@ -106,8 +106,6 @@ namespace PracticaLab
 
             
         }
-
-        Boolean seleccionado = false;
         private void Lista_trabajadores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Verifica si hay un paciente seleccionado
@@ -115,7 +113,6 @@ namespace PracticaLab
             {
                 //limpiamos el datagrid de citas
                 dataGridPacientesAtendidos.ItemsSource = null;
-                seleccionado = true;
                 // Obtén el paciente seleccionado
                 Trabajadores trabajadorSeleccionador = (Trabajadores)Lista_trabajadores.SelectedItem;
 
