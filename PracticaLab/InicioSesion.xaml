@@ -27,9 +27,9 @@
         <Image x:Name="Clinica" HorizontalAlignment="Left"
                Height="315"
                VerticalAlignment="Top"
-               Source="/Imagenes/ClinicaFisioterapi02.png"
-               Width="157" 
-               Margin="10,40,0,0" 
+               Source="/Imagenes/Fisio.png"
+               Width="158" 
+               Margin="24,30,0,0" 
                Grid.Row="1" 
                Stretch="Fill"
                RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
