@@ -25,7 +25,7 @@ namespace PracticaLab
         public Cita cita { get; set; }
         public Page2 page2 { get; set; }
         public Paciente paciente { get; set; }
-        public List<Trabajadores> listaTrabajadores { get; set; }
+        public List<Trabajador> listaTrabajadores { get; set; }
         public anadirCita(Paciente p, Page2 page2)
         {
             this.paciente = p;
@@ -54,7 +54,7 @@ namespace PracticaLab
 
                 /*pillamos un trabajador aleatorio cuyo trabajo no sea encargado de la limpieza*/
                 Random r = new Random();
-                Trabajadores trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
+                Trabajador trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
                 while (trabajador.trabajo.Equals("limpiador"))
                 {
                     trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
@@ -105,15 +105,15 @@ namespace PracticaLab
             }
 
         }
-        private List<Trabajadores> cargarTrabajadores()
+        private List<Trabajador> cargarTrabajadores()
         {
-            List<Trabajadores> listaTrabajadores = new List<Trabajadores>();
+            List<Trabajador> listaTrabajadores = new List<Trabajador>();
             XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var trabajador = new Trabajadores("", "", "", "", "", "", "", "");
+                var trabajador = new Trabajador("", "", "", "", "", "", "", "");
                 trabajador.Nombre = node.Attributes["Nombre"].Value;
                 trabajador.Apellido1 = node.Attributes["Apellido1"].Value;
                 trabajador.Apellido2 = node.Attributes["Apellido2"].Value;
