@@ -26,7 +26,7 @@
         <Grid Grid.ColumnSpan="2" Margin="140,150,140,0" Grid.RowSpan="2" Grid.Row="2">
             <Label x:Name="AdjuntarPruebas" Content="Adjunte prueba" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="subirArchivos" Content="+" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="51" Click="btnSubirArchivo_Click" Background="#FF6F89DA"/>
-            <Button x:Name="Actualizar" Content="Actualizar cambios" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.636,0.126"  Height="41" Width="172" Background="#FFF0F7F7"/>
+            <Button x:Name="Actualizar" Click="btnActualizarCambios_Click" Content="Actualizar cambios" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.636,0.126"  Height="41" Width="172" Background="#FFF0F7F7"/>
             <TextBlock x:Name="txtRutaArchivo" TextWrapping="Wrap" Text="TextBlock" Margin="117,50,-20,94" d:IsHidden="True"/>
         </Grid>
         <TextBlock x:Name="txtMensajeConfirmacion" Margin="92,52,92,78" Foreground="Green" TextAlignment="Center" TextTrimming="CharacterEllipsis" Grid.ColumnSpan="2" Grid.Row="3"/>
