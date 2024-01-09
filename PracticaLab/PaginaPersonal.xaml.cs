@@ -104,7 +104,7 @@ namespace PracticaLab
                     }
                 }
                 listTrabajadoresSanitarios.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
-                listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));  
+                listTrabajadoresLimpieza.Sort((a, b) => string.Compare(a.Nombre, b.Nombre, StringComparison.Ordinal));
             }
 
             catch (Exception ex)
@@ -183,7 +183,7 @@ namespace PracticaLab
             }
         }
 
-       
+
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
@@ -358,12 +358,10 @@ namespace PracticaLab
 
             if (modoBotonEditGuard == 3)
             {
-                modoBotonEditGuard = 0;
-                if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
-                       && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
-                       && txtTrabajo.Text != "")
+               
+                if (comprobarCampos())
                 {
-
+                    modoBotonEditGuard = 0;
                     Trabajador trabajador;
 
 
@@ -405,11 +403,8 @@ namespace PracticaLab
 
                     btnEditar_Guardar.Content = "Editar";
                 }
-
                 else
                 {
-                    MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    limpiar();
                     return;
                 }
             }
@@ -440,11 +435,9 @@ namespace PracticaLab
                 else
                 {
 
-                    modoBotonEditGuard = 0;
-                    if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
-                        && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
-                        && txtTrabajo.Text != "")
+                    if (comprobarCampos())
                     {
+                        modoBotonEditGuard = 0;
 
                         Trabajador trabajador;
                         if (trabajadorSeleccionado.ImagenRuta == null)
@@ -491,15 +484,55 @@ namespace PracticaLab
                         btnEditar_Guardar.Content = "Editar";
                     }
 
-                    else
-                    {
-                        MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        limpiar();
-                        return;
-                    }
                 }
 
             }
+        }
+
+        private Boolean comprobarCampos() {
+            if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
+                        && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
+                        && txtTrabajo.Text != "") { 
+                txtNombre.BorderBrush = Brushes.Black;
+                txtApellido1.BorderBrush = Brushes.Black;
+                txtApellido2.BorderBrush = Brushes.Black;
+                txtDNI.BorderBrush = Brushes.Black;
+                txtTelefono.BorderBrush = Brushes.Black;
+                txtDireccion.BorderBrush = Brushes.Black;
+                txtTrabajo.BorderBrush = Brushes.Black;
+                return true;}
+
+            if (txtNombre.Text == "")
+            {
+                txtNombre.BorderBrush = Brushes.Red;
+            }
+            if (txtApellido1.Text == "")
+            {
+                txtApellido1.BorderBrush = Brushes.Red;
+            }
+            if (txtApellido2.Text == "")
+            {
+                txtApellido2.BorderBrush = Brushes.Red;
+            }
+            if (txtDNI.Text == "")
+            {
+                txtDNI.BorderBrush = Brushes.Red;
+            }
+            if (txtTelefono.Text == "")
+            {
+                txtTelefono.BorderBrush = Brushes.Red;
+            }
+            if (txtDireccion.Text == "")
+            {
+                txtDireccion.BorderBrush = Brushes.Red;
+            }
+            if (txtTrabajo.Text == "")
+            {
+                txtTrabajo.BorderBrush = Brushes.Red;
+            }
+
+            MessageBox.Show("No se puede guardar, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return false;
         }
         private void btn_añadir_Click(object sender, RoutedEventArgs e)
         {
