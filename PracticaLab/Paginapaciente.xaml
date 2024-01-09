@@ -141,7 +141,7 @@
                         <TextBox x:Name="txtDireccion" Grid.Column="1" Grid.Row="5"
                             HorizontalAlignment="Left" 
                             TextWrapping="Wrap" 
-                            Text="calle x" 
+                            Text="calle, x" 
                             IsReadOnly="True"
                             VerticalAlignment="Top" 
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
