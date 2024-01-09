@@ -127,15 +127,28 @@ namespace PracticaLab
             if (modo1 == true)
             {
                 txtNombre.IsReadOnly = false;
+                txtNombre.Foreground = Brushes.Black;
                 txtApellido1.IsReadOnly = false;
+                txtApellido1.Foreground = Brushes.Black;
                 txtApellido2.IsReadOnly = false;
+                txtApellido2.Foreground = Brushes.Black;
                 txtDNI.IsReadOnly = false;
+                txtDNI.Foreground = Brushes.Black;
                 txtTelefono.IsReadOnly = false;
+                txtTelefono.Foreground = Brushes.Black;
                 txtDireccion.IsReadOnly = false;
+                txtDireccion.Foreground = Brushes.Black;
                 btn.Content = "Guardar";
             }
             else
             {
+                txtNombre.BorderBrush = Brushes.Black;
+                txtApellido1.BorderBrush = Brushes.Black;
+                txtApellido2.BorderBrush = Brushes.Black;
+                txtDNI.BorderBrush = Brushes.Black;
+                txtTelefono.BorderBrush = Brushes.Black;
+                txtDireccion.BorderBrush = Brushes.Black;
+
                 /*vemos el contenido de los campos, si el usuario existe, actualizamos sus valores, si no, lo añadimos*/
                 if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != "")
                 {
@@ -171,35 +184,44 @@ namespace PracticaLab
                 {
                     if (txtNombre.Text == "")
                     {
-                        txtNombre.Foreground = Brushes.Red;
+                        txtNombre.BorderBrush = Brushes.Red;
                     }
                     if (txtApellido1.Text == "")
                     {
-                        txtApellido1.Foreground = Brushes.Red;
+                        txtApellido1.BorderBrush = Brushes.Red;
                     }
                     if (txtApellido2.Text == "")
                     {
-                        txtApellido2.Foreground = Brushes.Red;
+                        txtApellido2.BorderBrush = Brushes.Red;
                     }
                     if (txtDNI.Text == "")
                     {
-                        txtDNI.Foreground = Brushes.Red;
+                        txtDNI.BorderBrush = Brushes.Red;
                     }
                     if (txtTelefono.Text == "")
                     {
-                        txtTelefono.Foreground = Brushes.Red;
+                        txtTelefono.BorderBrush = Brushes.Red;
                     }
                     if (txtDireccion.Text == "")
                     {
-                        txtDireccion.Foreground = Brushes.Red;
+                        txtDireccion.BorderBrush = Brushes.Red;
                     }
+                    MessageBox.Show("No se puede guardar el paciente, hay campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    /*nos salimos de la funcion*/
+                    return;
                 }
                 txtNombre.IsReadOnly = true;
+                txtNombre.Foreground = Brushes.Gray;
                 txtApellido1.IsReadOnly = true;
+                txtApellido1.Foreground = Brushes.Gray;
                 txtApellido2.IsReadOnly = true;
+                txtApellido2.Foreground = Brushes.Gray;
                 txtDNI.IsReadOnly = true;
+                txtDNI.Foreground = Brushes.Gray;
                 txtTelefono.IsReadOnly = true;
+                txtTelefono.Foreground = Brushes.Gray;
                 txtDireccion.IsReadOnly = true;
+                txtDireccion.Foreground = Brushes.Gray;
                 btn.Content = "Editar";
                 // Guardar los cambios en el paciente (no se guarda en la persistencia)
                 if (seleccionado == true)
