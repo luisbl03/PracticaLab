@@ -33,8 +33,19 @@ namespace PracticaLab
 
         private void bttnVer_Documentacion_Click(object sender, RoutedEventArgs e)
         {
-            string pdfFilePath = @"D:\Universidad\Primer Cuatrimestre\Interaccion Persona Ordenador I\Laboratorio\HITO1_IPO.pdf";
-            Process.Start(new ProcessStartInfo(pdfFilePath));
+            string pdfFilePath = @"PracticaLab\HITO1_IPO.pdf";
+            string fullPath = System.IO.Path.GetFullPath(pdfFilePath);
+            //cuando encuentre //bin//debug, lo quita
+            pdfFilePath = fullPath.Replace(@"PracticaLab\bin\Debug", "");
+            try
+            {
+                Process.Start(new ProcessStartInfo(pdfFilePath));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado el archivo");
+            }
+           
         }
     }
 }
