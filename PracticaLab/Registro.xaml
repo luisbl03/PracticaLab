@@ -71,7 +71,7 @@
                 HorizontalAlignment="Left" 
                 Grid.Row="4" 
                 TextWrapping="Wrap" 
-                Text="Telefono" 
+                Text="Teléfono" 
                 MaxLength="9"
                 VerticalAlignment="Center" 
                 Width="70" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="txtTelefono_Registro_KeyDown" GotFocus="txtTelefono_Registro_GotFocus" LostFocus="txtTelefono_Registro_LostFocus"/>
@@ -85,7 +85,7 @@
                 HorizontalAlignment="Left" 
                 Grid.Row="5" 
                 TextWrapping="Wrap" 
-                Text="Correo Electronico"
+                Text="Correo electrónico"
                 VerticalAlignment="Top" 
                 Width="168" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,5,0,0" KeyDown="txtCorreo_Registro_KeyDown" GotFocus="txtCorreo_Registro_GotFocus">
 
@@ -134,7 +134,7 @@
                      VerticalAlignment="Center"
                      Width="120" Height="18" Foreground="#FF655C5C" BorderBrush="Black" Margin="20,0,0,0" KeyDown="passRepite_contrasena_KeyDown"/>
         <CheckBox x:Name="chkBx_Terminos" Grid.Column="2" 
-                  Content="Terminos y condiciones"
+                  Content="Términos y condiciones"
                   HorizontalAlignment="Left" 
                   Grid.Row="8"
                   VerticalAlignment="Center" Margin="20,0,0,0" Height="15" Width="143"/>
