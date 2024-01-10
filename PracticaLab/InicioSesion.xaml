@@ -65,8 +65,8 @@
                Margin="49,29,0,0"
                Grid.Row="2"
                VerticalAlignment="Top"
-               Source="/Iconos/email.png
-               "
+               Source="Iconos/correos-electronicos.png"
+
                Width="26" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtContraseña_IniciarSesion" 
             HorizontalAlignment="Left" 
@@ -93,7 +93,7 @@
             Margin="49,63,0,0"
             Grid.Row="2"
             VerticalAlignment="Top"
-            Source="/Iconos/candado.png"
+           Source="Iconos/contrasena.png"
             Width="26" Grid.ColumnSpan="2"/>
         <CheckBox Grid.Column="1"
                   Content="CheckBox"
