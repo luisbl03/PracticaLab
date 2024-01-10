@@ -97,13 +97,13 @@
                   VerticalAlignment="Top"/>
         <Label x:Name="txtMantenerSesion"
                Grid.Column="1"
-               Content="mantener sesión iniciada"
+               Content="Mantener sesión iniciada"
                HorizontalAlignment="Left"
                Margin="46,101,0,0"
                Grid.Row="2"
                VerticalAlignment="Top"
                Height="28"
-               Width="140" FontFamily="Centaur" FontSize="10" Grid.ColumnSpan="3"/>
+               Width="140" FontSize="10" Grid.ColumnSpan="3"/>
         <Button x:Name="BotónIniciarSesión"
                 Grid.Column="2"
                 Content="Iniciar Sesión"
@@ -123,13 +123,12 @@
         </Separator>
         <Label x:Name="noTienes"
                Content="¿Todavía no tienes cuenta?"
-               Grid.Column="2"
-               Margin="0,191,0,0"
-               HorizontalAlignment="Center"
+               Grid.Column="1"
+               Margin="52,190,0,0"
+               HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               FontFamily="Centaur"
                FontSize="12"
-               Grid.Row="2" Height="23" Width="126" Grid.ColumnSpan="2"/>
+               Grid.Row="2" Height="30" Width="152" Grid.ColumnSpan="4"/>
         <Button x:Name="BotónRegistrate"
             Grid.Column="2"
             Content="Regístrate"

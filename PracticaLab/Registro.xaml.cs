@@ -59,6 +59,12 @@ namespace PracticaLab
 
         private void screenRegistro_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (result == MessageBoxResult.Yes)
             Application.Current.Shutdown();
         }
         private void setDefualt_properties()
@@ -131,7 +137,7 @@ namespace PracticaLab
         private void bttnRegistrarse_Click(object sender, RoutedEventArgs e)
         {
             setDefualt_properties();
-            if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
+            if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo electrónico" && txtTelefono_Registro.Text != "Teléfono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
             {
                 if (txtTelefono_Registro.Text.Length == 9)
                 {
@@ -154,14 +160,14 @@ namespace PracticaLab
                     {
                         txtCorreo_Registro.BorderBrush = Brushes.Red;
                         lblError_correo.Foreground = Brushes.Red;
-                        lblError_correo.Content = "Correo no valido";
+                        lblError_correo.Content = "Correo no válido";
                     }
                 }
                 else
                 {
                     txtTelefono_Registro.BorderBrush = Brushes.Red;
                     lblError_telefono.Foreground = Brushes.Red;
-                    lblError_telefono.Content = "Telefono no valido";
+                    lblError_telefono.Content = "Teléfono no válido";
                 }
             }
             else
@@ -202,7 +208,7 @@ namespace PracticaLab
                     lblError_telefono.Foreground = Brushes.Red;
                     lblError_telefono.Content = "Campo obligatorio";
                 }
-                if (txtTelefono_Registro.Text.Equals("Telefono"))
+                if (txtTelefono_Registro.Text.Equals("Teléfono"))
                 {
                     txtTelefono_Registro.BorderBrush = Brushes.Red;
                     lblError_telefono.Foreground = Brushes.Red;
@@ -214,7 +220,7 @@ namespace PracticaLab
                     lblError_correo.Foreground = Brushes.Red;
                     lblError_correo.Content = "Campo obligatorio";
                 }
-                if (txtCorreo_Registro.Text.Equals("Correo"))
+                if (txtCorreo_Registro.Text.Equals("Correo electrónico"))
                 {
                     txtCorreo_Registro.BorderBrush = Brushes.Red;
                     lblError_correo.Foreground = Brushes.Red;
@@ -255,12 +261,12 @@ namespace PracticaLab
             }
             if (txtTelefono_Registro.Text == "")
             {
-                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Text = "Teléfono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
             if (txtCorreo_Registro.Text == "")
             {
-                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Text = "Correo electrónico";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
             if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -294,12 +300,12 @@ namespace PracticaLab
                 }
                 if (txtTelefono_Registro.Text == "")
                 {
-                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Text = "Teléfono";
                     txtTelefono_Registro.Foreground = Brushes.Gray;
                 }
                 if (txtCorreo_Registro.Text == "")
                 {
-                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Text = "Correo electrónico";
                     txtCorreo_Registro.Foreground = Brushes.Gray;
                 }
                 if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -338,7 +344,7 @@ namespace PracticaLab
                 }
                 if (txtCorreo_Registro.Text == "")
                 {
-                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Text = "Correo electrónico";
                     txtCorreo_Registro.Foreground = Brushes.Gray;
                 }
                 if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -377,7 +383,7 @@ namespace PracticaLab
                 }
                 if (txtTelefono_Registro.Text == "")
                 {
-                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Text = "Teléfono";
                     txtTelefono_Registro.Foreground = Brushes.Gray;
                 }
                 if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -413,12 +419,12 @@ namespace PracticaLab
                 }
                 if (txtTelefono_Registro.Text == "")
                 {
-                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Text = "Teléfono";
                     txtTelefono_Registro.Foreground = Brushes.Gray;
                 }
                 if (txtCorreo_Registro.Text == "")
                 {
-                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Text = "Correo electrónico";
                     txtCorreo_Registro.Foreground = Brushes.Gray;
                 }
                 if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
@@ -445,12 +451,12 @@ namespace PracticaLab
             }
             if (txtTelefono_Registro.Text == "")
             {
-                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Text = "Teléfono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
             if (txtCorreo_Registro.Text == "")
             {
-                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Text = "Correo electrónico";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
             if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -485,7 +491,7 @@ namespace PracticaLab
             }
             if (txtCorreo_Registro.Text == "")
             {
-                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Text = "Correo electrónico";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
             if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -520,7 +526,7 @@ namespace PracticaLab
             }
             if (txtTelefono_Registro.Text == "")
             {
-                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Text = "Teléfono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
             if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -553,12 +559,12 @@ namespace PracticaLab
             }
             if (txtTelefono_Registro.Text == "")
             {
-                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Text = "Teléfono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
             if (txtCorreo_Registro.Text == "")
             {
-                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Text = "Correo electrónico";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
             if (passRepite_contrasena.Password == "" && passRepite_contrasena.IsVisible)
@@ -586,12 +592,12 @@ namespace PracticaLab
             }
             if (txtTelefono_Registro.Text == "")
             {
-                txtTelefono_Registro.Text = "Telefono";
+                txtTelefono_Registro.Text = "Teléfono";
                 txtTelefono_Registro.Foreground = Brushes.Gray;
             }
             if (txtCorreo_Registro.Text == "")
             {
-                txtCorreo_Registro.Text = "Correo";
+                txtCorreo_Registro.Text = "Correo electrónico";
                 txtCorreo_Registro.Foreground = Brushes.Gray;
             }
             if (passRegistro.Password == "" && passRegistro.IsVisible)
@@ -606,7 +612,7 @@ namespace PracticaLab
             if (e.Key == Key.Enter)
             {
                 setDefualt_properties();
-                if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo" && txtTelefono_Registro.Text != "Telefono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
+                if (txtNombre_Registro.Text != "Nombre" && txtApellidos_Registro.Text != "Apellidos" && txtCorreo_Registro.Text != "Correo electrónico" && txtTelefono_Registro.Text != "Teléfono" && passRegistro.Password != "" && passRepite_contrasena.Password != "" && chkBx_Terminos.IsChecked == true)
                 {
                     if (txtTelefono_Registro.Text.Length == 9)
                     {
@@ -677,7 +683,7 @@ namespace PracticaLab
                         lblError_telefono.Foreground = Brushes.Red;
                         lblError_telefono.Content = "Campo obligatorio";
                     }
-                    if (txtTelefono_Registro.Text.Equals("Telefono"))
+                    if (txtTelefono_Registro.Text.Equals("Teléfono"))
                     {
                         txtTelefono_Registro.BorderBrush = Brushes.Red;
                         lblError_telefono.Foreground = Brushes.Red;
@@ -689,7 +695,7 @@ namespace PracticaLab
                         lblError_correo.Foreground = Brushes.Red;
                         lblError_correo.Content = "Campo obligatorio";
                     }
-                    if (txtCorreo_Registro.Text.Equals("Correo"))
+                    if (txtCorreo_Registro.Text.Equals("Correo electrónico"))
                     {
                         txtCorreo_Registro.BorderBrush = Brushes.Red;
                         lblError_correo.Foreground = Brushes.Red;
@@ -736,12 +742,12 @@ namespace PracticaLab
                 }
                 if (txtTelefono_Registro.Text == "")
                 {
-                    txtTelefono_Registro.Text = "Telefono";
+                    txtTelefono_Registro.Text = "Teléfono";
                     txtTelefono_Registro.Foreground = Brushes.Gray;
                 }
                 if (txtCorreo_Registro.Text == "")
                 {
-                    txtCorreo_Registro.Text = "Correo";
+                    txtCorreo_Registro.Text = "Correo electrónico";
                     txtCorreo_Registro.Foreground = Brushes.Gray;
                 }
                 if (passRegistro.Password == "" && passRegistro.IsVisible)
