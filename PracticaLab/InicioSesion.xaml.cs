@@ -24,20 +24,29 @@ namespace PracticaLab
         {
             InitializeComponent();
         }
+        Boolean sesionIniciada = false;
 
         private void BotónRegistrate_Click(object sender, RoutedEventArgs e)
         {
+            sesionIniciada = true;
             Window registro = new Registro();
             this.Hide();
             registro.Show();
         }
-
+        
         private void IniciarSesión_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.No)
+            if (sesionIniciada == false)
             {
-                e.Cancel = true;
+                MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Current.Shutdown();
+                }
             }
         }
         private List<Usuario> cargarUsuarios()
@@ -95,6 +104,7 @@ namespace PracticaLab
                     if (usuario.contraseña == passInicioSesion.Password)
                     {
                         /*si coinciden, abrimos la ventana de gestor*/
+                        sesionIniciada = true;
                         Window gestor = new Gestor(usuario);
                         this.Hide();
                         gestor.Show();
@@ -175,6 +185,7 @@ namespace PracticaLab
                         if (usuario.contraseña == passInicioSesion.Password)
                         {
                             /*si coinciden, abrimos la ventana de gestor*/
+                            sesionIniciada = true;
                             Window gestor = new Gestor(usuario);
                             this.Hide();
                             gestor.Show();

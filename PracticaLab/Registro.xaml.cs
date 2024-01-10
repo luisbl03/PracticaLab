@@ -57,13 +57,23 @@ namespace PracticaLab
             return listaUsuarios;
         }
 
+        Boolean registro = false;
         private void screenRegistro_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.No)
+            if (registro == false)
             {
-                e.Cancel = true;
+                MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Current.Shutdown();
+                }
+                
             }
+            
         }
         private void setDefualt_properties()
         {
@@ -119,6 +129,7 @@ namespace PracticaLab
             else
             {
                 usuario = u;
+                registro = true;
                 Window gestor = new Gestor(u);
                 this.Hide();
                 gestor.Show();
@@ -127,6 +138,7 @@ namespace PracticaLab
 
         private void bttnIniciar_Sesion_Click(object sender, RoutedEventArgs e)
         {
+            registro = true;
             Window login = new IniciarSesion();
             this.Hide();
             login.Show();

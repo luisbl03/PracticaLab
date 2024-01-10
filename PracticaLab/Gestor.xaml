@@ -12,6 +12,10 @@
         SizeChanged="MainWindow_SizeChanged"
         >
     <Grid x:Name="gridPrincipal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="198*"/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="84*"/>
@@ -20,23 +24,23 @@
 
 
         <!--Grid parte superior-->
-        
+
         <!--Fondo del Grid superior-->
-        <Border Grid.Row="0" Grid.Column="1" Background="White"/>
-        
-        <Grid x:Name="gridSuperior">
+        <Border Grid.Row="0" Background="White" Grid.ColumnSpan="2" Margin="0,0,0,516" Grid.RowSpan="2"/>
+
+        <Grid x:Name="gridSuperior" Grid.ColumnSpan="2" Margin="0,0,0,516" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200*"/>
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="166*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!--  Logo compania -->
             <Image x:Name="Logo" HorizontalAlignment="Left" VerticalAlignment="Center"
                 Margin="10,0,0,0"
                 Source="/Imagenes/images.png"/>
-            
+
             <StackPanel Grid.Column="1" Orientation="Horizontal"  Margin="15,35,15,0">
                 <!--Boton pacientes-->
                 <Button x:Name="bttnTodosPacientes"
@@ -52,7 +56,7 @@
                         VerticalAlignment="Center"
                         Margin="5"
                         />
-               
+
                 <!--Boton personal-->
                 <Button x:Name="bttnPersonal" Content="Personal  " Background="White" BorderBrush="White" 
                         FontSize="20" Click="Button_Click_Personal"
@@ -60,7 +64,7 @@
                          Margin="5"
                         />
             </StackPanel>
-           
+
             <!-- Foto de perfil -->
             <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="2">
                 <Border.Clip>
@@ -106,13 +110,13 @@
                 <TextBlock Text="15-4-2017" FontWeight="Bold" Grid.Column="1" Grid.Row="2"  FontSize="9"/>
             </Grid>
 
-            
+
 
         </Grid>
         <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
 
         <!--Grid parte inferior-->
-        <Grid Grid.Row="1"  x:Name="gridInferior">
+        <Grid Grid.Row="1"  x:Name="gridInferior" Grid.ColumnSpan="2">
             <Frame x:Name="mainFrame"  NavigationUIVisibility="Hidden"/>
 
 

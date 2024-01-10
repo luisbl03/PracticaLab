@@ -17,6 +17,13 @@ namespace PracticaLab
             {
                 e.Cancel = true;
             }
+            else
+            {
+                /*quitamos el manejador de eventos*/
+                this.Closing -= Gestor_Closing;
+                /*cerramos la ventana*/
+                Application.Current.Shutdown();
+            }
         }
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
