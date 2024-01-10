@@ -285,6 +285,7 @@ namespace PracticaLab
                 // Muestra los detalles del paciente en el TextBox
 
                 // Muestra los detalles del paciente en los TextBox respectivos
+                limpiar();
                 txtNombre.Text = $"{pacienteSeleccionado.Nombre}";
                 txtApellido1.Text = $"{pacienteSeleccionado.Apellido1}";
                 txtApellido2.Text = $"{pacienteSeleccionado.Apellido2}";
@@ -545,6 +546,12 @@ namespace PracticaLab
             txtDNI.Foreground = Brushes.Gray;
             txtTelefono.Foreground = Brushes.Gray;
             txtDireccion.Foreground = Brushes.Gray;
+            txtNombre.BorderBrush = Brushes.Black;
+            txtApellido1.BorderBrush = Brushes.Black;
+            txtApellido2.BorderBrush = Brushes.Black;
+            txtDNI.BorderBrush = Brushes.Black;
+            txtTelefono.BorderBrush = Brushes.Black;
+            txtDireccion.BorderBrush = Brushes.Black;
             modoBotonEditGuard = 0;
             bttn_Editar.Content = "Editar";
         }
