@@ -259,7 +259,6 @@ namespace PracticaLab
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
                 UpdateInformesList(pacienteSeleccionado);
                 bttn_Editar.IsEnabled = true;
-                btneliminarCita.IsEnabled = true;
                 anadirInforme.IsEnabled = true;
                 btnanadirCita.IsEnabled = true;
             }
@@ -267,7 +266,6 @@ namespace PracticaLab
             {
                 // No hay paciente seleccionado, deshabilita el botón
                 bttn_Editar.IsEnabled = true;
-                btneliminarCita.IsEnabled = true;
                 verInforme.IsEnabled = false;
                 anadirInforme.IsEnabled = false;
                 btnanadirCita.IsEnabled = false;
