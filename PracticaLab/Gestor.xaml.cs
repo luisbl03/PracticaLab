@@ -17,8 +17,6 @@ namespace PracticaLab
             {
                 e.Cancel = true;
             }
-            else if(result == MessageBoxResult.Yes)
-            Application.Current.Shutdown();
         }
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {

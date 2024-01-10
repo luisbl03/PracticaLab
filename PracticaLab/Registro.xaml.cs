@@ -64,8 +64,6 @@ namespace PracticaLab
             {
                 e.Cancel = true;
             }
-            else if (result == MessageBoxResult.Yes)
-            Application.Current.Shutdown();
         }
         private void setDefualt_properties()
         {

@@ -39,8 +39,6 @@ namespace PracticaLab
             {
                 e.Cancel = true;
             }
-            else if (result == MessageBoxResult.Yes)
-            Application.Current.Shutdown();
         }
         private List<Usuario> cargarUsuarios()
         {
