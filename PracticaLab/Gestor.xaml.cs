@@ -36,6 +36,10 @@ namespace PracticaLab
             InitializeComponent();
             usuario = u;
 
+            bttnTodosPacientes.Foreground = System.Windows.Media.Brushes.Blue;
+            bttnPacientesCita.Foreground = System.Windows.Media.Brushes.Black;
+            bttnPersonal.Foreground = System.Windows.Media.Brushes.Black;
+
             //Usamos el usuariio para poner sus datos
             this.DataContext = usuario;
             if (usuario.admin)
@@ -74,6 +78,11 @@ namespace PracticaLab
                 {
                     mainFrame.Navigate(paginaPersona);
                 }
+
+                bttnTodosPacientes.Foreground = System.Windows.Media.Brushes.Black;
+                bttnPacientesCita.Foreground = System.Windows.Media.Brushes.Black;
+                bttnPersonal.Foreground = System.Windows.Media.Brushes.Blue;
+
             }
         }
 
@@ -83,6 +92,10 @@ namespace PracticaLab
             {
                 // Regresa a la pagina de pacientes
                 mainFrame.Navigate(paginaPaciente);
+                
+                bttnTodosPacientes.Foreground = System.Windows.Media.Brushes.Blue;
+                bttnPacientesCita.Foreground = System.Windows.Media.Brushes.Black;
+                bttnPersonal.Foreground = System.Windows.Media.Brushes.Black;
             }
             
         }
@@ -90,7 +103,8 @@ namespace PracticaLab
         private void Button_Click_Pacientes_Cita(object sender, RoutedEventArgs e)
         {
             if (!(mainFrame.Content is Citas_Fisio))
-            {
+            {   
+
                 if (paginaPacienteCita == null)
                 {
                     // inicializa una pagina de personal
@@ -100,6 +114,10 @@ namespace PracticaLab
                 else {
                     mainFrame.Navigate(paginaPacienteCita);
                 }
+
+                bttnTodosPacientes.Foreground = System.Windows.Media.Brushes.Black;
+                bttnPacientesCita.Foreground = System.Windows.Media.Brushes.Blue;
+                bttnPersonal.Foreground = System.Windows.Media.Brushes.Black;
             }         
         }
     }

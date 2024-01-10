@@ -36,19 +36,23 @@
             <Image x:Name="Logo" HorizontalAlignment="Left" VerticalAlignment="Center"
                 Margin="10,0,0,0"
                 Source="/Imagenes/images.png"/>
+            
             <StackPanel Grid.Column="1" Orientation="Horizontal"  Margin="15,35,15,0">
+                <!--Boton pacientes-->
+                <Button x:Name="bttnTodosPacientes"
+                    Content="Todos los Pacientes     " Background="White" BorderBrush="White" 
+                     FontSize="20" Click="Button_Click_Pacientes"
+                     VerticalAlignment="Center"
+                     Margin="5"
+                     />
                 <!--Boton pacientes con cita-->
-                <Button Content="    Pacientes Cita     " Background="White" BorderBrush="White" 
+                <Button x:Name="bttnPacientesCita"
+                    Content="    Pacientes Cita     " Background="White" BorderBrush="White" 
                         FontSize="20" Click="Button_Click_Pacientes_Cita"
                         VerticalAlignment="Center"
                         Margin="5"
                         />
-                <!--Boton pacientes-->
-                <Button Content="Todos los Pacientes     " Background="White" BorderBrush="White" 
-                        FontSize="20" Click="Button_Click_Pacientes"
-                        VerticalAlignment="Center"
-                        Margin="5"
-                        />
+               
                 <!--Boton personal-->
                 <Button x:Name="bttnPersonal" Content="Personal  " Background="White" BorderBrush="White" 
                         FontSize="20" Click="Button_Click_Personal"
