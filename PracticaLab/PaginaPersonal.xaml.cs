@@ -121,14 +121,14 @@ namespace PracticaLab
             // Verifica si hay un paciente seleccionado
             if (Lista_trabajadores.SelectedItem != null)
             {
+
                 //limpiamos el datagrid de citas
                 dataGridPacientesAtendidos.ItemsSource = null;
                 // Obtén el paciente seleccionado
                 Trabajador trabajadorSeleccionador = (Trabajador)Lista_trabajadores.SelectedItem;
 
-                // Muestra los detalles del paciente en el TextBox
+                limpiar();
 
-                // Muestra los detalles del paciente en los TextBox respectivos
                 txtNombre.Text = $"{trabajadorSeleccionador.Nombre}";
                 txtApellido1.Text = $"{trabajadorSeleccionador.Apellido1}";
                 txtApellido2.Text = $"{trabajadorSeleccionador.Apellido2}";
@@ -138,9 +138,6 @@ namespace PracticaLab
                 txtTrabajo.Text = $"{trabajadorSeleccionador.trabajo}";
 
                 imgTrabajador.Source = new BitmapImage(new Uri(trabajadorSeleccionador.ImagenRuta, UriKind.RelativeOrAbsolute));
-
-                //ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
-
 
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
 
@@ -218,7 +215,7 @@ namespace PracticaLab
             {
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDoc = new XmlDocument();
-                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                //almacenamos la informacion de "nominas.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/nominas.xml", UriKind.Relative));
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
@@ -303,7 +300,7 @@ namespace PracticaLab
             {
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDoc = new XmlDocument();
-                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                //almacenamos la informacion de "citas.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
