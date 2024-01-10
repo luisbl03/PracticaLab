@@ -144,7 +144,7 @@ namespace PracticaLab
                         Descripcion = informe.Descripcion
                     });
                 }
-                listViewInformes.Visibility = paciente.Informes.Any() ? Visibility.Visible : Visibility.Collapsed;
+                listViewInformes.Visibility = Visibility.Visible;
             }
         }
 
