@@ -70,6 +70,7 @@ namespace PracticaLab
                 page2.dataGridCitas.ItemsSource = citas;
                 page2.dataGridCitas.Items.Refresh();
                 MessageBox.Show("Cita modificada correctamente");
+                this.Close();
                 
             }
             else

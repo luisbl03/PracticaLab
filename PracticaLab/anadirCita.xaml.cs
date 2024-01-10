@@ -55,10 +55,6 @@ namespace PracticaLab
                 /*pillamos un trabajador aleatorio cuyo trabajo no sea encargado de la limpieza*/
                 Random r = new Random();
                 Trabajador trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
-                while (trabajador.trabajo.Equals("limpiador"))
-                {
-                    trabajador = listaTrabajadores[r.Next(0, listaTrabajadores.Count)];
-                }
                 DateTime fecha = dateSelector.SelectedDate.Value;
                 if (DateTime.TryParseExact(comboHora.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime hora))
                 {
@@ -71,6 +67,7 @@ namespace PracticaLab
                     List<Cita> citas = page2.cargarCitasPAciente(paciente,page2.Citas);
                     page2.dataGridCitas.ItemsSource = citas;
                     page2.dataGridCitas.Items.Refresh();
+                    this.Close();
                 }
                 else
                 {
@@ -122,7 +119,10 @@ namespace PracticaLab
                 trabajador.Direccion = node.Attributes["Direccion"].Value;
                 trabajador.correo = node.Attributes["correo"].Value;
                 trabajador.trabajo = node.Attributes["trabajo"].Value;
-                listaTrabajadores.Add(trabajador);
+                if (!(trabajador.trabajo.Equals("limpiador") || trabajador.trabajo.Equals("limpiador jefe")))
+                {
+                    listaTrabajadores.Add(trabajador);
+                }
             }
             return listaTrabajadores;
         }
