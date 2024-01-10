@@ -314,56 +314,15 @@ namespace PracticaLab
                 listViewInformes.Visibility = Visibility.Visible;
             }
         }
-        // El boton tiene 3 modos (Editar, Guardar, Añadir)
-        // Editar = 0 , Guardar = 1, Añadir = 3 
+        // El boton tiene 2 modos (Editar, Guardar)
+        // Editar = 0 , Guardar = 1
         private int modoBotonEditGuard = 0;
 
         private void bnEdicion_Click(object sender, RoutedEventArgs e)
         {
             Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
-            if (modoBotonEditGuard == 3)
-            {
 
-                if (comprobarCampos())
-                {
-                    modoBotonEditGuard = 0;
-
-                    string Nombre = txtNombre.Text;
-                    string Apellido1 = txtApellido1.Text;
-                    string Apellido2 = txtApellido2.Text;
-                    string DNI = txtDNI.Text;
-                    string Telefono = txtTelefono.Text;
-                    string Direccion = txtDireccion.Text;
-                    Paciente paciente = new Paciente(Nombre, Apellido1, Apellido2, DNI, Telefono, Direccion);
-
-                    paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Predeterminado.png";
-                    Pacientes.Add(paciente);
-
-                    txtNombre.IsReadOnly = true;
-                    txtApellido1.IsReadOnly = true;
-                    txtApellido2.IsReadOnly = true;
-                    txtDNI.IsReadOnly = true;
-                    txtTelefono.IsReadOnly = true;
-                    txtDireccion.IsReadOnly = true;
-                    txtNombre.Foreground = Brushes.Gray;
-                    txtApellido1.Foreground = Brushes.Gray;
-                    txtApellido2.Foreground = Brushes.Gray;
-                    txtDNI.Foreground = Brushes.Gray;
-                    txtTelefono.Foreground = Brushes.Gray;
-                    txtDireccion.Foreground = Brushes.Gray;
-
-                    Lista_de_pacientes.Items.Refresh();
-                    Lista_de_pacientes.SelectedItem = paciente;
-
-                    bttn_Editar.Content = "Editar";
-                }
-                else
-                {
-                    return;
-                }
-            }
-
-            else if (pacienteSeleccionado != null)
+            if (pacienteSeleccionado != null)
             {
                 Button btn = (Button)sender;
                 if (modoBotonEditGuard == 0)
@@ -476,58 +435,6 @@ namespace PracticaLab
             return false;
         }
 
-
-
-
-
-
-
-        private void bttn_añadir_Click(object sender, RoutedEventArgs e)
-        {
-            listViewInformes.Items.Clear();
-            txtNombre.Text = "";
-            txtApellido1.Text = "";
-            txtApellido2.Text = "";
-            txtDNI.Text = "";
-            txtTelefono.Text = "";
-            txtDireccion.Text = "";
-            ImagenPaciente.Source = new BitmapImage(new Uri("/Imagenes/Imagenes_pacientes/Predeterminado.png", UriKind.RelativeOrAbsolute));
-            txtNombre.IsReadOnly = false;
-            txtApellido1.IsReadOnly = false;
-            txtApellido2.IsReadOnly = false;
-            txtDNI.IsReadOnly = false;
-            txtTelefono.IsReadOnly = false;
-            txtDireccion.IsReadOnly = false;
-            txtNombre.Foreground = Brushes.Black;
-            txtApellido1.Foreground = Brushes.Black;
-            txtApellido2.Foreground = Brushes.Black;
-            txtDNI.Foreground = Brushes.Black;
-            txtTelefono.Foreground = Brushes.Black;
-            txtDireccion.Foreground = Brushes.Black;
-            modoBotonEditGuard = 3;
-            bttn_Editar.Content = "Guardar";
-            dataGridCitas.ItemsSource = null;
-            /*quitamos la seleccion de la lista*/
-            Lista_de_pacientes.SelectedItem = null;
-
-        }
-
-        private void btn_eliminar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("¿Estás seguro que quieres eliminar este paciente?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.No)
-            {
-                return;
-            }
-            var paciente = (Paciente)Lista_de_pacientes.SelectedItem;
-            Pacientes.Remove(paciente);
-            Lista_de_pacientes.Items.Refresh();
-            /*dejamos los campos por defecto*/
-            listViewInformes.Items.Clear();
-            dataGridCitas.ItemsSource = null;
-            limpiar();
-
-        }
         private void limpiar()
         {
             txtNombre.Text = "Nombre";
