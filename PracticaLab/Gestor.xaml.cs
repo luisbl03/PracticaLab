@@ -125,5 +125,10 @@ namespace PracticaLab
                 bttnPersonal.Foreground = System.Windows.Media.Brushes.Black;
             }         
         }
+
+        private void Ayuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
