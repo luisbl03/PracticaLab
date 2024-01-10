@@ -32,8 +32,8 @@
         <Label Grid.Column="1" Content="Luis.Benito@alu.uclm.es" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" FontSize="16" Foreground="Blue"/>
         <Label Grid.Column="1" Content="Alberto.Barrais@alu.uclm.es" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center" FontSize="16" Foreground="Blue"/>
         <Label Grid.Column="1" Content="Javier.Cuartero@alu.uclm.es" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center" FontSize="16" Foreground="Blue"/>
-        <Button x:Name="bttnVer_Documentacion" Grid.Column="1" Content="Ver Documentación" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Height="40" Width="133" Margin="46,0,0,0" FontSize="14"/>
-        <Button x:Name="bttnVer_Tutorial" Grid.Column="1" Content="Ver Tutorial" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Center" Height="40" Width="133" Margin="46,0,0,0" FontSize="14"/>
+        <Button x:Name="bttnVer_Documentacion" Grid.Column="1" Content="Ver Documentación" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Height="40" Width="133" Margin="46,0,0,0" FontSize="14" Click="bttnVer_Documentacion_Click"/>
+        <Button x:Name="bttnVer_Tutorial" Grid.Column="1" Content="Ver Tutorial" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Center" Height="40" Width="133" Margin="46,0,0,0" FontSize="14" Click="bttnVer_Tutorial_Click"/>
 
     </Grid>
 </Window>
