@@ -26,8 +26,6 @@ namespace PracticaLab
             DNI = dNI;
             Telefono = telefono;
             Direccion = direccion;
-            //FechaCita = fechaCita;
-            //RutaFoto = rutaFoto;
             Informes = new List<Informe>();
             InformesTemporales = new List<Informe>();
         }   

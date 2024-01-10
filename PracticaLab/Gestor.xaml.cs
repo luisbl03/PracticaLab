@@ -30,7 +30,6 @@ namespace PracticaLab
             
             // Ajuste dinamico parte superior
             double nh_gridSup = e.NewSize.Height * 0.15;
-            //gridPrincipal.RowDefinitions[0].Height = new GridLength(nh_gridSup);
             //Ajuste dinámico el ancho y alto del perfil
             double nuevoAncho = e.NewSize.Width * 0.32;
             double nuevaAltura = e.NewSize.Height * 0.14;
@@ -65,11 +64,6 @@ namespace PracticaLab
             }
             paginaPaciente = new Page2(u);
             mainFrame.Navigate(paginaPaciente);
-
-        }
-
-        private void txtCodigoPostaly_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
 
         }
 
