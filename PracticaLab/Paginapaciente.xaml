@@ -30,7 +30,7 @@
                         Width="95" Click="bttn_añadir_Click"/>
             <Button x:Name="btn_eliminar" Content="Eliminar paciente"
                         HorizontalAlignment="Right"
-                        Margin="0,0,12,0"
+                        Margin="0,0,12,0" IsEnabled="False"
                         VerticalAlignment="Center"
                         Height="40"
                         Width="95" Click="btn_eliminar_Click"/>
@@ -147,8 +147,11 @@
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
 
                         <!-- Boton de editar -->
-                        <Button x:Name="bttn_Editar" Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
-                                    Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
+                        <Button x:Name="bttn_Editar" Content="Editar" 
+                                BorderBrush="Black" Click="bnEdicion_Click"
+                                BorderThickness="2" Width="120"
+                                IsEnabled="False"
+                               Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
 
 
                     </Grid>

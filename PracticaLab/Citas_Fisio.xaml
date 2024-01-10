@@ -135,7 +135,9 @@
                             Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
 
                         <!-- Boton de editar -->
-                        <Button x:Name="bttn_Editar" Content="Editar" BorderBrush="Black" Click="bnEdicion_Click" BorderThickness="2" Width="120"
+                        <Button x:Name="bttn_Editar" Content="Editar" BorderBrush="Black" 
+                                Click="bnEdicion_Click" BorderThickness="2" Width="120"
+                                IsEnabled="False"
                                     Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
 
 

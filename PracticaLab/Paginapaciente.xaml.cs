@@ -243,7 +243,9 @@ namespace PracticaLab
             }
 
             if (Lista_de_pacientes.SelectedItem != null)
-            {
+            {   
+                btn_eliminar.IsEnabled = true;
+                bttn_Editar.IsEnabled = true;
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
                 UpdateInformesList(pacienteSeleccionado);
                 anadirInforme.IsEnabled = true;
@@ -252,6 +254,8 @@ namespace PracticaLab
             else
             {
                 // No hay paciente seleccionado, deshabilita el botón
+                btn_eliminar.IsEnabled = false;
+                bttn_Editar.IsEnabled = false;
                 verInforme.IsEnabled = false;
                 anadirInforme.IsEnabled = false;
                 btnanadirCita.IsEnabled = false;
@@ -475,7 +479,7 @@ namespace PracticaLab
 
 
         private void bttn_añadir_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             listViewInformes.Items.Clear();
             txtNombre.Text = "";
             txtApellido1.Text = "";
@@ -501,6 +505,8 @@ namespace PracticaLab
             dataGridCitas.ItemsSource = null;
             /*quitamos la seleccion de la lista*/
             Lista_de_pacientes.SelectedItem = null;
+
+            bttn_Editar.IsEnabled = true;
 
         }
 

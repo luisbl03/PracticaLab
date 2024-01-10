@@ -121,7 +121,8 @@ namespace PracticaLab
             
             if (Lista_trabajadores.SelectedItem != null)
             {
-
+                btn_eliminar.IsEnabled = true;
+                btnEditar_Guardar.IsEnabled = true;
                 
                 dataGridPacientesAtendidos.ItemsSource = null;
                 Trabajador trabajadorSeleccionador = (Trabajador)Lista_trabajadores.SelectedItem;
@@ -147,6 +148,11 @@ namespace PracticaLab
                 datagridNominas.ItemsSource = cargarNominaTrabajador(trabajadorSeleccionador, listNominas);
                 datagridNominas.Items.Refresh();
 
+            }
+            else
+            {
+                btn_eliminar.IsEnabled = false;
+                btnEditar_Guardar.IsEnabled = false;
             }
         }
 
@@ -555,7 +561,7 @@ namespace PracticaLab
             dataGridPacientesAtendidos.ItemsSource = null;
 
             Lista_trabajadores.SelectedItem = null;
-
+            btnEditar_Guardar.IsEnabled = true;
         }
         private void limpiar()
         {
@@ -581,6 +587,13 @@ namespace PracticaLab
             txtTelefono.Foreground = Brushes.Gray;
             txtDireccion.Foreground = Brushes.Gray;
             txtTrabajo.Foreground = Brushes.Gray;
+            txtNombre.BorderBrush = Brushes.Black;
+            txtApellido1.BorderBrush = Brushes.Black;
+            txtApellido2.BorderBrush = Brushes.Black;
+            txtDNI.BorderBrush = Brushes.Black;
+            txtTelefono.BorderBrush = Brushes.Black;
+            txtDireccion.BorderBrush = Brushes.Black;
+            txtTrabajo.BorderBrush = Brushes.Black;
             btnEditar_Guardar.Content = "Editar";
             dataGridPacientesAtendidos.ItemsSource = null;
             datagridNominas.ItemsSource = null;

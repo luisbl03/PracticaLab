@@ -42,7 +42,7 @@
                 Grid.Row="1" Grid.Column="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Height="40"
+                Height="40" IsEnabled="False"
                 Width="110" Click="btn_eliminar_Click"/>
 
             <Button x:Name="btn_añadir" Content="Añadir trabajador"
@@ -187,6 +187,7 @@
                         Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"
                             Content="Editar" HorizontalAlignment="Center"
                             Width="120" Height="40"  BorderThickness="2"
+                            IsEnabled="False"
                             VerticalAlignment="Top" Click="Editar_Guardar_Click"/>
                     <!-- Pacientes atendidos-->
                     <TextBlock x:Name="txtBlockPacientesAtendidos"
