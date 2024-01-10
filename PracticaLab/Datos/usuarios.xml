@@ -2,7 +2,7 @@
 	<Usuario Nombre="Alberto" Apellidos="Barrais Bellerin" telefono="474961013" correo="soyalberto@hola.com" contraseña="alexqueridoamigo" admin="F"/>
 	<Usuario Nombre="Luis" Apellidos="Benito Lopez" telefono="604562014" correo="Luis.Benito@alu.uclm.es" contraseña="mago4ever" admin="F"/>
 	<Usuario Nombre="Javier" Apellidos="Cuartero Corredor" telefono="789456123" correo="javicorre@dor.com" contraseña="Contraseña" admin="F"/>
-	<Usuario Nombre="prueba" Apellidos="uno dos" telefono="000000000" correo="pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" contraseña="prueba" admin="F"/>
+	<Usuario Nombre="prueba" Apellidos="uno dos" telefono="000000000" correo="prueba" contraseña="prueba" admin="F"/>
 	<Usuario Nombre="admin" Apellidos="admin admin" telefono="456789123" correo="admin" contraseña="admin" admin="T"/> 
 	
 	
