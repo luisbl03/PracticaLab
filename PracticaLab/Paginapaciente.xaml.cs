@@ -57,13 +57,10 @@ namespace PracticaLab
 
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDoc = new XmlDocument();
-                XmlDocument xmlDocCitas = new XmlDocument();
                 //almacenamos la informacion de "pacientes.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/pacientes.xml", UriKind.Relative));
-                var fichero2 = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
-                xmlDocCitas.Load(fichero2.Stream);
 
                 // Obtener la lista de nodos de pacientes
                 XmlNodeList pacientesXml = xmlDoc.SelectNodes("/Pacientes/Paciente");
@@ -87,13 +84,13 @@ namespace PracticaLab
                         Informe informe = new Informe
                         {
                             Descripcion = informeXml?.InnerText,
-                            FechaInforme = DateTime.Now // Puedes ajustar la fecha según tus necesidades
+                            FechaInforme = DateTime.Now 
                         };
 
                         paciente.Informes.Add(informe);
                         listViewInformes.Items.Add(new
                         {
-                            IdInforme = paciente.Informes.Count, // Puedes ajustar esto según tu lógica
+                            IdInforme = paciente.Informes.Count,
                             FechaInforme = informe.FechaInforme.ToString("dd/MM/yyyy"),
                             Descripcion = informe.Descripcion
                         });
@@ -142,7 +139,7 @@ namespace PracticaLab
                 {
                     listViewInformes.Items.Add(new
                     {
-                        IdInforme = paciente.Informes.IndexOf(informe) + 1, // Ajusta esto según tu lógica
+                        IdInforme = paciente.Informes.IndexOf(informe) + 1,
                         FechaInforme = informe.FechaInforme.ToString("dd/MM/yyyy"),
                         Descripcion = informe.Descripcion
                     });
@@ -282,8 +279,6 @@ namespace PracticaLab
                     });
                 });
 
-                // Muestra los detalles del paciente en el TextBox
-
                 // Muestra los detalles del paciente en los TextBox respectivos
                 limpiar();
                 txtNombre.Text = $"{pacienteSeleccionado.Nombre}";
@@ -296,8 +291,6 @@ namespace PracticaLab
                 
 
                 ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
-
-                //listViewInformes.Items.Clear();
 
                 // Añadir los informes del paciente seleccionado a la ListView
                 UpdateInformesList(pacienteSeleccionado);         
@@ -313,8 +306,6 @@ namespace PracticaLab
                 listViewInformes.Visibility = Visibility.Visible;
             }
         }
-        // Para saber que en estado esta el boton
-
         // El boton tiene 3 modos (Editar, Guardar, Añadir)
         // Editar = 0 , Guardar = 1, Añadir = 3 
         private int modoBotonEditGuard = 0;
@@ -397,7 +388,6 @@ namespace PracticaLab
                     txtTelefono.BorderBrush = Brushes.Black;
                     txtDireccion.BorderBrush = Brushes.Black;
 
-                    /*vemos el contenido de los campos, si el usuario existe, actualizamos sus valores, si no, lo añadimos*/
                     if (comprobarCampos())
                     {
                         modoBotonEditGuard = 0;
@@ -567,7 +557,7 @@ namespace PracticaLab
             {
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDoc = new XmlDocument();
-                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                //almacenamos la informacion de "citas.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/citas.xml", UriKind.Relative));
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
