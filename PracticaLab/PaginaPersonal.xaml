@@ -181,13 +181,12 @@
                             Text="Trabajo"
                             MaxLength="22"
                             IsReadOnly="True"
-                            Width="139" Height="18" Foreground="Gray" BorderBrush="Black" />
+                            Width="145" Height="18" Foreground="Gray" BorderBrush="Black" />
                     </StackPanel>
                     <Button x:Name="btnEditar_Guardar"
-                        Grid.Column="1" Grid.Row="1"
-                            
+                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"
                             Content="Editar" HorizontalAlignment="Center"
-                            Grid.RowSpan="3" Width="120" Height="40"
+                            Width="120" Height="40"
                             VerticalAlignment="Top" Click="Editar_Guardar_Click"/>
                     <!-- Pacientes atendidos-->
                     <TextBlock x:Name="txtBlockPacientesAtendidos"
