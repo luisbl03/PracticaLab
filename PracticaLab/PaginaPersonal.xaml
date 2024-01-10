@@ -38,14 +38,14 @@
             <ListBox x:Name="Lista_trabajadores" SelectionChanged="Lista_trabajadores_SelectionChanged" 
                      Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,22"/>
 
-            <Button x:Name="btn_eliminar" Content="eliminar trabajador"
+            <Button x:Name="btn_eliminar" Content="Eliminar trabajador"
                 Grid.Row="1" Grid.Column="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Height="40"
                 Width="110" Click="btn_eliminar_Click"/>
 
-            <Button x:Name="btn_añadir" Content="añadir trabajador"
+            <Button x:Name="btn_añadir" Content="Añadir trabajador"
                 Grid.Row="1" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
