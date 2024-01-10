@@ -12,6 +12,12 @@ namespace PracticaLab
         public Usuario usuario { get; set; }
         private void Gestor_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if(result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if(result == MessageBoxResult.Yes)
             Application.Current.Shutdown();
         }
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)

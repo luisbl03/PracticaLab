@@ -59,6 +59,12 @@ namespace PracticaLab
 
         private void screenRegistro_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (result == MessageBoxResult.Yes)
             Application.Current.Shutdown();
         }
         private void setDefualt_properties()

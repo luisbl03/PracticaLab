@@ -516,6 +516,11 @@ namespace PracticaLab
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro que quieres eliminar este paciente?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
             var paciente= (Paciente)Lista_de_pacientes.SelectedItem;
             Pacientes.Remove(paciente);
             Lista_de_pacientes.Items.Refresh();
