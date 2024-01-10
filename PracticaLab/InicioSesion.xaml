@@ -27,7 +27,7 @@
         <Button x:Name="Ayuda" Grid.Column="4" VerticalAlignment="Center" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"
                     Width="40" Height="40" Background="White" BorderBrush="White"  FontFamily="Segoe MDL2 Assets" Click="Ayuda_Click">
             <Button.Content>
-                <Border Background="White" CornerRadius="20" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center">
+                <Border Background="White" ToolTip="Ayuda" CornerRadius="20" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center">
                     <TextBlock Text="&#xE11B;" FontSize="30" Foreground="Black"/>
                 </Border>
             </Button.Content>
