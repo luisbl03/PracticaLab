@@ -111,7 +111,15 @@ namespace PracticaLab
                             paciente.RutaFoto = "/Imagenes/Imagenes_pacientes/Predeterminado.png";
                             break;
                     }
-                    Pacientes.Add(paciente);
+
+                    // miramos si el paciente tiene cita con el usuario que ha iniciado sesion
+                    foreach (Cita c in Citas)
+                    {
+                        if (c.DNI_paciente == paciente.DNI && c.correo_fisio == u.correo)
+                        {
+                            Pacientes.Add(paciente);
+                        }
+                    }
                 }
                 Lista_de_pacientes.ItemsSource = Pacientes;
                 listViewInformes.Visibility = Visibility.Visible;
