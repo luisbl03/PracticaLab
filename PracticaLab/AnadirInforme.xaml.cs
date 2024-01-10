@@ -127,13 +127,25 @@ namespace PracticaLab
                 // Agregar el nuevo informe al paciente
                 _pacienteSeleccionado.Informes.Add(nuevoInforme);
 
-                // Actualizar la lista visual de informes en Page2
-                _page2.listViewInformes.Items.Add(new
+                if (_citasFisioPage != null)
                 {
-                    IdInforme = _pacienteSeleccionado.Informes.Count,
-                    FechaInforme = nuevoInforme.FechaInforme.ToString("dd/MM/yyyy"),
-                    Descripcion = nuevoInforme.Descripcion
-                });
+                    _citasFisioPage.listViewInformes.Items.Add(new
+                    {
+                        IdInforme = _pacienteSeleccionado.Informes.Count,
+                        FechaInforme = nuevoInforme.FechaInforme.ToString("dd/MM/yyyy"),
+                        Descripcion = nuevoInforme.Descripcion
+                    });
+                } else
+                {
+                    // Actualizar la lista visual de informes en Page2
+                    _page2.listViewInformes.Items.Add(new
+                    {
+                        IdInforme = _pacienteSeleccionado.Informes.Count,
+                        FechaInforme = nuevoInforme.FechaInforme.ToString("dd/MM/yyyy"),
+                        Descripcion = nuevoInforme.Descripcion
+                    });
+                }
+                    
                 informeGuardado = true;
                 // Cerrar la ventana actual
                 this.Close();
