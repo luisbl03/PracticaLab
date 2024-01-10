@@ -24,12 +24,32 @@ namespace PracticaLab
         public event EventHandler ValorInicializado;
         public Cita cita { get; set; }
         public Page2 page2 { get; set; }
+        public Citas_Fisio citas_Fisio { get; set; }
         public Paciente paciente { get; set; }
         public List<Trabajador> listaTrabajadores { get; set; }
         public anadirCita(Paciente p, Page2 page2)
         {
             this.paciente = p;
             this.page2 = page2;
+            InitializeComponent();
+            listaTrabajadores = cargarTrabajadores();
+            txtPaciente.Text = paciente.Nombre;
+            /*cargamos unas horas por defecto en el combo box*/
+            comboHora.Items.Add("09:00");
+            comboHora.Items.Add("10:00");
+            comboHora.Items.Add("11:00");
+            comboHora.Items.Add("12:00");
+            comboHora.Items.Add("13:00");
+            comboHora.Items.Add("16:00");
+            comboHora.Items.Add("17:00");
+            comboHora.Items.Add("18:00");
+            comboHora.Items.Add("19:00");
+            comboHora.Items.Add("20:00");
+        }
+        public anadirCita(Paciente p, Citas_Fisio citas_Fisio)
+        {
+            this.paciente = p;
+            this.citas_Fisio = citas_Fisio;
             InitializeComponent();
             listaTrabajadores = cargarTrabajadores();
             txtPaciente.Text = paciente.Nombre;
@@ -61,13 +81,27 @@ namespace PracticaLab
                     DateTime resultado = fecha.Date + hora.TimeOfDay;
                     cita = new Cita(txtPaciente.Text, paciente.DNI,txtMotivo.Text, resultado,trabajador.correo, trabajador.Nombre);
                     MessageBox.Show("Cita añadida correctamente");
-                    page2.Citas.Add(cita);
-                    /*lo añadimos al datagrid*/
-                    page2.dataGridCitas.ItemsSource = null;
-                    List<Cita> citas = page2.cargarCitasPAciente(paciente,page2.Citas);
-                    page2.dataGridCitas.ItemsSource = citas;
-                    page2.dataGridCitas.Items.Refresh();
-                    this.Close();
+                    if (this.page2 != null)
+                    {
+                        page2.Citas.Add(cita);
+                        /*lo añadimos al datagrid*/
+                        page2.dataGridCitas.ItemsSource = null;
+                        List<Cita> citas = page2.cargarCitasPAciente(paciente, page2.Citas);
+                        page2.dataGridCitas.ItemsSource = citas;
+                        page2.dataGridCitas.Items.Refresh();
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.citas_Fisio.Citas.Add(cita);
+                        /*lo añadimos al datagrid*/
+                        this.citas_Fisio.dataGridCitas.ItemsSource = null;
+                        List<Cita> citas = this.citas_Fisio.cargarCitasPAciente(paciente, this.citas_Fisio.Citas);
+                        this.citas_Fisio.dataGridCitas.ItemsSource = citas;
+                        this.citas_Fisio.dataGridCitas.Items.Refresh();
+                        this.Close();
+                    }
+                    
                 }
                 else
                 {

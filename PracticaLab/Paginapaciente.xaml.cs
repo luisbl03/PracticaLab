@@ -33,7 +33,7 @@ namespace PracticaLab
 
             GridPacientes.ColumnDefinitions[1].Width = new GridLength(nw_gridAbajoMitadInf);
 
-            
+
         }
 
         public List<Paciente> Pacientes { get; set; }
@@ -84,7 +84,7 @@ namespace PracticaLab
                         Informe informe = new Informe
                         {
                             Descripcion = informeXml?.InnerText,
-                            FechaInforme = DateTime.Now 
+                            FechaInforme = DateTime.Now
                         };
 
                         paciente.Informes.Add(informe);
@@ -265,7 +265,7 @@ namespace PracticaLab
 
                 //limpiamos el datagrid de citas
                 dataGridCitas.ItemsSource = null;
-               
+
                 // Obtén el paciente seleccionado
                 Paciente pacienteSeleccionado = (Paciente)Lista_de_pacientes.SelectedItem;
 
@@ -288,12 +288,12 @@ namespace PracticaLab
                 txtTelefono.Text = $"{pacienteSeleccionado.Telefono}";
                 txtDireccion.Text = $"{pacienteSeleccionado.Direccion}";
 
-                
+
 
                 ImagenPaciente.Source = new BitmapImage(new Uri(pacienteSeleccionado.RutaFoto, UriKind.RelativeOrAbsolute));
 
                 // Añadir los informes del paciente seleccionado a la ListView
-                UpdateInformesList(pacienteSeleccionado);         
+                UpdateInformesList(pacienteSeleccionado);
                 //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
                 List<Cita> citasPaciente = new List<Cita>();
                 citasPaciente = cargarCitasPAciente(pacienteSeleccionado, Citas);
@@ -343,7 +343,7 @@ namespace PracticaLab
                     txtDNI.Foreground = Brushes.Gray;
                     txtTelefono.Foreground = Brushes.Gray;
                     txtDireccion.Foreground = Brushes.Gray;
-             
+
                     Lista_de_pacientes.Items.Refresh();
                     Lista_de_pacientes.SelectedItem = paciente;
 
@@ -379,7 +379,7 @@ namespace PracticaLab
 
                 else
                 {
-                    
+
 
                     txtNombre.BorderBrush = Brushes.Black;
                     txtApellido1.BorderBrush = Brushes.Black;
@@ -418,8 +418,8 @@ namespace PracticaLab
                     {
 
                         return;
-                    }      
-                }             
+                    }
+                }
             }
         }
 
@@ -435,7 +435,7 @@ namespace PracticaLab
                 txtDNI.BorderBrush = Brushes.Black;
                 txtTelefono.BorderBrush = Brushes.Black;
                 txtDireccion.BorderBrush = Brushes.Black;
-           
+
                 return true;
             }
 
@@ -469,13 +469,13 @@ namespace PracticaLab
         }
 
 
-        
+
 
 
 
 
         private void bttn_añadir_Click(object sender, RoutedEventArgs e)
-        {   
+        {
             listViewInformes.Items.Clear();
             txtNombre.Text = "";
             txtApellido1.Text = "";
@@ -501,7 +501,7 @@ namespace PracticaLab
             dataGridCitas.ItemsSource = null;
             /*quitamos la seleccion de la lista*/
             Lista_de_pacientes.SelectedItem = null;
-            
+
         }
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
@@ -511,7 +511,7 @@ namespace PracticaLab
             {
                 return;
             }
-            var paciente= (Paciente)Lista_de_pacientes.SelectedItem;
+            var paciente = (Paciente)Lista_de_pacientes.SelectedItem;
             Pacientes.Remove(paciente);
             Lista_de_pacientes.Items.Refresh();
             /*dejamos los campos por defecto*/
@@ -562,11 +562,11 @@ namespace PracticaLab
                 // Cargar el documento XML desde el archivo
                 xmlDoc.Load(fichero.Stream);
                 //ahora vamos leyendo citas de un determinado paciente, lo comprobamos con el nombre del paciente
-                
-                foreach(XmlNode node in xmlDoc.DocumentElement.ChildNodes)
+
+                foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
                 {
-                    var cita = new Cita("", "","", DateTime.Now, "", "");
-                    
+                    var cita = new Cita("", "", "", DateTime.Now, "", "");
+
                     cita.DNI_paciente = node.Attributes["DNI"].Value;
                     cita.motivo = node.Attributes["Motivo"].Value;
                     cita.fecha = DateTime.ParseExact(node.Attributes["Fecha"].Value, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
@@ -630,12 +630,12 @@ namespace PracticaLab
             }
             return listaUsuarios;
         }
-        public List<Cita> cargarCitasPAciente(Paciente p, List<Cita> citas )
+        public List<Cita> cargarCitasPAciente(Paciente p, List<Cita> citas)
         {
             List<Cita> citaPaciente = new List<Cita>();
-            foreach(Cita c in citas)
+            foreach (Cita c in citas)
             {
-                if(c.DNI_paciente == p.DNI)
+                if (c.DNI_paciente == p.DNI)
                 {
                     c.nombre_paciente = p.Nombre + " " + p.Apellido1 + " " + p.Apellido2;
                     Trabajador t = list_trabajadores.Find(x => x.correo == c.correo_fisio);
@@ -673,9 +673,9 @@ namespace PracticaLab
             XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
-            foreach(XmlNode node in doc.DocumentElement.ChildNodes)
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var trabajador = new Trabajador("", "","", "", "","","","");
+                var trabajador = new Trabajador("", "", "", "", "", "", "", "");
                 trabajador.Nombre = node.Attributes["Nombre"].Value;
                 trabajador.Apellido1 = node.Attributes["Apellido1"].Value;
                 trabajador.Apellido2 = node.Attributes["Apellido2"].Value;
@@ -695,7 +695,7 @@ namespace PracticaLab
             Paciente p = (Paciente)Lista_de_pacientes.SelectedItem;
             anadirCita anadirCitaWindow = new anadirCita(p, this);
             anadirCitaWindow.Show();
-            
+
 
         }
 
@@ -711,5 +711,5 @@ namespace PracticaLab
             ver.Show();
         }
     }
-   
+
 }
