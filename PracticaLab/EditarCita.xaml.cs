@@ -49,11 +49,9 @@ namespace PracticaLab
 
         private void txtMotivo_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtMotivo.Text == "Motivo" || txtMotivo.Text == "")
-            {
-                txtMotivo.Text = "";
-                txtMotivo.Foreground = Brushes.Black;
-            }
+            
+            txtMotivo.Foreground = Brushes.Black;
+            
         }
 
         private void bttnGuardarCita_Click(object sender, RoutedEventArgs e)
