@@ -7,8 +7,8 @@
     <Telefono>987654321</Telefono>
     <Direccion>Calle Principal, 123</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Molestias en la rodilla</Informe>
+      <Informe>Rotura de ligamento cruzado</Informe>
     </Informes>
   </Paciente>
 
@@ -23,6 +23,9 @@
       <Informe>Esguince de tobillo</Informe>
       <Informe>Dolor lumbar</Informe>
 	  <Informe>Dolor cervical</Informe>
+	  <Informe>Dolor de muñeca</Informe>
+	  <Informe>Molestias en la rodilla</Informe>
+	  <Informe>Rotura de codo</Informe>
     </Informes>
   </Paciente>
 
@@ -34,7 +37,7 @@
     <Telefono>692341549</Telefono>
     <Direccion>Calle Larga, 2</Direccion>
     <Informes>
-      <Informe>Alérgico al gluten</Informe>
+      <Informe>Movilidad en la cadera muy reducida</Informe>
     </Informes>
   </Paciente>
 
@@ -46,8 +49,8 @@
 		<Telefono>456789012</Telefono>
 		<Direccion>Calle Felicidad, 54</Direccion>
 		<Informes>
-			<Informe>Alérgico al polen</Informe>
-			<Informe>Presión arterial alta</Informe>
+			<Informe>Artrosis</Informe>
+			<Informe>Esguince de muñeca</Informe>
 		</Informes>
 </Paciente>
 
@@ -59,8 +62,8 @@
     <Telefono>617823710</Telefono>
     <Direccion>Calle Menor, 3</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Rotura de fibras en isquiotibial derecho</Informe>
+      <Informe>Dolor de coxis</Informe>
     </Informes>
   </Paciente>
 	
@@ -72,8 +75,7 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Manzana, 5</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Esguince de muñeca</Informe>
     </Informes>
   </Paciente>
 
@@ -85,8 +87,8 @@
     <Telefono>567890123</Telefono>
     <Direccion>Calle Computadora, 12</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Movilidad en el tobillo muy reducida</Informe>
+      <Informe>Dolor cervical</Informe>
     </Informes>
   </Paciente>
 
@@ -98,8 +100,8 @@
     <Telefono>678901234</Telefono>
     <Direccion>Calle Montaña, 8</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Rotura de tobillo</Informe>
+      <Informe>Rotura ligamento cruzado anterior</Informe>
     </Informes>
   </Paciente>
 
@@ -111,8 +113,8 @@
     <Telefono>789012345</Telefono>
     <Direccion>Calle Aventura, 13</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Rotura de fibras abdominal</Informe>
+      <Informe>Dolor pie derecho al apoyar</Informe>
     </Informes>
   </Paciente>
 
@@ -124,8 +126,7 @@
     <Telefono>890123456</Telefono>
     <Direccion>Calle Sinfonía, 1</Direccion>
     <Informes>
-      <Informe>Informe 1: Alérgico al polen</Informe>
-      <Informe>Informe 2: Presión arterial alta</Informe>
+      <Informe>Cuello rígido</Informe>
     </Informes>
   </Paciente>
 
@@ -137,8 +138,8 @@
     <Telefono>901234567</Telefono>
     <Direccion>Calle Mariposa, 89</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Pubalgia</Informe>
+      <Informe>Sobrecarga de gemelos</Informe>
     </Informes>
   </Paciente>
 
@@ -150,8 +151,8 @@
     <Telefono>012345678</Telefono>
     <Direccion>Calle Arcoíris, 92</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Molestias en el cuadriceps</Informe>
+      <Informe>Molestias en los aductores</Informe>
     </Informes>
   </Paciente>
 
@@ -163,8 +164,8 @@
     <Telefono>123456789</Telefono>
     <Direccion>Calle Serenidad, 7</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor de rodilla</Informe>
+      <Informe>Dolor de tobillo</Informe>
     </Informes>
   </Paciente>
 
@@ -176,8 +177,7 @@
     <Telefono>234567890</Telefono>
     <Direccion>Calle Explorador, 7</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor de tobillo</Informe>
     </Informes>
   </Paciente>
 
@@ -189,8 +189,8 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Invierno, 123</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor al apoyar el pie</Informe>
+      <Informe>Dolor en la espalda</Informe>
     </Informes>
   </Paciente>
 
@@ -202,8 +202,8 @@
     <Telefono>456789012</Telefono>
     <Direccion>Calle Radiante, 4</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Lumbalgia</Informe>
+      <Informe>Dolor cervical</Informe>
     </Informes>
   </Paciente>
 
@@ -215,8 +215,8 @@
     <Telefono>567890123</Telefono>
     <Direccion>Calle Esmeralda, 9</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor en la espalda baja</Informe>
+      <Informe>Dolor de muñeca</Informe>
     </Informes>
   </Paciente>
 
@@ -228,8 +228,8 @@
     <Telefono>678901234</Telefono>
     <Direccion>Calle Melodía, 21</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Gemelos cargados</Informe>
+      <Informe>Sobrecarga en isquitibiales</Informe>
     </Informes>
   </Paciente>
 
@@ -241,8 +241,8 @@
     <Telefono>789012345</Telefono>
     <Direccion>Calle Búsqueda, 22</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Lumbalgia</Informe>
+      <Informe>Dolor en el hombro derecho</Informe>
     </Informes>
   </Paciente>
 
@@ -254,8 +254,8 @@
     <Telefono>890123456</Telefono>
     <Direccion>Calle Viaje, 43</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Rotura de menisco</Informe>
+      <Informe>Rotura de ligamento</Informe>
     </Informes>
   </Paciente>
 
@@ -267,8 +267,8 @@
     <Telefono>901234567</Telefono>
     <Direccion>Calle Burbuja, 84</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Lumbalgia</Informe>
+      <Informe>Dolor al levantar el brazo</Informe>
     </Informes>
   </Paciente>
 
@@ -280,8 +280,8 @@
     <Telefono>012345678</Telefono>
     <Direccion>Calle Laberinto, 2</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Molestias en el hombro</Informe>
+      <Informe>Dolor al levantar la pierna</Informe>
     </Informes>
   </Paciente>
 
@@ -293,8 +293,8 @@
     <Telefono>123456789</Telefono>
     <Direccion>Calle Travesía, 6</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor codo al jugar al pádel</Informe>
+      <Informe>Dolor espalda</Informe>
     </Informes>
   </Paciente>
 
@@ -306,8 +306,8 @@
     <Telefono>234567890</Telefono>
     <Direccion>Calle Jubiloso, 123</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Dolor rodilla izquierda</Informe>
+      <Informe>Dolor brazo derecho</Informe>
     </Informes>
   </Paciente>
 
@@ -319,8 +319,7 @@
     <Telefono>345678901</Telefono>
     <Direccion>Calle Destello, 5</Direccion>
     <Informes>
-      <Informe>Alérgico al polen</Informe>
-      <Informe>Presión arterial alta</Informe>
+      <Informe>Rehabilitación de rodilla</Informe>
     </Informes>
   </Paciente>
 </Pacientes>
