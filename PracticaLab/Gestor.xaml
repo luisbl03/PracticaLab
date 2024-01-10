@@ -37,30 +37,47 @@
                 Margin="10,0,0,0"
                 Source="/Imagenes/images.png"/>
 
-            <StackPanel Grid.Column="1" Orientation="Horizontal"  Margin="15,35,15,0">
-                <!--Boton pacientes-->
-                <Button x:Name="bttnTodosPacientes"
-                    Content="Todos los Pacientes     " Background="White" BorderBrush="White" 
-                     FontSize="20" Click="Button_Click_Pacientes"
-                     VerticalAlignment="Center"
-                     Margin="5"
-                     />
-                <!--Boton pacientes con cita-->
-                <Button x:Name="bttnPacientesCita"
-                    Content="    Pacientes Cita     " Background="White" BorderBrush="White" 
-                        FontSize="20" Click="Button_Click_Pacientes_Cita"
-                        VerticalAlignment="Center"
-                        Margin="5"
-                        />
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
 
-                <!--Boton personal-->
-                <Button x:Name="bttnPersonal" Content="Personal  " Background="White" BorderBrush="White" 
-                        FontSize="20" Click="Button_Click_Personal"
-                        VerticalAlignment="Center"
+                <StackPanel Grid.Column="0" Orientation="Horizontal"  Margin="15,35,15,0">
+                    <!--Boton pacientes-->
+                    <Button x:Name="bttnTodosPacientes"
+                        Content="Todos los Pacientes " Background="White" BorderBrush="White" 
+                         FontSize="18" Click="Button_Click_Pacientes"
+                         VerticalAlignment="Center"
                          Margin="5"
-                        />
-            </StackPanel>
+                         />
+                    <!--Boton pacientes con cita-->
+                    <Button x:Name="bttnPacientesCita"
+                        Content="Pacientes Cita " Background="White" BorderBrush="White" 
+                            FontSize="18" Click="Button_Click_Pacientes_Cita"
+                            VerticalAlignment="Center"
+                            Margin="5"
+                            />
 
+                    <!--Boton personal-->
+                    <Button x:Name="bttnPersonal" Content="Personal " Background="White" BorderBrush="White" 
+                            FontSize="18" Click="Button_Click_Personal"
+                            VerticalAlignment="Center"
+                             Margin="5"
+                            />
+                    <Button x:Name="bttnAyuda" Content="" Background="White" BorderBrush="White" 
+                                  FontSize="18" VerticalAlignment="Center"  Margin="5"         
+                                  />
+                </StackPanel>
+                <Button x:Name="Ayuda" Grid.Column="1" VerticalAlignment="Bottom" HorizontalContentAlignment="Right"
+                    Width="40" Height="40" Background="White" BorderBrush="White"  FontFamily="Segoe MDL2 Assets" Click="Ayuda_Click">
+                    <Button.Content>
+                        <Border Background="White" CornerRadius="20" BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Text="&#xE11B;" FontSize="30" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </Button.Content>
+                </Button>
+            </Grid>
             <!-- Foto de perfil -->
             <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="75" Width="75" Height="75" Grid.Column="2">
                 <Border.Clip>

@@ -35,6 +35,18 @@
                VerticalAlignment="Center" 
                Width="148"
                Source="Imagenes/images.png" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="Ayuda" Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"
+                    Width="40" Height="40" Background="White" BorderBrush="White"  FontFamily="Segoe MDL2 Assets" Click="Ayuda_Click" Margin="265,0,12,0">
+
+            <Button.Content>
+                <Border Background="White" CornerRadius="20" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center">
+                    <TextBlock Text="&#xE11B;" FontSize="30" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Border>
+            </Button.Content>
+
+        </Button>
+
         <Label Content="REGISTRO" 
                HorizontalAlignment="Left"
                VerticalAlignment="Center"

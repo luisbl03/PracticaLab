@@ -79,7 +79,13 @@ namespace PracticaLab
             }
             return listaUsuarios;
         }
+        private void Ayuda_Click(object sender, RoutedEventArgs e)
+        {
+            // Abre la ventana de ayuda
+            Ayuda ayuda = new Ayuda();
+            ayuda.Show();
 
+        }
         private void BotónIniciarSesión_Click(object sender, RoutedEventArgs e)
         {
             if (passInicioSesion.Password != "" && txtEmail_IniciarSesion.Text != "")

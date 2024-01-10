@@ -779,5 +779,13 @@ namespace PracticaLab
                 txtTelefono_Registro.BorderBrush = Brushes.Black;
             }
         }
+
+        private void Ayuda_Click(object sender, RoutedEventArgs e)
+        {
+            // Abre la ventana de ayuda
+            Ayuda ayuda = new Ayuda();
+            ayuda.Show();
+
+        }
     }
 }
