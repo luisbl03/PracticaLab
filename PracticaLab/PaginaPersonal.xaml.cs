@@ -53,16 +53,16 @@ namespace PracticaLab
                 // Crear un objeto XmlDocument
                 XmlDocument xmlDocTrabajadores = new XmlDocument();
 
-                //almacenamos la informacion de "pacientes.xml" en la variable fichero
+                //almacenamos la informacion de "trabajadores.xml" en la variable fichero
                 var fichero = Application.GetResourceStream(new Uri("Datos/trabajadores.xml", UriKind.Relative));
 
                 // Cargar el documento XML desde el archivo
                 xmlDocTrabajadores.Load(fichero.Stream);
 
-                // Obtener la lista de nodos de pacientes
+                // Obtener la lista de nodos de trabajadores
                 XmlNodeList trabajadoresXML = xmlDocTrabajadores.SelectNodes("/Trabajadores/Trabajador");
 
-                // Iterar a través de los pacientes y agregar a la lista de Pacientes
+                // Iterar a través de los trabajadores y agregar a la lista de trabajadores
                 foreach (XmlNode trabajadorXML in trabajadoresXML)
                 {
                     string nombre = trabajadorXML.Attributes["Nombre"].Value;
@@ -118,13 +118,12 @@ namespace PracticaLab
 
         private void Lista_trabajadores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Verifica si hay un paciente seleccionado
+            
             if (Lista_trabajadores.SelectedItem != null)
             {
 
-                //limpiamos el datagrid de citas
+                
                 dataGridPacientesAtendidos.ItemsSource = null;
-                // Obtén el paciente seleccionado
                 Trabajador trabajadorSeleccionador = (Trabajador)Lista_trabajadores.SelectedItem;
 
                 limpiar();
@@ -139,7 +138,7 @@ namespace PracticaLab
 
                 imgTrabajador.Source = new BitmapImage(new Uri(trabajadorSeleccionador.ImagenRuta, UriKind.RelativeOrAbsolute));
 
-                //busco en la lista de ciats aquellas citas del paciente seleccionado y las añado al datagrid
+                //busco en la lista de citas aquellas citas del paciente seleccionado y las añado al datagrid
 
                 dataGridPacientesAtendidos.ItemsSource = cargarCitasAtendidas(listPacientes, listCitas, trabajadorSeleccionador);
                 dataGridPacientesAtendidos.Items.Refresh();
@@ -175,17 +174,13 @@ namespace PracticaLab
                     limpiar();
                     break;
                 default:
-                    // Manejar otros casos si es necesario
                     break;
             }
         }
 
-
-
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
         {
             var Trabajador = (Trabajador)Lista_trabajadores.SelectedItem;
-            //MessageBoxResult result = MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (MessageBox.Show("¿Estas seguro de que quieres eliminar a este trabajador?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
                 return;
