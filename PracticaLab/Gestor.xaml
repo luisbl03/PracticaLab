@@ -12,10 +12,6 @@
         SizeChanged="MainWindow_SizeChanged"
         >
     <Grid x:Name="gridPrincipal">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="127*"/>
-            <ColumnDefinition Width="198*"/>
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="84*"/>
@@ -26,9 +22,9 @@
         <!--Grid parte superior-->
 
         <!--Fondo del Grid superior-->
-        <Border Grid.Row="0" Background="White" Grid.ColumnSpan="2" Margin="0,0,0,516" Grid.RowSpan="2"/>
+        <Border Grid.Row="0" Grid.Column="1" Background="White"/>
 
-        <Grid x:Name="gridSuperior" Grid.ColumnSpan="2" Margin="0,0,0,516" Grid.RowSpan="2">
+        <Grid x:Name="gridSuperior">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200*"/>
@@ -116,7 +112,7 @@
         <!--<Separator Grid.Row="0" VerticalAlignment="Bottom"/>-->
 
         <!--Grid parte inferior-->
-        <Grid Grid.Row="1"  x:Name="gridInferior" Grid.ColumnSpan="2">
+        <Grid Grid.Row="1"  x:Name="gridInferior">
             <Frame x:Name="mainFrame"  NavigationUIVisibility="Hidden"/>
 
 
