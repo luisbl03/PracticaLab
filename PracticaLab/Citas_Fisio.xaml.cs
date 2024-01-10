@@ -117,7 +117,11 @@ namespace PracticaLab
                     {
                         if (c.DNI_paciente == paciente.DNI && c.correo_fisio == u.correo)
                         {
-                            Pacientes.Add(paciente);
+                            //comprobamos que el paciente no este ya en la lista
+                            if (!Pacientes.Contains(paciente))
+                            {
+                                Pacientes.Add(paciente);
+                            }
                         }
                     }
                 }
