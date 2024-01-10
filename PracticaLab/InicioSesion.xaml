@@ -24,6 +24,14 @@
             VerticalAlignment="Center" 
             Width="148"
             Source="/Imagenes/images.png"/>
+        <Button x:Name="Ayuda" Grid.Column="4" VerticalAlignment="Center" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"
+                    Width="40" Height="40" Background="White" BorderBrush="White"  FontFamily="Segoe MDL2 Assets" Click="Ayuda_Click">
+            <Button.Content>
+                <Border Background="White" CornerRadius="20" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center">
+                    <TextBlock Text="&#xE11B;" FontSize="30" Foreground="Black"/>
+                </Border>
+            </Button.Content>
+        </Button>
         <Image x:Name="Clinica" HorizontalAlignment="Left"
                Height="315"
                VerticalAlignment="Top"

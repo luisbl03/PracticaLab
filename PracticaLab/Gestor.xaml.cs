@@ -128,6 +128,9 @@ namespace PracticaLab
 
         private void Ayuda_Click(object sender, RoutedEventArgs e)
         {
+            // Abre la ventana de ayuda
+            Ayuda ayuda = new Ayuda();
+            ayuda.Show();
 
         }
     }
