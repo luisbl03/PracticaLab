@@ -27,7 +27,7 @@ namespace PracticaLab
 
         private void bttnVer_Tutorial_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://pruebasaluuclm-my.sharepoint.com/:v:/r/personal/luis_benito_alu_uclm_es/Documents/tutorial%20de%20uso.mkv?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=n49hlm"));
+            Process.Start(new ProcessStartInfo("https://pruebasaluuclm-my.sharepoint.com/:v:/r/personal/luis_benito_alu_uclm_es/Documents/tutorial%20de%20uso.mkv?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=7ldLpn"));
 
         }
 
