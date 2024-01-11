@@ -164,6 +164,8 @@ namespace PracticaLab
                         {
                             passRepite_contrasena.BorderBrush = Brushes.Red;
                             passRepite_contrasena.Foreground = Brushes.Red;
+                            lblError_repite.Foreground = Brushes.Red;
+                            lblError_repite.Content = "No coinciden";
                         }
                     }
                     else
