@@ -21,7 +21,6 @@ namespace PracticaLab
     /// </summary>
     public partial class anadirCita : Window
     {
-        public event EventHandler ValorInicializado;
         public Cita cita { get; set; }
         public Page2 page2 { get; set; }
         public Citas_Fisio citas_Fisio { get; set; }

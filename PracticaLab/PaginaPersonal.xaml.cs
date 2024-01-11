@@ -491,14 +491,29 @@ namespace PracticaLab
             if (txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != ""
                         && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
                         && txtTrabajo.Text != "") { 
-                txtNombre.BorderBrush = Brushes.Black;
-                txtApellido1.BorderBrush = Brushes.Black;
-                txtApellido2.BorderBrush = Brushes.Black;
-                txtDNI.BorderBrush = Brushes.Black;
-                txtTelefono.BorderBrush = Brushes.Black;
-                txtDireccion.BorderBrush = Brushes.Black;
-                txtTrabajo.BorderBrush = Brushes.Black;
-                return true;}
+                if (txtTelefono.Text.Length == 9 && txtDNI.Text.Length == 9)
+                {
+                    txtNombre.BorderBrush = Brushes.Black;
+                    txtApellido1.BorderBrush = Brushes.Black;
+                    txtApellido2.BorderBrush = Brushes.Black;
+                    txtDNI.BorderBrush = Brushes.Black;
+                    txtTelefono.BorderBrush = Brushes.Black;
+                    txtDireccion.BorderBrush = Brushes.Black;
+                    txtTrabajo.BorderBrush = Brushes.Black;
+                    return true;
+                }
+                else
+                {
+                    if (txtTelefono.Text.Length != 9)
+                    {
+                        txtTelefono.BorderBrush = Brushes.Red;
+                    }
+                    if (txtDNI.Text.Length != 9)
+                    {
+                        txtDNI.BorderBrush = Brushes.Red;
+                    }
+                }
+            }
 
             if (txtNombre.Text == "")
             {
