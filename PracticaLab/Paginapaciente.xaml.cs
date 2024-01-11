@@ -433,14 +433,30 @@ namespace PracticaLab
                         && txtDNI.Text != "" && txtTelefono.Text != "" && txtDireccion.Text != ""
                         )
             {
-                txtNombre.BorderBrush = Brushes.Black;
-                txtApellido1.BorderBrush = Brushes.Black;
-                txtApellido2.BorderBrush = Brushes.Black;
-                txtDNI.BorderBrush = Brushes.Black;
-                txtTelefono.BorderBrush = Brushes.Black;
-                txtDireccion.BorderBrush = Brushes.Black;
+                if (txtTelefono.Text.Length == 9 && txtDNI.Text.Length == 9)
+                {
+                    txtNombre.BorderBrush = Brushes.Black;
+                    txtApellido1.BorderBrush = Brushes.Black;
+                    txtApellido2.BorderBrush = Brushes.Black;
+                    txtDNI.BorderBrush = Brushes.Black;
+                    txtTelefono.BorderBrush = Brushes.Black;
+                    txtDireccion.BorderBrush = Brushes.Black;
 
-                return true;
+                    return true;
+                }
+                else
+                {
+                    if (txtTelefono.Text.Length != 9)
+                    {
+                        txtTelefono.BorderBrush = Brushes.Red;
+                    }
+                    if (txtDNI.Text.Length != 9)
+                    {
+                        txtDNI.BorderBrush = Brushes.Red;
+                    }
+                    return false;
+                }
+                
             }
 
             if (txtNombre.Text == "")
