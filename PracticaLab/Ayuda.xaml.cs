@@ -33,7 +33,7 @@ namespace PracticaLab
 
         private void bttnVer_Documentacion_Click(object sender, RoutedEventArgs e)
         {
-            string pdfFilePath = @"PracticaLab\HITO1_IPO.pdf";
+            string pdfFilePath = @"PracticaLab\DocumentacionTrabajoIPO.pdf";
             string fullPath = System.IO.Path.GetFullPath(pdfFilePath);
             //cuando encuentre //bin//debug, lo quita
             pdfFilePath = fullPath.Replace(@"PracticaLab\bin\Debug", "");
